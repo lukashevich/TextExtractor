@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wkd-jW-afr">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root Tab Controller-->
+        <scene sceneID="XY2-uB-BnN">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wkd-jW-afr" customClass="RootTabController" customModule="TextExtactor" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="RD1-gD-6HN"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="7ae-Cm-Hqc">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="cXW-PY-1S2" kind="relationship" relationship="viewControllers" id="MwQ-oX-AXc"/>
+                        <segue destination="ek0-Qb-2Rg" kind="relationship" relationship="viewControllers" id="tar-ip-b3X"/>
+                        <segue destination="fay-R6-A3t" kind="presentation" identifier="toDocumentPreview" id="jaw-sp-1hA"/>
+                        <segue destination="0cG-YG-HjF" kind="show" identifier="toPaywall" id="J3k-Ue-Hjj"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4h8-xq-qVR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-707.24637681159425" y="52.901785714285715"/>
+        </scene>
+        <!--Paywall-->
+        <scene sceneID="X3c-CR-9sT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Paywall" id="0cG-YG-HjF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="iGf-5A-unX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="63t-2x-Du5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-91" y="-271"/>
+        </scene>
+        <!--DocumentPreview-->
+        <scene sceneID="QZr-h3-hgf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DocumentPreview" id="fay-R6-A3t" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="bd1-t8-QiZ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i6N-r4-1IC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-135" y="-328"/>
+        </scene>
+        <!--Extract-->
+        <scene sceneID="Msw-8w-Ulc">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="cXW-PY-1S2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Extract" image="highlighter" catalog="system" id="hxr-iU-kld">
+                        <color key="badgeColor" name="AccentColor"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="4"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LlP-6x-RMG">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="89C-5d-U4T" kind="relationship" relationship="rootViewController" id="ner-Qb-zH0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G8m-z0-tuT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="728" y="-271"/>
+        </scene>
+        <!--NewDocument-->
+        <scene sceneID="Reg-Mz-81P">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewDocument" id="89C-5d-U4T" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="or1-kA-FuW"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gO8-l8-ofb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1411" y="-7"/>
+        </scene>
+        <!--Recents-->
+        <scene sceneID="OJC-rf-hh0">
+            <objects>
+                <navigationController id="ek0-Qb-2Rg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Recents" image="doc.on.doc" catalog="system" id="dxP-DD-FB4">
+                        <color key="badgeColor" name="AccentColor"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="4"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="bOo-Ys-hlq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="jnr-i4-1JP" kind="relationship" relationship="rootViewController" id="fUb-Nw-vdG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qv5-MZ-RFb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="728" y="377"/>
+        </scene>
+        <!--Library-->
+        <scene sceneID="kdL-ml-SCV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Library" id="jnr-i4-1JP" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="LcV-70-DTR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MYQ-Sq-InF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1380" y="85"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="doc.on.doc" catalog="system" width="116" height="128"/>
+        <image name="highlighter" catalog="system" width="128" height="119"/>
+        <namedColor name="AccentColor">
+            <color red="0.29100000858306885" green="0.63200002908706665" blue="0.18600000441074371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

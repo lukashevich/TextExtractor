@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "DSWaveformImage",
+        "repositoryURL": "https://github.com/dmrschmidt/DSWaveformImage",
+        "state": {
+          "branch": null,
+          "revision": "26b3e8fa66e7d94f41ea1ff59cd87bbcafaa5a59",
+          "version": "7.0.1"
+        }
+      },
+      {
+        "package": "XCDYouTubeKit",
+        "repositoryURL": "https://github.com/0xced/XCDYouTubeKit.git",
+        "state": {
+          "branch": null,
+          "revision": "23f765941b36d6d28215ab81a37af1039d29138b",
+          "version": "2.15.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TitledActionView" customModule="TextExtactor" customModuleProvider="target">
+            <connections>
+                <outlet property="_subtitleLabel" destination="BzD-x0-3MX" id="rF5-xo-J8L"/>
+                <outlet property="_titleLabel" destination="nL2-KJ-OlN" id="p5j-gl-oPK"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="168"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V0i-3Z-aEz" userLabel="Choose File">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="168"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FkR-0g-bsP">
+                            <rect key="frame" x="0.0" y="10" width="414" height="148"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test_video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nL2-KJ-OlN">
+                                    <rect key="frame" x="167" y="0.0" width="80.5" height="74"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mp4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzD-x0-3MX">
+                                    <rect key="frame" x="189.5" y="74" width="35" height="74"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="smallCaps" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdl-Uv-KiU">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="168"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" name="AccentColor"/>
+                            <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal">
+                                <color key="titleColor" systemColor="labelColor"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="action:" destination="-1" eventType="touchUpInside" id="plc-WK-18A"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="FkR-0g-bsP" firstAttribute="leading" secondItem="V0i-3Z-aEz" secondAttribute="leading" id="Feg-d7-r5T"/>
+                        <constraint firstItem="fdl-Uv-KiU" firstAttribute="leading" secondItem="V0i-3Z-aEz" secondAttribute="leading" id="G0g-lp-CvK"/>
+                        <constraint firstAttribute="bottom" secondItem="FkR-0g-bsP" secondAttribute="bottom" constant="10" id="IRt-Jf-oFD"/>
+                        <constraint firstItem="FkR-0g-bsP" firstAttribute="top" secondItem="V0i-3Z-aEz" secondAttribute="top" constant="10" id="Z51-ri-CQh"/>
+                        <constraint firstAttribute="trailing" secondItem="FkR-0g-bsP" secondAttribute="trailing" id="eRn-Xu-diP"/>
+                        <constraint firstItem="fdl-Uv-KiU" firstAttribute="top" secondItem="V0i-3Z-aEz" secondAttribute="top" id="imJ-63-BNL"/>
+                        <constraint firstAttribute="trailing" secondItem="fdl-Uv-KiU" secondAttribute="trailing" id="jb2-Dr-2at"/>
+                        <constraint firstAttribute="bottom" secondItem="fdl-Uv-KiU" secondAttribute="bottom" id="q7A-vm-A6y"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="V0i-3Z-aEz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DTH-hl-ftD"/>
+                <constraint firstItem="V0i-3Z-aEz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hkc-41-r8k"/>
+                <constraint firstAttribute="bottom" secondItem="V0i-3Z-aEz" secondAttribute="bottom" id="w0S-b7-klP"/>
+                <constraint firstAttribute="trailing" secondItem="V0i-3Z-aEz" secondAttribute="trailing" id="yVd-br-P0w"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-25" y="-157"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.29100000858306885" green="0.63200002908706665" blue="0.18600000441074371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

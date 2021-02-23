@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dQP-As-HfI">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Rounded-Medium.otf">
+            <string>SFProRounded-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Thx-8C-6Ed">
+            <objects>
+                <navigationController id="dQP-As-HfI" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wx3-ip-YX0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lKX-bA-2Vw" kind="relationship" relationship="rootViewController" id="wWJ-0q-e3L"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qLO-98-2d5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1016" y="51"/>
+        </scene>
+        <!--Document Preview Controller-->
+        <scene sceneID="gy7-i5-cuH">
+            <objects>
+                <viewController id="lKX-bA-2Vw" customClass="DocumentPreviewController" customModule="TextExtactor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ghI-bW-KMq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="130-IK-LDM">
+                                <rect key="frame" x="20" y="104" width="374" height="64"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q3s-xs-EtT">
+                                        <rect key="frame" x="8" y="15" width="358" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Tua-ky-PiP"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z64-mK-eFP">
+                                <rect key="frame" x="20" y="184" width="374" height="686"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, c" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="THc-5W-XQ4">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="686"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="THc-5W-XQ4" firstAttribute="top" secondItem="z64-mK-eFP" secondAttribute="top" id="Prk-bS-h25"/>
+                                    <constraint firstItem="THc-5W-XQ4" firstAttribute="leading" secondItem="z64-mK-eFP" secondAttribute="leading" id="abO-tp-VLA"/>
+                                    <constraint firstAttribute="bottom" secondItem="THc-5W-XQ4" secondAttribute="bottom" id="gk1-v8-cRH"/>
+                                    <constraint firstAttribute="trailing" secondItem="THc-5W-XQ4" secondAttribute="trailing" id="yWG-6V-rr1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="W01-ki-48p"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="z64-mK-eFP" firstAttribute="bottom" secondItem="W01-ki-48p" secondAttribute="bottom" constant="8" id="2BV-B7-Cz4"/>
+                            <constraint firstItem="130-IK-LDM" firstAttribute="leading" secondItem="W01-ki-48p" secondAttribute="leading" constant="20" id="2Ro-6d-T3c"/>
+                            <constraint firstItem="W01-ki-48p" firstAttribute="trailing" secondItem="z64-mK-eFP" secondAttribute="trailing" constant="20" id="Ccp-Tg-x1H"/>
+                            <constraint firstItem="W01-ki-48p" firstAttribute="trailing" secondItem="130-IK-LDM" secondAttribute="trailing" constant="20" id="Mb6-0I-i9j"/>
+                            <constraint firstItem="z64-mK-eFP" firstAttribute="top" secondItem="130-IK-LDM" secondAttribute="bottom" constant="16" id="tWj-ha-LPO"/>
+                            <constraint firstItem="130-IK-LDM" firstAttribute="top" secondItem="W01-ki-48p" secondAttribute="top" constant="16" id="uv6-gx-zuY"/>
+                            <constraint firstItem="z64-mK-eFP" firstAttribute="leading" secondItem="W01-ki-48p" secondAttribute="leading" constant="20" id="y8b-AN-xmm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="xEM-8Q-mKw">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ph5-NP-j9z">
+                            <connections>
+                                <action selector="cancel" destination="lKX-bA-2Vw" id="lJa-Zr-beQ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="LAl-LP-x1k">
+                            <connections>
+                                <action selector="save" destination="lKX-bA-2Vw" id="A5b-Sc-z49"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="text" destination="THc-5W-XQ4" id="R5G-4o-gmp"/>
+                        <outlet property="titleText" destination="q3s-xs-EtT" id="7TC-ao-fTk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H3A-ig-8rT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-56.521739130434788" y="50.892857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
