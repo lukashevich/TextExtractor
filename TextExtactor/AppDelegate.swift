@@ -11,6 +11,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
+    print(FileManager.content(from: FileManager.documentsFolder.appendingPathComponent("trim.89BCAA65-6866-4A03-A7D7-B1D0577A8AD2")))
+    print(FileManager.content(from: FileManager.documentsFolder.appendingPathComponent("trim.87755BAB-4992-4F74-A90C-328E8D20A3E0")))
+    print(FileManager.content(from: FileManager.documentsFolder.appendingPathComponent("trim.B5ECC20F-3721-4049-8596-30D8CF0B351A")))
 //    FileManager.clearDocFolder()
     _createDefaultsFolders()
 

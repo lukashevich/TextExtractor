@@ -39,6 +39,15 @@ extension FileManager {
     return filePaths
   }
   
+  static func removeDocument(_ doc: Document) {
+    let fileManager = FileManager.default
+    do {
+      try fileManager.removeItem(atPath: documentsFolder.path + "/" + doc.name)
+    } catch {
+      print("Could not remove doc: \(error)")
+    }
+  }
+  
   static func clearTmpFolder() {
     let fileManager = FileManager.default
     do {
@@ -89,14 +98,16 @@ extension FileManager {
   static var savedDocuments: [Document] {
     do {
       let fileNames = documentsFolders
-      return try fileNames
+      return fileNames
         .map { $0.appendingPathComponent(metaFileName) }
         .compactMap { (url) -> [String: String]? in
-        let data = try Data(contentsOf: url, options: [])
-        return try JSONSerialization.jsonObject(with: data, options: []) as? [String: String]
+          do {
+            let data = try Data(contentsOf: url, options: [])
+            return try JSONSerialization.jsonObject(with: data, options: []) as? [String: String]
+          } catch {
+            return nil
+          }
       }.map(Document.init)
-    } catch {
-      return []
     }
   }
 }

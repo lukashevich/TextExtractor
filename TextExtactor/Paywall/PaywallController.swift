@@ -10,6 +10,7 @@ import UIKit
 
 final class PaywallController: UIViewController {
     
+  
   enum PurhcaseState {
     case successfully
     case denied
@@ -35,11 +36,9 @@ final class PaywallController: UIViewController {
   func dismiss(_ state: PurhcaseState) {
     switch state {
     case .successfully:
-      self.dismiss(animated: true) {
-        self.viewModel.successHandler?()
-      }
+      self.dismiss(animated: true, completion:self.viewModel.successHandler) 
     case .denied:
-      self.dismiss(animated: true, completion: nil)
+      self.dismiss(animated: true, completion: self.viewModel.denyHandler)
     }
   }
 }

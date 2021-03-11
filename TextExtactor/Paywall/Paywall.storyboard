@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jaA-f0-h2p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jaA-f0-h2p">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -17,6 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Bm-W3-O1f">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iyd-za-DFp">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="systemUltraThinMaterial"/>
+                            </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66W-Vc-AJX">
                                 <rect key="frame" x="362" y="64" width="32" height="32"/>
                                 <constraints>
@@ -51,12 +59,17 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d5c-C6-ndh"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="1Bm-W3-O1f" firstAttribute="leading" secondItem="d5c-C6-ndh" secondAttribute="leading" id="1Q6-T9-nBG"/>
                             <constraint firstItem="66W-Vc-AJX" firstAttribute="top" secondItem="d5c-C6-ndh" secondAttribute="top" constant="20" id="26z-Sf-bkD"/>
                             <constraint firstItem="d5c-C6-ndh" firstAttribute="bottom" secondItem="ZqD-8C-gfn" secondAttribute="bottom" constant="128" id="4Kc-cb-tWY"/>
+                            <constraint firstItem="d5c-C6-ndh" firstAttribute="trailing" secondItem="1Bm-W3-O1f" secondAttribute="trailing" id="6Ej-eZ-ywP"/>
                             <constraint firstItem="d5c-C6-ndh" firstAttribute="trailing" secondItem="ZqD-8C-gfn" secondAttribute="trailing" constant="20" id="E4s-lP-idZ"/>
                             <constraint firstItem="ZqD-8C-gfn" firstAttribute="leading" secondItem="d5c-C6-ndh" secondAttribute="leading" constant="20" id="Opx-y9-mBy"/>
+                            <constraint firstItem="ZqD-8C-gfn" firstAttribute="top" secondItem="L1T-u5-CjP" secondAttribute="bottom" constant="-206" id="PyQ-k2-Nrq"/>
+                            <constraint firstAttribute="bottom" secondItem="1Bm-W3-O1f" secondAttribute="bottom" id="TqH-1u-5Tm"/>
+                            <constraint firstItem="1Bm-W3-O1f" firstAttribute="top" secondItem="L1T-u5-CjP" secondAttribute="top" id="ggM-RN-wx8"/>
                             <constraint firstItem="d5c-C6-ndh" firstAttribute="trailing" secondItem="66W-Vc-AJX" secondAttribute="trailing" constant="20" id="ufH-LE-KT9"/>
                         </constraints>
                     </view>
@@ -73,9 +86,6 @@
         </namedColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

@@ -20,8 +20,9 @@ final class RootTabController: UITabBarController {
        let controller = navigation.viewControllers.first as? DocumentPreviewController, let doc = sender as? Document {
       controller.viewModel = DocumentPreviewViewModel(document: doc)
     } else if segue.identifier == Destination.toPaywall,
-              let paywall = segue.destination as?  PaywallController {
-      paywall.viewModel = PaywallViewModel(successHandler: sender as? (() -> ()))
+              let paywall = segue.destination as?  PaywallController,
+                  let handlers = sender as? PaywallHandlers {
+      paywall.viewModel = PaywallViewModel(handlers: handlers)
     }
   }
   

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dQP-As-HfI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dQP-As-HfI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,7 +30,7 @@
             </objects>
             <point key="canvasLocation" x="-1016" y="51"/>
         </scene>
-        <!--Document Preview Controller-->
+        <!--Preview-->
         <scene sceneID="gy7-i5-cuH">
             <objects>
                 <viewController id="lKX-bA-2Vw" customClass="DocumentPreviewController" customModule="TextExtactor" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,16 +41,31 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="130-IK-LDM">
                                 <rect key="frame" x="20" y="104" width="374" height="64"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q3s-xs-EtT">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q3s-xs-EtT">
                                         <rect key="frame" x="8" y="15" width="358" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="22"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="q3s-xs-EtT" secondAttribute="bottom" constant="15" id="REP-Ob-ca3"/>
                                     <constraint firstAttribute="height" constant="64" id="Tua-ky-PiP"/>
+                                    <constraint firstItem="q3s-xs-EtT" firstAttribute="leading" secondItem="130-IK-LDM" secondAttribute="leadingMargin" id="YM0-Rf-as8"/>
+                                    <constraint firstItem="q3s-xs-EtT" firstAttribute="trailing" secondItem="130-IK-LDM" secondAttribute="trailingMargin" id="n3b-Sw-Bw3"/>
+                                    <constraint firstItem="q3s-xs-EtT" firstAttribute="top" secondItem="130-IK-LDM" secondAttribute="top" constant="15" id="pSv-WV-DTN"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qcg-zu-LrF" customClass="PlayerView" customModule="TextExtactor" customModuleProvider="target">
+                                <rect key="frame" x="20" y="798" width="374" height="64"/>
+                                <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="mjQ-TS-xEo"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -58,22 +74,22 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z64-mK-eFP">
-                                <rect key="frame" x="20" y="184" width="374" height="686"/>
+                                <rect key="frame" x="20" y="184" width="374" height="598"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, c" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="THc-5W-XQ4">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="686"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <rect key="frame" x="8" y="0.0" width="358" height="590"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="22"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="THc-5W-XQ4" firstAttribute="top" secondItem="z64-mK-eFP" secondAttribute="top" id="Prk-bS-h25"/>
-                                    <constraint firstItem="THc-5W-XQ4" firstAttribute="leading" secondItem="z64-mK-eFP" secondAttribute="leading" id="abO-tp-VLA"/>
-                                    <constraint firstAttribute="bottom" secondItem="THc-5W-XQ4" secondAttribute="bottom" id="gk1-v8-cRH"/>
-                                    <constraint firstAttribute="trailing" secondItem="THc-5W-XQ4" secondAttribute="trailing" id="yWG-6V-rr1"/>
+                                    <constraint firstItem="THc-5W-XQ4" firstAttribute="leading" secondItem="z64-mK-eFP" secondAttribute="leading" constant="8" id="abO-tp-VLA"/>
+                                    <constraint firstAttribute="bottom" secondItem="THc-5W-XQ4" secondAttribute="bottom" constant="8" id="tNf-8p-1t0"/>
+                                    <constraint firstAttribute="trailing" secondItem="THc-5W-XQ4" secondAttribute="trailing" constant="8" id="yWG-6V-rr1"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -85,22 +101,30 @@
                         <viewLayoutGuide key="safeArea" id="W01-ki-48p"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="z64-mK-eFP" firstAttribute="bottom" secondItem="W01-ki-48p" secondAttribute="bottom" constant="8" id="2BV-B7-Cz4"/>
                             <constraint firstItem="130-IK-LDM" firstAttribute="leading" secondItem="W01-ki-48p" secondAttribute="leading" constant="20" id="2Ro-6d-T3c"/>
+                            <constraint firstItem="Qcg-zu-LrF" firstAttribute="leading" secondItem="W01-ki-48p" secondAttribute="leading" constant="20" id="Aeh-RY-42e"/>
                             <constraint firstItem="W01-ki-48p" firstAttribute="trailing" secondItem="z64-mK-eFP" secondAttribute="trailing" constant="20" id="Ccp-Tg-x1H"/>
+                            <constraint firstItem="Qcg-zu-LrF" firstAttribute="top" secondItem="z64-mK-eFP" secondAttribute="bottom" constant="16" id="DVg-ev-hT3"/>
+                            <constraint firstItem="W01-ki-48p" firstAttribute="bottom" secondItem="Qcg-zu-LrF" secondAttribute="bottom" id="MId-mR-20M"/>
                             <constraint firstItem="W01-ki-48p" firstAttribute="trailing" secondItem="130-IK-LDM" secondAttribute="trailing" constant="20" id="Mb6-0I-i9j"/>
+                            <constraint firstItem="W01-ki-48p" firstAttribute="trailing" secondItem="Qcg-zu-LrF" secondAttribute="trailing" constant="20" id="nbt-oP-fCf"/>
                             <constraint firstItem="z64-mK-eFP" firstAttribute="top" secondItem="130-IK-LDM" secondAttribute="bottom" constant="16" id="tWj-ha-LPO"/>
                             <constraint firstItem="130-IK-LDM" firstAttribute="top" secondItem="W01-ki-48p" secondAttribute="top" constant="16" id="uv6-gx-zuY"/>
                             <constraint firstItem="z64-mK-eFP" firstAttribute="leading" secondItem="W01-ki-48p" secondAttribute="leading" constant="20" id="y8b-AN-xmm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="xEM-8Q-mKw">
+                    <navigationItem key="navigationItem" title="Preview" id="xEM-8Q-mKw">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ph5-NP-j9z">
+                            <color key="tintColor" name="AccentColor"/>
                             <connections>
                                 <action selector="cancel" destination="lKX-bA-2Vw" id="lJa-Zr-beQ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="LAl-LP-x1k">
+                            <color key="tintColor" name="AccentColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="semibold" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="save" destination="lKX-bA-2Vw" id="A5b-Sc-z49"/>
                             </connections>
@@ -108,6 +132,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="player" destination="Qcg-zu-LrF" id="qzy-0E-xHa"/>
                         <outlet property="text" destination="THc-5W-XQ4" id="R5G-4o-gmp"/>
                         <outlet property="titleText" destination="q3s-xs-EtT" id="7TC-ao-fTk"/>
                     </connections>
@@ -118,10 +143,13 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.29100000858306885" green="0.63200002908706665" blue="0.18600000441074371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemBackgroundColor">
+        <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">

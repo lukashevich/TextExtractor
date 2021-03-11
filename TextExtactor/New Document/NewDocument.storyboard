@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -76,72 +75,21 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNw-xA-TRx" customClass="UICircularProgressRing" customModule="UICircularProgressRing">
-                                <rect key="frame" x="175" y="734" width="64" height="64"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fK-nY-Nfc">
-                                        <rect key="frame" x="7" y="7" width="50" height="50"/>
-                                        <color key="backgroundColor" name="AccentColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="8gi-UC-ke7"/>
-                                            <constraint firstAttribute="width" secondItem="2fK-nY-Nfc" secondAttribute="height" multiplier="1:1" id="K2Z-Vi-yHu"/>
-                                        </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="square.and.pencil" catalog="system">
-                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="smallCaps" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="25"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="actionButtonPressed" destination="0GU-mh-vSn" eventType="touchUpInside" id="daA-7f-sEl"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNw-xA-TRx" customClass="ActionView" customModule="TextExtactor" customModuleProvider="target">
+                                <rect key="frame" x="155.5" y="734" width="103" height="64"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="2fK-nY-Nfc" firstAttribute="centerY" secondItem="qNw-xA-TRx" secondAttribute="centerY" id="DYT-Nm-2MF"/>
-                                    <constraint firstItem="2fK-nY-Nfc" firstAttribute="centerX" secondItem="qNw-xA-TRx" secondAttribute="centerX" id="KbB-Ul-2Wf"/>
-                                    <constraint firstAttribute="width" secondItem="qNw-xA-TRx" secondAttribute="height" multiplier="1:1" id="WME-cW-0YL" customClass="CircleView" customModule="TextExtactor" customModuleProvider="target"/>
+                                    <constraint firstAttribute="width" secondItem="qNw-xA-TRx" secondAttribute="height" multiplier="1.61:1" id="WME-cW-0YL"/>
                                     <constraint firstAttribute="height" constant="64" id="mYb-Gc-4c4"/>
-                                    <constraint firstAttribute="width" constant="64" id="xt9-c9-uIr"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="outerRingWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="outerRingColor">
-                                        <color key="value" name="AccentColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="innerRingColor">
-                                        <color key="value" name="AccentColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="innerRingWidth">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="minValue">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
-                                        <real key="value" value="270"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="actionButtonPressed" destination="0GU-mh-vSn" eventType="touchUpInside" id="gnD-0I-sGB"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nQP-0e-8HY"/>
@@ -162,8 +110,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="actionButton" destination="2fK-nY-Nfc" id="Leh-vg-zMN"/>
-                        <outlet property="actionProgressView" destination="qNw-xA-TRx" id="8RN-Tc-DUr"/>
+                        <outlet property="actionProgressView" destination="qNw-xA-TRx" id="1AD-Nb-a3X"/>
                         <outlet property="fileView" destination="Q1h-J8-ORK" id="Ut4-I4-ibf"/>
                         <outlet property="locationView" destination="Z1n-B2-zuh" id="j0t-65-5iF"/>
                         <outlet property="newDocumentTextView" destination="ezE-Ct-16N" id="ng2-vN-qLj"/>
@@ -184,10 +131,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
-        <namedColor name="AccentColor">
-            <color red="0.29100000858306885" green="0.63200002908706665" blue="0.18600000441074371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

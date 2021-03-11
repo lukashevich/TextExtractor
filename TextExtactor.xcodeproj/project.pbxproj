@@ -32,6 +32,18 @@
 		7F47AF3325E5489500CD8C02 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7F47AF3225E5489500CD8C02 /* SwiftyStoreKit */; };
 		7F47AF3625E54A2500CD8C02 /* SubscriptionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F47AF3525E54A2500CD8C02 /* SubscriptionHelper.swift */; };
 		7F47AF3925E54F2A00CD8C02 /* PaywallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F47AF3825E54F2A00CD8C02 /* PaywallViewModel.swift */; };
+		7F4CE0D525F9404500F7AF09 /* CMTime+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CE0D425F9404500F7AF09 /* CMTime+Extensions.swift */; };
+		7F4CE0D825F9409F00F7AF09 /* AppStoreReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CE0D725F9409F00F7AF09 /* AppStoreReviewHelper.swift */; };
+		7F4CE0DC25FA658300F7AF09 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CE0DB25FA658300F7AF09 /* PlayerView.swift */; };
+		7F4CE0DF25FA658C00F7AF09 /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F4CE0DE25FA658C00F7AF09 /* PlayerView.xib */; };
+		7F4CE0E225FA7B0C00F7AF09 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CE0E125FA7B0C00F7AF09 /* URL+Extensions.swift */; };
+		7F4CE0E525FA80D900F7AF09 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CE0E425FA80D900F7AF09 /* UIImage+Extensions.swift */; };
+		7F4CE0E825FA87A200F7AF09 /* CameraTextFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CE0E725FA87A200F7AF09 /* CameraTextFinder.swift */; };
+		7F4CE0EB25FA87B600F7AF09 /* LibraryFilePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CE0EA25FA87B600F7AF09 /* LibraryFilePicker.swift */; };
+		7F52927825E6537F00D7571F /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52927725E6537F00D7571F /* ActionView.swift */; };
+		7F52927B25E653E000D7571F /* ActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F52927A25E653E000D7571F /* ActionView.xib */; };
+		7F52927E25E6A47400D7571F /* TapticHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52927D25E6A47400D7571F /* TapticHelper.swift */; };
+		7F52928425E6A8B200D7571F /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52928325E6A8B200D7571F /* UIBarButtonItem+Extensions.swift */; };
 		7F7ED07325D98081003F6BBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7ED07225D98081003F6BBB /* AppDelegate.swift */; };
 		7F7ED07525D98081003F6BBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7ED07425D98081003F6BBB /* SceneDelegate.swift */; };
 		7F7ED07A25D98081003F6BBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F7ED07825D98081003F6BBB /* Main.storyboard */; };
@@ -94,6 +106,18 @@
 		7F47AF2E25E5440400CD8C02 /* Paywall.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Paywall.storyboard; sourceTree = "<group>"; };
 		7F47AF3525E54A2500CD8C02 /* SubscriptionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionHelper.swift; sourceTree = "<group>"; };
 		7F47AF3825E54F2A00CD8C02 /* PaywallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallViewModel.swift; sourceTree = "<group>"; };
+		7F4CE0D425F9404500F7AF09 /* CMTime+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Extensions.swift"; sourceTree = "<group>"; };
+		7F4CE0D725F9409F00F7AF09 /* AppStoreReviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreReviewHelper.swift; sourceTree = "<group>"; };
+		7F4CE0DB25FA658300F7AF09 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		7F4CE0DE25FA658C00F7AF09 /* PlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
+		7F4CE0E125FA7B0C00F7AF09 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		7F4CE0E425FA80D900F7AF09 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		7F4CE0E725FA87A200F7AF09 /* CameraTextFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTextFinder.swift; sourceTree = "<group>"; };
+		7F4CE0EA25FA87B600F7AF09 /* LibraryFilePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryFilePicker.swift; sourceTree = "<group>"; };
+		7F52927725E6537F00D7571F /* ActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
+		7F52927A25E653E000D7571F /* ActionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionView.xib; sourceTree = "<group>"; };
+		7F52927D25E6A47400D7571F /* TapticHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapticHelper.swift; sourceTree = "<group>"; };
+		7F52928325E6A8B200D7571F /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
 		7F7ED06F25D98081003F6BBB /* TextExtactor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextExtactor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F7ED07225D98081003F6BBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F7ED07425D98081003F6BBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +188,8 @@
 				7FC980E125DDB5A500FD65DF /* PDFCreator.swift */,
 				7F35005725E434C6003E2089 /* YoutubeVideoExtractor.swift */,
 				7F47AF3525E54A2500CD8C02 /* SubscriptionHelper.swift */,
+				7F52927D25E6A47400D7571F /* TapticHelper.swift */,
+				7F4CE0D725F9409F00F7AF09 /* AppStoreReviewHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -197,6 +223,8 @@
 				7F44359625DC27A200F776BE /* IdentifiableCell.swift */,
 				7FC980EA25E0120D00FD65DF /* TabBared.swift */,
 				7FC9810A25E3E17D00FD65DF /* ShareControllerPresenter.swift */,
+				7F4CE0E725FA87A200F7AF09 /* CameraTextFinder.swift */,
+				7F4CE0EA25FA87B600F7AF09 /* LibraryFilePicker.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -217,6 +245,15 @@
 				7F47AF3825E54F2A00CD8C02 /* PaywallViewModel.swift */,
 			);
 			path = Paywall;
+			sourceTree = "<group>";
+		};
+		7F4CE0DA25FA656800F7AF09 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7F4CE0DB25FA658300F7AF09 /* PlayerView.swift */,
+				7F4CE0DE25FA658C00F7AF09 /* PlayerView.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		7F67583C25DA60D100D3FC73 /* Resources */ = {
@@ -325,6 +362,10 @@
 				7FC9810325E2D50100FD65DF /* FileManager+Extensions.swift */,
 				7FC9810725E3AE1E00FD65DF /* UITabBarController+Extensions.swift */,
 				7F47AF2325E5384C00CD8C02 /* UserDefaults+Extensions.swift */,
+				7F52928325E6A8B200D7571F /* UIBarButtonItem+Extensions.swift */,
+				7F4CE0D425F9404500F7AF09 /* CMTime+Extensions.swift */,
+				7F4CE0E125FA7B0C00F7AF09 /* URL+Extensions.swift */,
+				7F4CE0E425FA80D900F7AF09 /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -334,6 +375,8 @@
 			children = (
 				7FC980EF25E01BCC00FD65DF /* TitledActionView.swift */,
 				7FC980F325E01BD500FD65DF /* TitledActionView.xib */,
+				7F52927725E6537F00D7571F /* ActionView.swift */,
+				7F52927A25E653E000D7571F /* ActionView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -351,6 +394,7 @@
 		7FC9811425E41E2900FD65DF /* Document Preview */ = {
 			isa = PBXGroup;
 			children = (
+				7F4CE0DA25FA656800F7AF09 /* Views */,
 				7FC9811525E41E4D00FD65DF /* DocumentPreviewController.swift */,
 				7FC9811925E41E7500FD65DF /* DocumentPreview.storyboard */,
 				7FC9811C25E41E9900FD65DF /* DocumentPreviewViewModel.swift */,
@@ -445,7 +489,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F7ED07F25D98081003F6BBB /* LaunchScreen.storyboard in Resources */,
+				7F4CE0DF25FA658C00F7AF09 /* PlayerView.xib in Resources */,
 				7F7ED08C25D98124003F6BBB /* Library.storyboard in Resources */,
+				7F52927B25E653E000D7571F /* ActionView.xib in Resources */,
 				7F7ED07C25D98081003F6BBB /* Assets.xcassets in Resources */,
 				7FC9811A25E41E7500FD65DF /* DocumentPreview.storyboard in Resources */,
 				7F7ED07A25D98081003F6BBB /* Main.storyboard in Resources */,
@@ -512,35 +558,45 @@
 				7F47AF2425E5384C00CD8C02 /* UserDefaults+Extensions.swift in Sources */,
 				7F47AF3925E54F2A00CD8C02 /* PaywallViewModel.swift in Sources */,
 				7F7ED0AA25D991C8003F6BBB /* UIFont+Extensions.swift in Sources */,
+				7F4CE0EB25FA87B600F7AF09 /* LibraryFilePicker.swift in Sources */,
 				7FC9810B25E3E17D00FD65DF /* ShareControllerPresenter.swift in Sources */,
 				7F44359425DC212800F776BE /* UIColor+Extensions.swift in Sources */,
 				7F21D35325DA8B6B009A3F53 /* AudioChunk.swift in Sources */,
 				7F7ED07325D98081003F6BBB /* AppDelegate.swift in Sources */,
 				7F7ED0B025D9A6B7003F6BBB /* UIView+Extensions.swift in Sources */,
 				7F44359C25DD712400F776BE /* LibrarySmallItemCell.swift in Sources */,
+				7F4CE0D825F9409F00F7AF09 /* AppStoreReviewHelper.swift in Sources */,
 				7F21D37625DAB92F009A3F53 /* SourceCell.swift in Sources */,
 				7FC980FC25E0257500FD65DF /* LocalesController.swift in Sources */,
+				7F4CE0D525F9404500F7AF09 /* CMTime+Extensions.swift in Sources */,
+				7F4CE0E225FA7B0C00F7AF09 /* URL+Extensions.swift in Sources */,
 				7F21D37D25DAB970009A3F53 /* ProcessCell.swift in Sources */,
+				7F4CE0E825FA87A200F7AF09 /* CameraTextFinder.swift in Sources */,
 				7F21D38525DACC2B009A3F53 /* String+Extensions.swift in Sources */,
 				7FC9811625E41E4D00FD65DF /* DocumentPreviewController.swift in Sources */,
 				7FC980F025E01BCC00FD65DF /* TitledActionView.swift in Sources */,
+				7F4CE0DC25FA658300F7AF09 /* PlayerView.swift in Sources */,
 				7FC9812225E4256E00FD65DF /* RootTabController.swift in Sources */,
 				7F7ED07525D98081003F6BBB /* SceneDelegate.swift in Sources */,
 				7F21D35625DA8BEC009A3F53 /* AVAsset+Extensions.swift in Sources */,
 				7F21D37225DAB7D7009A3F53 /* NewDocumentViewModel.swift in Sources */,
 				7F7ED09425D982C7003F6BBB /* LibraryItemCell.swift in Sources */,
+				7F52928425E6A8B200D7571F /* UIBarButtonItem+Extensions.swift in Sources */,
 				7F7ED08F25D9813E003F6BBB /* LibraryViewModel.swift in Sources */,
 				7FC980FB25E0257500FD65DF /* LocaleCell.swift in Sources */,
 				7FC9811D25E41E9900FD65DF /* DocumentPreviewViewModel.swift in Sources */,
 				7FC9810825E3AE1E00FD65DF /* UITabBarController+Extensions.swift in Sources */,
 				7F44359725DC27A200F776BE /* IdentifiableCell.swift in Sources */,
+				7F52927E25E6A47400D7571F /* TapticHelper.swift in Sources */,
 				7FC980E225DDB5A500FD65DF /* PDFCreator.swift in Sources */,
+				7F4CE0E525FA80D900F7AF09 /* UIImage+Extensions.swift in Sources */,
 				7F7ED0A625D98FB8003F6BBB /* UILabel+Extensions.swift in Sources */,
 				7F21D36F25DAB7AC009A3F53 /* NewDocumentController.swift in Sources */,
 				7F21D35025DA8B50009A3F53 /* AudioFileSplitter.swift in Sources */,
 				7F47AF3625E54A2500CD8C02 /* SubscriptionHelper.swift in Sources */,
 				7F47AF2825E543E000CD8C02 /* PaywallController.swift in Sources */,
 				7F21D38225DAC3FB009A3F53 /* ExpandableCell.swift in Sources */,
+				7F52927825E6537F00D7571F /* ActionView.swift in Sources */,
 				7FC9810125E0290D00FD65DF /* Locale+Extensions.swift in Sources */,
 				7F35005825E434C6003E2089 /* YoutubeVideoExtractor.swift in Sources */,
 				7F7ED0A225D98CB5003F6BBB /* LibraryHeader.swift in Sources */,

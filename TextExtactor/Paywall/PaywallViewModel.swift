@@ -6,7 +6,17 @@
 //
 
 import Foundation
+struct PaywallHandlers {
+  let success: (() -> ())?
+  let deny: (() -> ())?
+}
 
 struct PaywallViewModel {
-  var successHandler: (() -> ())?
+  let successHandler: (() -> ())?
+  let denyHandler: (() -> ())?
+  
+  init(handlers: PaywallHandlers?) {
+    self.successHandler = handlers?.success
+    self.denyHandler = handlers?.deny
+  }
 }

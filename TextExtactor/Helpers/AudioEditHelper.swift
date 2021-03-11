@@ -10,7 +10,24 @@ import AVFoundation
 
 struct AudioEditHelper {
   
+  static func moveTempAudioFile(to url: URL) {
+    let tempURL = FileManager.tmpFolder.appendingPathComponent("temp").appendingPathExtension("m4a")
+    let asset = AVURLAsset(url: tempURL)
+    asset.writeToURL(url) { _,_  in }
+  }
+  
   static func prepareFile(at url: URL, completion: @escaping (([URL]) -> Void) ) {
+    let asset = AVURLAsset(url: url)
+    guard asset.duration.seconds > 60 else {
+      FileManager.clearTmpFolder()
+      let pathWhereToSave = FileManager.tmpFolder.path + "/temp.m4a"
+      asset.writeAudioTrackToURL(URL(fileURLWithPath: pathWhereToSave)) { (success, error) -> () in
+        if success {
+          completion([url])
+        }
+      }
+      return
+    }
     AudioFileSplitter.split(file: url, completion: completion)
   }
   

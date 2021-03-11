@@ -39,11 +39,11 @@ extension TabBared {
     tabBarController.performSegue(withIdentifier: Destination.toDocPreview, sender: doc)
   }
   
-  func showPaywall(successHandler: (() -> ())? = nil) {
+  func showPaywall(handlers: PaywallHandlers? = nil) {
     guard let tabBarController = self.tabBarController as? RootTabController  else {
       return
     }
-    tabBarController.performSegue(withIdentifier: Destination.toPaywall, sender: successHandler)
+    tabBarController.performSegue(withIdentifier: Destination.toPaywall, sender: handlers)
   }
   
   func showTabbarSeparator() {

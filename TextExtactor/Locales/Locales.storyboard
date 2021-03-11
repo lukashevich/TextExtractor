@@ -76,7 +76,7 @@
                             </label>
                             <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="cZ7-xc-P4A">
                                 <rect key="frame" x="0.0" y="93" width="414" height="56"/>
-                                <color key="tintColor" name="Primary Red"/>
+                                <color key="tintColor" name="AccentColor"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </searchBar>
                         </subviews>
@@ -108,8 +108,8 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="Primary Red">
-            <color red="0.92549019607843142" green="0.396078431372549" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="AccentColor">
+            <color red="0.29100000858306885" green="0.63200002908706665" blue="0.18600000441074371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

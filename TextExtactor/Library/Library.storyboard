@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ihh-Op-hcl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ihh-Op-hcl">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -63,9 +64,6 @@
                                             <rect key="frame" x="73" y="131" width="19" height="22"/>
                                             <color key="tintColor" name="AccentColor"/>
                                             <state key="normal" image="ellipsis" catalog="system"/>
-                                            <connections>
-                                                <action selector="share" destination="leH-EN-AwD" eventType="touchUpInside" id="9Og-BZ-gOi"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -84,6 +82,8 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="customSize" width="100" height="161"/>
                                 <connections>
+                                    <outlet property="isNewBadge" destination="YVt-4y-BV9" id="n6I-ig-rDg"/>
+                                    <outlet property="menuButton" destination="RtZ-pf-e75" id="MkX-I0-fzI"/>
                                     <outlet property="trumbnail" destination="oso-QU-SmA" id="59E-D4-L1x"/>
                                 </connections>
                             </collectionViewCell>
@@ -184,9 +184,6 @@
                                             </constraints>
                                             <color key="tintColor" name="AccentColor"/>
                                             <state key="normal" image="ellipsis" catalog="system"/>
-                                            <connections>
-                                                <action selector="share" destination="bag-qR-kur" eventType="touchUpInside" id="sN1-Lr-MUA"/>
-                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="new" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeF-VE-Q6w">
                                             <rect key="frame" x="322" y="11" width="44" height="22"/>
@@ -233,6 +230,8 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="customSize" width="374" height="88"/>
                                 <connections>
+                                    <outlet property="isNewBadge" destination="DeF-VE-Q6w" id="B9a-ww-NNR"/>
+                                    <outlet property="menuButton" destination="LgJ-lt-WB5" id="ssz-Lx-hDe"/>
                                     <outlet property="subtitle" destination="yDC-hT-cJN" id="ERW-Jk-lY4"/>
                                     <outlet property="title" destination="o8m-R3-dGE" id="JC3-ed-baJ"/>
                                     <outlet property="trumbnail" destination="P3q-zW-ymW" id="TNQ-vD-jif"/>
@@ -252,11 +251,12 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="smallCaps" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBt-FX-RaI">
-                                    <rect key="frame" x="74.5" y="14.5" width="90.5" height="21"/>
+                                <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBt-FX-RaI">
+                                    <rect key="frame" x="74.5" y="14.5" width="88" height="21"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                    <state key="normal" title="Manually" image="chevron.down" catalog="system">
-                                        <color key="titleColor" name="AccentColor"/>
+                                    <inset key="imageEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" title="Manually">
+                                        <imageReference key="image" image="chevron.down" catalog="system" symbolScale="small"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="smallCaps" value="YES"/>

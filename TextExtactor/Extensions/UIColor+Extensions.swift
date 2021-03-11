@@ -11,4 +11,8 @@ extension UIColor {
   static var accentColor: UIColor {
     return UIColor(named: "AccentColor") ?? UIColor.green.withAlphaComponent(0.8)
   }
+  
+  static var secondaryAccentColor: UIColor {
+    return UIColor(named: "SecondaryAccentColor") ?? UIColor.green.withAlphaComponent(0.5)
+  }
 }

@@ -92,6 +92,10 @@ extension LibraryController: LibraryItemCellDelegate {
   func share(file: URL) {
     self.share(object: file)
   }
+  
+  func docRemoved() {
+    self.collectionView.reloadData()
+  }
 }
 
 extension LibraryController: LibraryHeaderDelegate {

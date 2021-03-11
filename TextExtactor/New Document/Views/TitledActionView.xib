@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Rounded-Medium.otf">
+            <string>SFProRounded-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TitledActionView" customModule="TextExtactor" customModuleProvider="target">
             <connections>
@@ -16,23 +21,23 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="168"/>
+            <rect key="frame" x="0.0" y="0.0" width="224" height="121"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V0i-3Z-aEz" userLabel="Choose File">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="168"/>
+                    <rect key="frame" x="0.0" y="0.0" width="224" height="121"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FkR-0g-bsP">
-                            <rect key="frame" x="0.0" y="10" width="414" height="148"/>
+                            <rect key="frame" x="8" y="10" width="208" height="101"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test_video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nL2-KJ-OlN">
-                                    <rect key="frame" x="167" y="0.0" width="80.5" height="74"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test_video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nL2-KJ-OlN">
+                                    <rect key="frame" x="65" y="0.0" width="78.5" height="50"/>
+                                    <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mp4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzD-x0-3MX">
-                                    <rect key="frame" x="189.5" y="74" width="35" height="74"/>
+                                    <rect key="frame" x="86.5" y="50" width="35" height="51"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                     <nil key="highlightedColor"/>
@@ -43,7 +48,7 @@
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdl-Uv-KiU">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="168"/>
+                            <rect key="frame" x="0.0" y="0.0" width="224" height="121"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" name="AccentColor"/>
                             <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -62,11 +67,11 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="FkR-0g-bsP" firstAttribute="leading" secondItem="V0i-3Z-aEz" secondAttribute="leading" id="Feg-d7-r5T"/>
+                        <constraint firstItem="FkR-0g-bsP" firstAttribute="leading" secondItem="V0i-3Z-aEz" secondAttribute="leading" constant="8" id="Feg-d7-r5T"/>
                         <constraint firstItem="fdl-Uv-KiU" firstAttribute="leading" secondItem="V0i-3Z-aEz" secondAttribute="leading" id="G0g-lp-CvK"/>
                         <constraint firstAttribute="bottom" secondItem="FkR-0g-bsP" secondAttribute="bottom" constant="10" id="IRt-Jf-oFD"/>
                         <constraint firstItem="FkR-0g-bsP" firstAttribute="top" secondItem="V0i-3Z-aEz" secondAttribute="top" constant="10" id="Z51-ri-CQh"/>
-                        <constraint firstAttribute="trailing" secondItem="FkR-0g-bsP" secondAttribute="trailing" id="eRn-Xu-diP"/>
+                        <constraint firstAttribute="trailing" secondItem="FkR-0g-bsP" secondAttribute="trailing" constant="8" id="eRn-Xu-diP"/>
                         <constraint firstItem="fdl-Uv-KiU" firstAttribute="top" secondItem="V0i-3Z-aEz" secondAttribute="top" id="imJ-63-BNL"/>
                         <constraint firstAttribute="trailing" secondItem="fdl-Uv-KiU" secondAttribute="trailing" id="jb2-Dr-2at"/>
                         <constraint firstAttribute="bottom" secondItem="fdl-Uv-KiU" secondAttribute="bottom" id="q7A-vm-A6y"/>
@@ -86,7 +91,7 @@
                 <constraint firstAttribute="trailing" secondItem="V0i-3Z-aEz" secondAttribute="trailing" id="yVd-br-P0w"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-25" y="-157"/>
+            <point key="canvasLocation" x="-163.768115942029" y="-173.10267857142856"/>
         </view>
     </objects>
     <resources>

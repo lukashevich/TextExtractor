@@ -18,16 +18,15 @@ final class NewDocumentViewModel {
     case finish
   }
   
-  var splittingHandlder: (() -> Void)?
   var processStepHandler: ((ProcessStep) -> Void)?
   var isDocumentReady: Bool = false
   var _locale: Locale {
     UserDefaults.standard.extractingLocale
   }
   
-  private var _document: Document? {
+  var document: Document? {
     didSet {
-      self.isDocumentReady = self._document != nil
+      self.isDocumentReady = self.document != nil
     }
   }
   
@@ -35,10 +34,9 @@ final class NewDocumentViewModel {
     didSet {
       guard let url = fileUrl else { return }
       AudioEditHelper.prepareFile(at: url) { urls in
-        self._splittedSource = [urls[0],  urls[1], urls[2], urls[3], urls[4], urls[5]]
-        DispatchQueue.main.async {
-          self.splittingHandlder?()
-        }
+        Recognizer.enableRecognizing()
+        self._splittedSource = urls
+        self.startProcessing()
       }
     }
   }
@@ -54,9 +52,9 @@ final class NewDocumentViewModel {
     DispatchQueue.main.async {
       self.processStepHandler?(.start)
     }
-  
     let step = CGFloat(1.0 / Float(_splittedSource.count))
-    Recognizer.test(at: _splittedSource, in: _locale) { text in
+    let startDate = Date()
+    Recognizer.recognizeMedia(at: _splittedSource, in: _locale) { text in
       DispatchQueue.main.async {
         self._recognizedTexts.append(text)
         DispatchQueue.main.async {
@@ -66,19 +64,28 @@ final class NewDocumentViewModel {
         }
         guard self._recognizedTexts.count == self._splittedSource.count else { return }
         self._finishProcessing()
+        print("FULL time - ", Date().timeIntervalSince1970 - startDate.timeIntervalSince1970)
       }
     }
+    
+//    Recognizer.recognizeMediaConcurrently(at: _splittedSource, in: _locale) { (newText, index) in
+//      print("CONCURRENT", index, newText)
+//    }
   }
   
   func clearData() {
     fileUrl = nil
-    _document = nil
+    document = nil
     _recognizedTexts = []
     _splittedSource = []
   }
   
+  func stopExtracting() {
+    Recognizer.stopRecognizing()
+  }
+  
   func prepareForLocalize() {
-    _document = nil
+    document = nil
     _recognizedTexts = []
   }
   
@@ -90,13 +97,9 @@ final class NewDocumentViewModel {
       }
     }
   }
-  
-  func saveDocument() {
-    _document?.createFile()
-  }
-  
+ 
   private func _finishProcessing() {
-    self._document = Document(
+    self.document = Document(
       name: fileUrl?.deletingPathExtension().lastPathComponent ?? "",
       text: _recognizedTexts.joined(separator: " "),
       createdAt: Date(),

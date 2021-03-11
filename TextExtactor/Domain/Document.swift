@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import PDFKit
+import AVFoundation
 
 struct Document {
   let name: String
@@ -18,6 +19,20 @@ struct Document {
   var pdfLink: URL {
     let url = URL(fileURLWithPath: FileManager.documentsFolder.appendingPathComponent(name).path)
     return url.appendingPathComponent(name).appendingPathExtension("pdf")
+  }
+  
+  var audioLink: URL {
+    let url = URL(fileURLWithPath: FileManager.documentsFolder.appendingPathComponent(name).path)
+    
+    return url.appendingPathComponent("audio").appendingPathExtension("m4a")
+  }
+  
+  var pdfSize: String { pdfLink.size }
+  var audioSize: String { audioLink.size }
+
+  var isNew: Bool {
+//    Calendar.current.isDateInToday(modifiedAt)
+    Calendar.current.isDateInYesterday(modifiedAt)
   }
   
   var image: UIImage? {
@@ -94,14 +109,19 @@ extension Document {
     }
   }
   
+  private func _moveAudio(to url: URL) {
+    AudioEditHelper.moveTempAudioFile(to: url.appendingPathComponent("audio").appendingPathExtension("m4a"))
+  }
+  
   func createFile() {
     guard !FileManager.isDocumentExist(self) else {
       self.copy(name: name.incremented).createFile()
       return
     }
-    
+      
     FileManager.createFolder(for: self) { url in
       PDFCreator.createPDF(for: self)
+      self._moveAudio(to: url)
       self._createMetaFile(to: url)
     }
   }
