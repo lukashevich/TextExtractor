@@ -9,16 +9,16 @@ import Foundation
 
 class LibraryViewModel {
   let _documents: [Document] = FileManager.savedDocuments
-  var source: [Document] = FileManager.savedDocuments
+  var source: [Document] { FileManager.savedDocuments }
   
-  func sortDocuments(_ sort: LibraryHeader.Sort) {
+  func sortDocuments(_ sort: LibraryHeader.Sort) -> [Document] {
     switch sort {
     case .recent:
-      source = _documents.sorted(by: { $0.createdAt > $1.createdAt })
+      return source.sorted(by: { $0.createdAt > $1.createdAt })
     case .title:
-      source = _documents.sorted(by: { $0.name > $1.name })
+      return source.sorted(by: { $0.name > $1.name })
     case .modified:
-      source = _documents.sorted(by: { $0.modifiedAt > $1.modifiedAt })
+      return source.sorted(by: { $0.modifiedAt > $1.modifiedAt })
     }
   }
 }

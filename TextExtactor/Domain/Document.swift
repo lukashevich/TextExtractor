@@ -10,12 +10,17 @@ import UIKit
 import PDFKit
 import AVFoundation
 
+enum DocumentSource: String {
+  case media
+  case photo
+}
+
 struct Document {
   let name: String
   let text: String
   let createdAt: Date
   let modifiedAt: Date
-  
+  let source: DocumentSource
   var pdfLink: URL {
     let url = URL(fileURLWithPath: FileManager.documentsFolder.appendingPathComponent(name).path)
     return url.appendingPathComponent(name).appendingPathExtension("pdf")
@@ -62,11 +67,12 @@ struct Document {
     }
   }
   
-  init(name: String, text: String, createdAt: Date, modifiedAt: Date) {
+  init(name: String, text: String, createdAt: Date, modifiedAt: Date, source: DocumentSource) {
     self.name = name
     self.text = text
     self.createdAt = createdAt
     self.modifiedAt = modifiedAt
+    self.source = source
   }
   
   func isEqual(_ doc: Document) -> Bool {
@@ -74,7 +80,7 @@ struct Document {
   }
 
   func copy(name: String? = nil, text: String? = nil) -> Document {
-    return Document(name: name ?? self.name, text: text ?? self.text, createdAt: createdAt, modifiedAt: Date())
+    return Document(name: name ?? self.name, text: text ?? self.text, createdAt: createdAt, modifiedAt: Date(), source: self.source)
   }
   
   init(meta: [String: String]) {
@@ -85,6 +91,7 @@ struct Document {
     self.text = meta["text"] ?? ""
     self.createdAt = dateFormatter.date(from: meta["createdAt"]  ?? "") ?? Date()
     self.modifiedAt = dateFormatter.date(from: meta["modifiedAt"] ?? "") ?? Date()
+    self.source = DocumentSource(rawValue: meta["source"] ?? "") ?? .photo
   }
 }
 

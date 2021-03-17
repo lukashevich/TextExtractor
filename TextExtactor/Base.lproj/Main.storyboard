@@ -19,10 +19,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="cXW-PY-1S2" kind="relationship" relationship="viewControllers" id="MwQ-oX-AXc"/>
                         <segue destination="ek0-Qb-2Rg" kind="relationship" relationship="viewControllers" id="tar-ip-b3X"/>
                         <segue destination="fay-R6-A3t" kind="presentation" identifier="toDocumentPreview" id="jaw-sp-1hA"/>
                         <segue destination="0cG-YG-HjF" kind="presentation" identifier="toPaywall" modalPresentationStyle="overFullScreen" id="J3k-Ue-Hjj"/>
+                        <segue destination="dZi-NS-hhg" kind="relationship" relationship="viewControllers" id="sf3-0q-wBN"/>
+                        <segue destination="TO6-J7-jHA" kind="show" identifier="toNewDocument" id="w1Y-83-5I0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4h8-xq-qVR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -38,6 +39,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="63t-2x-Du5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-91" y="-271"/>
+        </scene>
+        <!--NewDocument-->
+        <scene sceneID="3ne-fe-6KF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewDocument" id="TO6-J7-jHA" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="nSW-oc-XCG"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h3X-ci-oPj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-220" y="-408"/>
         </scene>
         <!--DocumentPreview-->
         <scene sceneID="QZr-h3-hgf">
@@ -78,11 +89,40 @@
             </objects>
             <point key="canvasLocation" x="1411" y="-7"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="PB1-bU-Jfm">
+            <objects>
+                <navigationController id="dZi-NS-hhg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="M5N-ma-qvN">
+                        <color key="badgeColor" name="AccentColor"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Pas-27-Pei">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gD6-Hz-18M" kind="relationship" relationship="rootViewController" id="30v-99-H9B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6q9-U9-7dU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="728" y="1036"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="3gO-y3-DHc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="gD6-Hz-18M" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="jpt-Ts-pV3"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qSu-J1-RVG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1485" y="1029"/>
+        </scene>
         <!--Recents-->
         <scene sceneID="OJC-rf-hh0">
             <objects>
                 <navigationController id="ek0-Qb-2Rg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recents" image="doc.on.doc" catalog="system" id="dxP-DD-FB4">
+                    <tabBarItem key="tabBarItem" title="Recents" image="books.vertical" catalog="system" id="dxP-DD-FB4">
                         <color key="badgeColor" name="AccentColor"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="4"/>
                     </tabBarItem>
@@ -110,7 +150,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="doc.on.doc" catalog="system" width="116" height="128"/>
+        <image name="books.vertical" catalog="system" width="128" height="103"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="highlighter" catalog="system" width="128" height="119"/>
         <namedColor name="AccentColor">
             <color red="0.29100000858306885" green="0.63200002908706665" blue="0.18600000441074371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

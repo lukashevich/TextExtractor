@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0GU-mh-vSn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0GU-mh-vSn">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -75,7 +76,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNw-xA-TRx" customClass="ActionView" customModule="TextExtactor" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNw-xA-TRx" customClass="ActionView" customModule="TextExtactor" customModuleProvider="target">
                                 <rect key="frame" x="155.5" y="734" width="103" height="64"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -91,19 +92,44 @@
                                     <action selector="actionButtonPressed" destination="0GU-mh-vSn" eventType="touchUpInside" id="gnD-0I-sGB"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Utq-y3-d0m">
+                                <rect key="frame" x="175" y="750" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="G52-eZ-DeU"/>
+                                    <constraint firstAttribute="width" constant="64" id="caE-6r-68f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="tintColor" systemColor="secondaryLabelColor"/>
+                                <state key="normal" image="multiply.circle" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="36" scale="large" weight="medium"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelPressed" destination="0GU-mh-vSn" eventType="touchUpInside" id="70w-2p-GTM"/>
+                                </connections>
+                            </button>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BUv-8x-cFw">
+                                <rect key="frame" x="0.0" y="160" width="414" height="4"/>
+                                <color key="progressTintColor" name="AccentColor"/>
+                                <color key="trackTintColor" name="SecondaryAccentColor"/>
+                            </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nQP-0e-8HY"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="nQP-0e-8HY" firstAttribute="bottom" secondItem="Utq-y3-d0m" secondAttribute="bottom" constant="48" id="07L-Xk-Ai6"/>
+                            <constraint firstItem="BUv-8x-cFw" firstAttribute="trailing" secondItem="nQP-0e-8HY" secondAttribute="trailing" id="447-fc-Ebr"/>
                             <constraint firstItem="no3-pM-dbO" firstAttribute="leading" secondItem="nQP-0e-8HY" secondAttribute="leading" id="7TS-51-Dsq"/>
                             <constraint firstItem="Z1n-B2-zuh" firstAttribute="leading" secondItem="nQP-0e-8HY" secondAttribute="centerX" constant="5" id="Bz8-cA-oTe"/>
                             <constraint firstItem="no3-pM-dbO" firstAttribute="trailing" secondItem="nQP-0e-8HY" secondAttribute="trailing" id="ELC-wg-5Ae"/>
                             <constraint firstItem="Z1n-B2-zuh" firstAttribute="top" secondItem="nQP-0e-8HY" secondAttribute="top" constant="36" id="HId-fa-WaF"/>
                             <constraint firstItem="nQP-0e-8HY" firstAttribute="centerX" secondItem="Q1h-J8-ORK" secondAttribute="trailing" constant="5" id="JjR-7K-m1V"/>
                             <constraint firstAttribute="bottom" secondItem="no3-pM-dbO" secondAttribute="bottom" id="NXZ-VU-k4f"/>
+                            <constraint firstItem="BUv-8x-cFw" firstAttribute="leading" secondItem="nQP-0e-8HY" secondAttribute="leading" id="Sic-SB-R8R"/>
                             <constraint firstItem="qNw-xA-TRx" firstAttribute="centerX" secondItem="LT3-ei-Fiq" secondAttribute="centerX" id="YnN-fv-7Ky"/>
                             <constraint firstItem="nQP-0e-8HY" firstAttribute="bottom" secondItem="qNw-xA-TRx" secondAttribute="bottom" constant="64" id="a4Q-Qb-650"/>
+                            <constraint firstItem="Utq-y3-d0m" firstAttribute="centerX" secondItem="LT3-ei-Fiq" secondAttribute="centerX" id="a8N-j9-I1F"/>
                             <constraint firstItem="no3-pM-dbO" firstAttribute="top" secondItem="Q1h-J8-ORK" secondAttribute="bottom" constant="20" id="bm8-nv-wK3"/>
+                            <constraint firstItem="BUv-8x-cFw" firstAttribute="top" secondItem="Q1h-J8-ORK" secondAttribute="bottom" constant="19.5" id="lsO-EY-JZi"/>
                             <constraint firstItem="nQP-0e-8HY" firstAttribute="trailing" secondItem="Z1n-B2-zuh" secondAttribute="trailing" constant="20" id="plr-wp-c1E"/>
                             <constraint firstItem="Q1h-J8-ORK" firstAttribute="leading" secondItem="nQP-0e-8HY" secondAttribute="leading" constant="20" id="vWE-EQ-KqL"/>
                             <constraint firstItem="Q1h-J8-ORK" firstAttribute="top" secondItem="nQP-0e-8HY" secondAttribute="top" constant="36" id="yaL-EZ-1UZ"/>
@@ -111,15 +137,39 @@
                     </view>
                     <connections>
                         <outlet property="actionProgressView" destination="qNw-xA-TRx" id="1AD-Nb-a3X"/>
+                        <outlet property="cancelButton" destination="Utq-y3-d0m" id="Tty-F1-JLU"/>
                         <outlet property="fileView" destination="Q1h-J8-ORK" id="Ut4-I4-ibf"/>
                         <outlet property="locationView" destination="Z1n-B2-zuh" id="j0t-65-5iF"/>
                         <outlet property="newDocumentTextView" destination="ezE-Ct-16N" id="ng2-vN-qLj"/>
-                        <segue destination="YP2-ls-PyS" kind="presentation" identifier="toLocationPicker" id="zkp-3a-Jvo"/>
+                        <outlet property="progressView" destination="BUv-8x-cFw" id="7aD-YX-d08"/>
+                        <segue destination="YP2-ls-PyS" kind="presentation" identifier="toLocalePicker" id="zkp-3a-Jvo"/>
+                        <segue destination="Dvd-04-EYi" kind="show" identifier="toPaywall" id="n3E-gz-wOY"/>
+                        <segue destination="prB-bN-vEJ" kind="presentation" identifier="toDocumentPreview" id="OI1-m7-dvu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lCo-Ld-gor" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-187" y="169"/>
+            <point key="canvasLocation" x="-188.40579710144928" y="168.75"/>
+        </scene>
+        <!--Paywall-->
+        <scene sceneID="9ju-GZ-VXo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Paywall" id="Dvd-04-EYi" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Ejc-if-DkK"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Anb-HK-L2y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="542" y="-40"/>
+        </scene>
+        <!--DocumentPreview-->
+        <scene sceneID="thX-qF-xSg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DocumentPreview" id="prB-bN-vEJ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="9Y9-MF-NWS"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lf0-b8-I2R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="542" y="73"/>
         </scene>
         <!--Locales-->
         <scene sceneID="IRo-ah-CKN">
@@ -131,6 +181,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="multiply.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="AccentColor">
+            <color red="0.29100000858306885" green="0.63200002908706665" blue="0.18600000441074371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryAccentColor">
+            <color red="0.29100000858306885" green="0.63200002908706665" blue="0.18600000441074371" alpha="0.25" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -44,6 +44,16 @@
 		7F52927B25E653E000D7571F /* ActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F52927A25E653E000D7571F /* ActionView.xib */; };
 		7F52927E25E6A47400D7571F /* TapticHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52927D25E6A47400D7571F /* TapticHelper.swift */; };
 		7F52928425E6A8B200D7571F /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52928325E6A8B200D7571F /* UIBarButtonItem+Extensions.swift */; };
+		7F719DE225FCC14F0039E14A /* NewDocumentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719DE125FCC14F0039E14A /* NewDocumentRouter.swift */; };
+		7F719DE525FCC5BD0039E14A /* LocalesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719DE425FCC5BD0039E14A /* LocalesViewModel.swift */; };
+		7F719DEB25FCCD590039E14A /* LibraryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719DEA25FCCD590039E14A /* LibraryRouter.swift */; };
+		7F719DEE25FCE3D50039E14A /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719DED25FCE3D50039E14A /* UIApplication+Extensions.swift */; };
+		7F719DF525FCECF30039E14A /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719DF425FCECF30039E14A /* SettingsController.swift */; };
+		7F719DF825FCECFC0039E14A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F719DF725FCECFC0039E14A /* Settings.storyboard */; };
+		7F719DFB25FCED080039E14A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719DFA25FCED080039E14A /* SettingsViewModel.swift */; };
+		7F719DFE25FCF1EB0039E14A /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719DFD25FCF1EB0039E14A /* SettingsRouter.swift */; };
+		7F719E0125FFCF070039E14A /* URLPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719E0025FFCF070039E14A /* URLPresenter.swift */; };
+		7F719E1025FFD32E0039E14A /* PaywallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719E0F25FFD32E0039E14A /* PaywallCell.swift */; };
 		7F7ED07325D98081003F6BBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7ED07225D98081003F6BBB /* AppDelegate.swift */; };
 		7F7ED07525D98081003F6BBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7ED07425D98081003F6BBB /* SceneDelegate.swift */; };
 		7F7ED07A25D98081003F6BBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F7ED07825D98081003F6BBB /* Main.storyboard */; };
@@ -118,6 +128,16 @@
 		7F52927A25E653E000D7571F /* ActionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionView.xib; sourceTree = "<group>"; };
 		7F52927D25E6A47400D7571F /* TapticHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapticHelper.swift; sourceTree = "<group>"; };
 		7F52928325E6A8B200D7571F /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
+		7F719DE125FCC14F0039E14A /* NewDocumentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDocumentRouter.swift; sourceTree = "<group>"; };
+		7F719DE425FCC5BD0039E14A /* LocalesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalesViewModel.swift; sourceTree = "<group>"; };
+		7F719DEA25FCCD590039E14A /* LibraryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRouter.swift; sourceTree = "<group>"; };
+		7F719DED25FCE3D50039E14A /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		7F719DF425FCECF30039E14A /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		7F719DF725FCECFC0039E14A /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		7F719DFA25FCED080039E14A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		7F719DFD25FCF1EB0039E14A /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		7F719E0025FFCF070039E14A /* URLPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPresenter.swift; sourceTree = "<group>"; };
+		7F719E0F25FFD32E0039E14A /* PaywallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallCell.swift; sourceTree = "<group>"; };
 		7F7ED06F25D98081003F6BBB /* TextExtactor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextExtactor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F7ED07225D98081003F6BBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F7ED07425D98081003F6BBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +222,7 @@
 				7F21D36B25DAB7A3009A3F53 /* NewDocument.storyboard */,
 				7F21D36E25DAB7AC009A3F53 /* NewDocumentController.swift */,
 				7F21D37125DAB7D7009A3F53 /* NewDocumentViewModel.swift */,
+				7F719DE125FCC14F0039E14A /* NewDocumentRouter.swift */,
 			);
 			path = "New Document";
 			sourceTree = "<group>";
@@ -225,6 +246,7 @@
 				7FC9810A25E3E17D00FD65DF /* ShareControllerPresenter.swift */,
 				7F4CE0E725FA87A200F7AF09 /* CameraTextFinder.swift */,
 				7F4CE0EA25FA87B600F7AF09 /* LibraryFilePicker.swift */,
+				7F719E0025FFCF070039E14A /* URLPresenter.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -240,6 +262,7 @@
 		7F47AF2625E543D000CD8C02 /* Paywall */ = {
 			isa = PBXGroup;
 			children = (
+				7F719E0325FFD21B0039E14A /* Views */,
 				7F47AF2725E543E000CD8C02 /* PaywallController.swift */,
 				7F47AF2E25E5440400CD8C02 /* Paywall.storyboard */,
 				7F47AF3825E54F2A00CD8C02 /* PaywallViewModel.swift */,
@@ -265,6 +288,25 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		7F719DF325FCECE60039E14A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7F719DF425FCECF30039E14A /* SettingsController.swift */,
+				7F719DF725FCECFC0039E14A /* Settings.storyboard */,
+				7F719DFA25FCED080039E14A /* SettingsViewModel.swift */,
+				7F719DFD25FCF1EB0039E14A /* SettingsRouter.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		7F719E0325FFD21B0039E14A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7F719E0F25FFD32E0039E14A /* PaywallCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		7F7ED06625D98081003F6BBB = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +328,7 @@
 		7F7ED07125D98081003F6BBB /* TextExtactor */ = {
 			isa = PBXGroup;
 			children = (
+				7F719DF325FCECE60039E14A /* Settings */,
 				7F47AF2625E543D000CD8C02 /* Paywall */,
 				7FC9812025E4255C00FD65DF /* Root Controller */,
 				7FC9811425E41E2900FD65DF /* Document Preview */,
@@ -316,6 +359,7 @@
 				7F7ED08825D98119003F6BBB /* LibraryController.swift */,
 				7F7ED08B25D98124003F6BBB /* Library.storyboard */,
 				7F7ED08E25D9813E003F6BBB /* LibraryViewModel.swift */,
+				7F719DEA25FCCD590039E14A /* LibraryRouter.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -366,6 +410,7 @@
 				7F4CE0D425F9404500F7AF09 /* CMTime+Extensions.swift */,
 				7F4CE0E125FA7B0C00F7AF09 /* URL+Extensions.swift */,
 				7F4CE0E425FA80D900F7AF09 /* UIImage+Extensions.swift */,
+				7F719DED25FCE3D50039E14A /* UIApplication+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -387,6 +432,7 @@
 				7FC980F725E0257500FD65DF /* Locales.storyboard */,
 				7FC980F825E0257500FD65DF /* LocaleCell.swift */,
 				7FC980F925E0257500FD65DF /* LocalesController.swift */,
+				7F719DE425FCC5BD0039E14A /* LocalesViewModel.swift */,
 			);
 			path = Locales;
 			sourceTree = "<group>";
@@ -491,6 +537,7 @@
 				7F7ED07F25D98081003F6BBB /* LaunchScreen.storyboard in Resources */,
 				7F4CE0DF25FA658C00F7AF09 /* PlayerView.xib in Resources */,
 				7F7ED08C25D98124003F6BBB /* Library.storyboard in Resources */,
+				7F719DF825FCECFC0039E14A /* Settings.storyboard in Resources */,
 				7F52927B25E653E000D7571F /* ActionView.xib in Resources */,
 				7F7ED07C25D98081003F6BBB /* Assets.xcassets in Resources */,
 				7FC9811A25E41E7500FD65DF /* DocumentPreview.storyboard in Resources */,
@@ -561,21 +608,28 @@
 				7F4CE0EB25FA87B600F7AF09 /* LibraryFilePicker.swift in Sources */,
 				7FC9810B25E3E17D00FD65DF /* ShareControllerPresenter.swift in Sources */,
 				7F44359425DC212800F776BE /* UIColor+Extensions.swift in Sources */,
+				7F719DE525FCC5BD0039E14A /* LocalesViewModel.swift in Sources */,
+				7F719DFE25FCF1EB0039E14A /* SettingsRouter.swift in Sources */,
 				7F21D35325DA8B6B009A3F53 /* AudioChunk.swift in Sources */,
+				7F719DEB25FCCD590039E14A /* LibraryRouter.swift in Sources */,
 				7F7ED07325D98081003F6BBB /* AppDelegate.swift in Sources */,
 				7F7ED0B025D9A6B7003F6BBB /* UIView+Extensions.swift in Sources */,
 				7F44359C25DD712400F776BE /* LibrarySmallItemCell.swift in Sources */,
 				7F4CE0D825F9409F00F7AF09 /* AppStoreReviewHelper.swift in Sources */,
 				7F21D37625DAB92F009A3F53 /* SourceCell.swift in Sources */,
+				7F719E0125FFCF070039E14A /* URLPresenter.swift in Sources */,
 				7FC980FC25E0257500FD65DF /* LocalesController.swift in Sources */,
 				7F4CE0D525F9404500F7AF09 /* CMTime+Extensions.swift in Sources */,
 				7F4CE0E225FA7B0C00F7AF09 /* URL+Extensions.swift in Sources */,
 				7F21D37D25DAB970009A3F53 /* ProcessCell.swift in Sources */,
+				7F719DE225FCC14F0039E14A /* NewDocumentRouter.swift in Sources */,
 				7F4CE0E825FA87A200F7AF09 /* CameraTextFinder.swift in Sources */,
+				7F719DEE25FCE3D50039E14A /* UIApplication+Extensions.swift in Sources */,
 				7F21D38525DACC2B009A3F53 /* String+Extensions.swift in Sources */,
 				7FC9811625E41E4D00FD65DF /* DocumentPreviewController.swift in Sources */,
 				7FC980F025E01BCC00FD65DF /* TitledActionView.swift in Sources */,
 				7F4CE0DC25FA658300F7AF09 /* PlayerView.swift in Sources */,
+				7F719E1025FFD32E0039E14A /* PaywallCell.swift in Sources */,
 				7FC9812225E4256E00FD65DF /* RootTabController.swift in Sources */,
 				7F7ED07525D98081003F6BBB /* SceneDelegate.swift in Sources */,
 				7F21D35625DA8BEC009A3F53 /* AVAsset+Extensions.swift in Sources */,
@@ -583,7 +637,9 @@
 				7F7ED09425D982C7003F6BBB /* LibraryItemCell.swift in Sources */,
 				7F52928425E6A8B200D7571F /* UIBarButtonItem+Extensions.swift in Sources */,
 				7F7ED08F25D9813E003F6BBB /* LibraryViewModel.swift in Sources */,
+				7F719DF525FCECF30039E14A /* SettingsController.swift in Sources */,
 				7FC980FB25E0257500FD65DF /* LocaleCell.swift in Sources */,
+				7F719DFB25FCED080039E14A /* SettingsViewModel.swift in Sources */,
 				7FC9811D25E41E9900FD65DF /* DocumentPreviewViewModel.swift in Sources */,
 				7FC9810825E3AE1E00FD65DF /* UITabBarController+Extensions.swift in Sources */,
 				7F44359725DC27A200F776BE /* IdentifiableCell.swift in Sources */,

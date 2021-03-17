@@ -20,11 +20,9 @@ final class LocalesController: UIViewController {
   
   let searchController = UISearchController(searchResultsController: nil)
   let locales = Array(SFSpeechRecognizer.supportedLocales())
-  
+  var viewModel: LocalesViewModel!
   var filteredLocales = Array(SFSpeechRecognizer.supportedLocales())
-  
-  var onSelect: ((Locale) -> Void)?
-  
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     setupSearchBar()
@@ -52,9 +50,9 @@ extension LocalesController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if isFiltering {
-      self.onSelect?(filteredLocales[indexPath.row])
+      self.viewModel.onSelect?(filteredLocales[indexPath.row])
     } else {
-      self.onSelect?(locales[indexPath.row])
+      self.viewModel.onSelect?(locales[indexPath.row])
     }
     self.dismiss(animated: true, completion: nil)
   }

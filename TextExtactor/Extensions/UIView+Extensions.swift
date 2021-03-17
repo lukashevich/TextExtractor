@@ -49,7 +49,7 @@ extension UIView {
   
   @IBInspectable var shadow: CGFloat {
     set (shadow) {
-      layer.shadowColor = UIColor.systemGray3.cgColor
+      layer.shadowColor = UIColor.quaternarySystemFill.cgColor
       layer.shadowOpacity = 1
       layer.shadowOffset = .zero
       layer.shadowRadius = shadow
@@ -83,3 +83,5 @@ extension UIView {
     isUserInteractionEnabled = true
   }
 }
+
+

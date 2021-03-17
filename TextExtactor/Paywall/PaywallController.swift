@@ -8,9 +8,8 @@
 import Foundation
 import UIKit
 
-final class PaywallController: UIViewController {
+final class PaywallController: UIViewController, URLPresenter {
     
-  
   enum PurhcaseState {
     case successfully
     case denied
@@ -40,5 +39,13 @@ final class PaywallController: UIViewController {
     case .denied:
       self.dismiss(animated: true, completion: self.viewModel.denyHandler)
     }
+  }
+  
+  @IBAction func tosPressed() {
+    self.open(link: .tos)
+  }
+  
+  @IBAction func privacyPressed() {
+    self.open(link: .privacy)
   }
 }

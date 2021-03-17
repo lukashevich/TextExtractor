@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-final class LibraryController: UICollectionViewController, TabBared, ShareControllerPresenter {
-  
+final class LibraryController: UICollectionViewController, ShareControllerPresenter , TabBared {
+
   enum ListAppearance {
     case large
     case small
@@ -22,22 +22,26 @@ final class LibraryController: UICollectionViewController, TabBared, ShareContro
     }
   }
 
-  var viewModel = LibraryViewModel()
+  let viewModel = LibraryViewModel()
+  private lazy var _router = LibraryRouter(controller: self)
   private var _listAppearance = ListAppearance.large {
     didSet {
       collectionView.reloadData()
     }
   }
 
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    showTabbarSeparator()
-    collectionView.reloadData()
-  }
-  
   @IBAction func toggleListAppearance(sender: UIButton) {
     sender.isSelected.toggle()
     _listAppearance.toggle()
+  }
+  
+  func appeared() {
+    print("YEAH")
+    self.collectionView.reloadData()
+  }
+  
+  override func viewDidLoad() {
+    self._router.navigate(to: .paywall(PaywallHandlers(success: nil, deny: nil)))
   }
 }
 
@@ -49,21 +53,25 @@ extension LibraryController {
   }
   
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return viewModel.source.count
+    return viewModel.source.count + 1
   }
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
+    guard indexPath.row > 0 else {
+      return collectionView.dequeueReusableCell(withReuseIdentifier: "addNewDocCell", for: indexPath as IndexPath)
+    }
+    
     switch _listAppearance {
     case .large:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LibraryItemCell.reuseIdentifier, for: indexPath as IndexPath) as! LibraryItemCell
-      cell.viewModel = LibraryItemCellViewModel(document: viewModel.source[indexPath.row])
+      cell.viewModel = LibraryItemCellViewModel(document: viewModel.source[indexPath.row - 1])
       cell.delegate = self
       
       return cell
     case .small:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LibrarySmallItemCell.reuseIdentifier, for: indexPath as IndexPath) as! LibrarySmallItemCell
-      cell.viewModel = LibraryItemCellViewModel(document: viewModel.source[indexPath.row])
+      cell.viewModel = LibraryItemCellViewModel(document: viewModel.source[indexPath.row - 1])
       cell.delegate = self
 
       return cell
@@ -71,7 +79,12 @@ extension LibraryController {
   }
   
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    self.toPreview(with: viewModel.source[indexPath.row])
+    guard indexPath.row > 0 else {
+      self._router.navigate(to: .newDoc)
+      return
+    }
+    let doc = viewModel.source[indexPath.row - 1]
+    self._router.navigate(to: .preview(doc))
   }
 }
 

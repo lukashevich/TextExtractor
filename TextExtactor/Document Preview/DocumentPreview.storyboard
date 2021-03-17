@@ -38,79 +38,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="130-IK-LDM">
-                                <rect key="frame" x="20" y="104" width="374" height="64"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Blo-Ki-KUB">
+                                <rect key="frame" x="20" y="96" width="374" height="766"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q3s-xs-EtT">
-                                        <rect key="frame" x="8" y="15" width="358" height="34"/>
-                                        <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="130-IK-LDM">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="64"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q3s-xs-EtT">
+                                                <rect key="frame" x="8" y="15" width="358" height="34"/>
+                                                <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="22"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="q3s-xs-EtT" secondAttribute="bottom" constant="15" id="REP-Ob-ca3"/>
+                                            <constraint firstAttribute="height" constant="64" id="Tua-ky-PiP"/>
+                                            <constraint firstItem="q3s-xs-EtT" firstAttribute="leading" secondItem="130-IK-LDM" secondAttribute="leadingMargin" id="YM0-Rf-as8"/>
+                                            <constraint firstItem="q3s-xs-EtT" firstAttribute="trailing" secondItem="130-IK-LDM" secondAttribute="trailingMargin" id="n3b-Sw-Bw3"/>
+                                            <constraint firstItem="q3s-xs-EtT" firstAttribute="top" secondItem="130-IK-LDM" secondAttribute="top" constant="15" id="pSv-WV-DTN"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z64-mK-eFP">
+                                        <rect key="frame" x="0.0" y="80" width="374" height="606"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, c" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="THc-5W-XQ4">
+                                                <rect key="frame" x="8" y="0.0" width="358" height="598"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="22"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="THc-5W-XQ4" firstAttribute="top" secondItem="z64-mK-eFP" secondAttribute="top" id="Prk-bS-h25"/>
+                                            <constraint firstItem="THc-5W-XQ4" firstAttribute="leading" secondItem="z64-mK-eFP" secondAttribute="leading" constant="8" id="abO-tp-VLA"/>
+                                            <constraint firstAttribute="bottom" secondItem="THc-5W-XQ4" secondAttribute="bottom" constant="8" id="tNf-8p-1t0"/>
+                                            <constraint firstAttribute="trailing" secondItem="THc-5W-XQ4" secondAttribute="trailing" constant="8" id="yWG-6V-rr1"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qcg-zu-LrF" customClass="PlayerView" customModule="TextExtactor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="702" width="374" height="64"/>
+                                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="mjQ-TS-xEo"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="q3s-xs-EtT" secondAttribute="bottom" constant="15" id="REP-Ob-ca3"/>
-                                    <constraint firstAttribute="height" constant="64" id="Tua-ky-PiP"/>
-                                    <constraint firstItem="q3s-xs-EtT" firstAttribute="leading" secondItem="130-IK-LDM" secondAttribute="leadingMargin" id="YM0-Rf-as8"/>
-                                    <constraint firstItem="q3s-xs-EtT" firstAttribute="trailing" secondItem="130-IK-LDM" secondAttribute="trailingMargin" id="n3b-Sw-Bw3"/>
-                                    <constraint firstItem="q3s-xs-EtT" firstAttribute="top" secondItem="130-IK-LDM" secondAttribute="top" constant="15" id="pSv-WV-DTN"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qcg-zu-LrF" customClass="PlayerView" customModule="TextExtactor" customModuleProvider="target">
-                                <rect key="frame" x="20" y="798" width="374" height="64"/>
-                                <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="mjQ-TS-xEo"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z64-mK-eFP">
-                                <rect key="frame" x="20" y="184" width="374" height="598"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, c" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="THc-5W-XQ4">
-                                        <rect key="frame" x="8" y="0.0" width="358" height="590"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="THc-5W-XQ4" firstAttribute="top" secondItem="z64-mK-eFP" secondAttribute="top" id="Prk-bS-h25"/>
-                                    <constraint firstItem="THc-5W-XQ4" firstAttribute="leading" secondItem="z64-mK-eFP" secondAttribute="leading" constant="8" id="abO-tp-VLA"/>
-                                    <constraint firstAttribute="bottom" secondItem="THc-5W-XQ4" secondAttribute="bottom" constant="8" id="tNf-8p-1t0"/>
-                                    <constraint firstAttribute="trailing" secondItem="THc-5W-XQ4" secondAttribute="trailing" constant="8" id="yWG-6V-rr1"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="W01-ki-48p"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="130-IK-LDM" firstAttribute="leading" secondItem="W01-ki-48p" secondAttribute="leading" constant="20" id="2Ro-6d-T3c"/>
-                            <constraint firstItem="Qcg-zu-LrF" firstAttribute="leading" secondItem="W01-ki-48p" secondAttribute="leading" constant="20" id="Aeh-RY-42e"/>
-                            <constraint firstItem="W01-ki-48p" firstAttribute="trailing" secondItem="z64-mK-eFP" secondAttribute="trailing" constant="20" id="Ccp-Tg-x1H"/>
-                            <constraint firstItem="Qcg-zu-LrF" firstAttribute="top" secondItem="z64-mK-eFP" secondAttribute="bottom" constant="16" id="DVg-ev-hT3"/>
-                            <constraint firstItem="W01-ki-48p" firstAttribute="bottom" secondItem="Qcg-zu-LrF" secondAttribute="bottom" id="MId-mR-20M"/>
-                            <constraint firstItem="W01-ki-48p" firstAttribute="trailing" secondItem="130-IK-LDM" secondAttribute="trailing" constant="20" id="Mb6-0I-i9j"/>
-                            <constraint firstItem="W01-ki-48p" firstAttribute="trailing" secondItem="Qcg-zu-LrF" secondAttribute="trailing" constant="20" id="nbt-oP-fCf"/>
-                            <constraint firstItem="z64-mK-eFP" firstAttribute="top" secondItem="130-IK-LDM" secondAttribute="bottom" constant="16" id="tWj-ha-LPO"/>
-                            <constraint firstItem="130-IK-LDM" firstAttribute="top" secondItem="W01-ki-48p" secondAttribute="top" constant="16" id="uv6-gx-zuY"/>
-                            <constraint firstItem="z64-mK-eFP" firstAttribute="leading" secondItem="W01-ki-48p" secondAttribute="leading" constant="20" id="y8b-AN-xmm"/>
+                            <constraint firstItem="Blo-Ki-KUB" firstAttribute="bottom" secondItem="W01-ki-48p" secondAttribute="bottom" id="GoG-Rx-2s7"/>
+                            <constraint firstAttribute="trailing" secondItem="Blo-Ki-KUB" secondAttribute="trailing" constant="20" symbolic="YES" id="H5h-8V-8eG"/>
+                            <constraint firstItem="Blo-Ki-KUB" firstAttribute="top" secondItem="W01-ki-48p" secondAttribute="top" constant="8" id="OqH-dM-Xje"/>
+                            <constraint firstItem="Blo-Ki-KUB" firstAttribute="leading" secondItem="ghI-bW-KMq" secondAttribute="leadingMargin" id="wcq-3Y-IcR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Preview" id="xEM-8Q-mKw">

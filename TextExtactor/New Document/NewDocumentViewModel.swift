@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 import XCDYouTubeKit
+import VisionKit
+import Vision
 
 final class NewDocumentViewModel {
   
@@ -15,8 +17,11 @@ final class NewDocumentViewModel {
     case start
     case recognized(String)
     case progress(CGFloat)
-    case finish
+    case finish(Document?)
   }
+  
+  private var _textRecognitionRequest = VNRecognizeTextRequest(completionHandler: nil)
+  private let textRecognitionWorkQueue = DispatchQueue(label: "MyVisionScannerQueue", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
   
   var processStepHandler: ((ProcessStep) -> Void)?
   var isDocumentReady: Bool = false
@@ -63,8 +68,7 @@ final class NewDocumentViewModel {
           self.processStepHandler?(.progress(progress))
         }
         guard self._recognizedTexts.count == self._splittedSource.count else { return }
-        self._finishProcessing()
-        print("FULL time - ", Date().timeIntervalSince1970 - startDate.timeIntervalSince1970)
+        self._finishProcessing(source: .media, text: self._recognizedTexts.joined(separator: " "))
       }
     }
     
@@ -98,15 +102,26 @@ final class NewDocumentViewModel {
     }
   }
  
-  private func _finishProcessing() {
-    self.document = Document(
-      name: fileUrl?.deletingPathExtension().lastPathComponent ?? "",
-      text: _recognizedTexts.joined(separator: " "),
-      createdAt: Date(),
-      modifiedAt: Date())
+  private func _finishProcessing(source: DocumentSource, text: String) {
+    switch source {
+    case .media:
+      self.document = Document(
+        name: fileUrl?.deletingPathExtension().lastPathComponent ?? "",
+        text: text,
+        createdAt: Date(),
+        modifiedAt: Date(),
+        source: source)
+    case .photo:
+      self.document = Document(
+        name: "New",
+        text: text,
+        createdAt: Date(),
+        modifiedAt: Date(),
+        source: source)
+    }
     
     DispatchQueue.main.async {
-      self.processStepHandler?(.finish)
+      self.processStepHandler?(.finish(self.document))
     }
   }
   
@@ -186,5 +201,60 @@ extension String {
     }
     
     return (self as NSString).substring(with: result.range)
+  }
+}
+
+extension NewDocumentViewModel {
+  func processImage(_ image: UIImage) {
+    self.recognizeTextInImage(image)
+  }
+  
+  func recognizeTextInImage(_ image: UIImage) {
+    guard let cgImage = image.cgImage else { return }
+    
+    DispatchQueue.main.async {
+      self.processStepHandler?(.start)
+    }
+    
+    textRecognitionWorkQueue.async {
+      let requestHandler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+      do {
+        try requestHandler.perform([self._textRecognitionRequest])
+      } catch {
+        print(error)
+      }
+    }
+  }
+  
+  func setupVision() {
+    self._textRecognitionRequest = VNRecognizeTextRequest { (request, error) in
+      guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
+      
+      var detectedText = ""
+      for observation in observations {
+        guard let topCandidate = observation.topCandidates(1).first else { return }
+        
+        detectedText += topCandidate.string
+        detectedText += "\n"
+        
+        DispatchQueue.main.async {
+          self.processStepHandler?(.recognized(topCandidate.string))
+        }
+      }
+      
+      DispatchQueue.main.async {
+        self._finishProcessing(source: .photo, text: detectedText)
+      }
+    }
+    
+    self._textRecognitionRequest.recognitionLevel = .accurate
+  }
+  
+  func compressedImage(_ originalImage: UIImage) -> UIImage {
+    guard let imageData = originalImage.jpegData(compressionQuality: 1),
+          let reloadedImage = UIImage(data: imageData) else {
+      return originalImage
+    }
+    return reloadedImage
   }
 }

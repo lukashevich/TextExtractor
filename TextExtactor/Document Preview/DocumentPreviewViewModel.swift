@@ -7,6 +7,10 @@
 
 import Foundation
 
-struct  DocumentPreviewViewModel {
-  let document: Document
+enum PreviewOpenType {
+  case mediaDoc(Document)
+  case textDoc(Document)
+}
+struct DocumentPreviewViewModel {
+  var document: Document
 }

@@ -53,6 +53,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oso-QU-SmA">
                                             <rect key="frame" x="8" y="8" width="84" height="115"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="tintColor" systemColor="systemBackgroundColor"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="YES"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="shadow">
@@ -95,7 +96,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6iS-sK-oFx">
-                                            <rect key="frame" x="8" y="12" width="84" height="115"/>
+                                            <rect key="frame" x="8" y="8" width="84" height="115"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doc.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4va-oj-ofj">
                                                     <rect key="frame" x="22.5" y="41" width="37.5" height="33.5"/>
@@ -114,22 +115,23 @@
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                    <real key="value" value="1"/>
+                                                    <real key="value" value="0.0"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="8"/>
+                                                    <real key="value" value="0.0"/>
                                                 </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" systemColor="opaqueSeparatorColor"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadow">
+                                                    <real key="value" value="3"/>
                                                 </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="shadowed" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="6iS-sK-oFx" firstAttribute="top" secondItem="blq-5c-RmI" secondAttribute="top" constant="12" id="6Bp-2K-oE9"/>
+                                        <constraint firstItem="6iS-sK-oFx" firstAttribute="top" secondItem="blq-5c-RmI" secondAttribute="top" constant="8" id="6Bp-2K-oE9"/>
                                         <constraint firstItem="6iS-sK-oFx" firstAttribute="leading" secondItem="blq-5c-RmI" secondAttribute="leading" constant="8" id="Bk8-46-IwC"/>
                                         <constraint firstAttribute="trailing" secondItem="6iS-sK-oFx" secondAttribute="trailing" constant="8" id="P0A-LN-Wob"/>
-                                        <constraint firstAttribute="bottom" secondItem="6iS-sK-oFx" secondAttribute="bottom" constant="34" id="nrj-6B-WoR"/>
+                                        <constraint firstAttribute="bottom" secondItem="6iS-sK-oFx" secondAttribute="bottom" constant="38" id="nrj-6B-WoR"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="100" height="161"/>
@@ -313,9 +315,6 @@
         <namedColor name="AccentColor">
             <color red="0.29100000858306885" green="0.63200002908706665" blue="0.18600000441074371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="quaternaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.17999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

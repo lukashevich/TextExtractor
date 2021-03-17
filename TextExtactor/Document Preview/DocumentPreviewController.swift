@@ -18,14 +18,19 @@ final class DocumentPreviewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.modalPresentationStyle = .fullScreen
+    self.isModalInPresentation = true
     
-    self.titleText.text = viewModel.document.name
-    self.text.text = viewModel.document.text
-    self.player.fileUrl = viewModel.document.audioLink
-//    FileManager.tmpFolder.appendingPathComponent("temp").appendingPathExtension("m4a")
-    print("---> ", FileManager.content(from: FileManager.tmpFolder))
-
+    let doc = viewModel.document
+    switch doc.source {
+    case .media:
+      self.titleText.text = doc.name
+      self.text.text = doc.text
+      self.player.fileUrl = doc.audioLink
+    case .photo:
+      self.player.isHidden = true
+      self.titleText.text = doc.name
+      self.text.text = doc.text
+    }
   }
   
   @IBAction func cancel() {
@@ -40,14 +45,14 @@ final class DocumentPreviewController: UIViewController {
       return
     }
     
-    let doc = viewModel.document.copy(name: name, text: text)
+    let document = self.viewModel.document.copy(name: name, text: text)
 
 //    guard !doc.isEqual(viewModel.document) else {
 //      self.dismiss(animated: true, completion: nil)
 //      return
 //    }
 
-    doc.createFile()
-    self.dismiss(animated: true, completion: AppStoreReviewHelper.askForReviewIfNeeded)
+    document.createFile()
+    UIApplication.dismissToRoot()
   }
 }
