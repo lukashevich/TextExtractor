@@ -36,13 +36,12 @@ final class LibraryController: UICollectionViewController, ShareControllerPresen
   }
   
   func appeared() {
-    print("YEAH")
     self.collectionView.reloadData()
   }
   
-  override func viewDidLoad() {
-    self._router.navigate(to: .paywall(PaywallHandlers(success: nil, deny: nil)))
-  }
+//  override func viewDidLoad() {
+//    self._router.navigate(to: .paywall(PaywallHandlers(success: nil, deny: nil)))
+//  }
 }
 
 extension LibraryController {
@@ -76,6 +75,11 @@ extension LibraryController {
 
       return cell
     }
+  }
+  
+  override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    super.traitCollectionDidChange(previousTraitCollection)
+    self.collectionView.reloadData()
   }
   
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

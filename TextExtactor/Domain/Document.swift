@@ -103,6 +103,7 @@ extension Document {
     return [
       "name": name,
       "text": text,
+      "source": source.rawValue,
       "createdAt": dateFormatter.string(from: createdAt),
       "modifiedAt": dateFormatter.string(from: modifiedAt)
     ]

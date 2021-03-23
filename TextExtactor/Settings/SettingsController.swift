@@ -19,8 +19,7 @@ final class SettingsController: UIViewController, URLPresenter {
   }
   
   private let _source: [[Identifier]] = [
-    [.subscription,
-     .restore],
+    [.subscription],
     [.privacy,
      .tos]
   ]

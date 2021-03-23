@@ -15,9 +15,13 @@ protocol ActionViewDelegate {
 final class ActionView: UIControl {
   
   enum State: String {
-    case empty = "Empty"
-    case save = "Save"
-    case cancel = "Cancel"
+    case empty = "EMPTY"
+    case save = "SAVE"
+    case cancel = "CANCEL"
+    
+    var localized: String {
+      rawValue.localized
+    }
   }
   
   @IBOutlet private weak var _actionButton: UIButton!
@@ -26,7 +30,7 @@ final class ActionView: UIControl {
   
   var viewState: State = .cancel {
     didSet {
-      _actionButton.setTitle(viewState.rawValue, for: .normal)
+      _actionButton.setTitle(viewState.localized, for: .normal)
       _update(for: viewState)
     }
   }

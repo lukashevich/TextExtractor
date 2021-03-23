@@ -30,7 +30,7 @@ class LibraryRouter {
     var senderVM: Any? {
       switch self {
       case .newDoc: return NewDocumentViewModel()
-      case .preview(let doc): return DocumentPreviewViewModel(document: doc)
+      case .preview(let doc): return DocumentPreviewViewModel(document: doc, isNew: false)
       case .paywall(let handlers): return PaywallViewModel(handlers: handlers)
       }
     }

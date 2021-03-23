@@ -82,6 +82,22 @@ extension UIView {
     alpha = 1.0
     isUserInteractionEnabled = true
   }
+  
+  func hideAnimated() {
+    UIView.animate(withDuration: 0.1) {
+      self.alpha = 0.0
+    } completion: { _ in
+      self.isHidden = true
+    }
+  }
+  
+  func showAnimated() {
+    self.isHidden = false
+    self.alpha = 0.0
+    UIView.animate(withDuration: 0.1) {
+      self.alpha = 1.0
+    }
+  }
 }
 
 

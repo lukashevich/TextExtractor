@@ -13,4 +13,5 @@ enum PreviewOpenType {
 }
 struct DocumentPreviewViewModel {
   var document: Document
+  let isNew: Bool
 }

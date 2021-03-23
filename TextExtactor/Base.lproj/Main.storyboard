@@ -95,6 +95,9 @@
                 <navigationController id="dZi-NS-hhg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="M5N-ma-qvN">
                         <color key="badgeColor" name="AccentColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="SETTINGS"/>
+                        </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Pas-27-Pei">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -125,6 +128,9 @@
                     <tabBarItem key="tabBarItem" title="Recents" image="books.vertical" catalog="system" id="dxP-DD-FB4">
                         <color key="badgeColor" name="AccentColor"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="4"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="FILES"/>
+                        </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="bOo-Ys-hlq">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>

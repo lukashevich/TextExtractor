@@ -17,9 +17,13 @@ final class LibraryHeader: UICollectionReusableView {
   var delegate: LibraryHeaderDelegate?
   
   enum Sort: String, CaseIterable {
-    case recent = "Recent"
-    case title = "Title"
-    case modified = "Modified"
+    case recent = "RECENT"
+    case title = "TITLE"
+    case modified = "MODIFIED"
+    
+    var localized: String {
+      rawValue.localized
+    }
   }
   
   @IBOutlet weak var sortButton: UIButton! {
@@ -31,7 +35,7 @@ final class LibraryHeader: UICollectionReusableView {
   
   private var _sortMenuItems: UIMenu {
     return UIMenu(title: "", options: .displayInline, children: Sort.allCases.map { sort in
-      return UIAction(title: sort.rawValue, handler: { _ in
+      return UIAction(title: sort.localized, handler: { _ in
         self.sortButton.setTitle(sort.rawValue, for: .normal)
         self.delegate?.sorted(via: sort)
       })

@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import UICircularProgressRing
 import VisionKit
 import Vision
 
@@ -16,11 +15,11 @@ final class NewDocumentController: UIViewController {
   @IBOutlet weak var fileView: TitledActionView!
   @IBOutlet weak var locationView: TitledActionView!
   
-  @IBOutlet weak var newDocumentTextView: UITextView!
+  @IBOutlet weak var newDocumentTextView: TypenTextView!
   @IBOutlet weak var progressView: UIProgressView!
 
-  @IBOutlet weak var actionProgressView: ActionView!
-  @IBOutlet weak var cancelButton: UIButton!
+  @IBOutlet weak var preloader: TitledPreloader!
+  @IBOutlet weak var bottomView: UIView!
   
   var viewModel: NewDocumentViewModel!
   private var _expandedCell: ExpandableCell?
@@ -29,32 +28,30 @@ final class NewDocumentController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    cancelButton.isHidden = true
-    
+        
     self.viewModel.processStepHandler = { step in
       switch step {
       case .start:
-        self.progressView.progress = 0.0
-        self.progressView.isHidden = false
+        TapticHelper.weak()
         self.newDocumentTextView.text = ""
         self.newDocumentTextView.textColor = .label
-        self.cancelButton.isHidden = false
       case .recognized(let text):
-        self.newDocumentTextView.typeOn(string: text)
+        self.bottomView.isHidden = false
+        self.progressView.progress = 0.0
+        self.preloader.isHidden = true
+        self.newDocumentTextView.type(text)
       case .progress(let progress):
-        print(Float(progress))
         self.progressView.setProgress(Float(progress), animated: true)
       case .finish(let document):
+        TapticHelper.triple()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
           self.progressView.progress = 1.0
-          self.progressView.isHidden = true
-          self.cancelButton.isHidden = true
+          self.bottomView.isHidden = true
           guard let doc = document, !doc.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             self._showExtractErrorWarning()
             return
           }
-          self._finalizeExtracting(doc)
+          self._finalizeExtracting()
         }
       }
     }
@@ -64,7 +61,7 @@ final class NewDocumentController: UIViewController {
     _updateLocaleView()
   }
   
-  private func _finalizeExtracting(_ doc: Document) {
+  private func _finalizeExtracting() {
     func success() {
       guard let doc = viewModel.document else { return }
       self._clearFileViews()
@@ -88,18 +85,23 @@ final class NewDocumentController: UIViewController {
     self.viewModel.stopExtracting()
   }
   
+  @IBAction func savePressed() {
+    self.viewModel.stopExtractingAndSaveDocument()
+    self._finalizeExtracting()
+  }
+  
   private func _showExtractErrorWarning() {
-    let alert = UIAlertController(title: "Sorry", message: "Unable to extract text from this file and in this Locale", preferredStyle: .alert)
+    let alert = UIAlertController(title: "Sorry", message: "UNABLE_TO_EXTRACT_MESSAGE".localized, preferredStyle: .alert)
     alert.view.tintColor = UIColor.accentColor
     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
     self.present(alert, animated: true, completion: nil)
   }
   
   private func _clearFileViews() {
-    fileView.title = "Choose File..."
+    fileView.title = "CHOOSE_FILE...".localized
     fileView.subtitle = ""
     viewModel.clearData()
-    self.cancelButton.isHidden = true
+    self.bottomView.isHidden = true
     newDocumentTextView.text = nil
   }
   
@@ -112,25 +114,25 @@ final class NewDocumentController: UIViewController {
   }
   
   @IBAction func chooseFilePressed() {
-    let alert = UIAlertController(title: "Choose file", message: "from", preferredStyle: .actionSheet)
+    let alert = UIAlertController(title: "CHOOSE_FILE".localized, message: "FROM".localized, preferredStyle: .actionSheet)
     alert.view.tintColor = UIColor.accentColor
-    alert.addAction(UIAlertAction(title: "Files", style: .default , handler:{ _ in
+    alert.addAction(UIAlertAction(title: "FILES".localized, style: .default , handler:{ _ in
       self._clearFileViews()
       self.pickFileFromCloud()
     }))
     
-    alert.addAction(UIAlertAction(title: "Library", style: .default , handler:{ _ in
+    alert.addAction(UIAlertAction(title: "LIBRARY".localized, style: .default , handler:{ _ in
       self._clearFileViews()
       self.pickFileLibrary()
     }))
     
-    alert.addAction(UIAlertAction(title: "Camera", style: .default , handler:{ _ in
+    alert.addAction(UIAlertAction(title: "CAMERA".localized, style: .default , handler:{ _ in
       self._clearFileViews()
       self.viewModel.setupVision()
       self.selectFromCamera()
     }))
     
-    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel , handler: nil))
+    alert.addAction(UIAlertAction(title: "CANCEL".localized, style: .cancel , handler: nil))
     
     self.present(alert, animated: true, completion: nil)
   }
@@ -142,10 +144,6 @@ final class NewDocumentController: UIViewController {
     }
     self._router.navigate(to: .locales(handler))
   }
-  
-  @IBAction func actionButtonPressed() {
-//    self._finalizeExtracting()
-  }
 }
 
 extension NewDocumentController: LibraryFilePicker {
@@ -154,6 +152,7 @@ extension NewDocumentController: LibraryFilePicker {
       self.fileView.title = videoURL.deletingPathExtension().lastPathComponent
       self.fileView.subtitle = videoURL.pathExtension
       self.viewModel.fileUrl = videoURL
+      self.preloader.isHidden = false
       picker.dismiss(animated: true, completion: nil)
     }
   }
@@ -169,7 +168,7 @@ extension NewDocumentController: iCloudFilePicker {
     
     self.fileView.title = url.deletingPathExtension().lastPathComponent
     self.fileView.subtitle = url.pathExtension
-    
+    self.preloader.isHidden = false
     self.viewModel.fileUrl = url
     url.stopAccessingSecurityScopedResource()
   }

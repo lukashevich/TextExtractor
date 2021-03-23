@@ -34,16 +34,16 @@ class LibraryItemCell: UICollectionViewCell, IdentifiableCell {
   
   var viewModel: LibraryItemCellViewModel! {
     didSet {
-      self.trumbnail.image = viewModel.document.image
+      self.trumbnail.image = viewModel.document.image?.inverted
       self._isNew = viewModel.document.isNew
     }
   }
   
   private var _menuItems: UIMenu {
     let children = [
-      UIAction(title: "Share PDF", image: UIImage.doc, handler: _sharePDF),
-      UIAction(title: "Share Audio (M4A)", image: UIImage.waveformCircle, handler: _shareAudio),
-      UIAction(title: "Delete", image: UIImage.trash, attributes: .destructive, handler: _deleteDoc)
+      UIAction(title: "SHARE_PDF".localized, image: UIImage.doc, handler: _sharePDF),
+      UIAction(title: "SHARE_M4A".localized, image: UIImage.waveformCircle, handler: _shareAudio),
+      UIAction(title: "DELETE".localized, image: UIImage.trash, attributes: .destructive, handler: _deleteDoc)
     ]
     return UIMenu(title: "", options: .displayInline, children: children)
   }
@@ -67,8 +67,7 @@ class LibraryItemCell: UICollectionViewCell, IdentifiableCell {
 
 extension UIImage {
   var inverted: UIImage {
-    print(traitCollection.userInterfaceStyle != .light, traitCollection.userInterfaceStyle.rawValue)
-    guard let cgImage = self.cgImage, traitCollection.userInterfaceStyle != .light else { return self }
+    guard let cgImage = self.cgImage, UITraitCollection.current.userInterfaceStyle == .dark else { return self }
     let ciImage = CoreImage.CIImage(cgImage: cgImage)
     guard let filter = CIFilter(name: "CIColorInvert") else { return self }
     filter.setDefaults()

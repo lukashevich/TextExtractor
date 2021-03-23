@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TitledPreloader" customModule="TextExtactor" customModuleProvider="target">
+            <connections>
+                <outlet property="preloader" destination="JLn-c5-8GY" id="pnI-Rg-Eez"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XcV-z2-2Og">
+            <rect key="frame" x="0.0" y="0.0" width="188" height="139"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="JLn-c5-8GY">
+                    <rect key="frame" x="75.5" y="43" width="37" height="37"/>
+                    <color key="color" name="AccentColor"/>
+                </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Processing..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhS-gs-1F9">
+                    <rect key="frame" x="16" y="96" width="156" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" name="AccentColor"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="smallCaps" value="YES"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PROCESSING"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ZhS-gs-1F9" secondAttribute="bottom" constant="16" id="9bV-zB-Z39"/>
+                <constraint firstItem="JLn-c5-8GY" firstAttribute="centerY" secondItem="XcV-z2-2Og" secondAttribute="centerY" constant="-8" id="EIB-ah-GHy"/>
+                <constraint firstItem="JLn-c5-8GY" firstAttribute="centerX" secondItem="XcV-z2-2Og" secondAttribute="centerX" id="SR0-ft-4yi"/>
+                <constraint firstAttribute="trailing" secondItem="ZhS-gs-1F9" secondAttribute="trailing" constant="16" id="aOR-Rg-kKw"/>
+                <constraint firstItem="ZhS-gs-1F9" firstAttribute="top" secondItem="JLn-c5-8GY" secondAttribute="bottom" constant="16" id="cR4-4w-XvK"/>
+                <constraint firstItem="ZhS-gs-1F9" firstAttribute="leading" secondItem="XcV-z2-2Og" secondAttribute="leading" constant="16" id="xkP-qF-eKI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="16"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="-439.13043478260875" y="-96.763392857142847"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.29100000858306885" green="0.63200002908706665" blue="0.18600000441074371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

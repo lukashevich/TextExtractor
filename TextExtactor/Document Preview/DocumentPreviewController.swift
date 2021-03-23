@@ -45,14 +45,16 @@ final class DocumentPreviewController: UIViewController {
       return
     }
     
-    let document = self.viewModel.document.copy(name: name, text: text)
+    let oldDoc = self.viewModel.document
+    let newDoc = self.viewModel.document.copy(name: name, text: text)
 
-//    guard !doc.isEqual(viewModel.document) else {
-//      self.dismiss(animated: true, completion: nil)
-//      return
-//    }
+    guard !oldDoc.isEqual(newDoc) || viewModel.isNew else {
+      self.dismiss(animated: true, completion: nil)
+      return
+    }
 
-    document.createFile()
+    FileManager.removeDocument(oldDoc)
+    newDoc.createFile()
     UIApplication.dismissToRoot()
   }
 }

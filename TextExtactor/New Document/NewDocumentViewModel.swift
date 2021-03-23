@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import XCDYouTubeKit
 import VisionKit
 import Vision
 
@@ -58,7 +57,6 @@ final class NewDocumentViewModel {
       self.processStepHandler?(.start)
     }
     let step = CGFloat(1.0 / Float(_splittedSource.count))
-    let startDate = Date()
     Recognizer.recognizeMedia(at: _splittedSource, in: _locale) { text in
       DispatchQueue.main.async {
         self._recognizedTexts.append(text)
@@ -101,6 +99,11 @@ final class NewDocumentViewModel {
       }
     }
   }
+  
+  func stopExtractingAndSaveDocument() {
+    self.stopExtracting()
+    self._finishProcessing(source: .media, text: self._recognizedTexts.joined(separator: " "))
+  }
  
   private func _finishProcessing(source: DocumentSource, text: String) {
     switch source {
@@ -123,84 +126,6 @@ final class NewDocumentViewModel {
     DispatchQueue.main.async {
       self.processStepHandler?(.finish(self.document))
     }
-  }
-  
-  func loadVideo() {
-    //"https://www.youtube.com/watch?v=0ymRmQf5MAM"
-        extractVideos(from: "iol8n3m88SA") { (dic) -> (Void) in
-          print(dic.keys)
-    //                let player = AVPlayer(url: URL(string: dic.values.first!)!)
-    //                playerLayer.player = player
-    //                playerLayer.player?.play()
-                }
-    
-    //    XCDYouTubeClient.default().getVideoWithIdentifier("9bZkp7q19f0") { (video, error) in
-    //      if let url = video?.streamURL {
-    //        self.fileUrl = url
-    ////        let test = AVURLAsset(url: url)
-    ////        print(test)
-    //      }
-    //    }
-    
-//    let videoURL = "https://www.youtube.com/watch?v=0ymRmQf5MAM"
-//    let url = NSURL(string: "http://www.youtubeinmp3.com/api/fetch/?format=JSON&video=\(videoURL)")
-//    let sessionConfig = URLSessionConfiguration.default
-//    let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
-//    let request = NSMutableURLRequest(url: url! as URL)
-//    request.httpMethod = "GET"
-//    
-//    let task = session.dataTask(with: request as URLRequest, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
-//      if (error == nil) {
-//        if let response = response as? HTTPURLResponse {
-//          print("response=\(response)")
-//          if response.statusCode == 200 {
-//            if data != nil {
-//              do {
-//                let responseJSON =  try  JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary;
-//                let urlString = responseJSON["link"] as! String
-//                let directDownloadURL = NSURL(string: urlString)
-//                
-//                
-//                print("!!!!", directDownloadURL)
-//                // Call your method loadFileAsync
-////                YourClass.loadFileAsync(directDownloadURL!, completion: { (path, error) -> Void in
-////                  print(path)
-////                })
-////
-//              }
-//              catch let JSONError as Error {
-//                print("\(JSONError)")
-//              }
-//              catch {
-//                print("unknown error in JSON Parsing");
-//              }
-//              
-//            }
-//          }
-//        }
-//      }
-//      else {
-//        print("Failure: \(error!.localizedDescription)");
-//      }
-//    })
-//    task.resume()
-    
-  }
-}
-
-
-extension String {
-  var youtubeID: String? {
-    let pattern = "((?<=(v|V)/)|(?<=be/)|(?<=(\\?|\\&)v=)|(?<=embed/))([\\w-]++)"
-    
-    let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive)
-    let range = NSRange(location: 0, length: count)
-    
-    guard let result = regex?.firstMatch(in: self, range: range) else {
-      return nil
-    }
-    
-    return (self as NSString).substring(with: result.range)
   }
 }
 

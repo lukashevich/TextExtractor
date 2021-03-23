@@ -26,7 +26,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="ShI-RE-RJh">
-                                    <rect key="frame" x="0.0" y="453.5" width="414" height="1"/>
+                                    <rect key="frame" x="0.0" y="478.5" width="414" height="1"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
@@ -101,14 +101,14 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="subscription" id="rh3-PO-faD" customClass="PaywallCell" customModule="TextExtactor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="158" width="414" height="267.5"/>
+                                        <rect key="frame" x="0.0" y="158" width="414" height="292.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rh3-PO-faD" id="7Ad-19-GXv" customClass="PaywallSmallView" customModule="TextExtactor" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="267.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="292.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Yc-5P-ytQ">
-                                                    <rect key="frame" x="40" y="27" width="334" height="35.5"/>
+                                                    <rect key="frame" x="40" y="27" width="334" height="34.5"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Get">
                                                             <attributes>
@@ -139,7 +139,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qnl-vg-bD2">
-                                                    <rect key="frame" x="99.5" y="78.5" width="215" height="82"/>
+                                                    <rect key="frame" x="99.5" y="77.5" width="215" height="82"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qE7-RY-Idw">
                                                             <rect key="frame" x="0.0" y="0.0" width="215" height="22"/>
@@ -159,6 +159,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="smallCaps" value="YES"/>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTTILE_1"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                             </subviews>
@@ -181,6 +182,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="smallCaps" value="YES"/>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTTILE_2"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                             </subviews>
@@ -203,6 +205,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="smallCaps" value="YES"/>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTTILE_3"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                             </subviews>
@@ -210,7 +213,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SV8-tm-se4">
-                                                    <rect key="frame" x="98" y="176.5" width="218" height="23"/>
+                                                    <rect key="frame" x="98" y="175.5" width="218" height="23"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="starts with 3-day free trial">
                                                             <attributes>
@@ -227,7 +230,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9G-rJ-zxt">
-                                                    <rect key="frame" x="20" y="203.5" width="374" height="44"/>
+                                                    <rect key="frame" x="20" y="202.5" width="374" height="44"/>
                                                     <color key="backgroundColor" name="AccentColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="qvu-74-avT"/>
@@ -243,7 +246,25 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="subscribe" destination="rh3-PO-faD" eventType="touchUpInside" id="5lG-KF-zaS"/>
+                                                        <action selector="subscribePressed" destination="rh3-PO-faD" eventType="touchUpInside" id="ML4-46-Y6F"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5V-9I-YOj">
+                                                    <rect key="frame" x="117" y="254.5" width="180" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="180" id="lwq-un-sti"/>
+                                                        <constraint firstAttribute="height" constant="30" id="qya-XB-iir"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <state key="normal" title="Restore">
+                                                        <color key="titleColor" name="AccentColor"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="smallCaps" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="RESTORE"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="restore" destination="rh3-PO-faD" eventType="touchUpInside" id="Dxr-4L-gh6"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -254,15 +275,22 @@
                                                 <constraint firstItem="X9G-rJ-zxt" firstAttribute="leading" secondItem="7Ad-19-GXv" secondAttribute="leadingMargin" id="C6y-rN-4JP"/>
                                                 <constraint firstItem="7Yc-5P-ytQ" firstAttribute="leading" secondItem="7Ad-19-GXv" secondAttribute="leadingMargin" constant="20" id="Epe-gX-NVB"/>
                                                 <constraint firstItem="X9G-rJ-zxt" firstAttribute="top" secondItem="SV8-tm-se4" secondAttribute="bottom" constant="4" id="FiK-ou-XbP"/>
+                                                <constraint firstAttribute="bottom" secondItem="d5V-9I-YOj" secondAttribute="bottom" constant="8" id="GcW-rf-CYw"/>
+                                                <constraint firstItem="d5V-9I-YOj" firstAttribute="top" secondItem="X9G-rJ-zxt" secondAttribute="bottom" constant="8" id="PrW-wS-C5I"/>
                                                 <constraint firstItem="SV8-tm-se4" firstAttribute="top" secondItem="Qnl-vg-bD2" secondAttribute="bottom" constant="16" id="Rgu-h4-jjF"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="7Yc-5P-ytQ" secondAttribute="trailing" constant="20" id="S9i-MW-sx9"/>
                                                 <constraint firstItem="Qnl-vg-bD2" firstAttribute="centerX" secondItem="7Ad-19-GXv" secondAttribute="centerX" id="a4F-wp-EKA"/>
-                                                <constraint firstAttribute="bottom" secondItem="X9G-rJ-zxt" secondAttribute="bottom" constant="20" id="gcD-s3-iyJ"/>
+                                                <constraint firstItem="X9G-rJ-zxt" firstAttribute="centerX" secondItem="7Ad-19-GXv" secondAttribute="centerX" id="pMd-BA-eWG"/>
+                                                <constraint firstItem="d5V-9I-YOj" firstAttribute="centerX" secondItem="7Ad-19-GXv" secondAttribute="centerX" id="qrA-6U-os0"/>
                                                 <constraint firstItem="SV8-tm-se4" firstAttribute="centerX" secondItem="7Ad-19-GXv" secondAttribute="centerX" id="sad-A6-s58"/>
                                                 <constraint firstItem="7Yc-5P-ytQ" firstAttribute="top" secondItem="7Ad-19-GXv" secondAttribute="topMargin" constant="16" id="uNu-cI-yJW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="SecondaryAccentColor"/>
+                                        <connections>
+                                            <outlet property="_subscribeButton" destination="X9G-rJ-zxt" id="0jl-Sd-XTP"/>
+                                            <outlet property="_trialLabel" destination="SV8-tm-se4" id="FwP-aP-w5s"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -280,6 +308,9 @@
                             <constraint firstItem="2ZT-t7-mH9" firstAttribute="bottom" secondItem="UEy-xQ-WFh" secondAttribute="bottom" id="vJL-rV-aAk"/>
                         </constraints>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="SETTINGS"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="FkL-F1-qoF" kind="show" identifier="toPaywall" id="J2b-ic-3qf"/>
                     </connections>

@@ -1,0 +1,47 @@
+/* 
+  Localization.strings
+  TextExtactor
+
+  Created by Oleksandr Lukashevych on 23.03.2021.
+  
+*/
+
+"SAVE" = "Save";
+"CANCEL" = "Cancel";
+"SORT" = "Sort";
+"RECENT" = "Recent";
+"TITLE" = "Title";
+"MODIFIED" = "Modified";
+"CHOOSE_FILE..." = "Choose file...";
+"CHOOSE_FILE" = "Choose file";
+"FROM" = "from";
+"LIBRARY" = "Library";
+"RECENTS" = "Recents";
+"SETTINGS" = "Settings";
+
+"PRIVACY" = "Privacy Policy";
+"TOS" = "Terms Of Use";
+
+"SHARE_PDF" = "Share PDF";
+"SHARE_M4A" = "Share Audio (M4A)";
+"DELETE" = "Delete";
+
+"RESTORE" = "Restore";
+
+"SORRY" = "Sorry";
+"UNABLE_TO_EXTRACT_MESSAGE" = "Unable to extract text from this file and in this Locale";
+"FILES" = "Files";
+"CAMERA" = "Camera";
+"EMPTY" = "Empty";
+"PROCESSING" = "Processing...";
+
+"DAY" = "Day";
+"WEEK" = "Week";
+"MONTH" = "Month";
+"YEAR" = "Year";
+
+"PAYWALL_TITLE" = "Get Textractor Unlimited";
+"PAYWALL_SUBTTILE_1" = "No Duration Limit";
+"PAYWALL_SUBTTILE_2" = "Infinite quality of records";
+"PAYWALL_SUBTTILE_3" = "Multiple pages of your PDF";
+"PAYWALL_CTA" = "Subscribe for %@ / %@";

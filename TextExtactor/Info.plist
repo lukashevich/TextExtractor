@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Textractor</string>
+	<string>Textr</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -40,7 +40,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Camera access to scan documents</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>recognize speech</string>
+	<string>... just for text recognition from media files</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>SF-Pro-Rounded-Semibold.ttf</string>

@@ -21,6 +21,8 @@
 		7F21D37D25DAB970009A3F53 /* ProcessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21D37C25DAB970009A3F53 /* ProcessCell.swift */; };
 		7F21D38225DAC3FB009A3F53 /* ExpandableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21D38125DAC3FB009A3F53 /* ExpandableCell.swift */; };
 		7F21D38525DACC2B009A3F53 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21D38425DACC2B009A3F53 /* String+Extensions.swift */; };
+		7F2C4AC7260257A700824998 /* PreloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2C4AC6260257A700824998 /* PreloaderView.swift */; };
+		7F2C4ACA260257B000824998 /* PreloaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F2C4AC9260257B000824998 /* PreloaderView.xib */; };
 		7F35005825E434C6003E2089 /* YoutubeVideoExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F35005725E434C6003E2089 /* YoutubeVideoExtractor.swift */; };
 		7F44359125DC1FE300F776BE /* iCloudFilePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F44359025DC1FE300F776BE /* iCloudFilePicker.swift */; };
 		7F44359425DC212800F776BE /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F44359325DC212800F776BE /* UIColor+Extensions.swift */; };
@@ -54,6 +56,15 @@
 		7F719DFE25FCF1EB0039E14A /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719DFD25FCF1EB0039E14A /* SettingsRouter.swift */; };
 		7F719E0125FFCF070039E14A /* URLPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719E0025FFCF070039E14A /* URLPresenter.swift */; };
 		7F719E1025FFD32E0039E14A /* PaywallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719E0F25FFD32E0039E14A /* PaywallCell.swift */; };
+		7F7E887926075A8F0059E5E2 /* how to make a profit while making a difference.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7F7E887526075A8B0059E5E2 /* how to make a profit while making a difference.mp3 */; };
+		7F7E887A26075A8F0059E5E2 /* 4 ways to build a human company.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7F7E887626075A8E0059E5E2 /* 4 ways to build a human company.mp4 */; };
+		7F7E887B26075A8F0059E5E2 /* how books can open your mind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7F7E887726075A8E0059E5E2 /* how books can open your mind.mp3 */; };
+		7F7E887C26075A8F0059E5E2 /* How to know if it's time to change carrers.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7F7E887826075A8F0059E5E2 /* How to know if it's time to change carrers.mp4 */; };
+		7F7E887F2608FC700059E5E2 /* TitledPreloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7E887E2608FC700059E5E2 /* TitledPreloader.swift */; };
+		7F7E88822608FC780059E5E2 /* TitledPreloader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7E88812608FC780059E5E2 /* TitledPreloader.xib */; };
+		7F7E888D260A52D20059E5E2 /* LocalizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7E888C260A52D20059E5E2 /* LocalizationHelper.swift */; };
+		7F7E8892260A532F0059E5E2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F7E8894260A532F0059E5E2 /* Localizable.strings */; };
+		7F7E8899260A5CE70059E5E2 /* PeriodUnit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7E8898260A5CE70059E5E2 /* PeriodUnit+Extension.swift */; };
 		7F7ED07325D98081003F6BBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7ED07225D98081003F6BBB /* AppDelegate.swift */; };
 		7F7ED07525D98081003F6BBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7ED07425D98081003F6BBB /* SceneDelegate.swift */; };
 		7F7ED07A25D98081003F6BBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F7ED07825D98081003F6BBB /* Main.storyboard */; };
@@ -85,13 +96,9 @@
 		7FC9811A25E41E7500FD65DF /* DocumentPreview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC9811925E41E7500FD65DF /* DocumentPreview.storyboard */; };
 		7FC9811D25E41E9900FD65DF /* DocumentPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9811C25E41E9900FD65DF /* DocumentPreviewViewModel.swift */; };
 		7FC9812225E4256E00FD65DF /* RootTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9812125E4256E00FD65DF /* RootTabController.swift */; };
-		7FC9812625E4308400FD65DF /* XCDYouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7FC9812525E4308400FD65DF /* XCDYouTubeKit */; };
-		C240BA653B193A0C413D9C48 /* Pods_TextExtactor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792155EBAFC56D8A453BCD17 /* Pods_TextExtactor.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		792155EBAFC56D8A453BCD17 /* Pods_TextExtactor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextExtactor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E1DFBB3E8C77FC278FB3C00 /* Pods-TextExtactor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextExtactor.debug.xcconfig"; path = "Target Support Files/Pods-TextExtactor/Pods-TextExtactor.debug.xcconfig"; sourceTree = "<group>"; };
 		7F21D34825DA8A46009A3F53 /* UITextView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extensions.swift"; sourceTree = "<group>"; };
 		7F21D34F25DA8B50009A3F53 /* AudioFileSplitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileSplitter.swift; sourceTree = "<group>"; };
 		7F21D35225DA8B6B009A3F53 /* AudioChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioChunk.swift; sourceTree = "<group>"; };
@@ -105,6 +112,8 @@
 		7F21D37C25DAB970009A3F53 /* ProcessCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessCell.swift; sourceTree = "<group>"; };
 		7F21D38125DAC3FB009A3F53 /* ExpandableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableCell.swift; sourceTree = "<group>"; };
 		7F21D38425DACC2B009A3F53 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		7F2C4AC6260257A700824998 /* PreloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloaderView.swift; sourceTree = "<group>"; };
+		7F2C4AC9260257B000824998 /* PreloaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreloaderView.xib; sourceTree = "<group>"; };
 		7F35005725E434C6003E2089 /* YoutubeVideoExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeVideoExtractor.swift; sourceTree = "<group>"; };
 		7F44358E25DC1B1400F776BE /* TextExtactor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TextExtactor.entitlements; sourceTree = "<group>"; };
 		7F44359025DC1FE300F776BE /* iCloudFilePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudFilePicker.swift; sourceTree = "<group>"; };
@@ -138,6 +147,16 @@
 		7F719DFD25FCF1EB0039E14A /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		7F719E0025FFCF070039E14A /* URLPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPresenter.swift; sourceTree = "<group>"; };
 		7F719E0F25FFD32E0039E14A /* PaywallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallCell.swift; sourceTree = "<group>"; };
+		7F7E887526075A8B0059E5E2 /* how to make a profit while making a difference.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "how to make a profit while making a difference.mp3"; sourceTree = "<group>"; };
+		7F7E887626075A8E0059E5E2 /* 4 ways to build a human company.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "4 ways to build a human company.mp4"; sourceTree = "<group>"; };
+		7F7E887726075A8E0059E5E2 /* how books can open your mind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "how books can open your mind.mp3"; sourceTree = "<group>"; };
+		7F7E887826075A8F0059E5E2 /* How to know if it's time to change carrers.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "How to know if it's time to change carrers.mp4"; sourceTree = "<group>"; };
+		7F7E887E2608FC700059E5E2 /* TitledPreloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledPreloader.swift; sourceTree = "<group>"; };
+		7F7E88812608FC780059E5E2 /* TitledPreloader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitledPreloader.xib; sourceTree = "<group>"; };
+		7F7E888C260A52D20059E5E2 /* LocalizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationHelper.swift; sourceTree = "<group>"; };
+		7F7E8893260A532F0059E5E2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7F7E8895260A53790059E5E2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7F7E8898260A5CE70059E5E2 /* PeriodUnit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PeriodUnit+Extension.swift"; sourceTree = "<group>"; };
 		7F7ED06F25D98081003F6BBB /* TextExtactor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextExtactor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F7ED07225D98081003F6BBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F7ED07425D98081003F6BBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,7 +192,6 @@
 		7FC9811925E41E7500FD65DF /* DocumentPreview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DocumentPreview.storyboard; sourceTree = "<group>"; };
 		7FC9811C25E41E9900FD65DF /* DocumentPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPreviewViewModel.swift; sourceTree = "<group>"; };
 		7FC9812125E4256E00FD65DF /* RootTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabController.swift; sourceTree = "<group>"; };
-		BC5E4DF9569E1C5850121716 /* Pods-TextExtactor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextExtactor.release.xcconfig"; path = "Target Support Files/Pods-TextExtactor/Pods-TextExtactor.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,22 +201,12 @@
 			files = (
 				7F21D36325DA9011009A3F53 /* DSWaveformImage in Frameworks */,
 				7F47AF3325E5489500CD8C02 /* SwiftyStoreKit in Frameworks */,
-				7FC9812625E4308400FD65DF /* XCDYouTubeKit in Frameworks */,
-				C240BA653B193A0C413D9C48 /* Pods_TextExtactor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3F39F536C97BF5C4871DC707 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				792155EBAFC56D8A453BCD17 /* Pods_TextExtactor.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		7F21D34B25DA8AA0009A3F53 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +218,7 @@
 				7F47AF3525E54A2500CD8C02 /* SubscriptionHelper.swift */,
 				7F52927D25E6A47400D7571F /* TapticHelper.swift */,
 				7F4CE0D725F9409F00F7AF09 /* AppStoreReviewHelper.swift */,
+				7F7E888C260A52D20059E5E2 /* LocalizationHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -282,8 +291,13 @@
 		7F67583C25DA60D100D3FC73 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7F7E887626075A8E0059E5E2 /* 4 ways to build a human company.mp4 */,
+				7F7E887726075A8E0059E5E2 /* how books can open your mind.mp3 */,
+				7F7E887826075A8F0059E5E2 /* How to know if it's time to change carrers.mp4 */,
+				7F7E887526075A8B0059E5E2 /* how to make a profit while making a difference.mp3 */,
 				7FC980DE25DD834D00FD65DF /* SF-Pro-Rounded-Medium.otf */,
 				7FC980DF25DD834D00FD65DF /* SF-Pro-Rounded-Semibold.ttf */,
+				7F7E8894260A532F0059E5E2 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -303,6 +317,8 @@
 			isa = PBXGroup;
 			children = (
 				7F719E0F25FFD32E0039E14A /* PaywallCell.swift */,
+				7F2C4AC6260257A700824998 /* PreloaderView.swift */,
+				7F2C4AC9260257B000824998 /* PreloaderView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -312,8 +328,6 @@
 			children = (
 				7F7ED07125D98081003F6BBB /* TextExtactor */,
 				7F7ED07025D98081003F6BBB /* Products */,
-				B030F285B3E5627F131A0299 /* Pods */,
-				3F39F536C97BF5C4871DC707 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -411,6 +425,7 @@
 				7F4CE0E125FA7B0C00F7AF09 /* URL+Extensions.swift */,
 				7F4CE0E425FA80D900F7AF09 /* UIImage+Extensions.swift */,
 				7F719DED25FCE3D50039E14A /* UIApplication+Extensions.swift */,
+				7F7E8898260A5CE70059E5E2 /* PeriodUnit+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -422,6 +437,8 @@
 				7FC980F325E01BD500FD65DF /* TitledActionView.xib */,
 				7F52927725E6537F00D7571F /* ActionView.swift */,
 				7F52927A25E653E000D7571F /* ActionView.xib */,
+				7F7E887E2608FC700059E5E2 /* TitledPreloader.swift */,
+				7F7E88812608FC780059E5E2 /* TitledPreloader.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -456,15 +473,6 @@
 			path = "Root Controller";
 			sourceTree = "<group>";
 		};
-		B030F285B3E5627F131A0299 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7E1DFBB3E8C77FC278FB3C00 /* Pods-TextExtactor.debug.xcconfig */,
-				BC5E4DF9569E1C5850121716 /* Pods-TextExtactor.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -472,11 +480,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F7ED08325D98081003F6BBB /* Build configuration list for PBXNativeTarget "TextExtactor" */;
 			buildPhases = (
-				19285849DF3555148908180E /* [CP] Check Pods Manifest.lock */,
 				7F7ED06B25D98081003F6BBB /* Sources */,
 				7F7ED06C25D98081003F6BBB /* Frameworks */,
 				7F7ED06D25D98081003F6BBB /* Resources */,
-				10E62138C668C5F71723A060 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -485,7 +491,6 @@
 			name = TextExtactor;
 			packageProductDependencies = (
 				7F21D36225DA9011009A3F53 /* DSWaveformImage */,
-				7FC9812525E4308400FD65DF /* XCDYouTubeKit */,
 				7F47AF3225E5489500CD8C02 /* SwiftyStoreKit */,
 			);
 			productName = TextExtactor;
@@ -513,11 +518,11 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 7F7ED06625D98081003F6BBB;
 			packageReferences = (
 				7F21D36125DA9011009A3F53 /* XCRemoteSwiftPackageReference "DSWaveformImage" */,
-				7FC9812425E4308400FD65DF /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */,
 				7F47AF3125E5489500CD8C02 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
 			);
 			productRefGroup = 7F7ED07025D98081003F6BBB /* Products */;
@@ -536,62 +541,27 @@
 			files = (
 				7F7ED07F25D98081003F6BBB /* LaunchScreen.storyboard in Resources */,
 				7F4CE0DF25FA658C00F7AF09 /* PlayerView.xib in Resources */,
+				7F7E8892260A532F0059E5E2 /* Localizable.strings in Resources */,
+				7F7E887C26075A8F0059E5E2 /* How to know if it's time to change carrers.mp4 in Resources */,
 				7F7ED08C25D98124003F6BBB /* Library.storyboard in Resources */,
 				7F719DF825FCECFC0039E14A /* Settings.storyboard in Resources */,
+				7F7E88822608FC780059E5E2 /* TitledPreloader.xib in Resources */,
 				7F52927B25E653E000D7571F /* ActionView.xib in Resources */,
 				7F7ED07C25D98081003F6BBB /* Assets.xcassets in Resources */,
+				7F7E887926075A8F0059E5E2 /* how to make a profit while making a difference.mp3 in Resources */,
 				7FC9811A25E41E7500FD65DF /* DocumentPreview.storyboard in Resources */,
 				7F7ED07A25D98081003F6BBB /* Main.storyboard in Resources */,
 				7FC980FA25E0257500FD65DF /* Locales.storyboard in Resources */,
+				7F7E887B26075A8F0059E5E2 /* how books can open your mind.mp3 in Resources */,
 				7FC980F425E01BD500FD65DF /* TitledActionView.xib in Resources */,
+				7F7E887A26075A8F0059E5E2 /* 4 ways to build a human company.mp4 in Resources */,
 				7F21D36C25DAB7A3009A3F53 /* NewDocument.storyboard in Resources */,
 				7F47AF2F25E5440400CD8C02 /* Paywall.storyboard in Resources */,
+				7F2C4ACA260257B000824998 /* PreloaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		10E62138C668C5F71723A060 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TextExtactor/Pods-TextExtactor-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TextExtactor/Pods-TextExtactor-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TextExtactor/Pods-TextExtactor-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		19285849DF3555148908180E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TextExtactor-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7F7ED06B25D98081003F6BBB /* Sources */ = {
@@ -610,6 +580,7 @@
 				7F44359425DC212800F776BE /* UIColor+Extensions.swift in Sources */,
 				7F719DE525FCC5BD0039E14A /* LocalesViewModel.swift in Sources */,
 				7F719DFE25FCF1EB0039E14A /* SettingsRouter.swift in Sources */,
+				7F7E8899260A5CE70059E5E2 /* PeriodUnit+Extension.swift in Sources */,
 				7F21D35325DA8B6B009A3F53 /* AudioChunk.swift in Sources */,
 				7F719DEB25FCCD590039E14A /* LibraryRouter.swift in Sources */,
 				7F7ED07325D98081003F6BBB /* AppDelegate.swift in Sources */,
@@ -617,6 +588,7 @@
 				7F44359C25DD712400F776BE /* LibrarySmallItemCell.swift in Sources */,
 				7F4CE0D825F9409F00F7AF09 /* AppStoreReviewHelper.swift in Sources */,
 				7F21D37625DAB92F009A3F53 /* SourceCell.swift in Sources */,
+				7F2C4AC7260257A700824998 /* PreloaderView.swift in Sources */,
 				7F719E0125FFCF070039E14A /* URLPresenter.swift in Sources */,
 				7FC980FC25E0257500FD65DF /* LocalesController.swift in Sources */,
 				7F4CE0D525F9404500F7AF09 /* CMTime+Extensions.swift in Sources */,
@@ -627,6 +599,7 @@
 				7F719DEE25FCE3D50039E14A /* UIApplication+Extensions.swift in Sources */,
 				7F21D38525DACC2B009A3F53 /* String+Extensions.swift in Sources */,
 				7FC9811625E41E4D00FD65DF /* DocumentPreviewController.swift in Sources */,
+				7F7E887F2608FC700059E5E2 /* TitledPreloader.swift in Sources */,
 				7FC980F025E01BCC00FD65DF /* TitledActionView.swift in Sources */,
 				7F4CE0DC25FA658300F7AF09 /* PlayerView.swift in Sources */,
 				7F719E1025FFD32E0039E14A /* PaywallCell.swift in Sources */,
@@ -658,6 +631,7 @@
 				7F7ED0A225D98CB5003F6BBB /* LibraryHeader.swift in Sources */,
 				7F7ED09A25D98518003F6BBB /* LibraryItemCellViewModel.swift in Sources */,
 				7F21D36725DA914B009A3F53 /* Recognizer.swift in Sources */,
+				7F7E888D260A52D20059E5E2 /* LocalizationHelper.swift in Sources */,
 				7F21D35925DA8C6E009A3F53 /* AudioEditHelper.swift in Sources */,
 				7FC980EB25E0120D00FD65DF /* TabBared.swift in Sources */,
 				7F7ED08925D98119003F6BBB /* LibraryController.swift in Sources */,
@@ -668,6 +642,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		7F7E8894260A532F0059E5E2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7F7E8893260A532F0059E5E2 /* en */,
+				7F7E8895260A53790059E5E2 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		7F7ED07825D98081003F6BBB /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -691,6 +674,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -752,6 +736,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -805,7 +790,6 @@
 		};
 		7F7ED08425D98081003F6BBB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E1DFBB3E8C77FC278FB3C00 /* Pods-TextExtactor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -828,7 +812,6 @@
 		};
 		7F7ED08525D98081003F6BBB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC5E4DF9569E1C5850121716 /* Pods-TextExtactor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -889,14 +872,6 @@
 				minimumVersion = 0.16.3;
 			};
 		};
-		7FC9812425E4308400FD65DF /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/0xced/XCDYouTubeKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.15.2;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -909,11 +884,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7F47AF3125E5489500CD8C02 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */;
 			productName = SwiftyStoreKit;
-		};
-		7FC9812525E4308400FD65DF /* XCDYouTubeKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7FC9812425E4308400FD65DF /* XCRemoteSwiftPackageReference "XCDYouTubeKit" */;
-			productName = XCDYouTubeKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

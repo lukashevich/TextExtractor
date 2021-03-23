@@ -10,10 +10,10 @@ import Foundation
 extension UserDefaults {
   
   var shouldShowPaywall: Bool {
-    !userSubscribed || FileManager.savedDocuments.count >= documentsLimit
+    !userSubscribed && FileManager.savedDocuments.count >= documentsLimit
   }
   
-  var documentsLimit: Int { return 3 }
+  var documentsLimit: Int { 3 }
   
   var extractingLocale: Locale {
     get {
@@ -27,10 +27,11 @@ extension UserDefaults {
   }
   
   var userSubscribed: Bool {
-    get { UserDefaults.standard.bool(forKey: #function) }
+    get {
+      true
+//      UserDefaults.standard.bool(forKey: #function)
+      
+    }
     set { UserDefaults.standard.set(newValue, forKey: #function) }
   }
-  
-  
-  
 }

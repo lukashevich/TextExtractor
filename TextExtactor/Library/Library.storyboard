@@ -251,6 +251,7 @@
                                     <nil key="highlightedColor"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="smallCaps" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="SORT"/>
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBt-FX-RaI">
@@ -290,6 +291,9 @@
                             <outlet property="delegate" destination="ihh-Op-hcl" id="tx6-6X-d2x"/>
                         </connections>
                     </collectionView>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="FILES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="v5u-z0-uzC" kind="presentation" identifier="toNewDoc" id="scB-3h-eaJ"/>
                     </connections>

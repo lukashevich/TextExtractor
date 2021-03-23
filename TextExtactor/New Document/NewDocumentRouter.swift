@@ -29,7 +29,7 @@ class NewDocRouter {
     
     var senderVM: Any? {
       switch self {
-      case .preview(let doc): return DocumentPreviewViewModel(document: doc)
+      case .preview(let doc): return DocumentPreviewViewModel(document: doc, isNew: true)
       case .paywall(let handlers): return PaywallViewModel(handlers: handlers)
       case .locales(let handler): return LocalesViewModel(onSelect: handler)
       }

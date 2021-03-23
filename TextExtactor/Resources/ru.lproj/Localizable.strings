@@ -1,0 +1,40 @@
+/* 
+  Localization.strings
+  TextExtactor
+
+  Created by Oleksandr Lukashevych on 23.03.2021.
+  
+*/
+
+
+"SAVE" = "Сохранить";
+"CANCEL" = "Отмена";
+"SORT" = "Сортировка";
+"RECENT" = "Недавние";
+"TITLE" = "Имя";
+"MODIFIED" = "Изменено";
+"CHOOSE_FILE..." = "Выбрать файл...";
+"CHOOSE_FILE" = "Выбрать файл";
+"FROM" = "из";
+"LIBRARY" = "Библиотека";
+"RECENTS" = "Недавние";
+"SETTINGS" = "Настройки";
+
+"PRIVACY" = "Privacy Policy";
+"TOS" = "Terms Of Use";
+
+"RESTORE" = "Востановить покупки";
+
+"SORRY" = "Sorry";
+"UNABLE_TO_EXTRACT_MESSAGE" = "Unable to extract text from this file and in this Locale";
+"FILES" = "Файлы";
+"CAMERA" = "Камера";
+"EMPTY" = "Пусто";
+"PROCESSING" = "Обработка...";
+
+"DAY" = "День";
+"WEEK" = "Неделя";
+"MONTH" = "Месяц";
+"YEAR" = "Год";
+
+"PAYWALL_CTA" = "Подписка за %@ / %@";

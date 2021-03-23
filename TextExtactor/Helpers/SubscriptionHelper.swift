@@ -7,8 +7,17 @@
 
 import Foundation
 import SwiftyStoreKit
+import StoreKit
+
+struct ProductInfo {
+  let priceLocale: Locale
+  let price: Double
+  let period: SKProductSubscriptionPeriod?
+  let intro:  SKProductSubscriptionPeriod?
+}
 
 struct SubscriptionHelper {
+  static private let _secret = "6abad310fdd6442682dae9fd861bc2c2"
   static private let _currentSubscriptionID = "extractor.monthly.2"
   
   static func purchase() {
@@ -34,15 +43,52 @@ struct SubscriptionHelper {
     }
   }
   
-  static func retrieveInfo(completion: () -> ()) {
+  static func subscribe(resultHandler: @escaping (PurchaseResult) -> Void ) {
+    SwiftyStoreKit.purchaseProduct(_currentSubscriptionID, quantity: 1, atomically: true, completion: resultHandler)
+  }
+  
+  private static func verifyReceipt(resultHandler: @escaping (VerifyReceiptResult) -> Void ) {
+    let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: _secret)
+    SwiftyStoreKit.verifyReceipt(using: appleValidator, completion: resultHandler)
+  }
+  
+  static func verifySubscriptions(_ receipt:ReceiptInfo) -> VerifySubscriptionResult {
+    return SwiftyStoreKit.verifySubscriptions(
+      ofType: .autoRenewable,
+      productIds: [_currentSubscriptionID],
+      inReceipt: receipt)
+  }
+  
+  static func restore(resultHandler: @escaping (VerifyReceiptResult) -> Void ) {
+    verifyReceipt(resultHandler: resultHandler)
+  }
+  
+  static func retrieveInfo( completion: @escaping ((ProductInfo?) -> ())) {
     SwiftyStoreKit.retrieveProductsInfo([_currentSubscriptionID]) { result in
       if let product = result.retrievedProducts.first {
-        let priceString = product.localizedPrice!
-        print("Product: \(product.localizedDescription), price: \(priceString)")
+        let info = ProductInfo(priceLocale: product.priceLocale, price: product.price.doubleValue, period: product.subscriptionPeriod, intro: product.introductoryPrice?.subscriptionPeriod)
+        completion(info)
       } else if let invalidProductId = result.invalidProductIDs.first {
         print("Invalid product identifier: \(invalidProductId)")
+        completion(nil)
       } else {
         print("Error: \(result.error)")
+        completion(nil)
+      }
+    }
+  }
+  
+  static func completeTransactions() {
+    SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+      for purchase in purchases {
+        switch purchase.transaction.transactionState {
+        case .purchased, .restored:
+          if purchase.needsFinishTransaction {
+            SwiftyStoreKit.finishTransaction(purchase.transaction)
+          }
+        case .failed, .purchasing, .deferred:
+          break
+        }
       }
     }
   }

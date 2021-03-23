@@ -44,9 +44,9 @@ class LibrarySmallItemCell: UICollectionViewCell, IdentifiableCell {
   
   private var _menuItems: UIMenu {
     let children = [
-      UIAction(title: "Share PDF", image: UIImage.doc, handler: _sharePDF),
-      UIAction(title: "Share Audio (M4A)", image: UIImage.waveformCircle, handler: _shareAudio),
-      UIAction(title: "Delete", image: UIImage.trash, attributes: .destructive, handler: _deleteDoc)
+      UIAction(title: "SHARE_PDF".localized, image: UIImage.doc, handler: _sharePDF),
+      UIAction(title: "SHARE_M4A".localized, image: UIImage.waveformCircle, handler: _shareAudio),
+      UIAction(title: "DELETE".localized, image: UIImage.trash, attributes: .destructive, handler: _deleteDoc)
     ]
     return UIMenu(title: "", options: .displayInline, children: children)
   }
