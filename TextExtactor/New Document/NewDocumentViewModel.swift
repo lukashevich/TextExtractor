@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import VisionKit
 import Vision
+import UniformTypeIdentifiers
 
 final class NewDocumentViewModel {
   
@@ -66,12 +67,11 @@ final class NewDocumentViewModel {
           self.processStepHandler?(.progress(progress))
         }
         guard self._recognizedTexts.count == self._splittedSource.count else { return }
-        self._finishProcessing(source: .media, text: self._recognizedTexts.joined(separator: " "))
+        self._finishProcessing(text: self._recognizedTexts.joined(separator: " "))
       }
     }
     
 //    Recognizer.recognizeMediaConcurrently(at: _splittedSource, in: _locale) { (newText, index) in
-//      print("CONCURRENT", index, newText)
 //    }
   }
   
@@ -102,25 +102,26 @@ final class NewDocumentViewModel {
   
   func stopExtractingAndSaveDocument() {
     self.stopExtracting()
-    self._finishProcessing(source: .media, text: self._recognizedTexts.joined(separator: " "))
+    self._finishProcessing(text: self._recognizedTexts.joined(separator: " "))
   }
  
-  private func _finishProcessing(source: DocumentSource, text: String) {
-    switch source {
-    case .media:
+  private func _finishProcessing(text: String) {
+    
+    switch fileUrl?.type {
+    case .none:
+      self.document = Document(
+        name: String.newIncrementedName,
+        text: text,
+        createdAt: Date(),
+        modifiedAt: Date(),
+        source: .picture)
+    case .some(let type):
       self.document = Document(
         name: fileUrl?.deletingPathExtension().lastPathComponent ?? "",
         text: text,
         createdAt: Date(),
         modifiedAt: Date(),
-        source: source)
-    case .photo:
-      self.document = Document(
-        name: "New",
-        text: text,
-        createdAt: Date(),
-        modifiedAt: Date(),
-        source: source)
+        source: type)
     }
     
     DispatchQueue.main.async {
@@ -168,7 +169,7 @@ extension NewDocumentViewModel {
       }
       
       DispatchQueue.main.async {
-        self._finishProcessing(source: .photo, text: detectedText)
+        self._finishProcessing(text: detectedText)
       }
     }
     

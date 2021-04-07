@@ -9,9 +9,13 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     _createDefaultsFolders()
     _completeTransactions()
+    
+    PresentPaywallOnLaunchHelper.showIfNeeded()
+    
     return true
   }
 
@@ -38,3 +42,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 }
 
+extension AppDelegate {
+  static var shared: AppDelegate {
+    return UIApplication.shared.delegate as! AppDelegate
+  }
+  
+  var rootViewController: RootTabController? {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    return storyboard.instantiateViewController(withIdentifier: "RootVC") as? RootTabController
+  }
+}
+
+extension UIApplication {
+  static var mainWindow: UIWindow? {
+    UIApplication.shared.connectedScenes
+      .filter({$0.activationState == .foregroundActive})
+      .map({$0 as? UIWindowScene})
+      .compactMap({$0})
+      .first?.windows
+      .filter({$0.isKeyWindow}).first
+  }
+  
+  class var rootController: RootTabController? {
+    var topMostViewController = UIApplication.mainWindow?.rootViewController
+    while let presentedViewController = topMostViewController?.presentedViewController {
+        topMostViewController = presentedViewController
+    }
+    return topMostViewController as? RootTabController
+  }
+}

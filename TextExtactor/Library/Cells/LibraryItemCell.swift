@@ -15,15 +15,17 @@ class LibraryItemCell: UICollectionViewCell, IdentifiableCell {
 
   static let reuseIdentifier = "libraryCell"
   
-  @IBOutlet weak var trumbnail: UIImageView!
+  @IBOutlet weak var textView: UITextView!
   @IBOutlet weak var menuButton: UIButton! {
     didSet {
       self.menuButton.showsMenuAsPrimaryAction = true
-      self.menuButton.menu = _menuItems
     }
   }
   @IBOutlet weak var isNewBadge: UILabel!
-
+  @IBOutlet weak var dateLabel: UILabel!
+  @IBOutlet weak var sourceNameLabel: UILabel!
+  @IBOutlet weak var docIconView: DocSourceIconView!
+  
   var delegate: LibraryItemCellDelegate?
   
   private var _isNew: Bool = false {
@@ -34,17 +36,32 @@ class LibraryItemCell: UICollectionViewCell, IdentifiableCell {
   
   var viewModel: LibraryItemCellViewModel! {
     didSet {
-      self.trumbnail.image = viewModel.document.image?.inverted
+      self.textView.text = viewModel.document.text
       self._isNew = viewModel.document.isNew
+      
+      let formatter = DateFormatter()
+      formatter.dateFormat = "d MMM y"
+      
+      self.dateLabel.text = formatter.string(from: viewModel.document.createdAt)
+      self.sourceNameLabel.text = viewModel.document.name
+      
+      self.docIconView.docType = viewModel.document.source
+      
+      self.menuButton.menu = _menuItems
     }
   }
   
   private var _menuItems: UIMenu {
-    let children = [
+    var children = [
       UIAction(title: "SHARE_PDF".localized, image: UIImage.doc, handler: _sharePDF),
       UIAction(title: "SHARE_M4A".localized, image: UIImage.waveformCircle, handler: _shareAudio),
       UIAction(title: "DELETE".localized, image: UIImage.trash, attributes: .destructive, handler: _deleteDoc)
     ]
+    
+    if self.viewModel.document.source == .picture {
+      children.remove(at: 1)
+    }
+  
     return UIMenu(title: "", options: .displayInline, children: children)
   }
   

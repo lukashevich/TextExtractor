@@ -30,7 +30,10 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="78A-Wv-V5v">
-                                <rect key="frame" x="30" y="60" width="315.5" height="34"/>
+                                <rect key="frame" x="68.5" y="60" width="238.5" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="Vsz-mN-K8m"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="Get">
                                         <attributes>
@@ -40,7 +43,7 @@
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content=" Textractor ">
+                                    <fragment content=" Textr ">
                                         <attributes>
                                             <color key="NSColor" name="AccentColor"/>
                                             <font key="NSFont" size="29" name="SFProRounded-Medium"/>
@@ -61,16 +64,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gU4-yY-kdU">
-                                <rect key="frame" x="44" y="158" width="287" height="317.5"/>
+                                <rect key="frame" x="44" y="159" width="287" height="280"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7vp-wI-BDe">
-                                        <rect key="frame" x="0.0" y="0.0" width="287" height="87"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="287" height="74.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZD-AC-hv2">
-                                                <rect key="frame" x="0.0" y="0.0" width="64" height="87"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="74.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="RzK-dn-qxz">
-                                                        <rect key="frame" x="0.0" y="11.5" width="64" height="64"/>
+                                                        <rect key="frame" x="0.0" y="5.5" width="64" height="64"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="64" id="cMf-5j-xNt"/>
                                                             <constraint firstAttribute="width" secondItem="RzK-dn-qxz" secondAttribute="height" multiplier="1:1" id="hGx-B5-lxj"/>
@@ -85,26 +88,32 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R8v-f3-sfg">
-                                                <rect key="frame" x="80" y="0.0" width="207" height="87"/>
+                                                <rect key="frame" x="80" y="0.0" width="207" height="74.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" text="No Duration Limits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFb-ly-cwd">
                                                         <rect key="frame" x="0.0" y="0.0" width="207" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTTILE_1"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn off 1-min limit. Recognize unlimited duration of your videos and audios." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUd-2a-0mz">
-                                                        <rect key="frame" x="0.0" y="20.5" width="207" height="66.5"/>
+                                                        <rect key="frame" x="0.0" y="20.5" width="207" height="54"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTTILE_1_MESSAGE"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5Jz-9M-FQz">
-                                        <rect key="frame" x="0.0" y="103" width="287" height="95"/>
+                                        <rect key="frame" x="0.0" y="90.5" width="287" height="95"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WGx-4C-DsO">
                                                 <rect key="frame" x="0.0" y="0.0" width="64" height="95"/>
@@ -132,25 +141,31 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTTILE_2"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feel free to record all your stuff. Get unlimited recognitions for your files." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fO3-bD-epj">
                                                         <rect key="frame" x="0.0" y="41" width="207" height="54"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTTILE_2_MESSAGE"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="seg-KA-oaL">
-                                        <rect key="frame" x="0.0" y="214" width="287" height="103.5"/>
+                                        <rect key="frame" x="0.0" y="201.5" width="287" height="78.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJO-uz-yBt">
-                                                <rect key="frame" x="0.0" y="0.0" width="64" height="103.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="78.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pdfs" translatesAutoresizingMaskIntoConstraints="NO" id="GLW-qj-LKt">
-                                                        <rect key="frame" x="0.0" y="20" width="64" height="64"/>
+                                                        <rect key="frame" x="0.0" y="7.5" width="64" height="64"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="GLW-qj-LKt" secondAttribute="height" multiplier="1:1" id="NAK-Y3-3ek"/>
                                                             <constraint firstAttribute="width" constant="64" id="Wcc-NV-3mx"/>
@@ -165,21 +180,27 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jyj-iF-l8b">
-                                                <rect key="frame" x="80" y="0.0" width="207" height="103.5"/>
+                                                <rect key="frame" x="80" y="0.0" width="207" height="78.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" text="Multiple pages of your docs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGS-Br-U6i">
                                                         <rect key="frame" x="0.0" y="0.0" width="207" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTTILE_3"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGz-Pt-8ks">
-                                                        <rect key="frame" x="0.0" y="20.5" width="207" height="83"/>
+                                                        <rect key="frame" x="0.0" y="20.5" width="207" height="58"/>
                                                         <string key="text">Get ultimate effiency in a touch! Recognize a document
 with multiple pages. </string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTTILE_3_MESSAGE"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                             </stackView>
@@ -188,10 +209,10 @@ with multiple pages. </string>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="niQ-gL-U8D">
-                                <rect key="frame" x="0.0" y="483.5" width="375" height="129.5"/>
+                                <rect key="frame" x="0.0" y="455" width="375" height="158"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Cgv-Au-bj3">
-                                        <rect key="frame" x="20" y="-14" width="335" height="158"/>
+                                        <rect key="frame" x="20" y="-19" width="335" height="196"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fl0-2k-Zxo">
                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
@@ -223,8 +244,17 @@ with multiple pages. </string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="autorenewable subscription" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbY-I6-1NA">
+                                                <rect key="frame" x="0.0" y="64" width="335" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                <color key="textColor" name="AccentColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="smallCaps" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfo-Q9-snR">
-                                                <rect key="frame" x="0.0" y="64" width="335" height="44"/>
+                                                <rect key="frame" x="0.0" y="102" width="335" height="44"/>
                                                 <color key="backgroundColor" name="AccentColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="NUz-jE-Nd9"/>
@@ -244,7 +274,7 @@ with multiple pages. </string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tmf-oo-KQp">
-                                                <rect key="frame" x="0.0" y="128" width="335" height="30"/>
+                                                <rect key="frame" x="0.0" y="166" width="335" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                 <state key="normal" title="Restore Purchases">
                                                     <color key="titleColor" systemColor="secondaryLabelColor"/>
@@ -252,11 +282,14 @@ with multiple pages. </string>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="smallCaps" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="restore" destination="jaA-f0-h2p" eventType="touchUpInside" id="ZQi-re-u2f"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2BK-m9-CBh" customClass="PreloaderView" customModule="TextExtactor" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="-14" width="335" height="158"/>
+                                        <rect key="frame" x="20" y="-19" width="335" height="196"/>
                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -269,6 +302,7 @@ with multiple pages. </string>
                                 <constraints>
                                     <constraint firstItem="2BK-m9-CBh" firstAttribute="trailing" secondItem="Cgv-Au-bj3" secondAttribute="trailing" id="123-RM-mpK"/>
                                     <constraint firstItem="Cgv-Au-bj3" firstAttribute="centerY" secondItem="niQ-gL-U8D" secondAttribute="centerY" id="1r1-iG-FMt"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="158" id="Aow-xo-ejx"/>
                                     <constraint firstItem="2BK-m9-CBh" firstAttribute="top" secondItem="Cgv-Au-bj3" secondAttribute="top" id="HaZ-EW-1BH"/>
                                     <constraint firstItem="2BK-m9-CBh" firstAttribute="bottom" secondItem="Cgv-Au-bj3" secondAttribute="bottom" id="RXf-hF-I6H"/>
                                     <constraint firstItem="2BK-m9-CBh" firstAttribute="leading" secondItem="Cgv-Au-bj3" secondAttribute="leading" id="caR-I6-ReK"/>
@@ -334,11 +368,11 @@ with multiple pages. </string>
                             <constraint firstAttribute="trailing" secondItem="gU4-yY-kdU" secondAttribute="trailing" constant="44" id="Ejj-4h-mZs"/>
                             <constraint firstAttribute="bottom" secondItem="5fO-a4-pUn" secondAttribute="bottom" id="Ft7-fB-m6n"/>
                             <constraint firstItem="d5c-C6-ndh" firstAttribute="leading" secondItem="5fO-a4-pUn" secondAttribute="leading" id="G3y-TX-3kf"/>
-                            <constraint firstItem="niQ-gL-U8D" firstAttribute="top" secondItem="gU4-yY-kdU" secondAttribute="bottom" constant="8" id="Mhd-ym-3mT"/>
+                            <constraint firstItem="niQ-gL-U8D" firstAttribute="top" secondItem="gU4-yY-kdU" secondAttribute="bottom" constant="16" id="Mhd-ym-3mT"/>
                             <constraint firstItem="n1N-hF-Gm8" firstAttribute="centerX" secondItem="L1T-u5-CjP" secondAttribute="centerX" id="YJR-4l-q1g"/>
                             <constraint firstItem="niQ-gL-U8D" firstAttribute="leading" secondItem="d5c-C6-ndh" secondAttribute="leading" id="a1J-cQ-EIN"/>
                             <constraint firstItem="gU4-yY-kdU" firstAttribute="centerX" secondItem="L1T-u5-CjP" secondAttribute="centerX" id="bGP-ff-O1D"/>
-                            <constraint firstItem="gU4-yY-kdU" firstAttribute="top" secondItem="78A-Wv-V5v" secondAttribute="bottom" constant="64" id="h5M-KG-ZNa"/>
+                            <constraint firstItem="gU4-yY-kdU" firstAttribute="top" secondItem="78A-Wv-V5v" secondAttribute="bottom" priority="999" constant="64" id="h5M-KG-ZNa"/>
                             <constraint firstItem="d5c-C6-ndh" firstAttribute="trailing" secondItem="niQ-gL-U8D" secondAttribute="trailing" id="l5G-lY-OAh"/>
                             <constraint firstItem="gU4-yY-kdU" firstAttribute="leading" secondItem="L1T-u5-CjP" secondAttribute="leading" constant="44" id="qaT-Vb-zlE"/>
                             <constraint firstItem="d5c-C6-ndh" firstAttribute="trailing" secondItem="66W-Vc-AJX" secondAttribute="trailing" constant="20" id="ufH-LE-KT9"/>

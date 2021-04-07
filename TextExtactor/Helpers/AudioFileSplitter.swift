@@ -18,7 +18,6 @@ struct AudioFileSplitter {
     asset.writeAudioTrackToURL(URL(fileURLWithPath: pathWhereToSave)) { (success, error) -> () in
       if success {
         let waveformAnalyzer = WaveformAnalyzer(audioAssetURL: URL(fileURLWithPath: pathWhereToSave))
-        print(Int(asset.duration.miliseconds))
         waveformAnalyzer?.samples(count: Int(asset.duration.miliseconds)) { samples in
           completion(_splitSource(samples))
         }

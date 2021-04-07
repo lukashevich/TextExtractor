@@ -22,11 +22,11 @@ final class DocumentPreviewController: UIViewController {
     
     let doc = viewModel.document
     switch doc.source {
-    case .media:
+    case .video, .audio:
       self.titleText.text = doc.name
       self.text.text = doc.text
       self.player.fileUrl = doc.audioLink
-    case .photo:
+    case .picture:
       self.player.isHidden = true
       self.titleText.text = doc.name
       self.text.text = doc.text

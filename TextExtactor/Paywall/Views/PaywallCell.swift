@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 final class PaywallCell: UITableViewCell {
   
   @IBOutlet weak var _fullPreloader: UIView!
@@ -15,8 +16,11 @@ final class PaywallCell: UITableViewCell {
   @IBOutlet weak var _trialLabel: UILabel!
   @IBOutlet weak var _subscribeButton: UIButton!
 
+  var subscriptionHandler: (()->Void)?
+  var problemHandler: ((Error)->Void)?
+
   override func didMoveToSuperview() {
-    SubscriptionHelper.retrieveInfo { product in
+    SubscriptionHelper.retrieveInfo(subscription: .monthly) { product in
       guard let product = product, let period = product.period else { return }
       let priceText = self._price(from: product.price, locale: product.priceLocale)
       let subscriptionDuration = period.unit.stringValue
@@ -28,7 +32,6 @@ final class PaywallCell: UITableViewCell {
       }
 
       self._trialLabel.text = "Starts with a \(intro.numberOfUnits)-\(intro.unit.stringValue) free trial"
-//
     }
   }
 
@@ -45,7 +48,9 @@ final class PaywallCell: UITableViewCell {
         switch result {
         case .success:
           UserDefaults.standard.userSubscribed = true
-        case .error:
+          self.subscriptionHandler?()
+        case .error(let error):
+          self.problemHandler?(error)
           self._hidePreloader()
       }
     })
@@ -61,6 +66,7 @@ final class PaywallCell: UITableViewCell {
           switch purchaseResult {
           case .purchased:
             UserDefaults.standard.userSubscribed = true
+            self.subscriptionHandler?()
           case .expired:
             UserDefaults.standard.userSubscribed = false
             self._hidePreloader()
@@ -70,7 +76,9 @@ final class PaywallCell: UITableViewCell {
             break
           }
         }
-      case .error: self._hidePreloader()
+      case .error(let error):
+        self.problemHandler?(error)
+        self._hidePreloader()
       }
     }
   }

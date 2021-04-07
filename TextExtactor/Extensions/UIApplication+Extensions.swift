@@ -9,7 +9,7 @@ import UIKit
 
 extension UIApplication {
   static func dismissToRoot(animated: Bool = true) {
-    guard let tabbar = UIApplication.shared.keyWindow?.rootViewController as? RootTabController else { return }
+    guard let tabbar = UIApplication.mainWindow?.rootViewController as? RootTabController else { return }
     
     tabbar.dismiss(animated: animated, completion: {
       tabbar.reloadControllers()

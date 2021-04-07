@@ -16,12 +16,16 @@ struct ProductInfo {
   let intro:  SKProductSubscriptionPeriod?
 }
 
+enum Subscription: String, CaseIterable {
+  case monthly = "extractor.monthly.2"
+  case monthlyTrial = "extractor.monthly.trial.2"
+}
+
 struct SubscriptionHelper {
   static private let _secret = "6abad310fdd6442682dae9fd861bc2c2"
-  static private let _currentSubscriptionID = "extractor.monthly.2"
   
-  static func purchase() {
-    SwiftyStoreKit.purchaseProduct(_currentSubscriptionID, quantity: 1, atomically: true) { result in
+  static func purchase(_ subscription: Subscription = .monthly) {
+    SwiftyStoreKit.purchaseProduct(subscription.rawValue, quantity: 1, atomically: true) { result in
       switch result {
       case .success(let purchase):
         UserDefaults.standard.userSubscribed = true
@@ -43,8 +47,8 @@ struct SubscriptionHelper {
     }
   }
   
-  static func subscribe(resultHandler: @escaping (PurchaseResult) -> Void ) {
-    SwiftyStoreKit.purchaseProduct(_currentSubscriptionID, quantity: 1, atomically: true, completion: resultHandler)
+  static func subscribe(subscription: Subscription = .monthly, resultHandler: @escaping (PurchaseResult) -> Void ) {
+    SwiftyStoreKit.purchaseProduct(subscription.rawValue, quantity: 1, atomically: true, completion: resultHandler)
   }
   
   private static func verifyReceipt(resultHandler: @escaping (VerifyReceiptResult) -> Void ) {
@@ -55,7 +59,7 @@ struct SubscriptionHelper {
   static func verifySubscriptions(_ receipt:ReceiptInfo) -> VerifySubscriptionResult {
     return SwiftyStoreKit.verifySubscriptions(
       ofType: .autoRenewable,
-      productIds: [_currentSubscriptionID],
+      productIds: Set(Subscription.allCases.map(\.rawValue)),
       inReceipt: receipt)
   }
   
@@ -63,8 +67,8 @@ struct SubscriptionHelper {
     verifyReceipt(resultHandler: resultHandler)
   }
   
-  static func retrieveInfo( completion: @escaping ((ProductInfo?) -> ())) {
-    SwiftyStoreKit.retrieveProductsInfo([_currentSubscriptionID]) { result in
+  static func retrieveInfo(subscription: Subscription, completion: @escaping ((ProductInfo?) -> ())) {
+    SwiftyStoreKit.retrieveProductsInfo([subscription.rawValue]) { result in
       if let product = result.retrievedProducts.first {
         let info = ProductInfo(priceLocale: product.priceLocale, price: product.price.doubleValue, period: product.subscriptionPeriod, intro: product.introductoryPrice?.subscriptionPeriod)
         completion(info)

@@ -27,11 +27,23 @@ extension UserDefaults {
   }
   
   var userSubscribed: Bool {
-    get {
-      true
-//      UserDefaults.standard.bool(forKey: #function)
-      
-    }
+    get { UserDefaults.standard.bool(forKey: #function) }
     set { UserDefaults.standard.set(newValue, forKey: #function) }
+  }
+  
+  var documentStyle: DocumentStyle {
+    get {
+      if let styleData = UserDefaults.standard.object(forKey: #function) as? Data {
+        if let style = try? JSONDecoder().decode(DocumentStyle.self, from: styleData) {
+          return style
+        }
+      }
+      return DocumentStyle(headerStyle: .verticalTitle, dateStyle: .medium)
+    }
+    set {
+      if let encoded = try? JSONEncoder().encode(newValue) {
+        UserDefaults.standard.set(encoded, forKey: #function)
+      }
+    }
   }
 }

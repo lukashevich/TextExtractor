@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F025F2626171B89003BDC24 /* PaywallOnLaunchPresentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F025F2526171B89003BDC24 /* PaywallOnLaunchPresentHelper.swift */; };
+		7F025F2926171F0E003BDC24 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F025F2826171F0E003BDC24 /* RootRouter.swift */; };
+		7F025F2E261CA04E003BDC24 /* ExportedDocPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F025F2D261CA04E003BDC24 /* ExportedDocPreviewController.swift */; };
+		7F025F31261CA058003BDC24 /* ExportedDocPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F025F30261CA058003BDC24 /* ExportedDocPreviewViewModel.swift */; };
+		7F025F34261CA062003BDC24 /* ExportedDocPreview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F025F33261CA062003BDC24 /* ExportedDocPreview.storyboard */; };
+		7F025F38261DFBC2003BDC24 /* DateStylePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F025F37261DFBC2003BDC24 /* DateStylePicker.storyboard */; };
+		7F025F3B261DFBCA003BDC24 /* DateStylePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F025F3A261DFBCA003BDC24 /* DateStylePicker.swift */; };
+		7F025F3E261DFBD3003BDC24 /* DateStylePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F025F3D261DFBD3003BDC24 /* DateStylePickerViewModel.swift */; };
+		7F025F41261DFC59003BDC24 /* ExportedDocPreviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F025F40261DFC59003BDC24 /* ExportedDocPreviewRouter.swift */; };
 		7F21D34925DA8A46009A3F53 /* UITextView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21D34825DA8A46009A3F53 /* UITextView+Extensions.swift */; };
 		7F21D35025DA8B50009A3F53 /* AudioFileSplitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21D34F25DA8B50009A3F53 /* AudioFileSplitter.swift */; };
 		7F21D35325DA8B6B009A3F53 /* AudioChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21D35225DA8B6B009A3F53 /* AudioChunk.swift */; };
@@ -46,6 +55,7 @@
 		7F52927B25E653E000D7571F /* ActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F52927A25E653E000D7571F /* ActionView.xib */; };
 		7F52927E25E6A47400D7571F /* TapticHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52927D25E6A47400D7571F /* TapticHelper.swift */; };
 		7F52928425E6A8B200D7571F /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52928325E6A8B200D7571F /* UIBarButtonItem+Extensions.swift */; };
+		7F6AE8B6261E1C8D00D09675 /* DateStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE8B5261E1C8D00D09675 /* DateStyleCell.swift */; };
 		7F719DE225FCC14F0039E14A /* NewDocumentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719DE125FCC14F0039E14A /* NewDocumentRouter.swift */; };
 		7F719DE525FCC5BD0039E14A /* LocalesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719DE425FCC5BD0039E14A /* LocalesViewModel.swift */; };
 		7F719DEB25FCCD590039E14A /* LibraryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719DEA25FCCD590039E14A /* LibraryRouter.swift */; };
@@ -56,15 +66,15 @@
 		7F719DFE25FCF1EB0039E14A /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719DFD25FCF1EB0039E14A /* SettingsRouter.swift */; };
 		7F719E0125FFCF070039E14A /* URLPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719E0025FFCF070039E14A /* URLPresenter.swift */; };
 		7F719E1025FFD32E0039E14A /* PaywallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719E0F25FFD32E0039E14A /* PaywallCell.swift */; };
-		7F7E887926075A8F0059E5E2 /* how to make a profit while making a difference.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7F7E887526075A8B0059E5E2 /* how to make a profit while making a difference.mp3 */; };
-		7F7E887A26075A8F0059E5E2 /* 4 ways to build a human company.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7F7E887626075A8E0059E5E2 /* 4 ways to build a human company.mp4 */; };
-		7F7E887B26075A8F0059E5E2 /* how books can open your mind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7F7E887726075A8E0059E5E2 /* how books can open your mind.mp3 */; };
-		7F7E887C26075A8F0059E5E2 /* How to know if it's time to change carrers.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7F7E887826075A8F0059E5E2 /* How to know if it's time to change carrers.mp4 */; };
 		7F7E887F2608FC700059E5E2 /* TitledPreloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7E887E2608FC700059E5E2 /* TitledPreloader.swift */; };
 		7F7E88822608FC780059E5E2 /* TitledPreloader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7E88812608FC780059E5E2 /* TitledPreloader.xib */; };
 		7F7E888D260A52D20059E5E2 /* LocalizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7E888C260A52D20059E5E2 /* LocalizationHelper.swift */; };
 		7F7E8892260A532F0059E5E2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F7E8894260A532F0059E5E2 /* Localizable.strings */; };
 		7F7E8899260A5CE70059E5E2 /* PeriodUnit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7E8898260A5CE70059E5E2 /* PeriodUnit+Extension.swift */; };
+		7F7E889C260CD5290059E5E2 /* TransparentGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7E889B260CD5290059E5E2 /* TransparentGradientView.swift */; };
+		7F7E889F260CD5340059E5E2 /* TransparentGradientView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7E889E260CD5340059E5E2 /* TransparentGradientView.xib */; };
+		7F7E88A2260CDC810059E5E2 /* DocSourceIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7E88A1260CDC810059E5E2 /* DocSourceIconView.swift */; };
+		7F7E88A5260CDC8A0059E5E2 /* DocSourceIconView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7E88A4260CDC8A0059E5E2 /* DocSourceIconView.xib */; };
 		7F7ED07325D98081003F6BBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7ED07225D98081003F6BBB /* AppDelegate.swift */; };
 		7F7ED07525D98081003F6BBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7ED07425D98081003F6BBB /* SceneDelegate.swift */; };
 		7F7ED07A25D98081003F6BBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F7ED07825D98081003F6BBB /* Main.storyboard */; };
@@ -81,6 +91,7 @@
 		7F7ED0AA25D991C8003F6BBB /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7ED0A925D991C8003F6BBB /* UIFont+Extensions.swift */; };
 		7F7ED0AD25D996FC003F6BBB /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7ED0AC25D996FC003F6BBB /* UIButton+Extensions.swift */; };
 		7F7ED0B025D9A6B7003F6BBB /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7ED0AF25D9A6B7003F6BBB /* UIView+Extensions.swift */; };
+		7F917D1A260F256B00064975 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F917D19260F256B00064975 /* AlertPresenter.swift */; };
 		7FC980E225DDB5A500FD65DF /* PDFCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC980E125DDB5A500FD65DF /* PDFCreator.swift */; };
 		7FC980EB25E0120D00FD65DF /* TabBared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC980EA25E0120D00FD65DF /* TabBared.swift */; };
 		7FC980F025E01BCC00FD65DF /* TitledActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC980EF25E01BCC00FD65DF /* TitledActionView.swift */; };
@@ -99,6 +110,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F025F2526171B89003BDC24 /* PaywallOnLaunchPresentHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallOnLaunchPresentHelper.swift; sourceTree = "<group>"; };
+		7F025F2826171F0E003BDC24 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		7F025F2D261CA04E003BDC24 /* ExportedDocPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportedDocPreviewController.swift; sourceTree = "<group>"; };
+		7F025F30261CA058003BDC24 /* ExportedDocPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportedDocPreviewViewModel.swift; sourceTree = "<group>"; };
+		7F025F33261CA062003BDC24 /* ExportedDocPreview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExportedDocPreview.storyboard; sourceTree = "<group>"; };
+		7F025F37261DFBC2003BDC24 /* DateStylePicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DateStylePicker.storyboard; sourceTree = "<group>"; };
+		7F025F3A261DFBCA003BDC24 /* DateStylePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateStylePicker.swift; sourceTree = "<group>"; };
+		7F025F3D261DFBD3003BDC24 /* DateStylePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateStylePickerViewModel.swift; sourceTree = "<group>"; };
+		7F025F40261DFC59003BDC24 /* ExportedDocPreviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportedDocPreviewRouter.swift; sourceTree = "<group>"; };
 		7F21D34825DA8A46009A3F53 /* UITextView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extensions.swift"; sourceTree = "<group>"; };
 		7F21D34F25DA8B50009A3F53 /* AudioFileSplitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileSplitter.swift; sourceTree = "<group>"; };
 		7F21D35225DA8B6B009A3F53 /* AudioChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioChunk.swift; sourceTree = "<group>"; };
@@ -137,6 +157,7 @@
 		7F52927A25E653E000D7571F /* ActionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionView.xib; sourceTree = "<group>"; };
 		7F52927D25E6A47400D7571F /* TapticHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapticHelper.swift; sourceTree = "<group>"; };
 		7F52928325E6A8B200D7571F /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
+		7F6AE8B5261E1C8D00D09675 /* DateStyleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateStyleCell.swift; sourceTree = "<group>"; };
 		7F719DE125FCC14F0039E14A /* NewDocumentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDocumentRouter.swift; sourceTree = "<group>"; };
 		7F719DE425FCC5BD0039E14A /* LocalesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalesViewModel.swift; sourceTree = "<group>"; };
 		7F719DEA25FCCD590039E14A /* LibraryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRouter.swift; sourceTree = "<group>"; };
@@ -147,16 +168,15 @@
 		7F719DFD25FCF1EB0039E14A /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		7F719E0025FFCF070039E14A /* URLPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPresenter.swift; sourceTree = "<group>"; };
 		7F719E0F25FFD32E0039E14A /* PaywallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallCell.swift; sourceTree = "<group>"; };
-		7F7E887526075A8B0059E5E2 /* how to make a profit while making a difference.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "how to make a profit while making a difference.mp3"; sourceTree = "<group>"; };
-		7F7E887626075A8E0059E5E2 /* 4 ways to build a human company.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "4 ways to build a human company.mp4"; sourceTree = "<group>"; };
-		7F7E887726075A8E0059E5E2 /* how books can open your mind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "how books can open your mind.mp3"; sourceTree = "<group>"; };
-		7F7E887826075A8F0059E5E2 /* How to know if it's time to change carrers.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "How to know if it's time to change carrers.mp4"; sourceTree = "<group>"; };
 		7F7E887E2608FC700059E5E2 /* TitledPreloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledPreloader.swift; sourceTree = "<group>"; };
 		7F7E88812608FC780059E5E2 /* TitledPreloader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitledPreloader.xib; sourceTree = "<group>"; };
 		7F7E888C260A52D20059E5E2 /* LocalizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationHelper.swift; sourceTree = "<group>"; };
 		7F7E8893260A532F0059E5E2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7F7E8895260A53790059E5E2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7F7E8898260A5CE70059E5E2 /* PeriodUnit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PeriodUnit+Extension.swift"; sourceTree = "<group>"; };
+		7F7E889B260CD5290059E5E2 /* TransparentGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentGradientView.swift; sourceTree = "<group>"; };
+		7F7E889E260CD5340059E5E2 /* TransparentGradientView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransparentGradientView.xib; sourceTree = "<group>"; };
+		7F7E88A1260CDC810059E5E2 /* DocSourceIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocSourceIconView.swift; sourceTree = "<group>"; };
+		7F7E88A4260CDC8A0059E5E2 /* DocSourceIconView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocSourceIconView.xib; sourceTree = "<group>"; };
 		7F7ED06F25D98081003F6BBB /* TextExtactor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextExtactor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F7ED07225D98081003F6BBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F7ED07425D98081003F6BBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +195,7 @@
 		7F7ED0A925D991C8003F6BBB /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		7F7ED0AC25D996FC003F6BBB /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		7F7ED0AF25D9A6B7003F6BBB /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		7F917D19260F256B00064975 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		7FC980DE25DD834D00FD65DF /* SF-Pro-Rounded-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Medium.otf"; sourceTree = "<group>"; };
 		7FC980DF25DD834D00FD65DF /* SF-Pro-Rounded-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Semibold.ttf"; sourceTree = "<group>"; };
 		7FC980E125DDB5A500FD65DF /* PDFCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCreator.swift; sourceTree = "<group>"; };
@@ -207,6 +228,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F025F2C261C9FF0003BDC24 /* Exported Doc Preview */ = {
+			isa = PBXGroup;
+			children = (
+				7F6AE8B4261E1C7A00D09675 /* Cells */,
+				7F025F2D261CA04E003BDC24 /* ExportedDocPreviewController.swift */,
+				7F025F30261CA058003BDC24 /* ExportedDocPreviewViewModel.swift */,
+				7F025F33261CA062003BDC24 /* ExportedDocPreview.storyboard */,
+				7F025F40261DFC59003BDC24 /* ExportedDocPreviewRouter.swift */,
+			);
+			path = "Exported Doc Preview";
+			sourceTree = "<group>";
+		};
+		7F025F36261DFBAD003BDC24 /* Date Style Picker */ = {
+			isa = PBXGroup;
+			children = (
+				7F025F37261DFBC2003BDC24 /* DateStylePicker.storyboard */,
+				7F025F3A261DFBCA003BDC24 /* DateStylePicker.swift */,
+				7F025F3D261DFBD3003BDC24 /* DateStylePickerViewModel.swift */,
+			);
+			path = "Date Style Picker";
+			sourceTree = "<group>";
+		};
 		7F21D34B25DA8AA0009A3F53 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +262,7 @@
 				7F52927D25E6A47400D7571F /* TapticHelper.swift */,
 				7F4CE0D725F9409F00F7AF09 /* AppStoreReviewHelper.swift */,
 				7F7E888C260A52D20059E5E2 /* LocalizationHelper.swift */,
+				7F025F2526171B89003BDC24 /* PaywallOnLaunchPresentHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -256,6 +300,7 @@
 				7F4CE0E725FA87A200F7AF09 /* CameraTextFinder.swift */,
 				7F4CE0EA25FA87B600F7AF09 /* LibraryFilePicker.swift */,
 				7F719E0025FFCF070039E14A /* URLPresenter.swift */,
+				7F917D19260F256B00064975 /* AlertPresenter.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -291,15 +336,19 @@
 		7F67583C25DA60D100D3FC73 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7F7E887626075A8E0059E5E2 /* 4 ways to build a human company.mp4 */,
-				7F7E887726075A8E0059E5E2 /* how books can open your mind.mp3 */,
-				7F7E887826075A8F0059E5E2 /* How to know if it's time to change carrers.mp4 */,
-				7F7E887526075A8B0059E5E2 /* how to make a profit while making a difference.mp3 */,
 				7FC980DE25DD834D00FD65DF /* SF-Pro-Rounded-Medium.otf */,
 				7FC980DF25DD834D00FD65DF /* SF-Pro-Rounded-Semibold.ttf */,
 				7F7E8894260A532F0059E5E2 /* Localizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		7F6AE8B4261E1C7A00D09675 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7F6AE8B5261E1C8D00D09675 /* DateStyleCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		7F719DF325FCECE60039E14A /* Settings */ = {
@@ -342,6 +391,8 @@
 		7F7ED07125D98081003F6BBB /* TextExtactor */ = {
 			isa = PBXGroup;
 			children = (
+				7F025F36261DFBAD003BDC24 /* Date Style Picker */,
+				7F025F2C261C9FF0003BDC24 /* Exported Doc Preview */,
 				7F719DF325FCECE60039E14A /* Settings */,
 				7F47AF2625E543D000CD8C02 /* Paywall */,
 				7FC9812025E4255C00FD65DF /* Root Controller */,
@@ -401,6 +452,10 @@
 			isa = PBXGroup;
 			children = (
 				7F7ED0A125D98CB5003F6BBB /* LibraryHeader.swift */,
+				7F7E889B260CD5290059E5E2 /* TransparentGradientView.swift */,
+				7F7E889E260CD5340059E5E2 /* TransparentGradientView.xib */,
+				7F7E88A1260CDC810059E5E2 /* DocSourceIconView.swift */,
+				7F7E88A4260CDC8A0059E5E2 /* DocSourceIconView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -469,6 +524,7 @@
 			isa = PBXGroup;
 			children = (
 				7FC9812125E4256E00FD65DF /* RootTabController.swift */,
+				7F025F2826171F0E003BDC24 /* RootRouter.swift */,
 			);
 			path = "Root Controller";
 			sourceTree = "<group>";
@@ -539,22 +595,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F025F38261DFBC2003BDC24 /* DateStylePicker.storyboard in Resources */,
 				7F7ED07F25D98081003F6BBB /* LaunchScreen.storyboard in Resources */,
 				7F4CE0DF25FA658C00F7AF09 /* PlayerView.xib in Resources */,
+				7F7E88A5260CDC8A0059E5E2 /* DocSourceIconView.xib in Resources */,
 				7F7E8892260A532F0059E5E2 /* Localizable.strings in Resources */,
-				7F7E887C26075A8F0059E5E2 /* How to know if it's time to change carrers.mp4 in Resources */,
 				7F7ED08C25D98124003F6BBB /* Library.storyboard in Resources */,
+				7F025F34261CA062003BDC24 /* ExportedDocPreview.storyboard in Resources */,
 				7F719DF825FCECFC0039E14A /* Settings.storyboard in Resources */,
 				7F7E88822608FC780059E5E2 /* TitledPreloader.xib in Resources */,
 				7F52927B25E653E000D7571F /* ActionView.xib in Resources */,
 				7F7ED07C25D98081003F6BBB /* Assets.xcassets in Resources */,
-				7F7E887926075A8F0059E5E2 /* how to make a profit while making a difference.mp3 in Resources */,
 				7FC9811A25E41E7500FD65DF /* DocumentPreview.storyboard in Resources */,
+				7F7E889F260CD5340059E5E2 /* TransparentGradientView.xib in Resources */,
 				7F7ED07A25D98081003F6BBB /* Main.storyboard in Resources */,
 				7FC980FA25E0257500FD65DF /* Locales.storyboard in Resources */,
-				7F7E887B26075A8F0059E5E2 /* how books can open your mind.mp3 in Resources */,
 				7FC980F425E01BD500FD65DF /* TitledActionView.xib in Resources */,
-				7F7E887A26075A8F0059E5E2 /* 4 ways to build a human company.mp4 in Resources */,
 				7F21D36C25DAB7A3009A3F53 /* NewDocument.storyboard in Resources */,
 				7F47AF2F25E5440400CD8C02 /* Paywall.storyboard in Resources */,
 				7F2C4ACA260257B000824998 /* PreloaderView.xib in Resources */,
@@ -572,6 +628,8 @@
 				7F7ED09E25D9855E003F6BBB /* Document.swift in Sources */,
 				7F21D34925DA8A46009A3F53 /* UITextView+Extensions.swift in Sources */,
 				7F7ED0AD25D996FC003F6BBB /* UIButton+Extensions.swift in Sources */,
+				7F025F2926171F0E003BDC24 /* RootRouter.swift in Sources */,
+				7F6AE8B6261E1C8D00D09675 /* DateStyleCell.swift in Sources */,
 				7F47AF2425E5384C00CD8C02 /* UserDefaults+Extensions.swift in Sources */,
 				7F47AF3925E54F2A00CD8C02 /* PaywallViewModel.swift in Sources */,
 				7F7ED0AA25D991C8003F6BBB /* UIFont+Extensions.swift in Sources */,
@@ -584,6 +642,7 @@
 				7F21D35325DA8B6B009A3F53 /* AudioChunk.swift in Sources */,
 				7F719DEB25FCCD590039E14A /* LibraryRouter.swift in Sources */,
 				7F7ED07325D98081003F6BBB /* AppDelegate.swift in Sources */,
+				7F025F2626171B89003BDC24 /* PaywallOnLaunchPresentHelper.swift in Sources */,
 				7F7ED0B025D9A6B7003F6BBB /* UIView+Extensions.swift in Sources */,
 				7F44359C25DD712400F776BE /* LibrarySmallItemCell.swift in Sources */,
 				7F4CE0D825F9409F00F7AF09 /* AppStoreReviewHelper.swift in Sources */,
@@ -595,10 +654,14 @@
 				7F4CE0E225FA7B0C00F7AF09 /* URL+Extensions.swift in Sources */,
 				7F21D37D25DAB970009A3F53 /* ProcessCell.swift in Sources */,
 				7F719DE225FCC14F0039E14A /* NewDocumentRouter.swift in Sources */,
+				7F7E88A2260CDC810059E5E2 /* DocSourceIconView.swift in Sources */,
 				7F4CE0E825FA87A200F7AF09 /* CameraTextFinder.swift in Sources */,
 				7F719DEE25FCE3D50039E14A /* UIApplication+Extensions.swift in Sources */,
 				7F21D38525DACC2B009A3F53 /* String+Extensions.swift in Sources */,
+				7F025F41261DFC59003BDC24 /* ExportedDocPreviewRouter.swift in Sources */,
 				7FC9811625E41E4D00FD65DF /* DocumentPreviewController.swift in Sources */,
+				7F917D1A260F256B00064975 /* AlertPresenter.swift in Sources */,
+				7F025F31261CA058003BDC24 /* ExportedDocPreviewViewModel.swift in Sources */,
 				7F7E887F2608FC700059E5E2 /* TitledPreloader.swift in Sources */,
 				7FC980F025E01BCC00FD65DF /* TitledActionView.swift in Sources */,
 				7F4CE0DC25FA658300F7AF09 /* PlayerView.swift in Sources */,
@@ -606,13 +669,16 @@
 				7FC9812225E4256E00FD65DF /* RootTabController.swift in Sources */,
 				7F7ED07525D98081003F6BBB /* SceneDelegate.swift in Sources */,
 				7F21D35625DA8BEC009A3F53 /* AVAsset+Extensions.swift in Sources */,
+				7F025F3E261DFBD3003BDC24 /* DateStylePickerViewModel.swift in Sources */,
 				7F21D37225DAB7D7009A3F53 /* NewDocumentViewModel.swift in Sources */,
 				7F7ED09425D982C7003F6BBB /* LibraryItemCell.swift in Sources */,
 				7F52928425E6A8B200D7571F /* UIBarButtonItem+Extensions.swift in Sources */,
 				7F7ED08F25D9813E003F6BBB /* LibraryViewModel.swift in Sources */,
 				7F719DF525FCECF30039E14A /* SettingsController.swift in Sources */,
+				7F7E889C260CD5290059E5E2 /* TransparentGradientView.swift in Sources */,
 				7FC980FB25E0257500FD65DF /* LocaleCell.swift in Sources */,
 				7F719DFB25FCED080039E14A /* SettingsViewModel.swift in Sources */,
+				7F025F2E261CA04E003BDC24 /* ExportedDocPreviewController.swift in Sources */,
 				7FC9811D25E41E9900FD65DF /* DocumentPreviewViewModel.swift in Sources */,
 				7FC9810825E3AE1E00FD65DF /* UITabBarController+Extensions.swift in Sources */,
 				7F44359725DC27A200F776BE /* IdentifiableCell.swift in Sources */,
@@ -630,6 +696,7 @@
 				7F35005825E434C6003E2089 /* YoutubeVideoExtractor.swift in Sources */,
 				7F7ED0A225D98CB5003F6BBB /* LibraryHeader.swift in Sources */,
 				7F7ED09A25D98518003F6BBB /* LibraryItemCellViewModel.swift in Sources */,
+				7F025F3B261DFBCA003BDC24 /* DateStylePicker.swift in Sources */,
 				7F21D36725DA914B009A3F53 /* Recognizer.swift in Sources */,
 				7F7E888D260A52D20059E5E2 /* LocalizationHelper.swift in Sources */,
 				7F21D35925DA8C6E009A3F53 /* AudioEditHelper.swift in Sources */,
@@ -646,7 +713,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				7F7E8893260A532F0059E5E2 /* en */,
-				7F7E8895260A53790059E5E2 /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -795,14 +861,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TextExtactor/TextExtactor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6P2K4YQ62D;
 				INFOPLIST_FILE = TextExtactor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -817,14 +884,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TextExtactor/TextExtactor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6P2K4YQ62D;
 				INFOPLIST_FILE = TextExtactor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

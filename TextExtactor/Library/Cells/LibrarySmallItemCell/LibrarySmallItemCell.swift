@@ -43,11 +43,15 @@ class LibrarySmallItemCell: UICollectionViewCell, IdentifiableCell {
   }
   
   private var _menuItems: UIMenu {
-    let children = [
+    var children = [
       UIAction(title: "SHARE_PDF".localized, image: UIImage.doc, handler: _sharePDF),
       UIAction(title: "SHARE_M4A".localized, image: UIImage.waveformCircle, handler: _shareAudio),
       UIAction(title: "DELETE".localized, image: UIImage.trash, attributes: .destructive, handler: _deleteDoc)
     ]
+    
+    if self.viewModel.document.source == .picture {
+      children.remove(at: 1)
+    }
     return UIMenu(title: "", options: .displayInline, children: children)
   }
   

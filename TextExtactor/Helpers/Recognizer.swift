@@ -14,11 +14,7 @@ final class Recognizer {
   
   private static var _stopped: Bool = false
   
-  static var fullText = [Int: String]() {
-    didSet {
-      print("fullText", fullText.sorted(by: { $0.key < $1.key }).reduce("", { $0 + $1.value }))
-    }
-  }
+  static var fullText = [Int: String]()
   
   static func checkStatus(completion: @escaping (Bool) -> Void) {
     SFSpeechRecognizer.requestAuthorization { authStatus in
@@ -128,7 +124,7 @@ final class Recognizer {
       guard !_stopped else { return }
       newUrls.removeFirst()
       if !text.isEmpty {
-        newText(text + ". ")
+        newText(text + ", ")
       }
       self.recognizeMedia(at: newUrls, in: locale, newText: newText)
     }

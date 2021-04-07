@@ -44,4 +44,10 @@
 "PAYWALL_SUBTTILE_1" = "No Duration Limit";
 "PAYWALL_SUBTTILE_2" = "Infinite quality of records";
 "PAYWALL_SUBTTILE_3" = "Multiple pages of your PDF";
+
+"PAYWALL_SUBTTILE_1_MESSAGE" = "Turn off 1-min limit. Recognize unlimited duration of your videos and audios.";
+"PAYWALL_SUBTTILE_2_MESSAGE" = "Feel free to record all your stuff. Get unlimited recognitions for your files.";
+"PAYWALL_SUBTTILE_3_MESSAGE" = "Get ultimate effiency in a touch! Recognize a document
+with multiple pages. ";
+
 "PAYWALL_CTA" = "Subscribe for %@ / %@";

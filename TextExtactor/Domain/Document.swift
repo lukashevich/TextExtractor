@@ -11,8 +11,9 @@ import PDFKit
 import AVFoundation
 
 enum DocumentSource: String {
-  case media
-  case photo
+  case video
+  case audio
+  case picture
 }
 
 struct Document {
@@ -36,8 +37,7 @@ struct Document {
   var audioSize: String { audioLink.size }
 
   var isNew: Bool {
-//    Calendar.current.isDateInToday(modifiedAt)
-    Calendar.current.isDateInYesterday(modifiedAt)
+    Calendar.current.isDateInYesterday(modifiedAt) || Calendar.current.isDateInToday(modifiedAt)
   }
   
   var image: UIImage? {
@@ -91,7 +91,7 @@ struct Document {
     self.text = meta["text"] ?? ""
     self.createdAt = dateFormatter.date(from: meta["createdAt"]  ?? "") ?? Date()
     self.modifiedAt = dateFormatter.date(from: meta["modifiedAt"] ?? "") ?? Date()
-    self.source = DocumentSource(rawValue: meta["source"] ?? "") ?? .photo
+    self.source = DocumentSource(rawValue: meta["source"] ?? "") ?? .picture
   }
 }
 
@@ -138,5 +138,10 @@ extension Document {
 extension String {
   var incremented: String {
     return self + " (copy)"
+  }
+  
+  static var newIncrementedName: String {
+    let docNames = FileManager.savedDocuments.map(\.name)
+    return String(format: "New %i", docNames.count)
   }
 }

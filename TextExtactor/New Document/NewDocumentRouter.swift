@@ -16,7 +16,7 @@ class NewDocRouter {
   
   enum Segue {
     case preview(Document)
-    case paywall(PaywallHandlers)
+    case paywall(Subscription, PaywallHandlers)
     case locales(LocalePickerHandler)
     
     var identifier: String {
@@ -30,7 +30,7 @@ class NewDocRouter {
     var senderVM: Any? {
       switch self {
       case .preview(let doc): return DocumentPreviewViewModel(document: doc, isNew: true)
-      case .paywall(let handlers): return PaywallViewModel(handlers: handlers)
+      case .paywall(let subscription, let handlers): return PaywallViewModel(subscription: subscription, handlers: handlers)
       case .locales(let handler): return LocalesViewModel(onSelect: handler)
       }
     }

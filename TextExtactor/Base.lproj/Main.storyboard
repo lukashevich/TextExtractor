@@ -10,7 +10,7 @@
         <!--Root Tab Controller-->
         <scene sceneID="XY2-uB-BnN">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wkd-jW-afr" customClass="RootTabController" customModule="TextExtactor" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="RootVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wkd-jW-afr" customClass="RootTabController" customModule="TextExtactor" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="RD1-gD-6HN"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="7ae-Cm-Hqc">
@@ -24,6 +24,7 @@
                         <segue destination="0cG-YG-HjF" kind="presentation" identifier="toPaywall" modalPresentationStyle="overFullScreen" id="J3k-Ue-Hjj"/>
                         <segue destination="dZi-NS-hhg" kind="relationship" relationship="viewControllers" id="sf3-0q-wBN"/>
                         <segue destination="TO6-J7-jHA" kind="show" identifier="toNewDocument" id="w1Y-83-5I0"/>
+                        <segue destination="nO5-Cn-taj" kind="show" identifier="toExportedDoc" id="nMC-BZ-Hjf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4h8-xq-qVR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -127,7 +128,6 @@
                 <navigationController id="ek0-Qb-2Rg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Recents" image="books.vertical" catalog="system" id="dxP-DD-FB4">
                         <color key="badgeColor" name="AccentColor"/>
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="4"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="FILES"/>
                         </userDefinedRuntimeAttributes>
@@ -153,6 +153,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYQ-Sq-InF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1380" y="85"/>
+        </scene>
+        <!--ExportedDocPreview-->
+        <scene sceneID="yT4-Tu-WpZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ExportedDocPreview" id="nO5-Cn-taj" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="jzS-9B-bbf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yuc-bb-Xn3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="20"/>
         </scene>
     </scenes>
     <resources>

@@ -73,7 +73,7 @@ final class NewDocumentController: UIViewController {
     }
     
     guard !UserDefaults.standard.shouldShowPaywall else {
-      self._router.navigate(to: .paywall(PaywallHandlers(success: success, deny: deny)))
+      self._router.navigate(to: .paywall(.monthly, PaywallHandlers(success: success, deny: deny)))
       return
     }
     
@@ -87,7 +87,6 @@ final class NewDocumentController: UIViewController {
   
   @IBAction func savePressed() {
     self.viewModel.stopExtractingAndSaveDocument()
-    self._finalizeExtracting()
   }
   
   private func _showExtractErrorWarning() {

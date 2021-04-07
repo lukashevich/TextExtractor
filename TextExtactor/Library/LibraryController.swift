@@ -23,7 +23,7 @@ final class LibraryController: UICollectionViewController, ShareControllerPresen
   }
 
   let viewModel = LibraryViewModel()
-  private lazy var _router = LibraryRouter(controller: self)
+  lazy var router = LibraryRouter(controller: self)
   private var _listAppearance = ListAppearance.large {
     didSet {
       collectionView.reloadData()
@@ -38,10 +38,6 @@ final class LibraryController: UICollectionViewController, ShareControllerPresen
   func appeared() {
     self.collectionView.reloadData()
   }
-  
-//  override func viewDidLoad() {
-//    self._router.navigate(to: .paywall(PaywallHandlers(success: nil, deny: nil)))
-//  }
 }
 
 extension LibraryController {
@@ -58,7 +54,8 @@ extension LibraryController {
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
     guard indexPath.row > 0 else {
-      return collectionView.dequeueReusableCell(withReuseIdentifier: "addNewDocCell", for: indexPath as IndexPath)
+      let identifier = _listAppearance == .large ? "addNewDocCell" : "addNewDocSmallCell"
+      return collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath as IndexPath)
     }
     
     switch _listAppearance {
@@ -84,11 +81,11 @@ extension LibraryController {
   
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     guard indexPath.row > 0 else {
-      self._router.navigate(to: .newDoc)
+      self.router.navigate(to: .newDoc)
       return
     }
     let doc = viewModel.source[indexPath.row - 1]
-    self._router.navigate(to: .preview(doc))
+    self.router.navigate(to: .preview(doc))
   }
 }
 
@@ -97,8 +94,8 @@ extension LibraryController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     switch _listAppearance {
     case .large:
-      let width = (UIScreen.main.bounds.width) / 3 - 26
-      return CGSize(width: width, height: width * _goldenRatio)
+      let width = (UIScreen.main.bounds.width) / 2 - 24
+      return CGSize(width: width, height: width * 1.3)
     case .small:
       return CGSize(width: UIScreen.main.bounds.width - 32, height: 88)
     }

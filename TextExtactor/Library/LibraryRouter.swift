@@ -17,7 +17,7 @@ class LibraryRouter {
   enum Segue {
     case newDoc
     case preview(Document)
-    case paywall(PaywallHandlers)
+    case paywall(Subscription, PaywallHandlers)
     
     var identifier: String {
       switch self {
@@ -31,7 +31,7 @@ class LibraryRouter {
       switch self {
       case .newDoc: return NewDocumentViewModel()
       case .preview(let doc): return DocumentPreviewViewModel(document: doc, isNew: false)
-      case .paywall(let handlers): return PaywallViewModel(handlers: handlers)
+      case .paywall(let subscription, let handlers): return PaywallViewModel(subscription: subscription, handlers: handlers)
       }
     }
   }
@@ -46,29 +46,5 @@ class LibraryRouter {
   }
 }
 
-extension RootTabController {
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
-    guard let identifier = segue.identifier,
-            let destination = Destination(rawValue: identifier),
-              let vModel = sender else { return }
-    
-    switch destination {
-    case .toDocPreview:
-      if let controller = destination.destinationController(for: segue) as? DocumentPreviewController {
-        controller.viewModel = vModel as? DocumentPreviewViewModel
-      }
-    case .toNewDocument:
-      if let controller = destination.destinationController(for: segue) as? NewDocumentController {
-        controller.viewModel = vModel as? NewDocumentViewModel
-      }
-    case .toPaywall:
-      if let controller = destination.destinationController(for: segue) as? PaywallController {
-        controller.viewModel = vModel as? PaywallViewModel
-      }
-    default: break
-    }
-  }
-}
 
 

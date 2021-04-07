@@ -9,14 +9,20 @@ import Foundation
 struct PaywallHandlers {
   let success: (() -> ())?
   let deny: (() -> ())?
+  
+  static var empty: PaywallHandlers {
+    return PaywallHandlers(success: nil, deny: nil)
+  }
 }
 
 struct PaywallViewModel {
+  let subscription: Subscription
   let successHandler: (() -> ())?
   let denyHandler: (() -> ())?
   
-  init(handlers: PaywallHandlers?) {
+  init(subscription: Subscription, handlers: PaywallHandlers?) {
     self.successHandler = handlers?.success
     self.denyHandler = handlers?.deny
+    self.subscription = subscription
   }
 }
