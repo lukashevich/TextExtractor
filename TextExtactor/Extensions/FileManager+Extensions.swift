@@ -73,7 +73,7 @@ extension FileManager {
   }
   
   static func isDocumentExist(_ doc: Document) -> Bool {
-    let documentsContent =  FileManager.content(from: documentsFolder) ?? []
+    let documentsContent = FileManager.content(from: documentsFolder) ?? []
     return documentsContent.contains(doc.name)
   }
   

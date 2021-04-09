@@ -12,14 +12,29 @@ class LocaleCell: UITableViewCell {
   
   static let reuseIdentifier = "localeCell"
   
-  var locale:Locale? {
+  var localeCode: String? {
     didSet {
-      guard let loc = locale else { return }
-      
+      guard let code = localeCode else { return }
+      let loc = Locale(identifier: code)
       title.text = loc.country
       subtitle.text = loc.debugDescription
+      self._isPicked = UserDefaults.standard.extractingLocale.languageCode == code
     }
   }
+  
+  private var _isPicked: Bool = false {
+    didSet {
+      switch _isPicked {
+      case true:
+        self.accessoryType = .checkmark
+        self.backgroundColor = .secondaryAccentColor
+      case false:
+        self.accessoryType = .none
+        self.backgroundColor = .systemBackground
+      }
+    }
+  }
+  
   @IBOutlet weak var title: UILabel!
   @IBOutlet weak var subtitle: UILabel!  
 }

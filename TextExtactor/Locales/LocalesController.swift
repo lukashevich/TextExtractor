@@ -19,9 +19,9 @@ final class LocalesController: UIViewController {
   @IBOutlet weak var searchBar: UISearchBar!
   
   let searchController = UISearchController(searchResultsController: nil)
-  let locales = Array(SFSpeechRecognizer.supportedLocales())
+  let locales = Recognizer.groupedLocales.compactMap(\.key).sorted(by: { $0 < $1 })
   var viewModel: LocalesViewModel!
-  var filteredLocales = Array(SFSpeechRecognizer.supportedLocales())
+  var filteredLocales = Recognizer.groupedLocales.compactMap(\.key).sorted(by: { $0 < $1 })
     
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -41,19 +41,26 @@ extension LocalesController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: LocaleCell.reuseIdentifier, for: indexPath as IndexPath) as! LocaleCell
     if isFiltering {
-      cell.locale = filteredLocales[indexPath.row]
+      cell.localeCode = filteredLocales[indexPath.row]
     } else {
-      cell.locale = locales[indexPath.row]
+      cell.localeCode = locales[indexPath.row]
     }
     return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let code: String?
     if isFiltering {
-      self.viewModel.onSelect?(filteredLocales[indexPath.row])
+      code = filteredLocales[indexPath.row]
     } else {
-      self.viewModel.onSelect?(locales[indexPath.row])
+      code = locales[indexPath.row]
     }
+    
+    if let localeCode = code {
+      let locale = Locale(identifier: localeCode)
+      self.viewModel.onSelect?(locale)
+    }
+
     self.dismiss(animated: true, completion: nil)
   }
 }
@@ -79,14 +86,11 @@ extension LocalesController: UISearchResultsUpdating {
   }
   
   func filterContentForSearchText(_ searchText: String) {
-    filteredLocales = locales.filter { (location) -> Bool in
-      if let locationStr = location.localizedString(forLanguageCode: location.languageCode!),
-         let regionCode = location.regionCode {
-        let extendedLocaleStr = regionCode + locationStr
-        return extendedLocaleStr.lowercased().contains(searchText.lowercased())
-      } else {
-        return false
-      }
+    filteredLocales = locales.filter { (code) -> Bool in
+      let locale = Locale(identifier: code)
+      let localeStr = locale.localizedString(forLanguageCode: code) ?? ""
+      let extendedLocaleStr = code + localeStr
+      return extendedLocaleStr.lowercased().contains(searchText.lowercased())
     }
     
     localesTableView.reloadSections([0], with: .automatic)

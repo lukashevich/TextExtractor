@@ -66,7 +66,10 @@ class LibraryItemCell: UICollectionViewCell, IdentifiableCell {
   }
   
   var _sharePDF: UIActionHandler {
-    return { _ in self.delegate?.share(file: self.viewModel.document.pdfLink) }
+    return { _ in
+      PDFCreator.createPDF(for: self.viewModel.document)
+      self.delegate?.share(file: self.viewModel.document.pdfLink)
+    }
   }
   
   var _shareAudio: UIActionHandler {

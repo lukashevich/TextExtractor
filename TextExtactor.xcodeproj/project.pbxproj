@@ -56,6 +56,7 @@
 		7F52927E25E6A47400D7571F /* TapticHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52927D25E6A47400D7571F /* TapticHelper.swift */; };
 		7F52928425E6A8B200D7571F /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52928325E6A8B200D7571F /* UIBarButtonItem+Extensions.swift */; };
 		7F6AE8B6261E1C8D00D09675 /* DateStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE8B5261E1C8D00D09675 /* DateStyleCell.swift */; };
+		7F6AE8B92620505500D09675 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE8B82620505500D09675 /* Array+Extensions.swift */; };
 		7F719DE225FCC14F0039E14A /* NewDocumentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719DE125FCC14F0039E14A /* NewDocumentRouter.swift */; };
 		7F719DE525FCC5BD0039E14A /* LocalesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719DE425FCC5BD0039E14A /* LocalesViewModel.swift */; };
 		7F719DEB25FCCD590039E14A /* LibraryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719DEA25FCCD590039E14A /* LibraryRouter.swift */; };
@@ -109,6 +110,19 @@
 		7FC9812225E4256E00FD65DF /* RootTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9812125E4256E00FD65DF /* RootTabController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7F6AE8CD262058CC00D09675 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7F025F2526171B89003BDC24 /* PaywallOnLaunchPresentHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallOnLaunchPresentHelper.swift; sourceTree = "<group>"; };
 		7F025F2826171F0E003BDC24 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
@@ -158,6 +172,7 @@
 		7F52927D25E6A47400D7571F /* TapticHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapticHelper.swift; sourceTree = "<group>"; };
 		7F52928325E6A8B200D7571F /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
 		7F6AE8B5261E1C8D00D09675 /* DateStyleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateStyleCell.swift; sourceTree = "<group>"; };
+		7F6AE8B82620505500D09675 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		7F719DE125FCC14F0039E14A /* NewDocumentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDocumentRouter.swift; sourceTree = "<group>"; };
 		7F719DE425FCC5BD0039E14A /* LocalesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalesViewModel.swift; sourceTree = "<group>"; };
 		7F719DEA25FCCD590039E14A /* LibraryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRouter.swift; sourceTree = "<group>"; };
@@ -481,6 +496,7 @@
 				7F4CE0E425FA80D900F7AF09 /* UIImage+Extensions.swift */,
 				7F719DED25FCE3D50039E14A /* UIApplication+Extensions.swift */,
 				7F7E8898260A5CE70059E5E2 /* PeriodUnit+Extension.swift */,
+				7F6AE8B82620505500D09675 /* Array+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -539,6 +555,7 @@
 				7F7ED06B25D98081003F6BBB /* Sources */,
 				7F7ED06C25D98081003F6BBB /* Frameworks */,
 				7F7ED06D25D98081003F6BBB /* Resources */,
+				7F6AE8CD262058CC00D09675 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -559,7 +576,7 @@
 		7F7ED06725D98081003F6BBB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1220;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
 					7F7ED06E25D98081003F6BBB = {
@@ -635,6 +652,7 @@
 				7F7ED0AA25D991C8003F6BBB /* UIFont+Extensions.swift in Sources */,
 				7F4CE0EB25FA87B600F7AF09 /* LibraryFilePicker.swift in Sources */,
 				7FC9810B25E3E17D00FD65DF /* ShareControllerPresenter.swift in Sources */,
+				7F6AE8B92620505500D09675 /* Array+Extensions.swift in Sources */,
 				7F44359425DC212800F776BE /* UIColor+Extensions.swift in Sources */,
 				7F719DE525FCC5BD0039E14A /* LocalesViewModel.swift in Sources */,
 				7F719DFE25FCF1EB0039E14A /* SettingsRouter.swift in Sources */,
@@ -857,6 +875,7 @@
 		7F7ED08425D98081003F6BBB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TextExtactor/TextExtactor.entitlements;
@@ -869,7 +888,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -880,6 +899,7 @@
 		7F7ED08525D98081003F6BBB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TextExtactor/TextExtactor.entitlements;
@@ -892,7 +912,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

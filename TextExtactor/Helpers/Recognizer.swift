@@ -11,7 +11,9 @@ import Speech
 final class Recognizer {
   
   static var locales: [Locale] { Array(SFSpeechRecognizer.supportedLocales()) }
-  
+  static var groupedLocales:[String?: [Locale]]  {
+    locales.group(by: \.languageCode)
+  }
   private static var _stopped: Bool = false
   
   static var fullText = [Int: String]()
