@@ -20,12 +20,12 @@ extension AVAsset {
   
   func writeToURL(_ url: URL, completion: @escaping (Bool, Error?) -> ()) {
     
-    guard let exportSession = AVAssetExportSession(asset: self, presetName: AVAssetExportPresetAppleM4A) else {
+    guard let exportSession = AVAssetExportSession(asset: self, presetName: AVAssetExportPresetLowQuality) else {
       completion(false, nil)
       return
     }
     
-    exportSession.outputFileType = .m4a
+    exportSession.outputFileType = .mp4
     exportSession.outputURL      = url
     
     exportSession.exportAsynchronously {

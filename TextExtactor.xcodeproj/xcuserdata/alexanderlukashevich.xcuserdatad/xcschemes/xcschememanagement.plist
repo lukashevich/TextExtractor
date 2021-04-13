@@ -25,19 +25,24 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>Sharing.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>TextExtactor.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>TextExtractorShare.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>7F4433AB26248FE6003C7003</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7F6AE8BE262058CC00D09675</key>
 		<dict>
 			<key>primary</key>
