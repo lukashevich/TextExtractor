@@ -12,13 +12,19 @@ struct PresentPaywallOnLaunchHelper {
     UserDefaults.standard.launchCount += 1
     
     switch UserDefaults.standard.launchCount {
-    case 2, 5, 10:
+    case 2, 5, 10, 12, 14:
       DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
         if !UserDefaults.standard.userSubscribed {
           UIApplication.rootController?.showPaywall()
         }
       }
     default: break
+    }
+  }
+  
+  static func showPaywall(with subscription: Subscription) {
+    if !UserDefaults.standard.userSubscribed {
+      UIApplication.rootController?.showPaywall(subscription: subscription)
     }
   }
 }

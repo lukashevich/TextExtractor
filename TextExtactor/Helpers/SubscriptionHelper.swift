@@ -17,17 +17,25 @@ struct ProductInfo {
 }
 
 enum Subscription: String, CaseIterable {
-  case monthly = "extractor.monthly.2"
-  case monthlyTrial = "extractor.monthly.trial.2"
+  typealias SubscriptionGroup = (main: Subscription, trial: Subscription)
+  
+  case monthly2 = "extractor.monthly.2"
+  case monthlyTrial2 = "extractor.monthly.trial.2"
+  case monthly5 = "extractor.monthly.5"
+  case monthlyTrial5 = "extractor.monthly.trial.5"
+  
+  static var currentGroup: SubscriptionGroup {
+    (main: .monthly5, trial: .monthlyTrial5)
+  }
 }
 
 struct SubscriptionHelper {
   static private let _secret = "6abad310fdd6442682dae9fd861bc2c2"
   
-  static func purchase(_ subscription: Subscription = .monthly) {
+  static func purchase(_ subscription: Subscription = Subscription.currentGroup.main) {
     SwiftyStoreKit.purchaseProduct(subscription.rawValue, quantity: 1, atomically: true) { result in
       switch result {
-      case .success(let purchase):
+      case .success:
         UserDefaults.standard.userSubscribed = true
       case .error(let error):
         UserDefaults.standard.userSubscribed = false
@@ -47,7 +55,7 @@ struct SubscriptionHelper {
     }
   }
   
-  static func subscribe(subscription: Subscription = .monthly, resultHandler: @escaping (PurchaseResult) -> Void ) {
+  static func subscribe(subscription: Subscription = Subscription.currentGroup.main, resultHandler: @escaping (PurchaseResult) -> Void ) {
     SwiftyStoreKit.purchaseProduct(subscription.rawValue, quantity: 1, atomically: true, completion: resultHandler)
   }
   

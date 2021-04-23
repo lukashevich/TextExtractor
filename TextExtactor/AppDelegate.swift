@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SwiftyStoreKit
+import StoreKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     _completeTransactions()
     
     PresentPaywallOnLaunchHelper.showIfNeeded()
+    
+    SwiftyStoreKit.shouldAddStorePaymentHandler = { payment, product in
+      PresentPaywallOnLaunchHelper.showPaywall(with: Subscription.from(product: product))
+      return true
+    }
     
     return true
   }
@@ -69,5 +76,14 @@ extension UIApplication {
         topMostViewController = presentedViewController
     }
     return topMostViewController as? RootTabController
+  }
+}
+
+private extension Subscription {
+  static func from(product: SKProduct) -> Subscription {
+    guard let purchase = Subscription.init(rawValue: product.productIdentifier) else {
+      return .monthlyTrial2
+    }
+    return purchase
   }
 }

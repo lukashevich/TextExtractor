@@ -6,24 +6,33 @@
   
 */
 
-
 "SAVE" = "Сохранить";
 "CANCEL" = "Отмена";
 "SORT" = "Сортировка";
-"RECENT" = "Недавние";
-"TITLE" = "Имя";
+"RECENT" = "Последние";
+"TITLE" = "Название";
 "MODIFIED" = "Изменено";
 "CHOOSE_FILE..." = "Выбрать файл...";
 "CHOOSE_FILE" = "Выбрать файл";
 "FROM" = "из";
 "LIBRARY" = "Библиотека";
-"RECENTS" = "Недавние";
+"RECENTS" = "Последние";
 "SETTINGS" = "Настройки";
+"MANUALY" = "Изначальная";
+"CREATE_NEW" = "Cоздать Новый";
+"CLOSE" = "Закрыть";
+"AND" = "и";
 
-"PRIVACY" = "Privacy Policy";
-"TOS" = "Terms Of Use";
+"PRIVACY" = "Политика приватности";
+"TOS" = "Условия пользования";
 
+"SHARE_PDF" = "Экспорт PDF";
+"SHARE_M4A" = "Экспорт Аудио (M4A)";
+"DELETE" = "Удалить";
+
+"SUBSCRIPTION" = "Подписка";
 "RESTORE" = "Востановить покупки";
+"AUTORENEWABLE" = "Подписка с автоматическим продлением";
 
 "SORRY" = "Sorry";
 "UNABLE_TO_EXTRACT_MESSAGE" = "Unable to extract text from this file and in this Locale";
@@ -37,4 +46,23 @@
 "MONTH" = "Месяц";
 "YEAR" = "Год";
 
-"PAYWALL_CTA" = "Подписка за %@ / %@";
+"PAYWALL_TITLE" = "Get Textr Unlimited";
+"PAYWALL_SUBTITLE_1" = "Без лимита на длительность";
+"PAYWALL_SUBTITLE_2" = "Без лимита на количество записей";
+"PAYWALL_SUBTITLE_3" = "Мутьтистраничные PDF";
+
+"PAYWALL_SUBTITLE_1_MESSAGE" = "Отключите ограничение в 1 минуту. Распознавайте неограниченную продолжительность ваших видео и аудио.";
+"PAYWALL_SUBTITLE_2_MESSAGE" = "Получите неограниченное разпознавание ваших файлов.";
+"PAYWALL_SUBTITLE_3_MESSAGE" = "Получите максимальную эффективность в один клик! Распознавание документа
+с несколькими страницами.";
+
+"PAYWALL_CTA" = "Подписка всего за %@ / %@";
+"PAYWALL_STARTS_WITH" = "Начинается с %i-%@ бесплатного триала";
+
+"EXPORT" = "Экспорт";
+"DOCUMENT" = "Документ";
+"AUDIO" = "Аудио";
+"ADDITIONAL" = "Дополнительная информация";
+"ITEMS" = "Элементы";
+"HEADER_STYLE" = "Формат заголовка";
+"DATE_STYLE" = "Формат Даты";

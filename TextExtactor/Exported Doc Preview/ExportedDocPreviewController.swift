@@ -17,6 +17,13 @@ final class ExportedDocPreviewController: UIViewController {
   
   @IBOutlet private var _dateLabels: [UILabel]!
 
+  var formattedDateString: String {
+    let formatter = DateFormatter()
+    formatter.locale = .current
+    formatter.dateStyle = UserDefaults.standard.documentStyle.dateStyle
+    return formatter.string(from: Date())
+  }
+  
   @IBOutlet var headerStyleStacks: [UIStackView]!
   private lazy var _previewLabels = [
     _previewLeftTopLabel,
@@ -40,28 +47,26 @@ final class ExportedDocPreviewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self._dateLabels.forEach { $0.text = self.formattedDateString }
+    
     self.viewModel.headerStyleUpdated = { headerStyle in
       
       self._previewLabels.forEach { $0?.text = nil }
       
-      let formatter = DateFormatter()
-      formatter.dateStyle = UserDefaults.standard.documentStyle.dateStyle
-      let dateString = formatter.string(from: Date())
-
-      let newDocumentString = "Title"
+      let newDocumentString = "TITLE".localized
 
       switch headerStyle {
       case .verticalTitle:
         self._previewLeftTopLabel.text = newDocumentString
-        self._previewLeftBottomLabel.text = dateString
+        self._previewLeftBottomLabel.text = self.formattedDateString
       case .horizontalTitle:
         self._previewLeftTopLabel.text = newDocumentString
-        self._previewRightTopLabel.text = dateString
+        self._previewRightTopLabel.text = self.formattedDateString
       case .verticalDate:
-        self._previewLeftTopLabel.text = dateString
+        self._previewLeftTopLabel.text = self.formattedDateString
         self._previewLeftBottomLabel.text = newDocumentString
       case .horizontalDate:
-        self._previewLeftTopLabel.text = dateString
+        self._previewLeftTopLabel.text = self.formattedDateString
         self._previewRightTopLabel.text = newDocumentString
       }
     }
@@ -83,7 +88,7 @@ extension ExportedDocPreviewController: UITableViewDelegate, UITableViewDataSour
 
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     switch section {
-      case 0: return "Items"
+    case 0: return "ITEMS".localized
       default: return nil
     }
   }
@@ -104,10 +109,7 @@ extension ExportedDocPreviewController: UITableViewDelegate, UITableViewDataSour
     case .title: break
     case .date:
       let dateChanged = {
-        let formatter = DateFormatter()
-        let newStyle = UserDefaults.standard.documentStyle.dateStyle
-        formatter.dateStyle =  newStyle
-        self._dateLabels.forEach{ $0.text = formatter.string(from: Date()) }
+        self._dateLabels.forEach{ $0.text = self.formattedDateString }
   
         let headerStyle = self.viewModel.headerStyle
         self.viewModel.headerStyle = headerStyle

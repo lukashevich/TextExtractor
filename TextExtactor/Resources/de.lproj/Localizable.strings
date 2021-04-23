@@ -1,0 +1,68 @@
+/* 
+  Localization.strings
+  TextExtactor
+
+  Created by Oleksandr Lukashevych on 23.03.2021.
+  
+*/
+
+"SAVE" = "speichern";
+"CANCEL" = "Stornierung";
+"SORT" = "Sortieren";
+"RECENT" = "kürzlich";
+"TITLE" = "Titel";
+"MODIFIED" = "Geändert";
+"CHOOSE_FILE..." = "Datei auswählen ...";
+"CHOOSE_FILE" = "Datei auswählen";
+"FROM" = "von";
+"LIBRARY" = "Bibliothek";
+"RECENTS" = "kürzlich";
+"SETTINGS" = "Einstellungen";
+"MANUALY" = "Anfänglich";
+"CREATE_NEW" = "Neu erstellen";
+"CLOSE" = "Schließen";
+"AND" = "und";
+
+"PRIVACY" = "Datenschutz-Bestimmungen";
+"TOS" = "Nutzungsbedingungen";
+
+"SHARE_PDF" = "PDF exportieren";
+"SHARE_M4A" = "Audio exportieren (M4A)";
+"DELETE" = "Löschen";
+
+"SUBSCRIPTION" = "Subscription";
+"RESTORE" = "Einkäufe wiederherstellen";
+"AUTORENEWABLE" = "Abonnement für automatische Verlängerung";
+
+"SORRY" = "Entschuldigung";
+"UNABLE_TO_EXTRACT_MESSAGE" = "Text kann nicht aus dieser Datei und in diesem Gebietsschema extrahiert werden";
+"FILES" = "Dateien";
+"CAMERA" = "Kamera";
+"EMPTY" = "leer";
+"PROCESSING" = "Wird bearbeitet...";
+
+"DAY" = "Tag";
+"WEEK" = "Woche";
+"MONTH" = "Monat";
+"YEAR" = "Jahr";
+
+"PAYWALL_TITLE" = "Get Textr Unlimited";
+"PAYWALL_SUBTITLE_1" = "Keine zeitliche Begrenzung";
+"PAYWALL_SUBTITLE_2" = "Kein Datensatzlimit";
+"PAYWALL_SUBTITLE_3" = "Vielseitige PDFs";
+
+"PAYWALL_SUBTITLE_1_MESSAGE" = "Deaktivieren Sie das 1-Minuten-Limit. Erkennen Sie die unbegrenzte Länge Ihrer Videos und Audiodaten.";
+"PAYWALL_SUBTITLE_2_MESSAGE" = "Unbegrenzte Erkennung Ihrer Dateien.";
+"PAYWALL_SUBTITLE_3_MESSAGE" = "Mit einem Klick die höchste Effizienz erzielen! Dokumentenerkennung
+mit mehreren Seiten. ";
+
+"PAYWALL_CTA" = "Nur %@ / %@ abonnieren";
+"PAYWALL_STARTS_WITH" = "Beginnt mit %i - %@ kostenlose Testversion";
+
+"EXPORT" = "Export";
+"DOCUMENT" = "Dokument";
+"AUDIO" = "Audio";
+"ADDITIONAL" = "Zusätzliche Informationen";
+"ITEMS" = "Die Elemente";
+"HEADER_STYLE" = "Header Format";
+"DATE_STYLE" = "Datumsformat";

@@ -53,8 +53,8 @@ final class RootTabController: UITabBarController {
       }
     })
   }
-  
-  func showPaywall() {
-    _router.navigate(to: .paywall(.monthlyTrial, .empty))
+
+  func showPaywall(subscription: Subscription = Subscription.currentGroup.trial) {
+    _router.navigate(to: .paywall(subscription, .empty))
   }
 }

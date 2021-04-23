@@ -54,10 +54,10 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     switch section {
-      case 0: return UserDefaults.standard.userSubscribed ? "Subscription" : nil
-      case 1: return "Export"
-      case 2: return "Additional Information"
-      default: return nil
+    case 0: return UserDefaults.standard.userSubscribed ? "SUBSCRIPTION".localized : nil
+    case 1: return "EXPORT".localized
+    case 2: return "ADDITIONAL".localized
+    default: return nil
     }
   }
   

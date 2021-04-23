@@ -73,7 +73,7 @@ final class NewDocumentController: UIViewController {
     }
     
     guard !UserDefaults.standard.shouldShowPaywall else {
-      self._router.navigate(to: .paywall(.monthly, PaywallHandlers(success: success, deny: deny)))
+      self._router.navigate(to: .paywall(Subscription.currentGroup.main, PaywallHandlers(success: success, deny: deny)))
       return
     }
     

@@ -96,7 +96,7 @@ final class PaywallController: UIViewController, URLPresenter, AlertPresenter {
         self._trialView.isHidden = true
         return
       }
-      self._trialLabel.text = "Starts with a \(intro.numberOfUnits)-\(intro.unit.stringValue) free trial"
+      self._trialLabel.text = "PAYWALL_STARTS_WITH".localized([intro.numberOfUnits, intro.unit.stringValue])
     }
   }
   

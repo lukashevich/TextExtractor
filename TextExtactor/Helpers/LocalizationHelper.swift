@@ -94,3 +94,23 @@ extension UIViewController: XIBLocalizable {
     }
   }
 }
+
+extension UINavigationItem: XIBLocalizable {
+  @IBInspectable var xibLocKey: String? {
+    get { return nil }
+    set(key) {
+      guard let string = key, string != string.localized else { return }
+      title = string.localized
+    }
+  }
+}
+
+extension UIBarButtonItem: XIBLocalizable {
+  @IBInspectable var xibLocKey: String? {
+    get { return nil }
+    set(key) {
+      guard let string = key, string != string.localized else { return }
+      title = string.localized
+    }
+  }
+}

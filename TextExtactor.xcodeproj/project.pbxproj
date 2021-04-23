@@ -183,6 +183,8 @@
 		7F719DFD25FCF1EB0039E14A /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		7F719E0025FFCF070039E14A /* URLPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPresenter.swift; sourceTree = "<group>"; };
 		7F719E0F25FFD32E0039E14A /* PaywallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallCell.swift; sourceTree = "<group>"; };
+		7F78766E262998D70006B4DF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7F7876702629A4720006B4DF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7F7E887E2608FC700059E5E2 /* TitledPreloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledPreloader.swift; sourceTree = "<group>"; };
 		7F7E88812608FC780059E5E2 /* TitledPreloader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitledPreloader.xib; sourceTree = "<group>"; };
 		7F7E888C260A52D20059E5E2 /* LocalizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationHelper.swift; sourceTree = "<group>"; };
@@ -592,6 +594,7 @@
 				en,
 				Base,
 				ru,
+				de,
 			);
 			mainGroup = 7F7ED06625D98081003F6BBB;
 			packageReferences = (
@@ -731,6 +734,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				7F7E8893260A532F0059E5E2 /* en */,
+				7F78766E262998D70006B4DF /* ru */,
+				7F7876702629A4720006B4DF /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -888,7 +893,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -912,7 +917,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

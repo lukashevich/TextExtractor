@@ -27,7 +27,7 @@ class SettingsRouter {
     
     var senderVM: Any? {
       switch self {
-      case .paywall(let handlers): return PaywallViewModel(subscription: .monthly ,handlers: handlers)
+      case .paywall(let handlers): return PaywallViewModel(subscription: Subscription.currentGroup.main ,handlers: handlers)
       case .toExportedDoc: return ExportedDocPreviewViewModel()
       }
     }

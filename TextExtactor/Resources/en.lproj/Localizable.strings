@@ -18,6 +18,10 @@
 "LIBRARY" = "Library";
 "RECENTS" = "Recents";
 "SETTINGS" = "Settings";
+"MANUALY" = "Manualy";
+"CREATE_NEW" = "Create New";
+"CLOSE" = "Close";
+"AND" = "&";
 
 "PRIVACY" = "Privacy Policy";
 "TOS" = "Terms Of Use";
@@ -26,7 +30,9 @@
 "SHARE_M4A" = "Share Audio (M4A)";
 "DELETE" = "Delete";
 
+"SUBSCRIPTION" = "Subscription";
 "RESTORE" = "Restore";
+"AUTORENEWABLE" = "Autorenewable subscription";
 
 "SORRY" = "Sorry";
 "UNABLE_TO_EXTRACT_MESSAGE" = "Unable to extract text from this file and in this Locale";
@@ -41,13 +47,22 @@
 "YEAR" = "Year";
 
 "PAYWALL_TITLE" = "Get Textractor Unlimited";
-"PAYWALL_SUBTTILE_1" = "No Duration Limit";
-"PAYWALL_SUBTTILE_2" = "Infinite quality of records";
-"PAYWALL_SUBTTILE_3" = "Multiple pages of your PDF";
+"PAYWALL_SUBTITLE_1" = "No Duration Limit";
+"PAYWALL_SUBTITLE_2" = "Infinite quality of records";
+"PAYWALL_SUBTITLE_3" = "Multiple pages of your PDF";
 
-"PAYWALL_SUBTTILE_1_MESSAGE" = "Turn off 1-min limit. Recognize unlimited duration of your videos and audios.";
-"PAYWALL_SUBTTILE_2_MESSAGE" = "Feel free to record all your stuff. Get unlimited recognitions for your files.";
-"PAYWALL_SUBTTILE_3_MESSAGE" = "Get ultimate effiency in a touch! Recognize a document
+"PAYWALL_SUBTITLE_1_MESSAGE" = "Turn off 1-min limit. Recognize unlimited duration of your videos and audios.";
+"PAYWALL_SUBTITLE_2_MESSAGE" = "Feel free to record all your stuff. Get unlimited recognitions for your files.";
+"PAYWALL_SUBTITLE_3_MESSAGE" = "Get ultimate efficiency in a touch! Recognize a document
 with multiple pages. ";
 
 "PAYWALL_CTA" = "Subscribe for %@ / %@";
+"PAYWALL_STARTS_WITH" = "Starts with a %i-%@ free trial";
+
+"EXPORT" = "Export";
+"DOCUMENT" = "Document";
+"AUDIO" = "Audio";
+"ADDITIONAL" = "Additional Information";
+"ITEMS" = "Items";
+"HEADER_STYLE" = "Header Style";
+"DATE_STYLE" = "Date Style";

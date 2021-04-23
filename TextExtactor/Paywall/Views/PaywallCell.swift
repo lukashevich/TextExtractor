@@ -20,7 +20,7 @@ final class PaywallCell: UITableViewCell {
   var problemHandler: ((Error)->Void)?
 
   override func didMoveToSuperview() {
-    SubscriptionHelper.retrieveInfo(subscription: .monthly) { product in
+    SubscriptionHelper.retrieveInfo(subscription: Subscription.currentGroup.main) { product in
       guard let product = product, let period = product.period else { return }
       let priceText = self._price(from: product.price, locale: product.priceLocale)
       let subscriptionDuration = period.unit.stringValue

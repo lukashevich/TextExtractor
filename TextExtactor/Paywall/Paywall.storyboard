@@ -99,7 +99,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                                 <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTTILE_1"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTITLE_1"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn off 1-min limit. Recognize unlimited duration of your videos and audios." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUd-2a-0mz">
@@ -108,7 +108,7 @@
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
                                                                 <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTTILE_1_MESSAGE"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTITLE_1_MESSAGE"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                         </subviews>
@@ -145,7 +145,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                                 <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTTILE_2"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTITLE_2"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feel free to record all your stuff. Get unlimited recognitions for your files." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fO3-bD-epj">
@@ -154,7 +154,7 @@
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
                                                                 <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTTILE_2_MESSAGE"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTITLE_2_MESSAGE"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                         </subviews>
@@ -191,7 +191,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                                 <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTTILE_3"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTITLE_3"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGz-Pt-8ks">
@@ -202,7 +202,7 @@ with multiple pages. </string>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
                                                                 <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTTILE_3_MESSAGE"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PAYWALL_SUBTITLE_3_MESSAGE"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                         </subviews>
@@ -267,6 +267,7 @@ with multiple pages. </string>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="smallCaps" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="AUTORENEWABLE"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfo-Q9-snR">
@@ -297,6 +298,7 @@ with multiple pages. </string>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="smallCaps" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="RESTORE"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="restore" destination="jaA-f0-h2p" eventType="touchUpInside" id="ZQi-re-u2f"/>
@@ -336,6 +338,9 @@ with multiple pages. </string>
                                         <state key="normal" title="Terms of Service">
                                             <color key="titleColor" systemColor="secondaryLabelColor"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="TOS"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="tosPressed" destination="jaA-f0-h2p" eventType="touchUpInside" id="Jcd-H7-Tna"/>
                                         </connections>
@@ -345,12 +350,18 @@ with multiple pages. </string>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="AND"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQK-rq-Alx">
                                         <rect key="frame" x="154" y="0.0" width="95" height="14.5"/>
                                         <state key="normal" title="Privacy Policy">
                                             <color key="titleColor" systemColor="secondaryLabelColor"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="PRIVACY"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="privacyPressed" destination="jaA-f0-h2p" eventType="touchUpInside" id="wZk-1V-Hhp"/>
                                         </connections>
