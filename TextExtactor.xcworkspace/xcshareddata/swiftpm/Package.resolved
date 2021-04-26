@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "ShimmerSwift",
+        "repositoryURL": "https://github.com/BeauNouvelle/ShimmerSwift",
+        "state": {
+          "branch": null,
+          "revision": "f1a4366f74329c313e9528bcbe5286eacc750c05",
+          "version": "2.2.0"
+        }
+      },
+      {
         "package": "SwiftyStoreKit",
         "repositoryURL": "https://github.com/bizz84/SwiftyStoreKit.git",
         "state": {

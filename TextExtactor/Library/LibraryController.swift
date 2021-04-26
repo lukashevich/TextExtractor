@@ -38,6 +38,21 @@ final class LibraryController: UICollectionViewController, ShareControllerPresen
   func appeared() {
     self.collectionView.reloadData()
   }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    NotificationCenter.default.addObserver(self, selector: #selector(viewDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+  }
+  
+  @objc func viewDidBecomeActive() {
+      print("viewDidBecomeActive")
+    print(UserDefaults.standard.documentsToImport)
+    
+    guard !UserDefaults.standard.documentsToImport.isEmpty else { return }
+    UserDefaults.standard.documentsToImport.forEach{ $0.createFile() }
+    UserDefaults.standard.documentsToImport = []
+    self.collectionView.reloadData()
+  }
 }
 
 extension LibraryController {

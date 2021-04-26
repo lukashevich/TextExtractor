@@ -12,7 +12,7 @@
         <!--Paywall Controller-->
         <scene sceneID="zA8-62-Bzv">
             <objects>
-                <viewController id="jaA-f0-h2p" customClass="PaywallController" customModule="TextExtactor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jaA-f0-h2p" customClass="PaywallController" customModule="Sharing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L1T-u5-CjP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -304,7 +304,7 @@ with multiple pages. </string>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2BK-m9-CBh" customClass="PreloaderView" customModule="TextExtactor" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2BK-m9-CBh" customClass="PreloaderView" customModule="Sharing" customModuleProvider="target">
                                         <rect key="frame" x="20" y="0.0" width="335" height="164"/>
                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                         <userDefinedRuntimeAttributes>

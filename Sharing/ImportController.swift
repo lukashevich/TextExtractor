@@ -10,90 +10,150 @@ import Social
 import AVFoundation
 
 @objc(ImportController)
-class ImportController: UIViewController {
-  override func viewDidLoad() {
-      super.viewDidLoad()
-
-    FileManager.createDefaults()
-
-      setupNavBar()
-    
-    self.handleSharedFile()
-  }
-
-  // 2: Set the title and the navigation items
-  private func setupNavBar() {
-      self.navigationItem.title = "My app"
-
-      let itemCancel = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelAction))
-      self.navigationItem.setLeftBarButton(itemCancel, animated: false)
-
-      let itemDone = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
-      self.navigationItem.setRightBarButton(itemDone, animated: false)
-  }
-
-  // 3: Define the actions for the navigation items
-  @objc private func cancelAction () {
-      let error = NSError(domain: "some.bundle.identifier", code: 0, userInfo: [NSLocalizedDescriptionKey: "An error description"])
-      extensionContext?.cancelRequest(withError: error)
-  }
-
-  @objc private func doneAction() {
-      extensionContext?.completeRequest(returningItems: [], completionHandler: nil)
+class ImportController: UIViewController, AlertPresenter {
+  
+  var _locale: Locale {
+    UserDefaults.standard.extractingLocale
   }
   
-  private func handleSharedFile() {
-    // extracting the path to the URL that is being shared
-    let attachments = (self.extensionContext?.inputItems.first as? NSExtensionItem)?.attachments ?? []
-    
-    print(attachments.map(\.suggestedName))
-    
-    attachments.forEach { attachment in
-      if attachment.hasItemConformingToTypeIdentifier("public.file-url" as String) {
-        // extension is being called e.g. from Mail app
-        attachment.loadItem(forTypeIdentifier: "public.file-url" as String, options: nil) { (data, error) in
-          if let sourcePKPassURL = data as? URL {
-            print("preparing...")
+  @IBOutlet weak var textView: TypenTextView!
+  @IBOutlet private weak var _fullPreloader: UIView!
+  @IBOutlet private weak var _fullPreloaderActivity: UIActivityIndicatorView!
+  @IBOutlet private weak var _progressView: UIProgressView!
 
-            self.prepareFile(at: sourcePKPassURL) { url in
-              Recognizer.recognizeMedia(at: url, in: .current) { text in
-                print("FUCKING", text)
-              }
-            }
+  override func viewDidLoad() {
+      super.viewDidLoad()
+    FileManager.createDefaults()
+    FileManager.clearTmpFolder()
+//      setupNavBar()
+    
+    func sharedDirectoryURL() -> URL {
+      return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Constant.groupID)!
+    }
+    
+    self._handleSharedFile { (exported) in
+      
+      guard !exported.isEmpty else {
+        self.showAlert(.somethingWentWrong) { _ in
+          let error = NSError(domain: "com.textr", code: 0, userInfo: [NSLocalizedDescriptionKey: "Undefined file"])
+          self.extensionContext?.cancelRequest(withError: error)
+        }
+        return
+      }
+      
+      let group = DispatchGroup()
+
+      var audios = [ExportedFile]()
+      var texts = [ExportedFile]()
+      
+      exported.forEach {
+        group.enter()
+        switch $0 {
+        case .audio(let index, let url):
+          let copiedFileURL = AudioConverter.convertOGG(at: url, with: index)
+          self.prepareFile(at: copiedFileURL, index: index) { url in
+            audios.append(.audio(index: index, url: url))
+            group.leave()
           }
+        case .text:
+          texts.append($0)
+          group.leave()
+        }
+      }
+      
+      group.notify(queue: .main) {
+        var transcribedItemsCount = 0
+        let result = (audios + texts).sorted(by: < )
+
+        Recognizer.recognizeExported(files: result, in: UserDefaults.standard.extractingLocale) { text in
+          transcribedItemsCount += 1
+          print(CGFloat(transcribedItemsCount / result.count))
+          print(Float(transcribedItemsCount / result.count))
+          let progress: Float = Float(transcribedItemsCount) / Float(result.count)
+          self._progressView.setProgress(progress, animated: true)
+          guard !text.isEmpty else { return }
+          self._hidePreloader()
+          self.textView.text = self.textView.text + "\n" + text
         }
       }
     }
-//    let contentType = kUTTypeData as String
-//    for provider in attachments {
-//      // Check if the content type is the same as we expected
-//      if provider.hasItemConformingToTypeIdentifier(contentType) {
-//        provider.loadItem(forTypeIdentifier: contentType,
-//                          options: nil) { [unowned self] (data, error) in
-//        // Handle the error here if you want
-//        guard error == nil else { return }
-//
-//        if let url = data as? URL,
-//           let imageData = try? Data(contentsOf: url) {
-//             self.save(imageData, key: "imageData", value: imageData)
-//        } else {
-//          // Handle this situation as you prefer
-//          fatalError("Impossible to save image")
-//        }
-//      }}
-//    }
+  }
+  
+  // 3: Define the actions for the navigation items
+  @IBAction private func _cancelAction () {
+    let error = NSError(domain: "some.bundle.identifier", code: 0, userInfo: [NSLocalizedDescriptionKey: "An error description"])
+    extensionContext?.cancelRequest(withError: error)
+  }
+  
+  @IBAction private func _doneAction() {
+    guard let text = textView.text else {
+      self._hidePreloader()
+      return
+    }
+    
+    let formatter = DateFormatter()
+    formatter.dateStyle = .short
+    let docName = formatter.string(from: Date())
+    
+    let document = Document(name: docName, text: text, createdAt: Date(), modifiedAt: Date(), source: .audio)
+    UserDefaults.standard.documentsToImport = [document]
+    
+    extensionContext?.completeRequest(returningItems: [], completionHandler: nil)
   }
   
   
-  func prepareFile(at url: URL, completion: @escaping ((URL) -> Void) ) {
+  private func _showPreloader() {
+    self._fullPreloaderActivity.startAnimating()
+    self._fullPreloader.showAnimated()
+  }
+  
+  private func _hidePreloader() {
+    self._fullPreloader.hideAnimated()
+  }
+  
+  private func _handleSharedFile(completion: @escaping (([ExportedFile]) -> Void)) {
+    
+    self._showPreloader()
+    // extracting the path to the URL that is being shared
+    let attachments = (self.extensionContext?.inputItems.first as? NSExtensionItem)?.attachments ?? []
+        
+    let group = DispatchGroup()
+    var exported = [ExportedFile]()
+    
+    attachments.enumerated().forEach { index, attachment in
+      group.enter()
+        if attachment.hasItemConformingToTypeIdentifier("public.file-url" as String) {
+          // extension is being called e.g. from Mail app
+          attachment.loadItem(forTypeIdentifier: "public.file-url" as String, options: nil) { (data, error) in
+            if let sourceURL = data as? URL {
+              exported.append(.audio(index: index, url: sourceURL))
+              group.leave()
+            }
+          }
+        } else if attachment.hasItemConformingToTypeIdentifier("public.plain-text" as String) {
+          attachment.loadItem(forTypeIdentifier: "public.plain-text" as String, options: nil) { (data, error) in
+            if let sourceText = data as? String {
+              exported.append(.text(index: index, text: sourceText))
+            }
+            group.leave()
+          }
+        } else {
+          group.leave()
+        }
+    }
+    
+    group.notify(queue: .main) {
+      completion([])
+
+//      completion(exported)
+    }
+  }
+  
+  
+  func prepareFile(at url: URL, index: Int, completion: @escaping ((URL) -> Void) ) {
     let asset = AVURLAsset(url: url)
-    FileManager.clearTmpFolder()
-    print("start writte...")
-
-    let pathWhereToSave = FileManager.tmpFolder.path + "/temp.mp4"
+    let pathWhereToSave = FileManager.tmpFolder.path + "/temp_\(index).mp4"
     asset.writeAudioTrackToURL(URL(fileURLWithPath: pathWhereToSave)) { (success, error) -> () in
-      print("writed AudioTrackToURL", success, error)
-
       if success {
         completion(url)
       }

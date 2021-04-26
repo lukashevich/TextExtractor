@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D89CD61E0A8A91F6D9B5338 /* Pods_TextExtactor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B41F719D2F5478B070C6E0D2 /* Pods_TextExtactor.framework */; };
 		7F025F2626171B89003BDC24 /* PaywallOnLaunchPresentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F025F2526171B89003BDC24 /* PaywallOnLaunchPresentHelper.swift */; };
 		7F025F2926171F0E003BDC24 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F025F2826171F0E003BDC24 /* RootRouter.swift */; };
 		7F025F2E261CA04E003BDC24 /* ExportedDocPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F025F2D261CA04E003BDC24 /* ExportedDocPreviewController.swift */; };
@@ -69,6 +70,22 @@
 		7F719DFE25FCF1EB0039E14A /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719DFD25FCF1EB0039E14A /* SettingsRouter.swift */; };
 		7F719E0125FFCF070039E14A /* URLPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719E0025FFCF070039E14A /* URLPresenter.swift */; };
 		7F719E1025FFD32E0039E14A /* PaywallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F719E0F25FFD32E0039E14A /* PaywallCell.swift */; };
+		7F74702C2632D970006B787F /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F74702B2632D970006B787F /* AudioConverter.swift */; };
+		7F74705526330CA8006B787F /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F74702B2632D970006B787F /* AudioConverter.swift */; };
+		7F74705D26330FA3006B787F /* UITextView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21D34825DA8A46009A3F53 /* UITextView+Extensions.swift */; };
+		7F747060263316D9006B787F /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7ED0AF25D9A6B7003F6BBB /* UIView+Extensions.swift */; };
+		7F7470652635A318006B787F /* ShimmerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7F7470642635A318006B787F /* ShimmerSwift */; };
+		7F7470802635B126006B787F /* Recognizer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F74707F2635B126006B787F /* Recognizer+Extensions.swift */; };
+		7F7470842635B14E006B787F /* ExportedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7470832635B14E006B787F /* ExportedFile.swift */; };
+		7F74708A2635B1A9006B787F /* ExportedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7470832635B14E006B787F /* ExportedFile.swift */; };
+		7F7470982635B9BA006B787F /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7470972635B9BA006B787F /* UserDefaults+Extensions.swift */; };
+		7F74709C2635BC8F006B787F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F74709B2635BC8F006B787F /* Constants.swift */; };
+		7F74709F2635BCA3006B787F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F74709B2635BC8F006B787F /* Constants.swift */; };
+		7F7470A52635BFC4006B787F /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CE0E125FA7B0C00F7AF09 /* URL+Extensions.swift */; };
+		7F7470A92635BFEF006B787F /* Document+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7470A82635BFEF006B787F /* Document+Shared.swift */; };
+		7F7470AE2635C016006B787F /* Document+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7470A82635BFEF006B787F /* Document+Shared.swift */; };
+		7F7470B12636D6F5006B787F /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F917D19260F256B00064975 /* AlertPresenter.swift */; };
+		7F7470B42636D71C006B787F /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F44359325DC212800F776BE /* UIColor+Extensions.swift */; };
 		7F7E887F2608FC700059E5E2 /* TitledPreloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7E887E2608FC700059E5E2 /* TitledPreloader.swift */; };
 		7F7E88822608FC780059E5E2 /* TitledPreloader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7E88812608FC780059E5E2 /* TitledPreloader.xib */; };
 		7F7E888D260A52D20059E5E2 /* LocalizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7E888C260A52D20059E5E2 /* LocalizationHelper.swift */; };
@@ -130,6 +147,7 @@
 		7FF4E76B2625DB42000B12A5 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE8B82620505500D09675 /* Array+Extensions.swift */; };
 		7FF4E77A2625DD62000B12A5 /* FileManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4E7782625DD62000B12A5 /* FileManager+Extensions.swift */; };
 		7FF4E77F2625DDF3000B12A5 /* AVAsset+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21D35525DA8BEC009A3F53 /* AVAsset+Extensions.swift */; };
+		E5C2FF4E8E4E0772025FD071 /* Pods_Sharing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E04BAB85C2683330AAF4BBAF /* Pods_Sharing.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +175,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2BE9B20AD051F388A104BD22 /* Pods-TextExtactor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextExtactor.release.xcconfig"; path = "Target Support Files/Pods-TextExtactor/Pods-TextExtactor.release.xcconfig"; sourceTree = "<group>"; };
+		6C56F02AA128D5AABAF3F671 /* Pods-TextExtactor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextExtactor.debug.xcconfig"; path = "Target Support Files/Pods-TextExtactor/Pods-TextExtactor.debug.xcconfig"; sourceTree = "<group>"; };
 		7F025F2526171B89003BDC24 /* PaywallOnLaunchPresentHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallOnLaunchPresentHelper.swift; sourceTree = "<group>"; };
 		7F025F2826171F0E003BDC24 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		7F025F2D261CA04E003BDC24 /* ExportedDocPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportedDocPreviewController.swift; sourceTree = "<group>"; };
@@ -220,6 +240,13 @@
 		7F719DFD25FCF1EB0039E14A /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		7F719E0025FFCF070039E14A /* URLPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPresenter.swift; sourceTree = "<group>"; };
 		7F719E0F25FFD32E0039E14A /* PaywallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallCell.swift; sourceTree = "<group>"; };
+		7F74701D2632D096006B787F /* TextExtactor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TextExtactor-Bridging-Header.h"; sourceTree = "<group>"; };
+		7F74702B2632D970006B787F /* AudioConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioConverter.swift; sourceTree = "<group>"; };
+		7F74707F2635B126006B787F /* Recognizer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recognizer+Extensions.swift"; sourceTree = "<group>"; };
+		7F7470832635B14E006B787F /* ExportedFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportedFile.swift; sourceTree = "<group>"; };
+		7F7470972635B9BA006B787F /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		7F74709B2635BC8F006B787F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7F7470A82635BFEF006B787F /* Document+Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Document+Shared.swift"; sourceTree = "<group>"; };
 		7F7E887E2608FC700059E5E2 /* TitledPreloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledPreloader.swift; sourceTree = "<group>"; };
 		7F7E88812608FC780059E5E2 /* TitledPreloader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitledPreloader.xib; sourceTree = "<group>"; };
 		7F7E888C260A52D20059E5E2 /* LocalizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationHelper.swift; sourceTree = "<group>"; };
@@ -267,6 +294,10 @@
 		7FC9812125E4256E00FD65DF /* RootTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabController.swift; sourceTree = "<group>"; };
 		7FF4E6962625A313000B12A5 /* Sharing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sharing.entitlements; sourceTree = "<group>"; };
 		7FF4E7782625DD62000B12A5 /* FileManager+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extensions.swift"; sourceTree = "<group>"; };
+		A96B67E7CEED05B7EDFD7563 /* Pods-Sharing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharing.release.xcconfig"; path = "Target Support Files/Pods-Sharing/Pods-Sharing.release.xcconfig"; sourceTree = "<group>"; };
+		B41F719D2F5478B070C6E0D2 /* Pods_TextExtactor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextExtactor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2EAB87A8E87C6386952F942 /* Pods-Sharing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharing.debug.xcconfig"; path = "Target Support Files/Pods-Sharing/Pods-Sharing.debug.xcconfig"; sourceTree = "<group>"; };
+		E04BAB85C2683330AAF4BBAF /* Pods_Sharing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sharing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +305,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C2FF4E8E4E0772025FD071 /* Pods_Sharing.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,12 +315,25 @@
 			files = (
 				7F21D36325DA9011009A3F53 /* DSWaveformImage in Frameworks */,
 				7F47AF3325E5489500CD8C02 /* SwiftyStoreKit in Frameworks */,
+				7F7470652635A318006B787F /* ShimmerSwift in Frameworks */,
+				1D89CD61E0A8A91F6D9B5338 /* Pods_TextExtactor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A2F2DE798FCB2F8E6DC9889 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C56F02AA128D5AABAF3F671 /* Pods-TextExtactor.debug.xcconfig */,
+				2BE9B20AD051F388A104BD22 /* Pods-TextExtactor.release.xcconfig */,
+				D2EAB87A8E87C6386952F942 /* Pods-Sharing.debug.xcconfig */,
+				A96B67E7CEED05B7EDFD7563 /* Pods-Sharing.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7F025F2C261C9FF0003BDC24 /* Exported Doc Preview */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +361,7 @@
 			children = (
 				7F21D35825DA8C6E009A3F53 /* AudioEditHelper.swift */,
 				7F21D34F25DA8B50009A3F53 /* AudioFileSplitter.swift */,
+				7F74701D2632D096006B787F /* TextExtactor-Bridging-Header.h */,
 				7F21D36625DA914B009A3F53 /* Recognizer.swift */,
 				7FC980E125DDB5A500FD65DF /* PDFCreator.swift */,
 				7F35005725E434C6003E2089 /* YoutubeVideoExtractor.swift */,
@@ -324,6 +370,8 @@
 				7F4CE0D725F9409F00F7AF09 /* AppStoreReviewHelper.swift */,
 				7F7E888C260A52D20059E5E2 /* LocalizationHelper.swift */,
 				7F025F2526171B89003BDC24 /* PaywallOnLaunchPresentHelper.swift */,
+				7F74702B2632D970006B787F /* AudioConverter.swift */,
+				7F74709B2635BC8F006B787F /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -369,11 +417,12 @@
 		7F4433AD26248FE6003C7003 /* Sharing */ = {
 			isa = PBXGroup;
 			children = (
+				7F7470872635B153006B787F /* Domain */,
+				7F74707E2635B110006B787F /* Extensions */,
 				7FF4E6962625A313000B12A5 /* Sharing.entitlements */,
 				7F4433AE26248FE6003C7003 /* ImportController.swift */,
 				7F4433B026248FE7003C7003 /* ImportController.storyboard */,
 				7F4433B326248FE7003C7003 /* Info.plist */,
-				7FF4E7782625DD62000B12A5 /* FileManager+Extensions.swift */,
 			);
 			path = Sharing;
 			sourceTree = "<group>";
@@ -445,12 +494,32 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		7F74707E2635B110006B787F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7FF4E7782625DD62000B12A5 /* FileManager+Extensions.swift */,
+				7F74707F2635B126006B787F /* Recognizer+Extensions.swift */,
+				7F7470972635B9BA006B787F /* UserDefaults+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7F7470872635B153006B787F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				7F7470832635B14E006B787F /* ExportedFile.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		7F7ED06625D98081003F6BBB = {
 			isa = PBXGroup;
 			children = (
 				7F7ED07125D98081003F6BBB /* TextExtactor */,
 				7F4433AD26248FE6003C7003 /* Sharing */,
 				7F7ED07025D98081003F6BBB /* Products */,
+				0A2F2DE798FCB2F8E6DC9889 /* Pods */,
+				F14BC02368743FAD60640351 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -519,6 +588,7 @@
 			children = (
 				7F7ED09D25D9855E003F6BBB /* Document.swift */,
 				7F21D35225DA8B6B009A3F53 /* AudioChunk.swift */,
+				7F7470A82635BFEF006B787F /* Document+Shared.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -605,6 +675,15 @@
 			path = "Root Controller";
 			sourceTree = "<group>";
 		};
+		F14BC02368743FAD60640351 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B41F719D2F5478B070C6E0D2 /* Pods_TextExtactor.framework */,
+				E04BAB85C2683330AAF4BBAF /* Pods_Sharing.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -612,6 +691,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F4433B726248FE7003C7003 /* Build configuration list for PBXNativeTarget "Sharing" */;
 			buildPhases = (
+				E61ED13FFE439CA789C4CAE2 /* [CP] Check Pods Manifest.lock */,
 				7F4433A826248FE6003C7003 /* Sources */,
 				7F4433A926248FE6003C7003 /* Frameworks */,
 				7F4433AA26248FE6003C7003 /* Resources */,
@@ -629,10 +709,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F7ED08325D98081003F6BBB /* Build configuration list for PBXNativeTarget "TextExtactor" */;
 			buildPhases = (
+				9098EF674B54140C821B0F4A /* [CP] Check Pods Manifest.lock */,
 				7F7ED06B25D98081003F6BBB /* Sources */,
 				7F7ED06C25D98081003F6BBB /* Frameworks */,
 				7F7ED06D25D98081003F6BBB /* Resources */,
 				7F6AE8CD262058CC00D09675 /* Embed App Extensions */,
+				8997B128FA08BDBC03CC9C37 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -643,6 +725,7 @@
 			packageProductDependencies = (
 				7F21D36225DA9011009A3F53 /* DSWaveformImage */,
 				7F47AF3225E5489500CD8C02 /* SwiftyStoreKit */,
+				7F7470642635A318006B787F /* ShimmerSwift */,
 			);
 			productName = TextExtactor;
 			productReference = 7F7ED06F25D98081003F6BBB /* TextExtactor.app */;
@@ -678,6 +761,7 @@
 			packageReferences = (
 				7F21D36125DA9011009A3F53 /* XCRemoteSwiftPackageReference "DSWaveformImage" */,
 				7F47AF3125E5489500CD8C02 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
+				7F7470632635A318006B787F /* XCRemoteSwiftPackageReference "ShimmerSwift" */,
 			);
 			productRefGroup = 7F7ED07025D98081003F6BBB /* Products */;
 			projectDirPath = "";
@@ -741,16 +825,91 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8997B128FA08BDBC03CC9C37 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TextExtactor/Pods-TextExtactor-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TextExtactor/Pods-TextExtactor-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TextExtactor/Pods-TextExtactor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9098EF674B54140C821B0F4A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TextExtactor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E61ED13FFE439CA789C4CAE2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sharing-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7F4433A826248FE6003C7003 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7FF4E7662625DAF2000B12A5 /* Recognizer.swift in Sources */,
+				7F7470AE2635C016006B787F /* Document+Shared.swift in Sources */,
+				7F7470A52635BFC4006B787F /* URL+Extensions.swift in Sources */,
+				7F74705D26330FA3006B787F /* UITextView+Extensions.swift in Sources */,
+				7F7470842635B14E006B787F /* ExportedFile.swift in Sources */,
+				7F7470B12636D6F5006B787F /* AlertPresenter.swift in Sources */,
 				7FF4E77A2625DD62000B12A5 /* FileManager+Extensions.swift in Sources */,
+				7F7470802635B126006B787F /* Recognizer+Extensions.swift in Sources */,
 				7FF4E77F2625DDF3000B12A5 /* AVAsset+Extensions.swift in Sources */,
+				7F74705526330CA8006B787F /* AudioConverter.swift in Sources */,
 				7FF4E76B2625DB42000B12A5 /* Array+Extensions.swift in Sources */,
+				7F7470B42636D71C006B787F /* UIColor+Extensions.swift in Sources */,
+				7F7470982635B9BA006B787F /* UserDefaults+Extensions.swift in Sources */,
+				7F747060263316D9006B787F /* UIView+Extensions.swift in Sources */,
 				7FF4E7622625DAE6000B12A5 /* ImportController.swift in Sources */,
+				7F74709F2635BCA3006B787F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -786,12 +945,15 @@
 				7F719E0125FFCF070039E14A /* URLPresenter.swift in Sources */,
 				7FC980FC25E0257500FD65DF /* LocalesController.swift in Sources */,
 				7F4CE0D525F9404500F7AF09 /* CMTime+Extensions.swift in Sources */,
+				7F74708A2635B1A9006B787F /* ExportedFile.swift in Sources */,
+				7F7470A92635BFEF006B787F /* Document+Shared.swift in Sources */,
 				7F4CE0E225FA7B0C00F7AF09 /* URL+Extensions.swift in Sources */,
 				7F21D37D25DAB970009A3F53 /* ProcessCell.swift in Sources */,
 				7F719DE225FCC14F0039E14A /* NewDocumentRouter.swift in Sources */,
 				7F7E88A2260CDC810059E5E2 /* DocSourceIconView.swift in Sources */,
 				7F4CE0E825FA87A200F7AF09 /* CameraTextFinder.swift in Sources */,
 				7F719DEE25FCE3D50039E14A /* UIApplication+Extensions.swift in Sources */,
+				7F74709C2635BC8F006B787F /* Constants.swift in Sources */,
 				7F21D38525DACC2B009A3F53 /* String+Extensions.swift in Sources */,
 				7F025F41261DFC59003BDC24 /* ExportedDocPreviewRouter.swift in Sources */,
 				7FC9811625E41E4D00FD65DF /* DocumentPreviewController.swift in Sources */,
@@ -806,6 +968,7 @@
 				7F21D35625DA8BEC009A3F53 /* AVAsset+Extensions.swift in Sources */,
 				7F025F3E261DFBD3003BDC24 /* DateStylePickerViewModel.swift in Sources */,
 				7F21D37225DAB7D7009A3F53 /* NewDocumentViewModel.swift in Sources */,
+				7F74702C2632D970006B787F /* AudioConverter.swift in Sources */,
 				7F7ED09425D982C7003F6BBB /* LibraryItemCell.swift in Sources */,
 				7F52928425E6A8B200D7571F /* UIBarButtonItem+Extensions.swift in Sources */,
 				7F7ED08F25D9813E003F6BBB /* LibraryViewModel.swift in Sources */,
@@ -889,6 +1052,7 @@
 /* Begin XCBuildConfiguration section */
 		7F4433B826248FE7003C7003 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2EAB87A8E87C6386952F942 /* Pods-Sharing.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Sharing/Sharing.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -903,6 +1067,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor.Sharing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Lucas/Desktop/TextExtractor/TextExtactor/Helpers/TextExtactor-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -910,6 +1075,7 @@
 		};
 		7F4433B926248FE7003C7003 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A96B67E7CEED05B7EDFD7563 /* Pods-Sharing.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Sharing/Sharing.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -924,6 +1090,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor.Sharing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Lucas/Desktop/TextExtractor/TextExtactor/Helpers/TextExtactor-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1049,6 +1216,7 @@
 		};
 		7F7ED08425D98081003F6BBB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C56F02AA128D5AABAF3F671 /* Pods-TextExtactor.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1066,6 +1234,7 @@
 				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Lucas/Desktop/TextExtractor/TextExtactor/Helpers/TextExtactor-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1073,6 +1242,7 @@
 		};
 		7F7ED08525D98081003F6BBB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BE9B20AD051F388A104BD22 /* Pods-TextExtactor.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1090,6 +1260,7 @@
 				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Lucas/Desktop/TextExtractor/TextExtactor/Helpers/TextExtactor-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1144,6 +1315,14 @@
 				minimumVersion = 0.16.3;
 			};
 		};
+		7F7470632635A318006B787F /* XCRemoteSwiftPackageReference "ShimmerSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BeauNouvelle/ShimmerSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1156,6 +1335,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7F47AF3125E5489500CD8C02 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */;
 			productName = SwiftyStoreKit;
+		};
+		7F7470642635A318006B787F /* ShimmerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F7470632635A318006B787F /* XCRemoteSwiftPackageReference "ShimmerSwift" */;
+			productName = ShimmerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

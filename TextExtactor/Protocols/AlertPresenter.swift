@@ -30,11 +30,11 @@ enum AlertType {
 }
 
 extension AlertPresenter where Self: UIViewController {
-  func showAlert(_ type: AlertType) {
+  func showAlert(_ type: AlertType, handler: ((UIAlertAction) -> Void)? = nil) {
     let info = type.info
     let alert = UIAlertController(title: info.title, message: info.message, preferredStyle: .alert)
     alert.view.tintColor = .accentColor
-    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: handler))
     self.present(alert, animated: true, completion: nil)
   }
  }

@@ -1,16 +1,20 @@
 PODS:
-  - UICircularProgressRing (8.0.0)
+  - mobile-ffmpeg-full-gpl (4.4)
+  - Shimmer (1.0.2)
 
 DEPENDENCIES:
-  - UICircularProgressRing
+  - mobile-ffmpeg-full-gpl (~> 4.2)
+  - Shimmer
 
 SPEC REPOS:
   trunk:
-    - UICircularProgressRing
+    - mobile-ffmpeg-full-gpl
+    - Shimmer
 
 SPEC CHECKSUMS:
-  UICircularProgressRing: 19927375b2b21b5fa5fd9582f15ccdef9659da16
+  mobile-ffmpeg-full-gpl: 77de728206f08f30c70f530b18abb4e8f6413eb6
+  Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
 
-PODFILE CHECKSUM: 057cd3593fa62410499dfe0a2a11760121648022
+PODFILE CHECKSUM: b9a0145229030dac1c59128e0916f6625044935e
 
 COCOAPODS: 1.10.0

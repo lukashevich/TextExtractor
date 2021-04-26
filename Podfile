@@ -2,10 +2,17 @@
 # platform :ios, '9.0'
 
 target 'TextExtactor' do
-  # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-#  pod 'UICircularProgressRing'
-#  pod "XCDYouTubeKit", "~> 2.15"
+  pod 'mobile-ffmpeg-full-gpl', '~> 4.2'
+  pod 'Shimmer'
 
+#  pod 'UICircularProgressRing'
+#  pod "XCDYouTubeKit", "~> 2.15"    
+end
+
+target 'Sharing' do
+  use_frameworks!
+  pod 'mobile-ffmpeg-full-gpl', '~> 4.2'
+  pod 'Shimmer'
 end

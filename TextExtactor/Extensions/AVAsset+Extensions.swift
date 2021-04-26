@@ -28,6 +28,7 @@ extension AVAsset {
     exportSession.outputFileType = .mp4
     exportSession.outputURL      = url
     
+    print(FileManager.content(from: FileManager.documentsFolder))
     exportSession.exportAsynchronously {
       switch exportSession.status {
       case .completed:

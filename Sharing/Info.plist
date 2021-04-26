@@ -27,13 +27,11 @@
 			<key>NSExtensionActivationRule</key>
 			<dict>
 				<key>NSExtensionActivationSupportsText</key>
-				<integer>4</integer>
-				<key>NSExtensionActivationSupportsMovieWithMaxCount</key>
-				<integer>4</integer>
+				<integer>7</integer>
 				<key>NSExtensionActivationSupportsFileWithMaxCount</key>
-				<integer>4</integer>
+				<integer>7</integer>
 				<key>NSExtensionActivationSupportsAttachmentsWithMaxCount</key>
-				<integer>4</integer>
+				<integer>7</integer>
 				<key>NSExtensionActivationSupportsAttachmentsWithMinCount</key>
 				<integer>1</integer>
 			</dict>

@@ -19,7 +19,10 @@ extension UserDefaults {
     get {
       Locale(identifier: UserDefaults.standard.string(forKey: #function) ?? Locale.current.identifier)
     }
-    set { UserDefaults.standard.set(newValue.identifier, forKey: #function) }
+    set {
+      UserDefaults(suiteName: Constant.groupID)!.set(newValue.identifier, forKey: #function)
+      UserDefaults.standard.set(newValue.identifier, forKey: #function)
+    }
   }
   
   func setDefaults() {
@@ -43,6 +46,25 @@ extension UserDefaults {
     set {
       if let encoded = try? JSONEncoder().encode(newValue) {
         UserDefaults.standard.set(encoded, forKey: #function)
+      }
+    }
+  }
+}
+
+//SHARING
+extension UserDefaults {
+  var documentsToImport: [Document] {
+    get {
+      if let styleData = UserDefaults(suiteName: Constant.groupID)!.object(forKey: #function) as? Data {
+        if let style = try? JSONDecoder().decode([Document].self, from: styleData) {
+          return style
+        }
+      }
+      return []
+    }
+    set {
+      if let encoded = try? JSONEncoder().encode(newValue) {
+        UserDefaults(suiteName: Constant.groupID)!.set(encoded, forKey: #function)
       }
     }
   }

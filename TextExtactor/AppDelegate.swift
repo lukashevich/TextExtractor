@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     return true
   }
-
+  
   private func _createDefaultsFolders() {
     FileManager.createDefaults()
   }
