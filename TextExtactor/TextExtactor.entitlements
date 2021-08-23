@@ -14,5 +14,9 @@
 	<array>
 		<string>iCloud.textExtractor</string>
 	</array>
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.textr</string>
+	</array>
 </dict>
 </plist>

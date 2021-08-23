@@ -9,7 +9,7 @@ import Foundation
 
 class LibraryViewModel {
   let _documents: [Document] = FileManager.savedDocuments
-  var source: [Document] { FileManager.savedDocuments }
+  var source: [Document] { FileManager.savedDocuments.sorted(by: { $0.createdAt > $1.createdAt }) }
   
   func sortDocuments(_ sort: LibraryHeader.Sort) -> [Document] {
     switch sort {

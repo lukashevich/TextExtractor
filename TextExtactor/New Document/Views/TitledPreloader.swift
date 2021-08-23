@@ -23,7 +23,7 @@ final class TitledPreloader: UIView {
     view.frame = bounds
     view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     addSubview(view)
-    view.cornerRadius = bounds.size.height / 2
+    view.cornerRadius = 16
     contentView = view
     preloader.startAnimating()
   }

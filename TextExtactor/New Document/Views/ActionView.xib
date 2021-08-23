@@ -13,7 +13,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActionView" customModule="TextExtactor" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActionView" customModule="Sharing" customModuleProvider="target">
             <connections>
                 <outlet property="_actionButton" destination="p0N-S8-Fw6" id="plY-4z-KJ4"/>
             </connections>

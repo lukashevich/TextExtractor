@@ -47,7 +47,7 @@ final class PaywallCell: UITableViewCell {
     SubscriptionHelper.subscribe(resultHandler: { result in
         switch result {
         case .success:
-          UserDefaults.standard.userSubscribed = true
+          SubscriptionHelper.handleSubscription(Subscription.currentGroup.main)
           self.subscriptionHandler?()
         case .error(let error):
           self.problemHandler?(error)

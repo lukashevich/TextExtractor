@@ -1,0 +1,71 @@
+/* 
+  Localization.strings
+  TextExtactor
+
+  Created by Oleksandr Lukashevych on 23.03.2021.
+  
+*/
+
+"SAVE" = "Opslaan";
+"CANCEL" = "Annuleren";
+"SORT" = "Sorteren";
+"RECENT" = "Recent";
+"TITLE" = "Titel";
+"MODIFIED" = "Gewijzigd";
+"CHOOSE_FILE..." = "Kies bestand ...";
+"CHOOSE_FILE" = "Kies bestand";
+"FROM" = "van";
+"LIBRARY" = "Bibliotheek";
+"RECENTS" = "Recent";
+"SETTINGS" = "Instellingen";
+"MANUALY" = "Manualy";
+"CREATE_NEW" = "Nieuwe maken";
+"CLOSE" = "Sluiten";
+"AND" = "&";
+
+"PRIVACY" = "Privacybeleid";
+"TOS" = "Gebruiksvoorwaarden";
+
+"SHARE_PDF" = "PDF delen";
+"SHARE_M4A" = "Deel audio (M4A)";
+"DELETE" = "Verwijderen";
+
+"SUBSCRIPTION" = "Abonnement";
+"RESTORE" = "Herstellen";
+"AUTORENEWABLE" = "Automatisch vernieuwbaar abonnement";
+
+"SORRY" = "Sorry";
+"UNABLE_TO_EXTRACT_MESSAGE" = "Kan tekst niet extraheren uit dit bestand en in deze locale";
+"FILES" = "Bestanden";
+"CAMERA" = "Camera";
+"EMPTY" = "Leeg";
+"PROCESSING" = "Bezig met verwerken ...";
+
+"DAY" = "Dag";
+"WEEK" = "Week";
+"MONTH" = "Maand";
+"YEAR" = "Jaar";
+
+"PAYWALL_TITLE" = "Get Textractor Unlimited";
+"PAYWALL_SUBTITLE_1" = "Geen duurlimiet";
+"PAYWALL_SUBTITLE_2" = "Oneindige kwaliteit van records";
+"PAYWALL_SUBTITLE_3" = "Meerdere pagina's van uw pdf";
+
+"PAYWALL_SUBTITLE_1_MESSAGE" = "Schakel de limiet van 1 minuut uit. Herken de onbeperkte duur van uw video's en audio.";
+"PAYWALL_SUBTITLE_2_MESSAGE" = "Voel je vrij om al je bestanden op te nemen. Krijg onbeperkte herkenningen voor je bestanden.";
+"PAYWALL_SUBTITLE_3_MESSAGE" = "Ultieme efficiëntie in een handomdraai! Herken een document
+met meerdere pagina's. ";
+
+"PAYWALL_CTA" = "Abonneer u op% @ /% @";
+"PAYWALL_STARTS_WITH" = "Begint met een% i -% @ gratis proefperiode";
+
+"EXPORT" = "Exporteren";
+"DOCUMENT" = "Document";
+"AUDIO" = "Audio";
+"ADDITIONAL" = "Aanvullende informatie";
+"ITEMS" = "Artikelen";
+"HEADER_STYLE" = "Kopstijl";
+"DATE_STYLE" = "Datumstijl";
+
+"FEEDBACK_OR_FEATURE" = "Laat feedback of functieverzoek achter";
+"SUPPORT" = "Ondersteuning";

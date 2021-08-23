@@ -1,0 +1,71 @@
+/* 
+  Localization.strings
+  TextExtactor
+
+  Created by Oleksandr Lukashevych on 23.03.2021.
+  
+*/
+
+"SAVE" = "Enregistrer";
+"CANCEL" = "Annuler";
+"SORT" = "Trier";
+"RECENT" = "Récent";
+"TITLE" = "Titre";
+"MODIFIED" = "Modifié";
+"CHOOSE_FILE..." = "Choisir un fichier ...";
+"CHOOSE_FILE" = "Choisir un fichier";
+"FROM" = "de";
+"LIBRARY" = "Bibliothèque";
+"RECENTS" = "Récents";
+"SETTINGS" = "Paramètres";
+"MANUALY" = "Manualy";
+"CREATE_NEW" = "Créer nouveau";
+"CLOSE" = "Fermer";
+"AND" = "&";
+
+"PRIVACY" = "Politique de confidentialité";
+"TOS" = "Conditions d'utilisation";
+
+"SHARE_PDF" = "Partager le PDF";
+"SHARE_M4A" = "Partager l'audio (M4A)";
+"DELETE" = "Supprimer";
+
+"SUBSCRIPTION" = "Abonnement";
+"RESTORE" = "Restaurer";
+"AUTORENEWABLE" = "Abonnement autorenouvelable";
+
+"SORRY" = "Désolé";
+"UNABLE_TO_EXTRACT_MESSAGE" = "Impossible d'extraire le texte de ce fichier et dans cette locale";
+"FILES" = "Fichiers";
+"CAMERA" = "Caméra";
+"EMPTY" = "Vide";
+"PROCESSING" = "Traitement ...";
+
+"DAY" = "Jour";
+"WEEK" = "Semaine";
+"MONTH" = "Mois";
+"YEAR" = "Année";
+
+"PAYWALL_TITLE" = "Obtenez Textractor Unlimited";
+"PAYWALL_SUBTITLE_1" = "Aucune limite de durée";
+"PAYWALL_SUBTITLE_2" = "Qualité infinie des enregistrements";
+"PAYWALL_SUBTITLE_3" = "Plusieurs pages de votre PDF";
+
+"PAYWALL_SUBTITLE_1_MESSAGE" = "Désactivez la limite d'une minute. Reconnaissez la durée illimitée de vos vidéos et audios.";
+"PAYWALL_SUBTITLE_2_MESSAGE" = "N'hésitez pas à enregistrer toutes vos données. Obtenez des reconnaissances illimitées pour vos fichiers.";
+"PAYWALL_SUBTITLE_3_MESSAGE" = "Obtenez une efficacité ultime en un clin d'œil! Reconnaissez un document
+avec plusieurs pages. ";
+
+"PAYWALL_CTA" = "Abonnez-vous pour% @ /% @";
+"PAYWALL_STARTS_WITH" = "Démarre avec un essai gratuit de% i -% @";
+
+"EXPORT" = "Exporter";
+"DOCUMENT" = "Document";
+"AUDIO" = "Audio";
+"ADDITIONAL" = "Informations supplémentaires";
+"ITEMS" = "Articles";
+"HEADER_STYLE" = "Style d'en-tête";
+"DATE_STYLE" = "Style de date";
+
+"FEEDBACK_OR_FEATURE" = "Laisser un commentaire ou une demande de fonctionnalité" ;
+"SUPPORT" = "Soutien" ;

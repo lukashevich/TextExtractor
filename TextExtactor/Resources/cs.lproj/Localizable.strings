@@ -1,0 +1,71 @@
+/* 
+  Localization.strings
+  TextExtactor
+
+  Created by Oleksandr Lukashevych on 23.03.2021.
+  
+*/
+
+"SAVE" = "Uložit";
+"CANCEL" = "Zrušit";
+"SORT" = "Řadit";
+"RECENT" = "Nedávné";
+"TITLE" = "Název";
+"MODIFIED" = "Upraveno";
+"CHOOSE_FILE..." = "Vybrat soubor...";
+"CHOOSE_FILE" = "Vybrat soubor";
+"FROM" = "od";
+"LIBRARY" = "Knihovna";
+"RECENTS" = "Nedávné";
+"SETTINGS" = "Nastavení";
+"MANUALY" = "Ručně";
+"CREATE_NEW" = "Vytvořit nový";
+"CLOSE" = "Zavřít";
+"AND" = "&";
+
+"PRIVACY" = "Zásady ochrany osobních údajů";
+"TOS" = "Podmínky použití";
+
+"SHARE_PDF" = "Sdílet PDF";
+"SHARE_M4A" = "Sdílet zvuk (M4A)";
+"DELETE" = "Odstranit";
+
+"SUBSCRIPTION" = "Předplatné";
+"RESTORE" = "Obnovit";
+"AUTORENEWABLE" = "Automaticky obnovitelné předplatné";
+
+"SORRY" = "Je nám líto";
+"UNABLE_TO_EXTRACT_MESSAGE" = "Nelze extrahovat text z tohoto souboru a v tomto národním prostředí";
+"FILES" = "Soubory";
+"CAMERA" = "Fotoaparát";
+"EMPTY" = "Prázdný";
+"PROCESSING" = "Zpracovává se ...";
+
+"DAY" = "Den";
+"WEEK" = "Týden";
+"MONTH" = "Měsíc";
+"YEAR" = "Rok";
+
+"PAYWALL_TITLE" = "Získejte Textractor Unlimited";
+"PAYWALL_SUBTITLE_1" = "Žádný limit trvání";
+"PAYWALL_SUBTITLE_2" = "Nekonečná kvalita záznamů";
+"PAYWALL_SUBTITLE_3" = "Více stránek vašeho PDF";
+
+"PAYWALL_SUBTITLE_1_MESSAGE" = "Vypnout 1minutový limit. Rozpoznat neomezenou dobu trvání vašich videí a zvukových záznamů.";
+"PAYWALL_SUBTITLE_2_MESSAGE" = "Nebojte se nahrát všechny své soubory. Získejte neomezené uznání svých souborů.";
+"PAYWALL_SUBTITLE_3_MESSAGE" = "Získejte maximální efektivitu jediným dotykem! Rozpoznat dokument
+s více stránkami. ";
+
+"PAYWALL_CTA" = "Přihlásit se k odběru% @ /% @";
+"PAYWALL_STARTS_WITH" = "Začíná% i -% @ bezplatnou zkušební verzí";
+
+"EXPORT" = "Exportovat";
+"DOCUMENT" = "Dokument";
+"AUDIO" = "Zvuk";
+"ADDITIONAL" = "Další informace";
+"ITEMS" = "Položky";
+"HEADER_STYLE" = "Styl záhlaví";
+"DATE_STYLE" = "Styl data";
+
+"FEEDBACK_OR_FEATURE" = "Zanechat zpětnou vazbu nebo žádost o funkci";
+"SUPPORT" = "Podpora";

@@ -32,7 +32,11 @@ final class ExportedDocPreviewController: UIViewController {
     _previewRightBottomLabel
   ]
   
-  var viewModel: ExportedDocPreviewViewModel!
+  var viewModel: ExportedDocPreviewViewModel! {
+    didSet {
+      print(viewModel)
+    }
+  }
   private lazy var _router = ExportedDocPreviewRouter(controller: self)
   
   enum Identifier: String {

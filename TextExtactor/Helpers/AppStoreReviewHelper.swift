@@ -10,10 +10,17 @@ import StoreKit
 
 struct AppStoreReviewHelper {
   static func askForReviewIfNeeded() {
+    
+    guard UserDefaults.standard.userSubscribed,
+          UserDefaults.standard.convertationDate.timeIntervalSince1970 > 0,
+          Date() > UserDefaults.standard.convertationDate else {
+      return
+    }
+    
     UserDefaults.standard.askReviewAttempts += 1
     
     switch UserDefaults.standard.askReviewAttempts {
-    case 3, 12, 20:
+    case 2, 5, 12, 20:
       SKStoreReviewController.requestReview()
     default: break
     }

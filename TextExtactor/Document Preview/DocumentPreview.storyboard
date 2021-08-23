@@ -33,7 +33,7 @@
         <!--Preview-->
         <scene sceneID="gy7-i5-cuH">
             <objects>
-                <viewController id="lKX-bA-2Vw" customClass="DocumentPreviewController" customModule="TextExtactor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Initial" id="lKX-bA-2Vw" customClass="DocumentPreviewController" customModule="Sharing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ghI-bW-KMq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,7 +88,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qcg-zu-LrF" customClass="PlayerView" customModule="TextExtactor" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qcg-zu-LrF" customClass="PlayerView" customModule="Sharing" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="702" width="374" height="64"/>
                                         <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                         <constraints>

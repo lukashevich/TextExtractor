@@ -9,4 +9,39 @@ import Foundation
 
 struct SettingsViewModel {
   
+  enum Identifier: String {
+    case subscription = "subscription"
+    case restore = "restore"
+    case privacy = "privacy"
+    case document = "document"
+    case audio = "audio"
+    case tos = "tos"
+    case feedback = "feedback"
+  }
+  
+  var updateContent: (() -> Void)?
+  
+  var source: [[Identifier]] {
+    switch UserDefaults.standard.userSubscribed {
+    case true:
+      return [
+        [.restore],
+        [.document, .audio],
+        [.feedback],
+        [.privacy, .tos]
+      ]
+    case false:
+      return [
+        [.subscription],
+        [.document, .audio],
+        [.feedback],
+        [.privacy, .tos]
+      ]
+    }
+  }
+  
+  func subscribed() {
+    UserDefaults.standard.userSubscribed = true
+    self.updateContent?()
+  }
 }

@@ -1,0 +1,71 @@
+/* 
+  Localization.strings
+  TextExtactor
+
+  Created by Oleksandr Lukashevych on 23.03.2021.
+  
+*/
+
+"SAVE" = "Kaydet";
+"CANCEL" = "İptal";
+"SORT" = "Sırala";
+"RECENT" = "En Son";
+"TITLE" = "Başlık";
+"MODIFIED" = "Değiştirildi";
+"CHOOSE_FILE..." = "Dosya seç ...";
+"CHOOSE_FILE" = "Dosya seç";
+"FROM" = "itibaren";
+"LIBRARY" = "Kitaplık";
+"RECENTS" = "Son Aramalar";
+"SETTINGS" = "Ayarlar";
+"MANUALY" = "Manuel";
+"CREATE_NEW" = "Yeni Oluştur";
+"CLOSE" = "Kapat";
+"AND" = "&";
+
+"PRIVACY" = "Gizlilik Politikası";
+"TOS" = "Kullanım Koşulları";
+
+"SHARE_PDF" = "PDF Paylaş";
+"SHARE_M4A" = "Sesi Paylaş (M4A)";
+"DELETE" = "Sil";
+
+"SUBSCRIPTION" = "Abonelik";
+"RESTORE" = "Geri Yükle";
+"AUTORENEWABLE" = "Otomatik olarak yenilenebilir abonelik";
+
+"SORRY" = "Üzgünüm";
+"UNABLE_TO_EXTRACT_MESSAGE" = "Bu dosyadan ve bu Yerel Ayardaki metin çıkarılamıyor";
+"FILES" = "Dosyalar";
+"CAMERA" = "Kamera";
+"EMPTY" = "Boş";
+"PROCESSING" = "İşleniyor ...";
+
+"DAY" = "Gün";
+"WEEK" = "Hafta";
+"MONTH" = "Ay";
+"YEAR" = "Yıl";
+
+"PAYWALL_TITLE" = "Sınırsız Textractor Edinin";
+"PAYWALL_SUBTITLE_1" = "Süre Sınırı Yok";
+"PAYWALL_SUBTITLE_2" = "Sonsuz kayıt kalitesi";
+"PAYWALL_SUBTITLE_3" = "PDF'nizin birden çok sayfası";
+
+"PAYWALL_SUBTITLE_1_MESSAGE" = "1 dakikalık sınırı kapatın. Videolarınızın ve seslerinizin sınırsız süresini tanıyın.";
+"PAYWALL_SUBTITLE_2_MESSAGE" = "Tüm öğelerinizi kaydetmekten çekinmeyin. Dosyalarınız için sınırsız tanınma alın.";
+"PAYWALL_SUBTITLE_3_MESSAGE" = "Tek bir dokunuşla nihai verimliliği elde edin! Bir belgeyi tanıyın
+birden çok sayfalı. ";
+
+"PAYWALL_CTA" = "% @ /% @ için abone olun";
+"PAYWALL_STARTS_WITH" = "% i -% @ ücretsiz deneme ile başlar";
+
+"EXPORT" = "Dışa Aktar";
+"DOCUMENT" = "Belge";
+"AUDIO" = "Ses";
+"ADDITIONAL" = "Ek Bilgiler";
+"ITEMS" = "Öğeler";
+"HEADER_STYLE" = "Başlık Stili";
+"DATE_STYLE" = "Tarih Stili";
+
+"FEEDBACK_OR_FEATURE" = "Geri Bildirim veya Özellik Talebi bırakın";
+"SUPPORT" = "Destek";

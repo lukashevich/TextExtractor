@@ -17,11 +17,13 @@ class SettingsRouter {
   enum Segue {
     case paywall(PaywallHandlers?)
     case toExportedDoc
-  
+    case toFeedback
+    
     var identifier: String {
       switch self {
       case .paywall: return Destination.toPaywall.rawValue
       case .toExportedDoc: return Destination.toExportedDoc.rawValue
+      case .toFeedback: return Destination.toFeedback.rawValue
       }
     }
     
@@ -29,6 +31,7 @@ class SettingsRouter {
       switch self {
       case .paywall(let handlers): return PaywallViewModel(subscription: Subscription.currentGroup.main ,handlers: handlers)
       case .toExportedDoc: return ExportedDocPreviewViewModel()
+      case .toFeedback: return FeedbackViewModel()
       }
     }
   }

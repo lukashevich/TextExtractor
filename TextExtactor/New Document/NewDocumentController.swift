@@ -169,6 +169,22 @@ extension NewDocumentController: iCloudFilePicker {
     self.fileView.subtitle = url.pathExtension
     self.preloader.isHidden = false
     self.viewModel.fileUrl = url
+    
+//    switch url.pathExtension {
+//    case "ogg":
+//      let fileURL = AudioConverter.convertOGG(at: url)
+//      self.fileView.title = fileURL.deletingPathExtension().lastPathComponent
+//      self.fileView.subtitle = fileURL.pathExtension
+//      self.preloader.isHidden = false
+//      self.viewModel.fileUrl = fileURL
+//
+//    default:
+//      self.fileView.title = url.deletingPathExtension().lastPathComponent
+//      self.fileView.subtitle = url.pathExtension
+//      self.preloader.isHidden = false
+//      self.viewModel.fileUrl = url
+//    }
+    
     url.stopAccessingSecurityScopedResource()
   }
 }

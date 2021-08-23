@@ -10,18 +10,8 @@ import UIKit
 import PDFKit
 import AVFoundation
 
-enum DocumentSource: String {
-  case video
-  case audio
-  case picture
-}
-
-struct Document {
-  let name: String
-  let text: String
-  let createdAt: Date
-  let modifiedAt: Date
-  let source: DocumentSource
+extension Document {
+  
   var pdfLink: URL {
     let url = URL(fileURLWithPath: FileManager.documentsFolder.appendingPathComponent(name).path)
     return url.appendingPathComponent(name).appendingPathExtension("pdf")
@@ -65,14 +55,6 @@ struct Document {
         // Draw the PDF page.
         page.draw(with: .mediaBox, to: ctx.cgContext)
     }
-  }
-  
-  init(name: String, text: String, createdAt: Date, modifiedAt: Date, source: DocumentSource) {
-    self.name = name
-    self.text = text
-    self.createdAt = createdAt
-    self.modifiedAt = modifiedAt
-    self.source = source
   }
   
   func isEqual(_ doc: Document) -> Bool {

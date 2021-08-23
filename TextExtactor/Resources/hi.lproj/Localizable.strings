@@ -1,0 +1,70 @@
+/* 
+  Localization.strings
+  TextExtactor
+
+  Created by Oleksandr Lukashevych on 23.03.2021.
+  
+*/
+
+"SAVE" = "बचाओ";
+"CANCEL" = "रद्द करें";
+"SORT" = "सॉर्ट करें";
+"RECENT" = "हाल ही में";
+"TITLE" = "शीर्षक";
+"MODIFIED" = "संशोधित";
+"CHOOSE_FILE..." = "फ़ाइल चुनें ...";
+"CHOOSE_FILE" = "फ़ाइल चुनें";
+"FROM" = "से";
+"LIBRARY" = "पुस्तकालय";
+"RECENTS" = "पुनर्खरीद";
+"SETTINGS" = "सेटिंग्स";
+"MANUALY" = "मैनुअल";
+"CREATE_NEW" = "नया बनाएँ";
+"CLOSE" = "बंद";
+"AND" = "&";
+
+"PRIVACY" = "गोपनीयता नीति";
+"TOS" = "उपयोग की शर्तें";
+
+"SHARE_PDF" = "शेयर पीडीएफ";
+"SHARE_M4A" = "ऑडियो साझा करें (M4A)";
+"DELETE" = "हटाएं";
+
+"SUBSCRIPTION" = "सदस्यता";
+"RESTORE" = "पुनर्स्थापना";
+"AUTORENEWABLE" = "स्वतः सदस्यता";
+
+"SORRY" = "सॉरी";
+"UNABLE_TO_EXTRACT_MESSAGE" = "इस फ़ाइल से और इस लोकेल में पाठ निकालने में असमर्थ";
+"FILES" = "फाइलें";
+"CAMERA" = "कैमरा";
+"EMPTY" = "खाली";
+"PROCESSING" = "प्रसंस्करण ...";
+
+"DAY" = "दिन";
+"WEEK" = "सप्ताह";
+"MONTH" = "महीना";
+"YEAR" = "वर्ष";
+
+"PAYWALL_TITLE" = "टेक्सट्रेक्टर असीमित प्राप्त करें";
+"PAYWALL_SUBTITLE_1" = "कोई अवधि सीमा नहीं";
+"PAYWALL_SUBTITLE_2" = "अभिलेखों की अनंत गुणवत्ता";
+"PAYWALL_SUBTITLE_3" = "आपके PDF के कई पृष्ठ";
+
+"PAYWALL_SUBTITLE_1_MESSAGE" = "1-मिनट की सीमा बंद करें। अपने वीडियो और ऑडियो की असीमित अवधि को पहचानें।";
+"PAYWALL_SUBTITLE_2_MESSAGE" = "अपने सभी सामानों को रिकॉर्ड करने के लिए स्वतंत्र महसूस करें। अपनी फ़ाइलों के लिए असीमित मान्यता प्राप्त करें।";
+"PAYWALL_SUBTITLE_3_MESSAGE" = "एक स्पर्श में अंतिम दक्षता प्राप्त करें! किसी दस्तावेज़ को पहचानें! कई पृष्ठों के साथ। ";
+
+"PAYWALL_CTA" = "% @ /% @ के लिए सदस्यता लें";
+"PAYWALL_STARTS_WITH" = "% i से शुरू होता है -% @ नि: शुल्क परीक्षण";
+
+"EXPORT" = "निर्यात";
+"DOCUMENT" = "दस्तावेज़";
+"AUDIO" = "ऑडियो";
+"ADDITIONAL" = "अतिरिक्त सूचना";
+"ITEMS" = "आइटम";
+"HEADER_STYLE" = "हेडर स्टाइल";
+"DATE_STYLE" = "दिनांक शैली";
+
+"FEEDBACK_OR_FEATURE" = "फ़ीडबैक या फ़ीचर अनुरोध छोड़ें";
+"SUPPORT" = "समर्थन";

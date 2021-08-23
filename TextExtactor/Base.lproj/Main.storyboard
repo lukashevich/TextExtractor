@@ -25,6 +25,7 @@
                         <segue destination="dZi-NS-hhg" kind="relationship" relationship="viewControllers" id="sf3-0q-wBN"/>
                         <segue destination="TO6-J7-jHA" kind="show" identifier="toNewDocument" id="w1Y-83-5I0"/>
                         <segue destination="nO5-Cn-taj" kind="show" identifier="toExportedDoc" id="nMC-BZ-Hjf"/>
+                        <segue destination="lte-gh-cl8" kind="show" identifier="toFeedback" id="qXe-5g-EZx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4h8-xq-qVR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -40,6 +41,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="63t-2x-Du5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-91" y="-271"/>
+        </scene>
+        <!--Feedback-->
+        <scene sceneID="amy-kO-unK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Feedback" id="lte-gh-cl8" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="But-X1-bS8"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="usD-rS-ksH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-318" y="-480"/>
         </scene>
         <!--NewDocument-->
         <scene sceneID="3ne-fe-6KF">

@@ -1,0 +1,71 @@
+/* 
+  Localization.strings
+  TextExtactor
+
+  Created by Oleksandr Lukashevych on 23.03.2021.
+  
+*/
+
+"SAVE" = "Guardar";
+"CANCEL" = "Cancelar";
+"SORT" = "Ordenar";
+"RECENT" = "Reciente";
+"TITLE" = "Título";
+"MODIFIED" = "Modificado";
+"CHOOSE_FILE..." = "Elegir archivo ...";
+"CHOOSE_FILE" = "Elegir archivo";
+"FROM" = "desde";
+"LIBRARY" = "Biblioteca";
+"RECENTS" = "Recientes";
+"SETTINGS" = "Configuración";
+"MANUALY" = "Manualy";
+"CREATE_NEW" = "Crear nuevo";
+"CLOSE" = "Cerrar";
+"AND" = "&";
+
+"PRIVACY" = "Política de privacidad";
+"TOS" = "Condiciones de uso";
+
+"SHARE_PDF" = "Compartir PDF";
+"SHARE_M4A" = "Compartir audio (M4A)";
+"DELETE" = "Eliminar";
+
+"SUBSCRIPTION" = "Suscripción";
+"RESTORE" = "Restaurar";
+"AUTORENEWABLE" = "Suscripción autorrenovable";
+
+"SORRY" = "Lo siento";
+"UNABLE_TO_EXTRACT_MESSAGE" = "No se puede extraer texto de este archivo y en esta configuración regional";
+"FILES" = "Archivos";
+"CAMERA" = "Cámara";
+"EMPTY" = "Vacío";
+"PROCESSING" = "Procesando ...";
+
+"DAY" = "Día";
+"WEEK" = "Semana";
+"MONTH" = "Mes";
+"YEAR" = "Año";
+
+"PAYWALL_TITLE" = "Obtenga Textractor Unlimited";
+"PAYWALL_SUBTITLE_1" = "Sin límite de duración";
+"PAYWALL_SUBTITLE_2" = "Calidad infinita de registros";
+"PAYWALL_SUBTITLE_3" = "Varias páginas de su PDF";
+
+"PAYWALL_SUBTITLE_1_MESSAGE" = "Desactivar el límite de 1 minuto. Reconocer la duración ilimitada de sus videos y audios.";
+"PAYWALL_SUBTITLE_2_MESSAGE" = "No dude en grabar todas sus cosas. Obtenga reconocimientos ilimitados para sus archivos.";
+"PAYWALL_SUBTITLE_3_MESSAGE" = "¡Obtenga la máxima eficiencia con un toque! Reconozca un documento
+con varias páginas. ";
+
+"PAYWALL_CTA" = "Suscribirse a% @ /% @";
+"PAYWALL_STARTS_WITH" = "Comienza con una prueba gratuita% i -% @";
+
+"EXPORT" = "Exportar";
+"DOCUMENT" = "Documento";
+"AUDIO" = "Audio";
+"ADDITIONAL" = "Información adicional";
+"ITEMS" = "Artículos";
+"HEADER_STYLE" = "Estilo de encabezado";
+"DATE_STYLE" = "Estilo de fecha";
+
+"FEEDBACK_OR_FEATURE" = "Dejar comentarios o solicitud de función";
+"SUPPORT" = "Soporte";

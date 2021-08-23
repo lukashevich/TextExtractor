@@ -15,29 +15,12 @@ final class SettingsController: UIViewController, URLPresenter, AlertPresenter {
 
   private lazy var _router = SettingsRouter(controller: self)
   
-  enum Identifier: String {
-    case subscription = "subscription"
-    case restore = "restore"
-    case privacy = "privacy"
-    case document = "document"
-    case audio = "audio"
-    case tos = "tos"
-  }
+  var viewModel = SettingsViewModel()
   
-  private var _source: [[Identifier]] {
-    switch UserDefaults.standard.userSubscribed {
-    case true:
-      return [
-        [.restore],
-        [.document, .audio],
-        [.privacy, .tos]
-      ]
-    case false:
-      return [
-        [.subscription],
-        [.document, .audio],
-        [.privacy, .tos]
-      ]
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.viewModel.updateContent = {
+      self._settingsTable.reloadData()
     }
   }
 }
@@ -45,27 +28,28 @@ final class SettingsController: UIViewController, URLPresenter, AlertPresenter {
 extension SettingsController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return _source[section].count
+    return self.viewModel.source[section].count
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
-    return _source.count
+    return self.viewModel.source.count
   }
 
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     switch section {
     case 0: return UserDefaults.standard.userSubscribed ? "SUBSCRIPTION".localized : nil
     case 1: return "EXPORT".localized
-    case 2: return "ADDITIONAL".localized
+    case 2: return "SUPPORT".localized
+    case 3: return "ADDITIONAL".localized
     default: return nil
     }
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: _source[indexPath.section][indexPath.row].rawValue, for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: self.viewModel.source[indexPath.section][indexPath.row].rawValue, for: indexPath)
     
-    if _source[indexPath.section][indexPath.row] == .subscription {
-      (cell as? PaywallCell)?.subscriptionHandler = self._subscribed
+    if self.viewModel.source[indexPath.section][indexPath.row] == .subscription {
+      (cell as? PaywallCell)?.subscriptionHandler = self.viewModel.subscribed
       (cell as? PaywallCell)?.problemHandler = self._someProblem
     }
     
@@ -73,22 +57,27 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    switch _source[indexPath.section][indexPath.row] {
+    switch self.viewModel.source[indexPath.section][indexPath.row] {
     case .subscription, .audio: break
     case .document: self._router.navigate(to: .toExportedDoc)
     case .restore: self._restorePurchases()
+    case .feedback: self._router.navigate(to: .toFeedback)
     case .privacy: self.open(link: .privacy)
     case .tos: self.open(link: .tos)
     }
   }
   
-  private func _subscribed() {
-    UserDefaults.standard.userSubscribed = true
-    self._settingsTable.reloadData()
-  }
-  
   private func _someProblem(_ error: Error){
     self.showAlert(.error(error))
+  }
+  
+  private func _showPreloader() {
+    self._fullPreloaderActivity.startAnimating()
+    self._fullPreloader.showAnimated()
+  }
+  
+  private func _hidePreloader() {
+    self._fullPreloader.hideAnimated()
   }
   
   private func _restorePurchases() {
@@ -101,7 +90,7 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
           self._hidePreloader()
           switch purchaseResult {
           case .purchased:
-            self._subscribed()
+            self.viewModel.subscribed()
           case .expired:
             UserDefaults.standard.userSubscribed = false
           case .notPurchased:
@@ -113,14 +102,5 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
         self._hidePreloader()
       }
     }
-  }
-  
-  private func _showPreloader() {
-    self._fullPreloaderActivity.startAnimating()
-    self._fullPreloader.showAnimated()
-  }
-  
-  private func _hidePreloader() {
-    self._fullPreloader.hideAnimated()
   }
 }

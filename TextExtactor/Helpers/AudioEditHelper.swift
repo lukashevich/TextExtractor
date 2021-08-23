@@ -24,6 +24,8 @@ struct AudioEditHelper {
       asset.writeAudioTrackToURL(URL(fileURLWithPath: pathWhereToSave)) { (success, error) -> () in
         if success {
           completion([url])
+        } else {
+          completion([])
         }
       }
       return

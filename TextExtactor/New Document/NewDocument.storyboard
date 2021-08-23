@@ -17,12 +17,12 @@
         <!--New Document Controller-->
         <scene sceneID="9JL-2P-kDv">
             <objects>
-                <viewController id="0GU-mh-vSn" customClass="NewDocumentController" customModule="TextExtactor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0GU-mh-vSn" customClass="NewDocumentController" customModule="Sharing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LT3-ei-Fiq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z1n-B2-zuh" userLabel="Location" customClass="TitledActionView" customModule="TextExtactor" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z1n-B2-zuh" userLabel="Location" customClass="TitledActionView" customModule="Sharing" customModuleProvider="target">
                                 <rect key="frame" x="212" y="80" width="182" height="60.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -37,7 +37,7 @@
                                     <action selector="chooseLocationPressed" destination="0GU-mh-vSn" eventType="touchUpInside" id="bI7-3e-Sck"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1h-J8-ORK" userLabel="Choose File" customClass="TitledActionView" customModule="TextExtactor" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1h-J8-ORK" userLabel="Choose File" customClass="TitledActionView" customModule="Sharing" customModuleProvider="target">
                                 <rect key="frame" x="20" y="80" width="182" height="60.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -58,14 +58,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="no3-pM-dbO">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="635.5"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Extracted text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ezE-Ct-16N" customClass="TypenTextView" customModule="TextExtactor" customModuleProvider="target">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Extracted text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ezE-Ct-16N" customClass="TypenTextView" customModule="Sharing" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="20" width="374" height="615.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="tertiaryLabelColor"/>
                                                 <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="btf-bV-ufp" customClass="TitledPreloader" customModule="TextExtactor" customModuleProvider="target">
+                                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="btf-bV-ufp" customClass="TitledPreloader" customModule="Sharing" customModuleProvider="target">
                                                 <rect key="frame" x="150" y="259.5" width="114.5" height="117"/>
                                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                 <userDefinedRuntimeAttributes>

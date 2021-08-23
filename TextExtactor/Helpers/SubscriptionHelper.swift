@@ -25,7 +25,7 @@ enum Subscription: String, CaseIterable {
   case monthlyTrial5 = "extractor.monthly.trial.5"
   
   static var currentGroup: SubscriptionGroup {
-    (main: .monthly5, trial: .monthlyTrial5)
+    (main: .monthly2, trial: .monthly2)
   }
 }
 
@@ -36,7 +36,7 @@ struct SubscriptionHelper {
     SwiftyStoreKit.purchaseProduct(subscription.rawValue, quantity: 1, atomically: true) { result in
       switch result {
       case .success:
-        UserDefaults.standard.userSubscribed = true
+        handleSubscription(subscription)
       case .error(let error):
         UserDefaults.standard.userSubscribed = false
         switch error.code {
@@ -57,6 +57,23 @@ struct SubscriptionHelper {
   
   static func subscribe(subscription: Subscription = Subscription.currentGroup.main, resultHandler: @escaping (PurchaseResult) -> Void ) {
     SwiftyStoreKit.purchaseProduct(subscription.rawValue, quantity: 1, atomically: true, completion: resultHandler)
+  }
+  
+  static func handleSubscription(_ subs: Subscription) {
+    
+    let convertationDate: Date
+    switch subs {
+    case .monthly2, .monthly5:
+      convertationDate = Date()
+    case .monthlyTrial2, .monthlyTrial5:
+      let currentDate = Date()
+      var dateComponent = DateComponents()
+      dateComponent.day = 3
+      convertationDate = Calendar.current.date(byAdding: dateComponent, to: currentDate) ?? Date()
+    }
+    
+    UserDefaults.standard.convertationDate = convertationDate
+    UserDefaults.standard.userSubscribed = true
   }
   
   private static func verifyReceipt(resultHandler: @escaping (VerifyReceiptResult) -> Void ) {

@@ -1,0 +1,71 @@
+/* 
+  Localization.strings
+  TextExtactor
+
+  Created by Oleksandr Lukashevych on 23.03.2021.
+  
+*/
+
+"SAVE" = "บันทึก";
+"CANCEL" = "ยกเลิก";
+"SORT" = "เรียงลำดับ";
+"RECENT" = "ล่าสุด";
+"TITLE" = "หัวข้อ";
+"MODIFIED" = "แก้ไข";
+"CHOOSE_FILE..." = "เลือกไฟล์ ...";
+"CHOOSE_FILE" = "เลือกไฟล์";
+"FROM" = "จาก";
+"LIBRARY" = "ห้องสมุด";
+"RECENTS" = "ล่าสุด";
+"SETTINGS" = "การตั้งค่า";
+"MANUALY" = "คู่มือ";
+"CREATE_NEW" = "สร้างใหม่";
+"CLOSE" = "ปิด";
+"AND" = "&";
+
+"PRIVACY" = "นโยบายความเป็นส่วนตัว";
+"TOS" = "เงื่อนไขการใช้งาน";
+
+"SHARE_PDF" = "แชร์ PDF";
+"SHARE_M4A" = "แชร์เสียง (M4A)";
+"DELETE" = "ลบ";
+
+"SUBSCRIPTION" = "สมัครสมาชิก";
+"RESTORE" = "กู้คืน";
+"AUTORENEWABLE" = "สมัครสมาชิกอัตโนมัติ";
+
+"SORRY" = "ขอโทษ";
+"UNABLE_TO_EXTRACT_MESSAGE" = "ไม่สามารถแยกข้อความจากไฟล์นี้และในภาษานี้";
+"FILES" = "ไฟล์";
+"CAMERA" = "กล้องถ่ายรูป";
+"EMPTY" = "ว่างเปล่า";
+"PROCESSING" = "กำลังประมวลผล ... ";
+
+"DAY" = "วัน";
+"WEEK" = "สัปดาห์";
+"MONTH" = "เดือน";
+"YEAR" = "ปี";
+
+"PAYWALL_TITLE" = "รับ Textractor ไม่ จำกัด ";
+"PAYWALL_SUBTITLE_1" = "ไม่ จำกัด ระยะเวลา";
+"PAYWALL_SUBTITLE_2" = "คุณภาพของบันทึกไม่มีที่สิ้นสุด";
+"PAYWALL_SUBTITLE_3" = "PDF ของคุณหลายหน้า";
+
+"PAYWALL_SUBTITLE_1_MESSAGE" = "ปิดขีด ​​จำกัด 1 นาทีรับรู้ระยะเวลาไม่ จำกัด ของวิดีโอและไฟล์เสียงของคุณ";
+"PAYWALL_SUBTITLE_2_MESSAGE" = "อย่าลังเลที่จะบันทึกข้อมูลทั้งหมดของคุณรับการจดจำไฟล์ของคุณได้ไม่ จำกัด ";
+"PAYWALL_SUBTITLE_3_MESSAGE" = "รับประสิทธิภาพสูงสุดเพียงสัมผัสเดียวรับรู้เอกสาร
+ที่มีหลายหน้า ";
+
+"PAYWALL_CTA" = "สมัครรับ% @ /% @";
+"PAYWALL_STARTS_WITH" = "เริ่มต้นด้วยการทดลองใช้ฟรี% i -% @";
+
+"EXPORT" = "ส่งออก";
+"DOCUMENT" = "เอกสาร";
+"AUDIO" = "เสียง";
+"ADDITIONAL" = "ข้อมูลเพิ่มเติม";
+"ITEMS" = "รายการ";
+"HEADER_STYLE" = "รูปแบบส่วนหัว";
+"DATE_STYLE" = "รูปแบบวันที่";
+
+"FEEDBACK_OR_FEATURE" = "แสดงความคิดเห็นหรือขอคุณลักษณะ";
+"SUPPORT" = "สนับสนุน";

@@ -1,0 +1,71 @@
+/* 
+  Localization.strings
+  TextExtactor
+
+  Created by Oleksandr Lukashevych on 23.03.2021.
+  
+*/
+
+"SAVE" = "Lưu";
+"CANCEL" = "Hủy bỏ";
+"SORT" = "Sắp xếp";
+"RECENT" = "Gần đây";
+"TITLE" = "Tiêu đề";
+"MODIFIED" = "Đã sửa đổi";
+"CHOOSE_FILE..." = "Chọn tệp ...";
+"CHOOSE_FILE" = "Chọn tệp";
+"FROM" = "từ";
+"LIBRARY" = "Thư viện";
+"RECENTS" = "Gần đây";
+"SETTINGS" = "Cài đặt";
+"MANUALY" = "Thủ công";
+"CREATE_NEW" = "Tạo mới";
+"CLOSE" = "Đóng";
+"AND" = "&";
+
+"PRIVACY" = "Chính sách Bảo mật";
+"TOS" = "Điều khoản Sử dụng";
+
+"SHARE_PDF" = "Chia sẻ PDF";
+"SHARE_M4A" = "Chia sẻ Âm thanh (M4A)";
+"DELETE" = "Xóa";
+
+"SUBSCRIPTION" = "Đăng ký";
+"RESTORE" = "Khôi phục";
+"AUTORENEWABLE" = "Đăng ký có thể tự động khôi phục";
+
+"SORRY" = "Xin lỗi";
+"UNABLE_TO_EXTRACT_MESSAGE" = "Không thể trích xuất văn bản từ tệp này và trong Ngôn ngữ này";
+"FILES" = "Tập tin";
+"CAMERA" = "Máy ảnh";
+"EMPTY" = "Hết";
+"PROCESSING" = "Đang xử lý...";
+
+"DAY" = "Ngày";
+"WEEK" = "Tuần";
+"MONTH" = "Tháng";
+"YEAR" = "Năm";
+
+"PAYWALL_TITLE" = "Nhận Textractor không giới hạn";
+"PAYWALL_SUBTITLE_1" = "Không giới hạn thời lượng";
+"PAYWALL_SUBTITLE_2" = "Chất lượng vô hạn của bản ghi";
+"PAYWALL_SUBTITLE_3" = "Nhiều trang PDF của bạn";
+
+"PAYWALL_SUBTITLE_1_MESSAGE" = "Tắt giới hạn 1 phút. Nhận biết thời lượng không giới hạn của video và âm thanh của bạn.";
+"PAYWALL_SUBTITLE_2_MESSAGE" = "Hãy thoải mái ghi lại tất cả nội dung của bạn. Nhận được khả năng nhận dạng không giới hạn cho các tệp của bạn.";
+"PAYWALL_SUBTITLE_3_MESSAGE" = "Đạt được hiệu quả tối ưu chỉ trong một lần chạm! Nhận dạng tài liệu
+với nhiều trang. ";
+
+"PAYWALL_CTA" = "Đăng ký% @ /% @";
+"PAYWALL_STARTS_WITH" = "Bắt đầu với% i -% @ dùng thử miễn phí";
+
+"EXPORT" = "Xuất";
+"DOCUMENT" = "Tài liệu";
+"AUDIO" = "Âm thanh";
+"ADDITIONAL" = "Thông tin bổ sung";
+"ITEMS" = "Mục";
+"HEADER_STYLE" = "Kiểu tiêu đề";
+"DATE_STYLE" = "Kiểu Ngày";
+
+"FEEDBACK_OR_FEATURE" = "Để lại Phản hồi hoặc Yêu cầu Tính năng";
+"SUPPORT" = "Hỗ trợ";

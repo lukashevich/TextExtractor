@@ -28,7 +28,7 @@
         <!--Document-->
         <scene sceneID="bGl-FC-wrI">
             <objects>
-                <viewController id="IwM-8a-jxF" customClass="ExportedDocPreviewController" customModule="TextExtactor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Initial" id="IwM-8a-jxF" customClass="ExportedDocPreviewController" customModule="Sharing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zgt-c3-cHI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,7 +105,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPT-xt-cdc" customClass="TransparentGradientView" customModule="TextExtactor" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPT-xt-cdc" customClass="TransparentGradientView" customModule="Sharing" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="208" width="334" height="28"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
@@ -415,7 +415,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="date" id="iQK-hE-i1y" customClass="DateStyleCell" customModule="TextExtactor" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="date" id="iQK-hE-i1y" customClass="DateStyleCell" customModule="Sharing" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="311.5" width="414" height="60.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iQK-hE-i1y" id="qXF-zT-g4O">

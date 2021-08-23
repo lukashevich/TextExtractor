@@ -1,0 +1,71 @@
+/* 
+  Localization.strings
+  TextExtactor
+
+  Created by Oleksandr Lukashevych on 23.03.2021.
+  
+*/
+
+"SAVE" = "Salva";
+"CANCEL" = "Annulla";
+"SORT" = "Ordina";
+"RECENT" = "Recenti";
+"TITLE" = "Titolo";
+"MODIFIED" = "Modified";
+"CHOOSE_FILE..." = "Scegli file ...";
+"CHOOSE_FILE" = "Scegli file";
+"FROM" = "from";
+"LIBRARY" = "Libreria";
+"RECENTS" = "Recenti";
+"SETTINGS" = "Impostazioni";
+"MANUALY" = "Manualy";
+"CREATE_NEW" = "Crea nuovo";
+"CLOSE" = "Chiudi";
+"AND" = "&";
+
+"PRIVACY" = "Informativa sulla privacy";
+"TOS" = "Termini di utilizzo";
+
+"SHARE_PDF" = "Condividi PDF";
+"SHARE_M4A" = "Condividi audio (M4A)";
+"DELETE" = "Elimina";
+
+"SUBSCRIPTION" = "Abbonamento";
+"RESTORE" = "Ripristina";
+"AUTORENEWABLE" = "Abbonamento rinnovabile automatico";
+
+"SORRY" = "Mi dispiace";
+"UNABLE_TO_EXTRACT_MESSAGE" = "Impossibile estrarre il testo da questo file e in questa Locale";
+"FILES" = "File";
+"CAMERA" = "Fotocamera";
+"EMPTY" = "Vuoto";
+"PROCESSING" = "Elaborazione in corso ...";
+
+"DAY" = "Giorno";
+"WEEK" = "Settimana";
+"MONTH" = "Mese";
+"YEAR" = "Anno";
+
+"PAYWALL_TITLE" = "Ottieni Textractor Unlimited";
+"PAYWALL_SUBTITLE_1" = "Nessun limite di durata";
+"PAYWALL_SUBTITLE_2" = "Qualità infinita dei record";
+"PAYWALL_SUBTITLE_3" = "Più pagine del tuo PDF";
+
+"PAYWALL_SUBTITLE_1_MESSAGE" = "Disattiva il limite di 1 minuto. Riconosci la durata illimitata dei tuoi video e audio.";
+"PAYWALL_SUBTITLE_2_MESSAGE" = "Sentiti libero di registrare tutte le tue cose. Ottieni riconoscimenti illimitati per i tuoi file.";
+"PAYWALL_SUBTITLE_3_MESSAGE" = "Ottieni la massima efficienza in un tocco! Riconosci un documento
+con più pagine. ";
+
+"PAYWALL_CTA" = "Iscriviti a% @ /% @";
+"PAYWALL_STARTS_WITH" = "Inizia con una prova gratuita di% i -% @";
+
+"EXPORT" = "Esporta";
+"DOCUMENT" = "Documento";
+"AUDIO" = "Audio";
+"ADDITIONAL" = "Ulteriori informazioni";
+"ITEMS" = "Articoli";
+"HEADER_STYLE" = "Stile intestazione";
+"DATE_STYLE" = "Stile data";
+
+"FEEDBACK_OR_FEATURE" = "Lascia un feedback o una richiesta di funzionalità";
+"SUPPORT" = "Supporto";

@@ -44,7 +44,7 @@ final class PaywallController: UIViewController, URLPresenter, AlertPresenter {
     SubscriptionHelper.subscribe(subscription: viewModel.subscription, resultHandler: { result in
       switch result {
       case .success:
-        UserDefaults.standard.userSubscribed = true
+        SubscriptionHelper.handleSubscription(self.viewModel.subscription)
         self.dismiss(.successfully)
       case .error(let error):
         self.showAlert(.error(error))
