@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ExportedDocPreviewController: UIViewController {
+final class ExportedDocPreviewController: UIViewController, HolidayAffected {
   
   @IBOutlet private weak var _previewLeftTopLabel: UILabel!
   @IBOutlet private weak var _previewLeftBottomLabel: UILabel!
@@ -32,11 +32,7 @@ final class ExportedDocPreviewController: UIViewController {
     _previewRightBottomLabel
   ]
   
-  var viewModel: ExportedDocPreviewViewModel! {
-    didSet {
-      print(viewModel)
-    }
-  }
+  var viewModel: ExportedDocPreviewViewModel! 
   private lazy var _router = ExportedDocPreviewRouter(controller: self)
   
   enum Identifier: String {
@@ -50,6 +46,8 @@ final class ExportedDocPreviewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    setupHolidayBackgound()
     
     self._dateLabels.forEach { $0.text = self.formattedDateString }
     

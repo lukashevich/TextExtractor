@@ -56,8 +56,9 @@
 "PAYWALL_SUBTITLE_3_MESSAGE" = "Mit einem Klick die höchste Effizienz erzielen! Dokumentenerkennung
 mit mehreren Seiten. ";
 
-"PAYWALL_CTA" = "Nur %@ / %@ abonnieren";
-"PAYWALL_STARTS_WITH" = "Beginnt mit %i - %@ kostenlose Testversion";
+"PAYWALL_CTA" = "Jetzt kaufen für %@ / %@";
+"PAYWALL_STARTS_WITH" = "Starten Sie Ihre %i-%@ kostenlose Testversion";
+"THEN" = "dann %@ / %@";
 
 "EXPORT" = "Export";
 "DOCUMENT" = "Dokument";

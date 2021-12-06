@@ -13,11 +13,13 @@ enum Destination: String {
   case toNewDocument = "toNewDocument"
   case toDocPreview = "toDocumentPreview"
   case toPaywall = "toPaywall"
+  case toChristmasPaywall = "toChristmasPaywall"
   case toLocalePicker = "toLocalePicker"
   case toExportedDoc = "toExportedDoc"
   case toDateStylePicker = "toDateStylePicker"
   case toFeedback = "toFeedback"
-  
+  case toPresentation = "toPresentation"
+
 //  var destination: UIViewController {
 ////
 ////    let navigation = segue.destination as? UINavigationController
@@ -34,7 +36,7 @@ enum Destination: String {
     case .toDocPreview:
       let navigation = segue.destination as? UINavigationController
       return navigation?.viewControllers.first as? DocumentPreviewController
-    case .toPaywall:
+    case .toPaywall, .toChristmasPaywall:
       return segue.destination as? PaywallController
     case .toLocalePicker:
       return segue.destination as? LocalesController
@@ -47,6 +49,9 @@ enum Destination: String {
     case .toDateStylePicker:
       let navigation = segue.destination as? UINavigationController
       return navigation?.viewControllers.first as? DateStylePicker
+    case .toPresentation:
+      let navigation = segue.destination as? UINavigationController
+      return navigation?.viewControllers.first as? PresentationController
     }
   }
   
@@ -54,11 +59,12 @@ enum Destination: String {
     switch self {
     case .toNewDocument: return "NewDocument"
     case .toDocPreview: return "DocumentPreview"
-    case .toPaywall: return "Paywall"
+    case .toPaywall, .toChristmasPaywall: return "Paywall"
     case .toLocalePicker: return "Locales"
     case .toExportedDoc: return "ExportedDocPreview"
     case .toDateStylePicker: return "DateStylePicker"
     case .toFeedback: return "Feedback"
+    case .toPresentation: return "toPresentation"
     }
   }
 }

@@ -10,14 +10,17 @@ import Social
 import AVFoundation
 
 @objc(ImportController)
-class ImportController: UIViewController, AlertPresenter {
+class ImportController: UIViewController, AlertPresenter, HolidayAffected {
   
   private lazy var _router = ImportControllerRouter(controller: self)
   
   @IBOutlet weak var textView: TypenTextView!
   @IBOutlet weak var localeButton: UIButton!
 
-  @IBOutlet private weak var _preloader: TitledPreloader!
+  @IBOutlet private weak var _statusLabel: UILabel!
+  @IBOutlet private weak var _saveButton: UIButton!
+  @IBOutlet private weak var _contentView: UIView!
+
   @IBOutlet private weak var _progressView: UIProgressView!
 
   private var _exportedFiles: [ExportedFile] = []
@@ -25,14 +28,25 @@ class ImportController: UIViewController, AlertPresenter {
   private var _extractingLocale: Locale = UserDefaults.standard.extractingLocale {
     didSet {
       UserDefaults.standard.extractingLocale = _extractingLocale
-      localeButton.setTitle(_extractingLocale.languageCode, for: .normal)
+      localeButton.setTitle(_extractingLocale.titleForButton, for: .normal)
     }
   }
   override func viewDidLoad() {
       super.viewDidLoad()
+    
+    switch Holiday.current {
+    case .christmas:
+      _contentView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "christmas-pattern")).withAlphaComponent(0.05)
+    default:
+      break
+    }
+    
+    _completeTransactions()
+    
     FileManager.createDefaults()
     FileManager.clearTmpFolder()
-//      setupNavBar()
+
+    _showPaywallIfNeeded()
     
     _extractingLocale = UserDefaults.standard.extractingLocale
     
@@ -41,6 +55,24 @@ class ImportController: UIViewController, AlertPresenter {
     }
     
     self._handleSharedFile(completion: _processExported)
+  }
+  
+  private func _completeTransactions() {
+    SubscriptionHelper.completeTransactions()
+  }
+  
+  private func _showPaywallIfNeeded() {
+    UserDefaults.standard.transcriptionsCount += 1
+    
+    guard UserDefaults.standard.transcriptionsCount > 3 &&
+            !UserDefaults.standard.userSubscribed else { return }
+    
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
+      let handlers = PaywallHandlers(success: { dismiss(animated: true, completion: nil) }) {
+        extensionContext?.completeRequest(returningItems: [], completionHandler: nil)
+      }
+      _router.navigate(to: .paywall(handlers))
+    }
   }
   
   private func _processExported(files: [ExportedFile]) {
@@ -92,7 +124,7 @@ class ImportController: UIViewController, AlertPresenter {
   
   private func _localeChanged(to locale: Locale) {
     Recognizer.stopRecognizing()
-    localeButton.setTitle(locale.languageCode, for: .normal)
+    localeButton.setTitle(locale.titleForButton, for: .normal)
     _clearTrancribedText()
     _progressView.setProgress(0, animated: true)
     _extractingLocale = locale
@@ -138,11 +170,20 @@ class ImportController: UIViewController, AlertPresenter {
   
   
   private func _showPreloader() {
-    self._preloader.showAnimated()
+    _statusLabel.text = "processing..."
+    _statusLabel.isHidden = false
+    _saveButton.isHidden = true
   }
   
   private func _hidePreloader() {
-    self._preloader.hideAnimated()
+    _statusLabel.text = "done"
+    UIView.animate(withDuration: 0.2) { [unowned self] in
+      _statusLabel.alpha = 0.0
+    } completion: { [unowned self] _ in
+      _statusLabel.isHidden = true
+      _statusLabel.alpha = 1.0
+      _saveButton.isHidden = false
+    }
   }
   
   private func _handleSharedFile(completion: @escaping (([ExportedFile]) -> Void)) {
@@ -190,5 +231,26 @@ class ImportController: UIViewController, AlertPresenter {
         completion(url)
       }
     }
+  }
+}
+
+import DrawerView
+//
+class PrimaryContentViewController: UIViewController {
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    let drawerViewController = self.storyboard!.instantiateViewController(withIdentifier: "ImportController")
+        let drawerView = self.addDrawerView(withViewController: drawerViewController)
+    drawerView.setPosition(.closed, animated: false)
+    drawerView.setPosition(.partiallyOpen, animated: true)
+    drawerView.partiallyOpenHeight = UIScreen.main.bounds.height / 2
+    drawerView.snapPositions = [.open, .partiallyOpen]
+    
+    view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancelAction)))
+  }
+  
+  @objc func cancelAction() {
+    let error = NSError(domain: "some.bundle.identifier", code: 0, userInfo: [NSLocalizedDescriptionKey: "An error description"])
+    extensionContext?.cancelRequest(withError: error)
   }
 }

@@ -56,8 +56,9 @@
 "PAYWALL_SUBTITLE_3_MESSAGE" = "รับประสิทธิภาพสูงสุดเพียงสัมผัสเดียวรับรู้เอกสาร
 ที่มีหลายหน้า ";
 
-"PAYWALL_CTA" = "สมัครรับ% @ /% @";
-"PAYWALL_STARTS_WITH" = "เริ่มต้นด้วยการทดลองใช้ฟรี% i -% @";
+"PAYWALL_CTA" = "Buy now for %@ / %@";
+"PAYWALL_STARTS_WITH" = "Start your %i-%@ free trial";
+"THEN" = "then %@ / %@";
 
 "EXPORT" = "ส่งออก";
 "DOCUMENT" = "เอกสาร";

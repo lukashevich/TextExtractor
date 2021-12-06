@@ -56,8 +56,9 @@
 "PAYWALL_SUBTITLE_3_MESSAGE" = "Obtenez une efficacité ultime en un clin d'œil! Reconnaissez un document
 avec plusieurs pages. ";
 
-"PAYWALL_CTA" = "Abonnez-vous pour% @ /% @";
-"PAYWALL_STARTS_WITH" = "Démarre avec un essai gratuit de% i -% @";
+"PAYWALL_CTA" = "Achetez maintenant pour %@ /%@";
+"PAYWALL_STARTS_WITH" = "Démarrez votre essai gratuit de %i-%@";
+"THEN" = "alors %@/%@";
 
 "EXPORT" = "Exporter";
 "DOCUMENT" = "Document";

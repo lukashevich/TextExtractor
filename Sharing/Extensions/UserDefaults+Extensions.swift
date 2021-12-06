@@ -17,6 +17,21 @@ extension UserDefaults {
     }
   }
   
+  var convertationDate: Date {
+    get { Date(timeIntervalSince1970: TimeInterval(UserDefaults.standard.integer(forKey: #function))) }
+    set { UserDefaults.standard.set(convertationDate.timeIntervalSince1970, forKey: #function) }
+  }
+  
+  var userSubscribed: Bool {
+    get { UserDefaults(suiteName: Constant.groupID)!.bool(forKey: #function) }
+    set { UserDefaults(suiteName: Constant.groupID)!.set(newValue, forKey: #function) }
+  }
+  
+  var transcriptionsCount: Int {
+    get { UserDefaults.standard.integer(forKey: #function) }
+    set { UserDefaults.standard.set(newValue, forKey: #function) }
+  }
+
   var documentsToImport: [Document] {
     get {
       if let styleData = UserDefaults(suiteName: Constant.groupID)!.object(forKey: #function) as? Data {

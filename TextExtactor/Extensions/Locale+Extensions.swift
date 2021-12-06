@@ -15,4 +15,44 @@ extension Locale {
       return regionCode
     }
   }
+  
+  var countryFlag: String? {
+    guard let countryCode = regionCode else { return nil }
+    return countryCode
+      .unicodeScalars
+      .map({ 127397 + $0.value })
+      .compactMap(UnicodeScalar.init)
+      .map(String.init)
+      .joined()
+  }
+  
+  var languageFlag: String? {
+    guard let code = languageCode else { return nil }
+    
+    switch code {
+      case "en": return "🇺🇸"
+      case "es": return "🇪🇸"
+      case "de": return "🇩🇪"
+      case "fr": return "🇫🇷"
+      case "it": return "🇮🇹"
+      case "nl": return "🇳🇱"
+      case "pt": return "🇵🇹"
+      case "ru": return "🇷🇺"
+      case "uk": return "🇺🇦"
+      default: return nil
+    }
+  }
+  
+  var titleForButton: String {
+    switch (languageCode, languageFlag) {
+    case (.some(let code), .some(let flag)):
+      return "\(flag) \(code)"
+    case (.some(let code), .none):
+      return "\(code)"
+    default:
+      return "\(identifier)"
+    }
+  }
 }
+
+

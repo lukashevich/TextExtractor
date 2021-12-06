@@ -56,8 +56,9 @@
 "PAYWALL_SUBTITLE_3_MESSAGE" = "Ultieme efficiëntie in een handomdraai! Herken een document
 met meerdere pagina's. ";
 
-"PAYWALL_CTA" = "Abonneer u op% @ /% @";
-"PAYWALL_STARTS_WITH" = "Begint met een% i -% @ gratis proefperiode";
+"PAYWALL_CTA" = "Buy now for %@ / %@";
+"PAYWALL_STARTS_WITH" = "Start your %i-%@ free trial";
+"THEN" = "then %@ / %@";
 
 "EXPORT" = "Exporteren";
 "DOCUMENT" = "Document";

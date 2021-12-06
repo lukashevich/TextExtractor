@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ihh-Op-hcl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ihh-Op-hcl">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -13,11 +14,11 @@
         <!--Library-->
         <scene sceneID="yiV-wL-wtJ">
             <objects>
-                <collectionViewController storyboardIdentifier="Library" title="Library" id="ihh-Op-hcl" customClass="LibraryController" customModule="TextExtactor" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="Library" title="Library" id="ihh-Op-hcl" customClass="LibraryController" customModule="Sharing" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="always" dataMode="prototypes" id="Y5A-ch-hBP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" name="AccentColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fdq-j4-O5N">
                             <size key="itemSize" width="128" height="128"/>
@@ -26,7 +27,7 @@
                             <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="libraryCell" id="leH-EN-AwD" customClass="LibraryItemCell" customModule="TextExtactor" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="libraryCell" id="leH-EN-AwD" customClass="LibraryItemCell" customModule="Sharing" customModuleProvider="target">
                                 <rect key="frame" x="16" y="50" width="170" height="256"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jEZ-ra-KXs">
@@ -36,7 +37,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wia-NS-I5O">
                                             <rect key="frame" x="8" y="8" width="154" height="32"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1g-3X-uh6" customClass="DocSourceIconView" customModule="TextExtactor" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1g-3X-uh6" customClass="DocSourceIconView" customModule="Sharing" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
                                                     <color key="backgroundColor" name="AccentColor"/>
                                                     <constraints>
@@ -80,7 +81,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wBw-e7-Y1v" customClass="TransparentGradientView" customModule="TextExtactor" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wBw-e7-Y1v" customClass="TransparentGradientView" customModule="Sharing" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="205" width="170" height="51"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
@@ -153,7 +154,7 @@
                             <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="addNewDocCell" id="hjE-Tk-ron">
                                 <rect key="frame" x="228" y="50" width="170" height="256"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="blq-5c-RmI">
+                                <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="blq-5c-RmI">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="256"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -208,6 +209,14 @@
                                         <constraint firstAttribute="trailing" secondItem="6iS-sK-oFx" secondAttribute="trailing" id="S5h-SM-b2C"/>
                                         <constraint firstAttribute="bottom" secondItem="6iS-sK-oFx" secondAttribute="bottom" id="XWV-PP-kxB"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="0.0"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadow">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="170" height="256"/>
                                 <userDefinedRuntimeAttributes>
@@ -222,7 +231,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </collectionViewCell>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="librarySmallCell" id="bag-qR-kur" customClass="LibrarySmallItemCell" customModule="TextExtactor" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="librarySmallCell" id="bag-qR-kur" customClass="LibrarySmallItemCell" customModule="Sharing" customModuleProvider="target">
                                 <rect key="frame" x="20" y="316" width="374" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="Don-uh-hVm">
@@ -320,8 +329,8 @@
                                     <outlet property="trumbnail" destination="P3q-zW-ymW" id="TNQ-vD-jif"/>
                                 </connections>
                             </collectionViewCell>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="addNewDocSmallCell" id="zST-kx-ZbA" customClass="LibrarySmallItemCell" customModule="TextExtactor" customModuleProvider="target">
-                                <rect key="frame" x="16" y="414" width="374" height="88"/>
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="addNewDocSmallCell" id="zST-kx-ZbA" customClass="LibrarySmallItemCell" customModule="Sharing" customModuleProvider="target">
+                                <rect key="frame" x="20" y="414" width="374" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="BZg-bk-BkA">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="88"/>
@@ -396,7 +405,7 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="UeZ-p2-0lr" customClass="LibraryHeader" customModule="TextExtactor" customModuleProvider="target">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="UeZ-p2-0lr" customClass="LibraryHeader" customModule="Sharing" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -411,7 +420,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBt-FX-RaI">
-                                    <rect key="frame" x="74.5" y="14.5" width="88" height="21"/>
+                                    <rect key="frame" x="74.5" y="14.5" width="85" height="21"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                     <inset key="imageEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <state key="normal" title="Manually">
@@ -423,7 +432,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Vr-10-uJw">
-                                    <rect key="frame" x="364.5" y="16" width="25.5" height="18"/>
+                                    <rect key="frame" x="369" y="16" width="21" height="18"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" image="list.bullet" catalog="system"/>
                                     <connections>
@@ -484,9 +493,6 @@
         </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

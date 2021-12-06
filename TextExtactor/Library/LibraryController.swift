@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class LibraryController: UICollectionViewController, ShareControllerPresenter , TabBared {
+final class LibraryController: UICollectionViewController, ShareControllerPresenter, TabBared, HolidayAffected {
 
   enum ListAppearance {
     case large
@@ -41,6 +41,12 @@ final class LibraryController: UICollectionViewController, ShareControllerPresen
   
   override func viewDidLoad() {
     super.viewDidLoad()
+  
+    collectionView.backgroundView = UIView(frame: .zero)
+    collectionView.backgroundColor = .clear
+    
+    setupHolidayBackgound()
+    
     NotificationCenter.default.addObserver(self, selector: #selector(viewDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
   }
   

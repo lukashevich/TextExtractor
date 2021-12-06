@@ -15,4 +15,18 @@ extension String {
   mutating func capitalizeFirstLetter() {
     self = self.capitalizingFirstLetter()
   }
+  
+  var fileName: String {
+    return URL(fileURLWithPath: self).deletingPathExtension().lastPathComponent
+  }
+  
+  var fileExtension: String {
+    return URL(fileURLWithPath: self).pathExtension
+  }
 }
+
+let 🇮🇹 = "🇮🇹"
+let 🇺🇸 = "🇺🇸"
+let 🇩🇪 = "🇩🇪"
+let 🇷🇺 = "🇷🇺"
+let 🇺🇦 = "🇺🇦"

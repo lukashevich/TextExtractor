@@ -19,13 +19,20 @@ struct ProductInfo {
 enum Subscription: String, CaseIterable {
   typealias SubscriptionGroup = (main: Subscription, trial: Subscription)
   
+  case weekly05 = "extractor.weekly.0.5"
+  case monthly1 = "extractor.monthly.1"
   case monthly2 = "extractor.monthly.2"
   case monthlyTrial2 = "extractor.monthly.trial.2"
   case monthly5 = "extractor.monthly.5"
   case monthlyTrial5 = "extractor.monthly.trial.5"
   
   static var currentGroup: SubscriptionGroup {
-    (main: .monthly2, trial: .monthly2)
+    switch Locale.current.countryFlag {
+    case 🇺🇸: return (main: .monthly5, trial: .monthly5)
+    case 🇩🇪, 🇮🇹: return (main: .monthly2, trial: .monthly2)
+    case 🇷🇺, 🇺🇦: return (main: .weekly05, trial: .weekly05)
+    default: return (main: .monthly1, trial: .monthly1)
+    }
   }
 }
 
@@ -63,7 +70,7 @@ struct SubscriptionHelper {
     
     let convertationDate: Date
     switch subs {
-    case .monthly2, .monthly5:
+    case .weekly05, .monthly1, .monthly2, .monthly5:
       convertationDate = Date()
     case .monthlyTrial2, .monthlyTrial5:
       let currentDate = Date()
@@ -118,6 +125,38 @@ struct SubscriptionHelper {
         case .failed, .purchasing, .deferred:
           break
         }
+      }
+    }
+  }
+  
+  static func checkSubscription() {
+    guard UserDefaults.standard.userSubscribed else { return }
+    
+    let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: _secret)
+    SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
+      
+      switch result {
+      case .success(let receipt):
+        // Verify the purchase of a Subscription
+        let purchaseResult = SwiftyStoreKit.verifySubscriptions(
+          ofType: .autoRenewable,
+          productIds: Set(Subscription.allCases.map(\.rawValue)) ,
+          inReceipt: receipt)
+        
+        DispatchQueue.main.async {
+          switch purchaseResult {
+          case .purchased:
+            UserDefaults.standard.userSubscribed = true
+            break
+          case .expired:
+            UserDefaults.standard.userSubscribed = false
+            
+          case .notPurchased:
+            UserDefaults.standard.userSubscribed = false
+          }
+        }
+      case .error:
+        UserDefaults.standard.userSubscribed = false
       }
     }
   }

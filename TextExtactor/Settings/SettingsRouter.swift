@@ -16,6 +16,7 @@ class SettingsRouter {
   
   enum Segue {
     case paywall(PaywallHandlers?)
+    case toPresentation
     case toExportedDoc
     case toFeedback
     
@@ -24,6 +25,7 @@ class SettingsRouter {
       case .paywall: return Destination.toPaywall.rawValue
       case .toExportedDoc: return Destination.toExportedDoc.rawValue
       case .toFeedback: return Destination.toFeedback.rawValue
+      case .toPresentation: return Destination.toPresentation.rawValue
       }
     }
     
@@ -32,6 +34,7 @@ class SettingsRouter {
       case .paywall(let handlers): return PaywallViewModel(subscription: Subscription.currentGroup.main ,handlers: handlers)
       case .toExportedDoc: return ExportedDocPreviewViewModel()
       case .toFeedback: return FeedbackViewModel()
+      case .toPresentation: return PresentationViewModel()
       }
     }
   }

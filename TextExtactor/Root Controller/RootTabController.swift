@@ -32,4 +32,8 @@ final class RootTabController: UITabBarController {
   func showPaywall(subscription: Subscription = Subscription.currentGroup.trial) {
     _router.navigate(to: .paywall(subscription, .empty))
   }
+  
+  func showPresentation() {
+    _router.navigate(to: .presentation)
+  }
 }

@@ -30,8 +30,14 @@ extension UserDefaults {
   }
   
   var userSubscribed: Bool {
-    get { UserDefaults.standard.bool(forKey: #function) }
-    set { UserDefaults.standard.set(newValue, forKey: #function) }
+    get {
+      UserDefaults.standard.bool(forKey: #function) ||
+        UserDefaults(suiteName: Constant.groupID)!.bool(forKey: #function)
+    }
+    set {
+      UserDefaults.standard.set(newValue, forKey: #function)
+      UserDefaults(suiteName: Constant.groupID)!.set(newValue, forKey: #function)
+    }
   }
   
   var convertationDate: Date {

@@ -17,6 +17,7 @@ struct SettingsViewModel {
     case audio = "audio"
     case tos = "tos"
     case feedback = "feedback"
+    case howToUse = "how_to_use"
   }
   
   var updateContent: (() -> Void)?
@@ -27,14 +28,14 @@ struct SettingsViewModel {
       return [
         [.restore],
         [.document, .audio],
-        [.feedback],
+        [.howToUse],
         [.privacy, .tos]
       ]
     case false:
       return [
         [.subscription],
         [.document, .audio],
-        [.feedback],
+        [.howToUse],
         [.privacy, .tos]
       ]
     }

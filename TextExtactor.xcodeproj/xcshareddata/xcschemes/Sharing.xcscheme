@@ -57,8 +57,12 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "0"
+         BundleIdentifier = "ph.telegra.Telegraph"
+         RemotePath = "/var/containers/Bundle/Application/880483D2-389B-4D28-8B7A-E6CAA987EE33/Telegram.app">
+      </RemoteRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7F7ED06E25D98081003F6BBB"
@@ -66,7 +70,7 @@
             BlueprintName = "TextExtactor"
             ReferencedContainer = "container:TextExtactor.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

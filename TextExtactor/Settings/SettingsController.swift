@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SettingsController: UIViewController, URLPresenter, AlertPresenter {
+final class SettingsController: UIViewController, URLPresenter, AlertPresenter, HolidayAffected {
   
   @IBOutlet private weak var _fullPreloader: UIView!
   @IBOutlet private weak var _fullPreloaderActivity: UIActivityIndicatorView!
@@ -19,6 +19,7 @@ final class SettingsController: UIViewController, URLPresenter, AlertPresenter {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.setupHolidayBackgound()
     self.viewModel.updateContent = {
       self._settingsTable.reloadData()
     }
@@ -61,6 +62,7 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
     case .subscription, .audio: break
     case .document: self._router.navigate(to: .toExportedDoc)
     case .restore: self._restorePurchases()
+    case .howToUse: self._router.navigate(to: .toPresentation)
     case .feedback: self._router.navigate(to: .toFeedback)
     case .privacy: self.open(link: .privacy)
     case .tos: self.open(link: .tos)

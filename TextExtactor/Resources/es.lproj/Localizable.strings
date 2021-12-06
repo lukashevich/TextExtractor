@@ -56,9 +56,13 @@
 "PAYWALL_SUBTITLE_3_MESSAGE" = "¡Obtenga la máxima eficiencia con un toque! Reconozca un documento
 con varias páginas. ";
 
-"PAYWALL_CTA" = "Suscribirse a% @ /% @";
-"PAYWALL_STARTS_WITH" = "Comienza con una prueba gratuita% i -% @";
+"PAYWALL_CTA" = "Compre ahora por %@/%@";
+"PAYWALL_STARTS_WITH" = "Inicie su %i-%@ prueba gratuita";
+"THEN" = "luego %@/%@";
 
+"PAYWALL_CTA" = "Compre ahora por% @ /% @";
+"PAYWALL_STARTS_WITH" = "Inicie su% i -% @ prueba gratuita";
+"THEN" = "luego% @ /% @";
 "EXPORT" = "Exportar";
 "DOCUMENT" = "Documento";
 "AUDIO" = "Audio";

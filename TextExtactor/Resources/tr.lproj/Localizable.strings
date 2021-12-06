@@ -56,8 +56,9 @@
 "PAYWALL_SUBTITLE_3_MESSAGE" = "Tek bir dokunuşla nihai verimliliği elde edin! Bir belgeyi tanıyın
 birden çok sayfalı. ";
 
-"PAYWALL_CTA" = "% @ /% @ için abone olun";
-"PAYWALL_STARTS_WITH" = "% i -% @ ücretsiz deneme ile başlar";
+"PAYWALL_CTA" = "Buy now for %@ / %@";
+"PAYWALL_STARTS_WITH" = "Start your %i-%@ free trial";
+"THEN" = "then %@ / %@";
 
 "EXPORT" = "Dışa Aktar";
 "DOCUMENT" = "Belge";

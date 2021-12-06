@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gbK-tQ-qZW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gbK-tQ-qZW">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="siS-ID-2eI">
-                                <rect key="frame" x="0.0" y="149" width="414" height="747"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="752"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="localeCell" id="YdO-44-wtW" customClass="LocaleCell" customModule="Sharing" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="41.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="41.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YdO-44-wtW" id="pfm-tV-xlA">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="41.5"/>
@@ -54,6 +55,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="6nJ-oF-qkE" secondAttribute="bottom" constant="8" id="MTc-IS-jjn"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="tintColor" name="AccentColor"/>
                                         <connections>
                                             <outlet property="subtitle" destination="6nJ-oF-qkE" id="Sts-s8-pUb"/>
                                             <outlet property="title" destination="Hod-f6-bMC" id="O3y-OD-IPk"/>
@@ -75,7 +77,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="cZ7-xc-P4A">
-                                <rect key="frame" x="0.0" y="93" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="93" width="414" height="51"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </searchBar>

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class PaywallController: UIViewController, URLPresenter, AlertPresenter {
+final class PaywallController: UIViewController, URLPresenter, AlertPresenter, ParalaxBackgrounded, Snowy {
   
   enum PurhcaseState {
     case successfully
@@ -23,7 +23,9 @@ final class PaywallController: UIViewController, URLPresenter, AlertPresenter {
   @IBOutlet private weak var _trialView: UIView!
   @IBOutlet private weak var _trialLabel: UILabel!
   @IBOutlet private weak var _subscribeButton: UIButton!
-  
+  @IBOutlet private weak var _ctaTitle: UILabel!
+  @IBOutlet private weak var _ctaSubTitle: UILabel!
+
   var viewModel: PaywallViewModel!
   
   private func _showPreloader() {
@@ -84,19 +86,40 @@ final class PaywallController: UIViewController, URLPresenter, AlertPresenter {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    SubscriptionHelper.retrieveInfo(subscription: viewModel.subscription) { product in
+    
+    switch Holiday.current {
+    case .helloween, .none:
+      setParalaxBackground()
+    case .christmas:
+      letItSnow()
+    }
+
+    SubscriptionHelper.retrieveInfo(subscription: viewModel.subscription) { [unowned self] product in
       guard let product = product, let period = product.period else { return }
       
-      self._productPreloader.isHidden = true
-      
+      _productPreloader.isHidden = true
+      _subscribeButton.pulsate()
+
       let priceText = self._price(from: product.price, locale: product.priceLocale)
-      let subscriptionDuration = period.unit.stringValue
-      self._subscribeButton.setTitle("PAYWALL_CTA".localized([priceText, subscriptionDuration]), for: .normal)
-      guard let intro = product.intro else {
-        self._trialView.isHidden = true
-        return
+      
+      let subscriptionDuration: String
+      switch period.unit {
+      case .day:
+        subscriptionDuration = "WEEK".localized
+      default:
+        subscriptionDuration = period.unit.stringValue
       }
-      self._trialLabel.text = "PAYWALL_STARTS_WITH".localized([intro.numberOfUnits, intro.unit.stringValue])
+
+      switch product.intro {
+      case .none:
+        _ctaTitle.text = "PAYWALL_CTA".localized([priceText, subscriptionDuration])
+        _subscribeButton.setTitle("CONTINUE".localized, for: .normal)
+        _ctaSubTitle.isHidden = true
+      case .some(let intro):
+        _ctaTitle.isHidden = true
+        _subscribeButton.setTitle("PAYWALL_STARTS_WITH".localized([intro.numberOfUnits, intro.unit.stringValue]), for: .normal)
+        _ctaSubTitle.text = "THEN".localized([priceText, subscriptionDuration])
+      }
     }
   }
   

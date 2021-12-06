@@ -1,0 +1,22 @@
+{
+  "images" : [
+    {
+      "filename" : "Christmas-iPhone-wallpaper-32.png",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "christmas-lights-19.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

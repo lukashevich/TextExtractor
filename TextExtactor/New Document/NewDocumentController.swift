@@ -28,7 +28,7 @@ final class NewDocumentController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-        
+    
     self.viewModel.processStepHandler = { step in
       switch step {
       case .start:

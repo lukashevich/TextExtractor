@@ -56,8 +56,9 @@
 "PAYWALL_SUBTITLE_3_MESSAGE" = "Đạt được hiệu quả tối ưu chỉ trong một lần chạm! Nhận dạng tài liệu
 với nhiều trang. ";
 
-"PAYWALL_CTA" = "Đăng ký% @ /% @";
-"PAYWALL_STARTS_WITH" = "Bắt đầu với% i -% @ dùng thử miễn phí";
+"PAYWALL_CTA" = "Buy now for %@ / %@";
+"PAYWALL_STARTS_WITH" = "Start your %i-%@ free trial";
+"THEN" = "then %@ / %@";
 
 "EXPORT" = "Xuất";
 "DOCUMENT" = "Tài liệu";

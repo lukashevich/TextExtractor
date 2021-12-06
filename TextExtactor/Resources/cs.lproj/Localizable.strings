@@ -56,8 +56,9 @@
 "PAYWALL_SUBTITLE_3_MESSAGE" = "Získejte maximální efektivitu jediným dotykem! Rozpoznat dokument
 s více stránkami. ";
 
-"PAYWALL_CTA" = "Přihlásit se k odběru% @ /% @";
-"PAYWALL_STARTS_WITH" = "Začíná% i -% @ bezplatnou zkušební verzí";
+"PAYWALL_CTA" = "Buy now for %@ / %@";
+"PAYWALL_STARTS_WITH" = "Start your %i-%@ free trial";
+"THEN" = "then %@ / %@";
 
 "EXPORT" = "Exportovat";
 "DOCUMENT" = "Dokument";

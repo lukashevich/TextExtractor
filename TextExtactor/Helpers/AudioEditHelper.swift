@@ -80,13 +80,13 @@ struct AudioEditHelper {
       
       exporter.exportAsynchronously(completionHandler: {
         switch exporter.status {
-        case  AVAssetExportSessionStatus.failed:
+        case  .failed:
           completion?(index, outputURL)
           if let e = exporter.error {
             print("export failed \(e)", e.localizedDescription)
           }
           
-        case AVAssetExportSessionStatus.cancelled:
+        case .cancelled:
           completion?(index, outputURL)
           print("export cancelled \(String(describing: exporter.error))")
         case .completed:

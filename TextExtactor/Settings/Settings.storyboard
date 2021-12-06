@@ -12,7 +12,7 @@
         <!--Settings-->
         <scene sceneID="mkL-5X-jRq">
             <objects>
-                <viewController storyboardIdentifier="Initial" title="Settings" id="tAn-gt-IV0" customClass="SettingsController" customModule="Sharing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Initial" title="Settings" id="tAn-gt-IV0" customClass="SettingsController" customModule="TextExtactor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GD0-MO-i1v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="ShI-RE-RJh">
-                                    <rect key="frame" x="0.0" y="651" width="414" height="1"/>
+                                    <rect key="frame" x="0.0" y="694" width="414" height="1"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
@@ -187,10 +187,36 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="subscription" id="rh3-PO-faD" customClass="PaywallCell" customModule="Sharing" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="314.5" width="414" height="318.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="how_to_use" id="1G6-Q8-EfD">
+                                        <rect key="frame" x="0.0" y="314.5" width="414" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rh3-PO-faD" id="7Ad-19-GXv" customClass="PaywallSmallView" customModule="Sharing" customModuleProvider="target">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1G6-Q8-EfD" id="TYR-bh-WeS">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to use" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sk-pw-bZF">
+                                                    <rect key="frame" x="20" y="11" width="394" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="HOW_TO"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2sk-pw-bZF" firstAttribute="top" secondItem="TYR-bh-WeS" secondAttribute="topMargin" id="18h-Bl-Nea"/>
+                                                <constraint firstItem="2sk-pw-bZF" firstAttribute="leading" secondItem="TYR-bh-WeS" secondAttribute="leadingMargin" id="4Oj-VQ-NBj"/>
+                                                <constraint firstAttribute="trailing" secondItem="2sk-pw-bZF" secondAttribute="trailing" id="ZSg-Ew-wvp"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="2sk-pw-bZF" secondAttribute="bottom" id="pg0-59-JYJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="subscription" id="rh3-PO-faD" customClass="PaywallCell" customModule="TextExtactor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="357.5" width="414" height="318.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rh3-PO-faD" id="7Ad-19-GXv" customClass="PaywallSmallView" customModule="TextExtactor" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="318.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -338,7 +364,7 @@
                                                         <constraint firstAttribute="height" constant="44" id="qvu-74-avT"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                    <state key="normal" title="Subscribe for $2,99/ month">
+                                                    <state key="normal" title="Subscribe">
                                                         <color key="titleColor" systemColor="systemBackgroundColor"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -456,7 +482,8 @@
                         <outlet property="_fullPreloaderActivity" destination="gHv-MS-qmR" id="UvC-te-BVF"/>
                         <outlet property="_settingsTable" destination="2ZT-t7-mH9" id="rLB-zJ-yw2"/>
                         <segue destination="FkL-F1-qoF" kind="show" identifier="toPaywall" id="J2b-ic-3qf"/>
-                        <segue destination="te5-Uz-dPu" kind="show" identifier="toFeedback" id="6iR-Wt-c00"/>
+                        <segue destination="te5-Uz-dPu" kind="show" identifier="toFeedback" id="F48-1i-V0d"/>
+                        <segue destination="mA4-YW-EhR" kind="show" identifier="toPresentation" id="RV7-IA-s2C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLT-dd-fLQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -482,6 +509,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcH-Xo-0PZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="589" y="85"/>
+        </scene>
+        <!--Presentation-->
+        <scene sceneID="ghn-uG-YdF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Presentation" id="mA4-YW-EhR" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="MqG-Tp-TfP"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Fy-OY-MrT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="419" y="233"/>
         </scene>
     </scenes>
     <resources>

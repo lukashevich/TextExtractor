@@ -15,4 +15,5 @@ target 'Sharing' do
   use_frameworks!
   pod 'mobile-ffmpeg-full-gpl', '~> 4.2'
   pod 'Shimmer'
+  pod "DrawerView"
 end

@@ -16,15 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     _createDefaultsFolders()
     _completeTransactions()
     
-    PresentPaywallOnLaunchHelper.showIfNeeded()
+    SubscriptionHelper.checkSubscription()
+    
+    OnLaunchHandler.handleLaunch()
     
     SwiftyStoreKit.shouldAddStorePaymentHandler = { payment, product in
       PresentPaywallOnLaunchHelper.showPaywall(with: Subscription.from(product: product))
       return true
     }
-    
-    AppStoreReviewHelper.askForReviewIfNeeded()
-    
+        
     return true
   }
   
@@ -84,7 +84,7 @@ extension UIApplication {
 private extension Subscription {
   static func from(product: SKProduct) -> Subscription {
     guard let purchase = Subscription.init(rawValue: product.productIdentifier) else {
-      return .monthlyTrial2
+      return .monthlyTrial5
     }
     return purchase
   }

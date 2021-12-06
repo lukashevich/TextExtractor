@@ -8,12 +8,16 @@
 import Foundation
 
 enum Destination: String {
-  case toLocalePicker = "toLocalePicker"
+  case toLocalePicker
+  case toPaywall
+  case toChristmasPaywall
   
   func destinationController(for segue: UIStoryboardSegue) -> UIViewController? {
     switch self {
     case .toLocalePicker:
       return segue.destination as? LocalesController
+    case .toPaywall, .toChristmasPaywall:
+      return segue.destination as? PaywallController
     }
   }
 }

@@ -11,6 +11,8 @@ import UIKit
 final class TransparentGradientView: UIView {
   var contentView:UIView?
   
+  private let _gradientMaskLayer = CAGradientLayer()
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     xibSetup()
@@ -24,11 +26,11 @@ final class TransparentGradientView: UIView {
     contentView = view
     
     let backColor = contentView?.backgroundColor?.cgColor
-    let gradientMaskLayer = CAGradientLayer()
-    gradientMaskLayer.frame = contentView?.bounds ?? .zero
-    gradientMaskLayer.colors = [UIColor.clear.cgColor, backColor]
-    gradientMaskLayer.locations = [0, 0.5, 1]
-    contentView?.layer.mask = gradientMaskLayer
+    
+    _gradientMaskLayer.frame = contentView?.bounds ?? .zero
+    _gradientMaskLayer.colors = [UIColor.clear.cgColor, backColor]
+    _gradientMaskLayer.locations = [0, 0.5, 1]
+    contentView?.layer.mask = _gradientMaskLayer
   }
   
   func loadViewFromNib() -> UIView? {
@@ -37,6 +39,11 @@ final class TransparentGradientView: UIView {
     return nib.instantiate(
       withOwner: self,
       options: nil).first as? UIView
+  }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    _gradientMaskLayer.frame = contentView?.bounds ?? .zero
   }
   
   override func prepareForInterfaceBuilder() {
