@@ -39,6 +39,8 @@ extension HolidayAffected {
     case .helloween:
       backView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "christmas-pattern")).withAlphaComponent(0.05)
     case .christmas:
+      print(backView)
+      print(#imageLiteral(resourceName: "christmas-pattern"))
       backView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "christmas-pattern")).withAlphaComponent(0.05)
     case .none:
       backView.backgroundColor = .tertiarySystemFill
