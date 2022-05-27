@@ -147,6 +147,9 @@
 		7FA0523A2746B694002521BE /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA052392746B694002521BE /* Date+Extensions.swift */; };
 		7FA0523B2746B801002521BE /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA052392746B694002521BE /* Date+Extensions.swift */; };
 		7FA0523C2746BCB7002521BE /* TransparentGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7E889B260CD5290059E5E2 /* TransparentGradientView.swift */; };
+		7FB22BF6284152120057B1B0 /* PromoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB22BF5284152120057B1B0 /* PromoViewModel.swift */; };
+		7FB22BF82841522D0057B1B0 /* PromoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB22BF72841522D0057B1B0 /* PromoController.swift */; };
+		7FB22BFA2841526C0057B1B0 /* Promo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FB22BF92841526C0057B1B0 /* Promo.storyboard */; };
 		7FC980E225DDB5A500FD65DF /* PDFCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC980E125DDB5A500FD65DF /* PDFCreator.swift */; };
 		7FC980EB25E0120D00FD65DF /* TabBared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC980EA25E0120D00FD65DF /* TabBared.swift */; };
 		7FC980F025E01BCC00FD65DF /* TitledActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC980EF25E01BCC00FD65DF /* TitledActionView.swift */; };
@@ -345,6 +348,9 @@
 		7FA0523327465C04002521BE /* Snowy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snowy.swift; sourceTree = "<group>"; };
 		7FA052352746A1DC002521BE /* HolidayAffected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayAffected.swift; sourceTree = "<group>"; };
 		7FA052392746B694002521BE /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		7FB22BF5284152120057B1B0 /* PromoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoViewModel.swift; sourceTree = "<group>"; };
+		7FB22BF72841522D0057B1B0 /* PromoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoController.swift; sourceTree = "<group>"; };
+		7FB22BF92841526C0057B1B0 /* Promo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Promo.storyboard; sourceTree = "<group>"; };
 		7FC980DE25DD834D00FD65DF /* SF-Pro-Rounded-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Medium.otf"; sourceTree = "<group>"; };
 		7FC980DF25DD834D00FD65DF /* SF-Pro-Rounded-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Semibold.ttf"; sourceTree = "<group>"; };
 		7FC980E125DDB5A500FD65DF /* PDFCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCreator.swift; sourceTree = "<group>"; };
@@ -637,6 +643,7 @@
 		7F7ED07125D98081003F6BBB /* TextExtactor */ = {
 			isa = PBXGroup;
 			children = (
+				7FB22BF2284151E60057B1B0 /* Promo */,
 				7FEAAD1626D39E2D0088090D /* Presentation Flow */,
 				7F025F36261DFBAD003BDC24 /* Date Style Picker */,
 				7F025F2C261C9FF0003BDC24 /* Exported Doc Preview */,
@@ -753,6 +760,16 @@
 				7FEAACF626D39BD70088090D /* Feedback.storyboard */,
 			);
 			path = Feedback;
+			sourceTree = "<group>";
+		};
+		7FB22BF2284151E60057B1B0 /* Promo */ = {
+			isa = PBXGroup;
+			children = (
+				7FB22BF5284152120057B1B0 /* PromoViewModel.swift */,
+				7FB22BF72841522D0057B1B0 /* PromoController.swift */,
+				7FB22BF92841526C0057B1B0 /* Promo.storyboard */,
+			);
+			path = Promo;
 			sourceTree = "<group>";
 		};
 		7FC980EE25E01B8200FD65DF /* Views */ = {
@@ -964,6 +981,7 @@
 				7F025F38261DFBC2003BDC24 /* DateStylePicker.storyboard in Resources */,
 				7F7ED07F25D98081003F6BBB /* LaunchScreen.storyboard in Resources */,
 				7F4CE0DF25FA658C00F7AF09 /* PlayerView.xib in Resources */,
+				7FB22BFA2841526C0057B1B0 /* Promo.storyboard in Resources */,
 				7F7E88A5260CDC8A0059E5E2 /* DocSourceIconView.xib in Resources */,
 				7F7E8892260A532F0059E5E2 /* Localizable.strings in Resources */,
 				7F7ED08C25D98124003F6BBB /* Library.storyboard in Resources */,
@@ -1126,6 +1144,7 @@
 				7F21D35325DA8B6B009A3F53 /* AudioChunk.swift in Sources */,
 				7F719DEB25FCCD590039E14A /* LibraryRouter.swift in Sources */,
 				7F7ED07325D98081003F6BBB /* AppDelegate.swift in Sources */,
+				7FB22BF82841522D0057B1B0 /* PromoController.swift in Sources */,
 				7F025F2626171B89003BDC24 /* PaywallOnLaunchPresentHelper.swift in Sources */,
 				7F7ED0B025D9A6B7003F6BBB /* UIView+Extensions.swift in Sources */,
 				7F44359C25DD712400F776BE /* LibrarySmallItemCell.swift in Sources */,
@@ -1184,6 +1203,7 @@
 				7F21D36F25DAB7AC009A3F53 /* NewDocumentController.swift in Sources */,
 				7F21D35025DA8B50009A3F53 /* AudioFileSplitter.swift in Sources */,
 				7F47AF3625E54A2500CD8C02 /* SubscriptionHelper.swift in Sources */,
+				7FB22BF6284152120057B1B0 /* PromoViewModel.swift in Sources */,
 				7F47AF2825E543E000CD8C02 /* PaywallController.swift in Sources */,
 				7F21D38225DAC3FB009A3F53 /* ExpandableCell.swift in Sources */,
 				7F52927825E6537F00D7571F /* ActionView.swift in Sources */,
@@ -1271,7 +1291,7 @@
 				CODE_SIGN_ENTITLEMENTS = Sharing/Sharing.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6P2K4YQ62D;
 				INFOPLIST_FILE = Sharing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1280,7 +1300,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor.Sharing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1298,7 +1318,7 @@
 				CODE_SIGN_ENTITLEMENTS = Sharing/Sharing.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6P2K4YQ62D;
 				INFOPLIST_FILE = Sharing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1307,7 +1327,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor.Sharing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1446,7 +1466,7 @@
 				CODE_SIGN_ENTITLEMENTS = TextExtactor/TextExtactor.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6P2K4YQ62D;
 				INFOPLIST_FILE = TextExtactor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1454,7 +1474,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1474,7 +1494,7 @@
 				CODE_SIGN_ENTITLEMENTS = TextExtactor/TextExtactor.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6P2K4YQ62D;
 				INFOPLIST_FILE = TextExtactor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1482,7 +1502,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

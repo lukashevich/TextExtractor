@@ -19,6 +19,7 @@ enum Destination: String {
   case toDateStylePicker = "toDateStylePicker"
   case toFeedback = "toFeedback"
   case toPresentation = "toPresentation"
+  case toPromo = "toPromo"
 
 //  var destination: UIViewController {
 ////
@@ -52,6 +53,8 @@ enum Destination: String {
     case .toPresentation:
       let navigation = segue.destination as? UINavigationController
       return navigation?.viewControllers.first as? PresentationController
+    case .toPromo:
+      return segue.destination as? PromoController
     }
   }
   
@@ -65,6 +68,7 @@ enum Destination: String {
     case .toDateStylePicker: return "DateStylePicker"
     case .toFeedback: return "Feedback"
     case .toPresentation: return "toPresentation"
+    case .toPromo: return "toPromo"
     }
   }
 }

@@ -25,13 +25,13 @@ enum Subscription: String, CaseIterable {
   case monthlyTrial2 = "extractor.monthly.trial.2"
   case monthly5 = "extractor.monthly.5"
   case monthlyTrial5 = "extractor.monthly.trial.5"
+  case annual15 = "extractor.annual.15"
   
   static var currentGroup: SubscriptionGroup {
     switch Locale.current.countryFlag {
-    case 🇺🇸: return (main: .monthly5, trial: .monthly5)
-    case 🇩🇪, 🇮🇹: return (main: .monthly2, trial: .monthly2)
-    case 🇷🇺, 🇺🇦: return (main: .weekly05, trial: .weekly05)
-    default: return (main: .monthly1, trial: .monthly1)
+    case 🇺🇸, 🇩🇪, 🇮🇹, 🇷🇺: return (main: .annual15, trial: .annual15)
+    case 🇺🇦: return (main: .annual15, trial: .annual15)
+    default: return (main: .annual15, trial: .annual15)
     }
   }
 }
@@ -70,7 +70,7 @@ struct SubscriptionHelper {
     
     let convertationDate: Date
     switch subs {
-    case .weekly05, .monthly1, .monthly2, .monthly5:
+    case .weekly05, .monthly1, .monthly2, .monthly5, .annual15:
       convertationDate = Date()
     case .monthlyTrial2, .monthlyTrial5:
       let currentDate = Date()

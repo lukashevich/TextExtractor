@@ -63,6 +63,7 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
     case .document: self._router.navigate(to: .toExportedDoc)
     case .restore: self._restorePurchases()
     case .howToUse: self._router.navigate(to: .toPresentation)
+    case .promo: self._router.navigate(to: .toPromo)
     case .feedback: self._router.navigate(to: .toFeedback)
     case .privacy: self.open(link: .privacy)
     case .tos: self.open(link: .tos)

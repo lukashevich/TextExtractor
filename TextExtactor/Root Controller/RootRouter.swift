@@ -18,6 +18,7 @@ class RootRouter {
     case paywall(Subscription, PaywallHandlers)
     case exportDocPreview
     case presentation
+    case promo
     
     var identifier: String {
       switch self {
@@ -32,6 +33,7 @@ class RootRouter {
         }
       case .exportDocPreview: return Destination.toExportedDoc.rawValue
       case .presentation: return Destination.toPresentation.rawValue
+      case .promo: return Destination.toPromo.rawValue
       }
     }
     
@@ -43,6 +45,8 @@ class RootRouter {
         return ExportedDocPreviewViewModel()
       case .presentation:
         return PresentationViewModel()
+      case .promo:
+        return PromoViewModel()
       }
     }
   }
@@ -79,6 +83,10 @@ extension RootTabController {
     case .toPresentation:
       if let controller = destination.destinationController(for: segue) as? PresentationController {
         controller.viewModel = vModel as? PresentationViewModel
+      }
+    case .toPromo:
+      if let controller = destination.destinationController(for: segue) as? PromoController {
+        controller.viewModel = vModel as? PromoViewModel
       }
     default: break
     }

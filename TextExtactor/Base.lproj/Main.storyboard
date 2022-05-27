@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wkd-jW-afr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wkd-jW-afr">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,6 +30,7 @@
                         <segue destination="lte-gh-cl8" kind="show" identifier="toFeedback" id="qXe-5g-EZx"/>
                         <segue destination="1uK-n8-nRW" kind="presentation" identifier="toPresentation" modalPresentationStyle="fullScreen" id="NDW-xd-3hS"/>
                         <segue destination="Qcz-ps-av2" kind="presentation" identifier="toChristmasPaywall" id="DEn-4z-8jU"/>
+                        <segue destination="ECn-2h-gqn" kind="presentation" identifier="toPromo" id="0ra-YY-73V"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4h8-xq-qVR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -158,6 +159,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYQ-Sq-InF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1403" y="-569"/>
+        </scene>
+        <!--Promo-->
+        <scene sceneID="SlX-ET-CVg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Promo" id="ECn-2h-gqn" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E4i-G7-9jV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2011" y="164"/>
         </scene>
         <!--ExportedDocPreview-->
         <scene sceneID="yT4-Tu-WpZ">

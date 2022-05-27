@@ -13,6 +13,7 @@ enum AlertType {
   case subscriptionExpired
   case subscriptionNotPurchased
   case somethingWentWrong
+  case cantTranscribe
   case wrongEmail
   case emptyFeedback
   case error(Error)
@@ -31,6 +32,8 @@ enum AlertType {
       return (title: "Invalid feedback email", message: "Please make sure your email validation, so we can leave feedback to you soon...")
     case .error(let error):
       return (title: "Error", message: error.localizedDescription)
+    case .cantTranscribe:
+      return (title: "Sorry", message: "We couldn't transcribe this file. Please make sure your transcribing language is correct")
     }
   }
 }

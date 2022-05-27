@@ -22,6 +22,17 @@ extension UserDefaults {
     set { UserDefaults.standard.set(convertationDate.timeIntervalSince1970, forKey: #function) }
   }
   
+  var userPromoted: Bool {
+    get {
+      UserDefaults.standard.bool(forKey: #function) ||
+        UserDefaults(suiteName: Constant.groupID)!.bool(forKey: #function)
+    }
+    set {
+      UserDefaults.standard.set(newValue, forKey: #function)
+      UserDefaults(suiteName: Constant.groupID)!.set(newValue, forKey: #function)
+    }
+  }
+  
   var userSubscribed: Bool {
     get { UserDefaults(suiteName: Constant.groupID)!.bool(forKey: #function) }
     set { UserDefaults(suiteName: Constant.groupID)!.set(newValue, forKey: #function) }

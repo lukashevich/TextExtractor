@@ -62,10 +62,9 @@ class ImportController: UIViewController, AlertPresenter, HolidayAffected {
   }
   
   private func _showPaywallIfNeeded() {
-    UserDefaults.standard.transcriptionsCount += 1
-    
     guard UserDefaults.standard.transcriptionsCount > 3 &&
-            !UserDefaults.standard.userSubscribed else { return }
+            !UserDefaults.standard.userSubscribed &&
+              !UserDefaults.standard.userPromoted else { return }
     
     DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
       let handlers = PaywallHandlers(success: { dismiss(animated: true, completion: nil) }) {
@@ -133,18 +132,30 @@ class ImportController: UIViewController, AlertPresenter, HolidayAffected {
   }
   
   private func _recognize(files: [ExportedFile]) {
+    _showPreloader()
+
     var transcribedItemsCount = 0
-    Recognizer.recognizeExported(files: _exportedFiles, in: self._extractingLocale) { text in
+    Recognizer.recognizeExported(files: _exportedFiles, in: _extractingLocale) { [unowned self] text in
       transcribedItemsCount += 1
-      let progress: Float = Float(transcribedItemsCount) / Float(self._exportedFiles.count)
-      self._progressView.setProgress(progress, animated: true)
-      guard !text.isEmpty else { return }
-      self._hidePreloader()
-      if self.textView.text == self._placeholder {
-        self.textView.text = ""
+      let progress: Float = Float(transcribedItemsCount) / Float(_exportedFiles.count)
+      _progressView.setProgress(progress, animated: true)
+      
+      if progress >= 1, let currText = textView.text {
+        switch currText.isEmpty {
+        case true:
+          self.showAlert(.cantTranscribe) 
+        case false:
+          UserDefaults.standard.transcriptionsCount += 1
+        }
       }
-      self.textView.textColor = .label
-      self.textView.text = self.textView.text + "\n" + text
+      
+      guard !text.isEmpty else { return }
+      _hidePreloader()
+      if textView.text == _placeholder {
+        textView.text = ""
+      }
+      textView.textColor = .label
+      textView.text = textView.text + "\n" + text
     }
   }
   
