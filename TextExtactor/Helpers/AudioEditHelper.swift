@@ -16,21 +16,24 @@ struct AudioEditHelper {
     asset.writeToURL(url) { _,_  in }
   }
   
-  static func prepareFile(at url: URL, completion: @escaping (([URL]) -> Void) ) {
+  static func prepareFile(at url: URL, completion: @escaping (([URL], TranscribeError?) -> Void) ) {
     let asset = AVURLAsset(url: url)
     guard asset.duration.seconds > 60 else {
       FileManager.clearTmpFolder()
       let pathWhereToSave = FileManager.tmpFolder.path + "/temp.m4a"
       asset.writeAudioTrackToURL(URL(fileURLWithPath: pathWhereToSave)) { (success, error) -> () in
-        if success {
-          completion([url])
-        } else {
-          completion([])
+        switch error {
+        case .none:
+          completion([url], nil)
+        case .some(let transcribeError):
+          completion([], transcribeError)
         }
       }
       return
     }
-    AudioFileSplitter.split(file: url, completion: completion)
+    AudioFileSplitter.split(file: url, completion: { urls in
+      completion(urls, nil)
+    })
   }
   
   static func split(asset: AVURLAsset, chunks: [AudioChunk], completion: (([URL]) -> Void)? = nil) {

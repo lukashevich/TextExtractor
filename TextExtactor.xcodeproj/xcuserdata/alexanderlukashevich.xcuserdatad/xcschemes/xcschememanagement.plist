@@ -28,7 +28,12 @@
 		<key>Sharing.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>1</integer>
+		</dict>
+		<key>TextExtactor-Dev.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
 		</dict>
 		<key>TextExtactor.xcscheme_^#shared#^_</key>
 		<dict>
@@ -49,6 +54,16 @@
 			<true/>
 		</dict>
 		<key>7F7ED06E25D98081003F6BBB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7F8D6E8928528C50003F5BD1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7F8D6F1F28528CCF003F5BD1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

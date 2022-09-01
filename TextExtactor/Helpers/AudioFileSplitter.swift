@@ -10,24 +10,31 @@ import AVFoundation
 import DSWaveformImage
 
 struct AudioFileSplitter {
-  static private func _split(asset: AVURLAsset, completion: @escaping ([AudioChunk]) -> Void ) {
+  static private func _split(asset: AVURLAsset, completion: @escaping ([AudioChunk], TranscribeError?) -> Void ) {
     let pathWhereToSave = FileManager.tmpFolder.path + "/temp.m4a"
     
     FileManager.clearTmpFolder()
     
     asset.writeAudioTrackToURL(URL(fileURLWithPath: pathWhereToSave)) { (success, error) -> () in
-      if success {
-        let waveformAnalyzer = WaveformAnalyzer(audioAssetURL: URL(fileURLWithPath: pathWhereToSave))
-        waveformAnalyzer?.samples(count: Int(asset.duration.miliseconds)) { samples in
-          completion(_splitSource(samples))
-        }
+      guard success else {
+        completion([], .failed)
+        return
+      }
+      
+      let waveformAnalyzer = WaveformAnalyzer(audioAssetURL: URL(fileURLWithPath: pathWhereToSave))
+      waveformAnalyzer?.samples(count: Int(asset.duration.miliseconds)) { samples in
+        completion(_splitSource(samples), nil)
       }
     }
   }
 
   static func split(file at: URL, completion: @escaping ([URL]) -> ()) {
     let asset = AVURLAsset(url: at, options: nil)
-    self._split(asset: asset) {  AudioEditHelper.split(asset: asset, chunks: $0) { completion($0) }  }
+    self._split(asset: asset) { (chunks, error) in
+      AudioEditHelper.split(asset: asset, chunks: chunks) {
+        completion($0)
+      }
+    }
   }
   
   static private func _splitSource(_ source: [Float]?) -> [AudioChunk] {

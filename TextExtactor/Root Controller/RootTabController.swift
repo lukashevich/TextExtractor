@@ -29,7 +29,11 @@ final class RootTabController: UITabBarController {
     })
   }
 
-  func showPaywall(subscription: Subscription = Subscription.currentGroup.trial) {
+  func showDoublePaywall(with subscriptions: DoublePaywallSubscriptions) {
+    _router.navigate(to: .doublePaywall(subscriptions, .empty))
+  }
+  
+  func showPaywall(with subscription: Subscription = Subscription.currentGroup.trial) {
     _router.navigate(to: .paywall(subscription, .empty))
   }
   

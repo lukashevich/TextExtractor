@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class PaywallController: UIViewController, URLPresenter, AlertPresenter, ParalaxBackgrounded, Snowy {
+final class PaywallController: UIViewController, AlertPresenter, ParalaxBackgrounded, Snowy {
   
   enum PurhcaseState {
     case successfully
@@ -138,7 +138,9 @@ final class PaywallController: UIViewController, URLPresenter, AlertPresenter, P
     formatter.numberStyle = .currency
     return formatter.string(from: value as NSNumber) ?? ""
   }
-  
+}
+
+extension PaywallController: URLPresenter {
   @IBAction func tosPressed() {
     self.open(link: .tos)
   }

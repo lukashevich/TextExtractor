@@ -17,10 +17,13 @@ class ImportControllerRouter {
   enum Segue {
     case locales(LocalePickerHandler)
     case paywall(PaywallHandlers?)
-    
+    case doublePaywall(DoublePaywallSubscriptions, PaywallHandlers)
+
     var identifier: String {
       switch self {
       case .locales: return Destination.toLocalePicker.rawValue
+      case .doublePaywall:
+        return Destination.toDoublePaywall.rawValue
       case .paywall:
         switch Holiday.current {
         case .helloween:
@@ -37,6 +40,8 @@ class ImportControllerRouter {
       switch self {
       case .locales(let handler): return LocalesViewModel(onSelect: handler)
       case .paywall(let handlers): return PaywallViewModel(subscription: Subscription.currentGroup.main ,handlers: handlers)
+      case .doublePaywall(let subscriptions, let handlers):
+        return DoublePaywallViewModel(subscriptions: subscriptions, handlers: handlers, source: .extension)
       }
     }
   }
@@ -57,6 +62,10 @@ extension ImportController {
     case .toLocalePicker:
       if let controller = destination.destinationController(for: segue) as? LocalesController {
         controller.viewModel = vModel as? LocalesViewModel
+      }
+    case .toDoublePaywall:
+      if let controller = destination.destinationController(for: segue) as? DoublePaywallController {
+        controller.viewModel = vModel as? DoublePaywallViewModel
       }
     case .toPaywall, .toChristmasPaywall:
       if let controller = destination.destinationController(for: segue) as? PaywallController {

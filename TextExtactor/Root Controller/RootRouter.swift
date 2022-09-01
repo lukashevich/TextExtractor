@@ -15,6 +15,7 @@ class RootRouter {
   }
   
   enum Segue {
+    case doublePaywall(DoublePaywallSubscriptions, PaywallHandlers)
     case paywall(Subscription, PaywallHandlers)
     case exportDocPreview
     case presentation
@@ -31,6 +32,7 @@ class RootRouter {
         case .none:
           return Destination.toPaywall.rawValue
         }
+      case .doublePaywall: return Destination.toDoublePaywall.rawValue
       case .exportDocPreview: return Destination.toExportedDoc.rawValue
       case .presentation: return Destination.toPresentation.rawValue
       case .promo: return Destination.toPromo.rawValue
@@ -41,6 +43,8 @@ class RootRouter {
       switch self {
       case .paywall(let subscription, let handlers):
         return PaywallViewModel(subscription: subscription, handlers: handlers)
+      case .doublePaywall(let subscriptions, let handlers):
+        return DoublePaywallViewModel(subscriptions: subscriptions, handlers: handlers, source: .main)
       case .exportDocPreview:
         return ExportedDocPreviewViewModel()
       case .presentation:
@@ -87,6 +91,10 @@ extension RootTabController {
     case .toPromo:
       if let controller = destination.destinationController(for: segue) as? PromoController {
         controller.viewModel = vModel as? PromoViewModel
+      }
+    case .toDoublePaywall:
+      if let controller = destination.destinationController(for: segue) as? DoublePaywallController {
+        controller.viewModel = vModel as? DoublePaywallViewModel
       }
     default: break
     }

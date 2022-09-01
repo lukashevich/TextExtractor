@@ -139,8 +139,9 @@ final class PaywallController: UIViewController, AlertPresenter, ParalaxBackgrou
     formatter.numberStyle = .currency
     return formatter.string(from: value as NSNumber) ?? ""
   }
-  
+}
+
+extension PaywallController {
   @IBAction func tosPressed() { }
-  
   @IBAction func privacyPressed() { }
 }

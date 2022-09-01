@@ -36,7 +36,7 @@ struct SettingsViewModel {
       return [
         [.subscription],
         [.document, .audio],
-        [.howToUse, .promo],
+        [.howToUse],
         [.privacy, .tos]
       ]
     }

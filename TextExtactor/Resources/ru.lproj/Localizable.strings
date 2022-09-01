@@ -49,7 +49,7 @@
 "PAYWALL_TITLE" = "Get Textr Unlimited";
 "PAYWALL_SUBTITLE_1" = "Без лимита на длительность";
 "PAYWALL_SUBTITLE_2" = "Без лимита на количество записей";
-"PAYWALL_SUBTITLE_3" = "Мутьтистраничные PDF";
+"PAYWALL_SUBTITLE_3" = "Мультистраничные PDF";
 
 "PAYWALL_SUBTITLE_1_MESSAGE" = "Отключите ограничение в 1 минуту. Распознавайте неограниченную продолжительность ваших видео и аудио.";
 "PAYWALL_SUBTITLE_2_MESSAGE" = "Получите неограниченное разпознавание ваших файлов.";

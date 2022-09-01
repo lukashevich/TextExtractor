@@ -16,6 +16,7 @@ enum Destination: String {
   case toChristmasPaywall = "toChristmasPaywall"
   case toLocalePicker = "toLocalePicker"
   case toExportedDoc = "toExportedDoc"
+  case toDoublePaywall = "toDoublePaywall"
   case toDateStylePicker = "toDateStylePicker"
   case toFeedback = "toFeedback"
   case toPresentation = "toPresentation"
@@ -39,6 +40,8 @@ enum Destination: String {
       return navigation?.viewControllers.first as? DocumentPreviewController
     case .toPaywall, .toChristmasPaywall:
       return segue.destination as? PaywallController
+    case .toDoublePaywall:
+      return segue.destination as? DoublePaywallController
     case .toLocalePicker:
       return segue.destination as? LocalesController
     case .toFeedback:
@@ -69,6 +72,7 @@ enum Destination: String {
     case .toFeedback: return "Feedback"
     case .toPresentation: return "toPresentation"
     case .toPromo: return "toPromo"
+    case .toDoublePaywall: return "toDoublePaywall"
     }
   }
 }

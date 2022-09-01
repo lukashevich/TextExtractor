@@ -30,10 +30,7 @@ extension UserDefaults {
   }
   
   var userPromoted: Bool {
-    get {
-      UserDefaults.standard.bool(forKey: #function) ||
-        UserDefaults(suiteName: Constant.groupID)!.bool(forKey: #function)
-    }
+    get { Locale.current.countryFlag == 🇺🇦 }
     set {
       UserDefaults.standard.set(newValue, forKey: #function)
       UserDefaults(suiteName: Constant.groupID)!.set(newValue, forKey: #function)

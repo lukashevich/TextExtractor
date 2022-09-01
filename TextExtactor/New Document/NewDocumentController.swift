@@ -10,7 +10,7 @@ import UIKit
 import VisionKit
 import Vision
 
-final class NewDocumentController: UIViewController {
+final class NewDocumentController: UIViewController, AlertPresenter {
   
   @IBOutlet weak var fileView: TitledActionView!
   @IBOutlet weak var locationView: TitledActionView!
@@ -31,6 +31,15 @@ final class NewDocumentController: UIViewController {
     
     self.viewModel.processStepHandler = { step in
       switch step {
+      case .error:
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+          self.progressView.progress = 0.0
+          self.bottomView.isHidden = true
+          self.preloader.isHidden = true
+          self._clearFileViews()
+          self.showAlert(.cantTranscribe)
+        })
+        
       case .start:
         TapticHelper.weak()
         self.newDocumentTextView.text = ""

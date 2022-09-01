@@ -18,11 +18,14 @@ class ImportController: UIViewController, AlertPresenter, HolidayAffected {
   @IBOutlet weak var localeButton: UIButton!
 
   @IBOutlet private weak var _statusLabel: UILabel!
+  @IBOutlet private weak var _statusActivity: UIActivityIndicatorView!
   @IBOutlet private weak var _saveButton: UIButton!
   @IBOutlet private weak var _contentView: UIView!
 
   @IBOutlet private weak var _progressView: UIProgressView!
 
+  var positionHandler: ((DrawerPosition)->Void)?
+  
   private var _exportedFiles: [ExportedFile] = []
   private let _placeholder = "Extracted text"
   private var _extractingLocale: Locale = UserDefaults.standard.extractingLocale {
@@ -33,13 +36,6 @@ class ImportController: UIViewController, AlertPresenter, HolidayAffected {
   }
   override func viewDidLoad() {
       super.viewDidLoad()
-    
-    switch Holiday.current {
-    case .christmas:
-      _contentView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "christmas-pattern")).withAlphaComponent(0.05)
-    default:
-      break
-    }
     
     _completeTransactions()
     
@@ -62,15 +58,17 @@ class ImportController: UIViewController, AlertPresenter, HolidayAffected {
   }
   
   private func _showPaywallIfNeeded() {
-    guard UserDefaults.standard.transcriptionsCount > 3 &&
+    guard UserDefaults.standard.transcriptionsCount > 2 &&
             !UserDefaults.standard.userSubscribed &&
               !UserDefaults.standard.userPromoted else { return }
     
     DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
-      let handlers = PaywallHandlers(success: { dismiss(animated: true, completion: nil) }) {
-        extensionContext?.completeRequest(returningItems: [], completionHandler: nil)
-      }
-      _router.navigate(to: .paywall(handlers))
+      let handlers = PaywallHandlers(
+        success: { [unowned self] in dismiss(animated: true, completion: nil) },
+        deny: { [unowned self] in extensionContext?.completeRequest(returningItems: [], completionHandler: nil)
+      })
+//      _router.navigate(to: .paywall(handlers))
+      _router.navigate(to: .doublePaywall(Subscription.currentDoubleGroup, handlers))
     }
   }
   
@@ -133,30 +131,37 @@ class ImportController: UIViewController, AlertPresenter, HolidayAffected {
   
   private func _recognize(files: [ExportedFile]) {
     _showPreloader()
-
+    textView.text = nil
     var transcribedItemsCount = 0
-    Recognizer.recognizeExported(files: _exportedFiles, in: _extractingLocale) { [unowned self] text in
+    Recognizer.recognizeExported(files: _exportedFiles, in: _extractingLocale, newText: { [unowned self] text in
       transcribedItemsCount += 1
       let progress: Float = Float(transcribedItemsCount) / Float(_exportedFiles.count)
       _progressView.setProgress(progress, animated: true)
       
-      if progress >= 1, let currText = textView.text {
-        switch currText.isEmpty {
-        case true:
-          self.showAlert(.cantTranscribe) 
-        case false:
-          UserDefaults.standard.transcriptionsCount += 1
-        }
-      }
-      
       guard !text.isEmpty else { return }
-      _hidePreloader()
       if textView.text == _placeholder {
         textView.text = ""
       }
       textView.textColor = .label
       textView.text = textView.text + "\n" + text
-    }
+      _hidePreloader()
+    }, completion: { [weak self] in
+
+      guard let weakSelf = self else { return }
+      
+      weakSelf._hidePreloader()
+
+      guard let currText = weakSelf.textView.text else {
+        weakSelf.showAlert(.cantTranscribe)
+        return
+      }
+      switch currText.isEmpty {
+      case true:
+        weakSelf.showAlert(.cantTranscribe)
+      case false:
+        UserDefaults.standard.transcriptionsCount += 1
+      }
+    })
   }
   
   @IBAction private func _toLocales() {
@@ -179,22 +184,22 @@ class ImportController: UIViewController, AlertPresenter, HolidayAffected {
     extensionContext?.completeRequest(returningItems: [], completionHandler: nil)
   }
   
-  
   private func _showPreloader() {
+    _statusActivity.isHidden = false
     _statusLabel.text = "processing..."
+    _statusLabel.textAlignment = .left
     _statusLabel.isHidden = false
     _saveButton.isHidden = true
+    positionHandler?(.collapsed)
   }
   
   private func _hidePreloader() {
-    _statusLabel.text = "done"
-    UIView.animate(withDuration: 0.2) { [unowned self] in
-      _statusLabel.alpha = 0.0
-    } completion: { [unowned self] _ in
-      _statusLabel.isHidden = true
-      _statusLabel.alpha = 1.0
-      _saveButton.isHidden = false
-    }
+    _statusActivity.isHidden = true
+    _statusLabel.text = "Transcriber"
+    _statusLabel.textAlignment = .center
+    
+    _saveButton.isEnabled = !textView.text.isEmpty
+
   }
   
   private func _handleSharedFile(completion: @escaping (([ExportedFile]) -> Void)) {
@@ -233,7 +238,6 @@ class ImportController: UIViewController, AlertPresenter, HolidayAffected {
     }
   }
   
-  
   func prepareFile(at url: URL, index: Int, completion: @escaping ((URL) -> Void) ) {
     let asset = AVURLAsset(url: url)
     let pathWhereToSave = FileManager.tmpFolder.path + "/temp_\(index).mp4"
@@ -253,9 +257,14 @@ class PrimaryContentViewController: UIViewController {
     let drawerViewController = self.storyboard!.instantiateViewController(withIdentifier: "ImportController")
         let drawerView = self.addDrawerView(withViewController: drawerViewController)
     drawerView.setPosition(.closed, animated: false)
-    drawerView.setPosition(.partiallyOpen, animated: true)
+    drawerView.setPosition(.collapsed, animated: true)
+    drawerView.collapsedHeight = UIScreen.main.bounds.height / 4
     drawerView.partiallyOpenHeight = UIScreen.main.bounds.height / 2
-    drawerView.snapPositions = [.open, .partiallyOpen]
+    drawerView.snapPositions = [.collapsed, .partiallyOpen, .open]
+    
+    (drawerViewController as? ImportController)?.positionHandler = { position in
+      drawerView.setPosition(position, animated: true)
+    }
     
     view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancelAction)))
   }

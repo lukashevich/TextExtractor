@@ -34,6 +34,10 @@ enum Subscription: String, CaseIterable {
     default: return (main: .annual15, trial: .annual15)
     }
   }
+  
+  static var currentDoubleGroup: DoublePaywallSubscriptions {
+    (main: .annual15, secondary: .monthly2)
+  }
 }
 
 struct SubscriptionHelper {

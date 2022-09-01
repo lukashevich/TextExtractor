@@ -50,31 +50,41 @@ final class Recognizer {
     }
   }
   
-  static func recognizeMedia(at url:URL, in locale:Locale, completion: ((String) -> ())? = nil)  {
+  private static var _notFinalTranscription: String?
+  static func recognizeMedia(at url:URL, in locale:Locale, completion: ((String?, TranscribeError?) -> ())? = nil)  {
+    
+    _notFinalTranscription = nil
     
     guard let recognizer = SFSpeechRecognizer(locale: locale) else {
-      print("Speech recognition not available for specified locale")
+      completion?(nil, .noPermission)
       return
     }
     
-    if !recognizer.isAvailable {
-      print("Speech recognition not currently available")
+    guard recognizer.isAvailable else {
+      completion?(nil, .notAvailable)
       return
     }
+    
     
     let request = SFSpeechURLRecognitionRequest(url: url)
     request.requiresOnDeviceRecognition = true
     
     recognizer.recognitionTask(with: request) { (result, error) in
       guard let result = result else {
-        completion?("")
-        
-        print("SFSpeechRecognizer error", error, recognizer.isAvailable)
+        switch _notFinalTranscription {
+        case .none:
+          completion?(nil, .failed)
+        case .some(let notFinalText):
+          completion?(notFinalText, nil)
+        }
         return
       }
-      if result.isFinal {
-        print("Speech in the file is \(result.bestTranscription.formattedString)")
-        completion?(result.bestTranscription.formattedString)
+      
+      switch result.isFinal {
+      case true:
+        completion?(result.bestTranscription.formattedString, nil)
+      case false:
+        _notFinalTranscription = result.bestTranscription.formattedString
       }
     }
   }
@@ -91,15 +101,15 @@ final class Recognizer {
     urls.enumerated().forEach { index, url in
       DispatchQueue.global(qos: .utility).async(group: group) {
         
-        Recognizer.recognizeMedia(at: url, in: locale) { text in
-          newText(text, index)
+        Recognizer.recognizeMedia(at: url, in: locale) { text, error in
           
-          result[index] = text
-          
-          if result.count == urls.count {
-            print("TEXT", result.map(\.value))
+          switch error {
+          case .none:
+            newText(text ?? "" , index)
+            result[index] = text
+          case .some(let transcribeError):
+            result[index] = "{...}"
           }
-          
         }
       }
       Thread.sleep(forTimeInterval: 1)
@@ -122,13 +132,20 @@ final class Recognizer {
       return
     }
     
-    Recognizer.recognizeMedia(at: url, in: locale) { text in
+    Recognizer.recognizeMedia(at: url, in: locale) { (text, error) in
       guard !_stopped else { return }
+      
       newUrls.removeFirst()
-      if !text.isEmpty {
-        newText(text + ", ")
+
+      guard let error = error else {
+        switch text {
+        case .some(let transcribed) where !transcribed.isEmpty:
+          newText(transcribed + ", ")
+          self.recognizeMedia(at: newUrls, in: locale, newText: newText)
+        default: break
+        }
+        return
       }
-      self.recognizeMedia(at: newUrls, in: locale, newText: newText)
     }
   }
   
@@ -139,11 +156,4 @@ final class Recognizer {
   static func stopRecognizing() {
     self._stopped = true
   }
-  
-  //  static func recognizeRecord(at urls:[URL], in locale:Locale, completion: ((String) -> ())? = nil)  {
-  //
-  //    recognizeMedia(at: urls, in: locale) { text in
-  //
-  //    }
-  //  }
 }

@@ -18,6 +18,7 @@ final class NewDocumentViewModel {
     case recognized(String)
     case progress(CGFloat)
     case finish(Document?)
+    case error(TranscribeError)
   }
   
   private var _textRecognitionRequest = VNRecognizeTextRequest(completionHandler: nil)
@@ -38,10 +39,16 @@ final class NewDocumentViewModel {
   var fileUrl: URL? {
     didSet {
       guard let url = fileUrl else { return }
-      AudioEditHelper.prepareFile(at: url) { urls in
-        Recognizer.enableRecognizing()
-        self._splittedSource = urls
-        self.startProcessing()
+      AudioEditHelper.prepareFile(at: url) { urls, error in
+        
+        switch error {
+        case .none:
+          Recognizer.enableRecognizing()
+          self._splittedSource = urls
+          self.startProcessing()
+        case .some(let error):
+          self.processStepHandler?(.error(error))
+        }
       }
     }
   }

@@ -9,7 +9,7 @@ import Foundation
 import Speech
 
 extension Recognizer {
-  static func recognizeExported(files: [ExportedFile], in locale:Locale, newText: @escaping ((String) -> ()), completion: ((String) -> ())? = nil) {
+  static func recognizeExported(files: [ExportedFile], in locale:Locale, newText: @escaping ((String) -> ()), completion: (() -> Void)? = nil) {
     var newFiles = files
     guard let file = newFiles.first else {
       return
@@ -17,12 +17,26 @@ extension Recognizer {
 
     switch file {
     case .audio(_, let url):
-      Recognizer.recognizeMedia(at: url, in: locale) { text in
+      Recognizer.recognizeMedia(at: url, in: locale) { text, error in
         newFiles.removeFirst()
-        if !text.isEmpty {
-          newText("[AUDIO] - " + text + "\n")
+
+        guard let error = error else {
+          switch text {
+          case .some(let transcribedText) where !transcribedText.isEmpty:
+            newText("[AUDIO] - " + transcribedText + "\n")
+          default: break
+          }
+         
+          self.recognizeExported(files: newFiles, in: locale, newText: newText)
+          return
         }
-        self.recognizeExported(files: newFiles, in: locale, newText: newText)
+
+        guard newFiles.isEmpty else {
+          self.recognizeExported(files: newFiles, in: locale, newText: newText)
+          return
+        }
+        
+        completion?()
       }
     case .text(_, let text):
       newFiles.removeFirst()
