@@ -1,34 +1,32 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "DSWaveformImage",
-        "repositoryURL": "https://github.com/dmrschmidt/DSWaveformImage",
-        "state": {
-          "branch": null,
-          "revision": "26b3e8fa66e7d94f41ea1ff59cd87bbcafaa5a59",
-          "version": "7.0.2"
-        }
-      },
-      {
-        "package": "ShimmerSwift",
-        "repositoryURL": "https://github.com/BeauNouvelle/ShimmerSwift",
-        "state": {
-          "branch": null,
-          "revision": "f1a4366f74329c313e9528bcbe5286eacc750c05",
-          "version": "2.2.0"
-        }
-      },
-      {
-        "package": "SwiftyStoreKit",
-        "repositoryURL": "https://github.com/bizz84/SwiftyStoreKit.git",
-        "state": {
-          "branch": null,
-          "revision": "3b54c8eac2840b0cdd576634e83d9ebeb70f847c",
-          "version": "0.16.3"
-        }
+  "pins" : [
+    {
+      "identity" : "dswaveformimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dmrschmidt/DSWaveformImage",
+      "state" : {
+        "revision" : "26b3e8fa66e7d94f41ea1ff59cd87bbcafaa5a59",
+        "version" : "7.0.2"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "shimmerswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/BeauNouvelle/ShimmerSwift",
+      "state" : {
+        "revision" : "f1a4366f74329c313e9528bcbe5286eacc750c05",
+        "version" : "2.2.0"
+      }
+    },
+    {
+      "identity" : "swiftystorekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bizz84/SwiftyStoreKit.git",
+      "state" : {
+        "revision" : "3b54c8eac2840b0cdd576634e83d9ebeb70f847c",
+        "version" : "0.16.3"
+      }
+    }
+  ],
+  "version" : 2
 }

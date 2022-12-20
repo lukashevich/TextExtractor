@@ -1,24 +1,20 @@
 PODS:
   - DrawerView (1.3.3)
-  - mobile-ffmpeg-full-gpl (4.4)
-  - Shimmer (1.0.2)
+  - ffmpeg-kit-ios-full (4.5.1)
 
 DEPENDENCIES:
   - DrawerView
-  - mobile-ffmpeg-full-gpl (~> 4.2)
-  - Shimmer
+  - ffmpeg-kit-ios-full (~> 4.5.1)
 
 SPEC REPOS:
   trunk:
     - DrawerView
-    - mobile-ffmpeg-full-gpl
-    - Shimmer
+    - ffmpeg-kit-ios-full
 
 SPEC CHECKSUMS:
   DrawerView: 41c5e5d6593d86335ee2cf9b18d738835593dbc1
-  mobile-ffmpeg-full-gpl: 77de728206f08f30c70f530b18abb4e8f6413eb6
-  Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
+  ffmpeg-kit-ios-full: 1e918caa885a00501ec1606c68a874d07d681705
 
-PODFILE CHECKSUM: 722821dac8924dfd297e267a9e03ead07263cc42
+PODFILE CHECKSUM: d551d65299b299b8e6d57eb6d6dde7d8713ccae6
 
-COCOAPODS: 1.10.2
+COCOAPODS: 1.11.3

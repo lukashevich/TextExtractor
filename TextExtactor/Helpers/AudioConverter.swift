@@ -15,7 +15,7 @@ struct AudioConverter {
     try? FileManager.default.copyItem(at: at, to: dstURL)
     
     let newPath = FileManager.tmpFolder.appendingPathComponent("audio_ogg").appendingPathExtension("mp4")
-    MobileFFmpeg.execute("-i \(dstURL) -c:v mpeg4 \(newPath)")
+    FFmpegKit.execute("-i \(dstURL) -c:v mpeg4 \(newPath)")
     return newPath
   }
   
@@ -25,7 +25,7 @@ struct AudioConverter {
     try? FileManager.default.copyItem(at: url, to: dstURL)
     
     let newPath = FileManager.tmpFolder.appendingPathComponent("audio_ogg_\(index)").appendingPathExtension("mp4")
-    MobileFFmpeg.execute("-i \(dstURL) -c:v mpeg4 \(newPath)")
+    FFmpegKit.execute("-i \(dstURL) -c:v mpeg4 \(newPath)")
     return newPath
   }
   
@@ -38,7 +38,7 @@ struct AudioConverter {
       
       let newPath = FileManager.tmpFolder.appendingPathComponent("audio_ogg_\(index)").appendingPathExtension("mp4")
       result.append(newPath)
-      MobileFFmpeg.execute("-i \(dstURL) -c:v mpeg4 \(newPath)")
+      FFmpegKit.execute("-i \(dstURL) -c:v mpeg4 \(newPath)")
     }
     
     return result

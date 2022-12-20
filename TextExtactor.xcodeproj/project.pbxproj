@@ -242,7 +242,6 @@
 		7F8D6F8F28528CCF003F5BD1 /* DSWaveformImage in Frameworks */ = {isa = PBXBuildFile; productRef = 7F8D6F2228528CCF003F5BD1 /* DSWaveformImage */; };
 		7F8D6F9028528CCF003F5BD1 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7F8D6F2428528CCF003F5BD1 /* SwiftyStoreKit */; };
 		7F8D6F9128528CCF003F5BD1 /* ShimmerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7F8D6F2628528CCF003F5BD1 /* ShimmerSwift */; };
-		7F8D6F9228528CCF003F5BD1 /* Pods_TextExtactor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B41F719D2F5478B070C6E0D2 /* Pods_TextExtactor.framework */; };
 		7F8D6F9428528CCF003F5BD1 /* DateStylePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F025F37261DFBC2003BDC24 /* DateStylePicker.storyboard */; };
 		7F8D6F9528528CCF003F5BD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F7ED07D25D98081003F6BBB /* LaunchScreen.storyboard */; };
 		7F8D6F9628528CCF003F5BD1 /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F4CE0DE25FA658C00F7AF09 /* PlayerView.xib */; };
@@ -340,6 +339,7 @@
 		7FF4E76B2625DB42000B12A5 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE8B82620505500D09675 /* Array+Extensions.swift */; };
 		7FF4E77A2625DD62000B12A5 /* FileManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4E7782625DD62000B12A5 /* FileManager+Extensions.swift */; };
 		7FF4E77F2625DDF3000B12A5 /* AVAsset+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21D35525DA8BEC009A3F53 /* AVAsset+Extensions.swift */; };
+		C575C3D18C96FE5AEF328298 /* Pods_TextExtactor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B41F719D2F5478B070C6E0D2 /* Pods_TextExtactor.framework */; };
 		E5C2FF4E8E4E0772025FD071 /* Pods_Sharing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E04BAB85C2683330AAF4BBAF /* Pods_Sharing.framework */; };
 /* End PBXBuildFile section */
 
@@ -386,8 +386,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2BE9B20AD051F388A104BD22 /* Pods-TextExtactor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextExtactor.release.xcconfig"; path = "Target Support Files/Pods-TextExtactor/Pods-TextExtactor.release.xcconfig"; sourceTree = "<group>"; };
-		6C56F02AA128D5AABAF3F671 /* Pods-TextExtactor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextExtactor.debug.xcconfig"; path = "Target Support Files/Pods-TextExtactor/Pods-TextExtactor.debug.xcconfig"; sourceTree = "<group>"; };
+		62472FCEC14F5AEAF7CF549D /* Pods-TextExtactor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextExtactor.debug.xcconfig"; path = "Target Support Files/Pods-TextExtactor/Pods-TextExtactor.debug.xcconfig"; sourceTree = "<group>"; };
 		7F025F2526171B89003BDC24 /* PaywallOnLaunchPresentHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallOnLaunchPresentHelper.swift; sourceTree = "<group>"; };
 		7F025F2826171F0E003BDC24 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		7F025F2D261CA04E003BDC24 /* ExportedDocPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportedDocPreviewController.swift; sourceTree = "<group>"; };
@@ -514,9 +513,7 @@
 		7F8D6E8028528C2A003F5BD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F8D6E8328528C2A003F5BD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F8D6E8528528C2A003F5BD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7F8D6F1E28528C50003F5BD1 /* TextExtactor copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "TextExtactor copy-Info.plist"; path = "/Users/Lucas/Desktop/TextExtractor/TextExtactor copy-Info.plist"; sourceTree = "<absolute>"; };
 		7F8D6FB328528CCF003F5BD1 /* TextExtactor-Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TextExtactor-Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7F8D6FB428528CD0003F5BD1 /* TextExtactor copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "TextExtactor copy2-Info.plist"; path = "/Users/Lucas/Desktop/TextExtractor/TextExtactor copy2-Info.plist"; sourceTree = "<absolute>"; };
 		7F917D19260F256B00064975 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		7FA0523327465C04002521BE /* Snowy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snowy.swift; sourceTree = "<group>"; };
 		7FA052352746A1DC002521BE /* HolidayAffected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayAffected.swift; sourceTree = "<group>"; };
@@ -565,6 +562,7 @@
 		B41F719D2F5478B070C6E0D2 /* Pods_TextExtactor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextExtactor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EAB87A8E87C6386952F942 /* Pods-Sharing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharing.debug.xcconfig"; path = "Target Support Files/Pods-Sharing/Pods-Sharing.debug.xcconfig"; sourceTree = "<group>"; };
 		E04BAB85C2683330AAF4BBAF /* Pods_Sharing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sharing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB4D55E89DD02F306E02BDDA /* Pods-TextExtactor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextExtactor.release.xcconfig"; path = "Target Support Files/Pods-TextExtactor/Pods-TextExtactor.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -585,6 +583,7 @@
 				7F47AF3325E5489500CD8C02 /* SwiftyStoreKit in Frameworks */,
 				7F7470652635A318006B787F /* ShimmerSwift in Frameworks */,
 				1D89CD61E0A8A91F6D9B5338 /* Pods_TextExtactor.framework in Frameworks */,
+				C575C3D18C96FE5AEF328298 /* Pods_TextExtactor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,7 +594,6 @@
 				7F8D6F8F28528CCF003F5BD1 /* DSWaveformImage in Frameworks */,
 				7F8D6F9028528CCF003F5BD1 /* SwiftyStoreKit in Frameworks */,
 				7F8D6F9128528CCF003F5BD1 /* ShimmerSwift in Frameworks */,
-				7F8D6F9228528CCF003F5BD1 /* Pods_TextExtactor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,10 +603,10 @@
 		0A2F2DE798FCB2F8E6DC9889 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6C56F02AA128D5AABAF3F671 /* Pods-TextExtactor.debug.xcconfig */,
-				2BE9B20AD051F388A104BD22 /* Pods-TextExtactor.release.xcconfig */,
 				D2EAB87A8E87C6386952F942 /* Pods-Sharing.debug.xcconfig */,
 				A96B67E7CEED05B7EDFD7563 /* Pods-Sharing.release.xcconfig */,
+				62472FCEC14F5AEAF7CF549D /* Pods-TextExtactor.debug.xcconfig */,
+				EB4D55E89DD02F306E02BDDA /* Pods-TextExtactor.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -822,8 +820,6 @@
 				7F7ED07025D98081003F6BBB /* Products */,
 				0A2F2DE798FCB2F8E6DC9889 /* Pods */,
 				F14BC02368743FAD60640351 /* Frameworks */,
-				7F8D6F1E28528C50003F5BD1 /* TextExtactor copy-Info.plist */,
-				7F8D6FB428528CD0003F5BD1 /* TextExtactor copy2-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1141,12 +1137,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F8D6FB028528CCF003F5BD1 /* Build configuration list for PBXNativeTarget "TextExtactor-Dev" */;
 			buildPhases = (
-				7F8D6F2828528CCF003F5BD1 /* [CP] Check Pods Manifest.lock */,
 				7F8D6F2928528CCF003F5BD1 /* Sources */,
 				7F8D6F8E28528CCF003F5BD1 /* Frameworks */,
 				7F8D6F9328528CCF003F5BD1 /* Resources */,
 				7F8D6FAD28528CCF003F5BD1 /* Embed App Extensions */,
-				7F8D6FAF28528CCF003F5BD1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1317,45 +1311,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7F8D6F2828528CCF003F5BD1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TextExtactor-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7F8D6FAF28528CCF003F5BD1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TextExtactor/Pods-TextExtactor-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TextExtactor/Pods-TextExtactor-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TextExtactor/Pods-TextExtactor-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		8997B128FA08BDBC03CC9C37 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1788,7 +1743,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Lucas/Desktop/TextExtractor/TextExtactor/Helpers/TextExtactor-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/personal/TextExtractor/TextExtactor/Helpers/TextExtactor-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1815,7 +1770,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Lucas/Desktop/TextExtractor/TextExtactor/Helpers/TextExtactor-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/personal/TextExtractor/TextExtactor/Helpers/TextExtactor-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1941,7 +1896,7 @@
 		};
 		7F7ED08425D98081003F6BBB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C56F02AA128D5AABAF3F671 /* Pods-TextExtactor.debug.xcconfig */;
+			baseConfigurationReference = 62472FCEC14F5AEAF7CF549D /* Pods-TextExtactor.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1961,7 +1916,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Lucas/Desktop/TextExtractor/TextExtactor/Helpers/TextExtactor-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/personal/TextExtractor/TextExtactor/Helpers/TextExtactor-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1969,7 +1924,7 @@
 		};
 		7F7ED08525D98081003F6BBB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2BE9B20AD051F388A104BD22 /* Pods-TextExtactor.release.xcconfig */;
+			baseConfigurationReference = EB4D55E89DD02F306E02BDDA /* Pods-TextExtactor.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1989,7 +1944,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Lucas/Desktop/TextExtractor/TextExtactor/Helpers/TextExtactor-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/personal/TextExtractor/TextExtactor/Helpers/TextExtactor-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1997,7 +1952,6 @@
 		};
 		7F8D6FB128528CCF003F5BD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C56F02AA128D5AABAF3F671 /* Pods-TextExtactor.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2025,7 +1979,6 @@
 		};
 		7F8D6FB228528CCF003F5BD1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2BE9B20AD051F388A104BD22 /* Pods-TextExtactor.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
