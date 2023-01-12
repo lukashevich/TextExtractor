@@ -34,6 +34,12 @@ final class PresentationController: UIViewController, ShareSheetPresenter, Paral
       dismissMe()
       return
     }
-    _router.navigate(to: .paywall(PaywallHandlers(success: dismissMe, deny: dismissMe)))
+    
+    let handlers = PaywallHandlers(
+      success: { [unowned self] in dismiss(animated: true, completion: nil) },
+      deny: { [unowned self] in dismiss(animated: true, completion: nil) })
+//      _router.navigate(to: .paywall(handlers))
+    _router.navigate(to: .paywall(Subscription.currentDoubleGroup, handlers))
+    
   }
 }

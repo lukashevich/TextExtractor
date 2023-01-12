@@ -15,17 +15,18 @@ class PresentationRouter {
   }
   
   enum Segue {
-    case paywall(PaywallHandlers?)
+    case paywall(DoublePaywallSubscriptions, PaywallHandlers)
     
     var identifier: String {
       switch self {
-      case .paywall: return Destination.toPaywall.rawValue
+      case .paywall: return Destination.toDoublePaywall.rawValue
       }
     }
     
     var senderVM: Any? {
       switch self {
-      case .paywall(let handlers): return PaywallViewModel(subscription: Subscription.currentGroup.main ,handlers: handlers)
+      case .paywall(let subscriptions, let handlers):
+        return DoublePaywallViewModel(subscriptions: subscriptions, handlers: handlers, source: .main)
       }
     }
   }
@@ -48,9 +49,9 @@ extension PresentationController {
               let vModel = sender else { return }
     
     switch destination {
-    case .toPaywall:
-      if let controller = destination.destinationController(for: segue) as? PaywallController {
-        controller.viewModel = vModel as? PaywallViewModel
+    case .toDoublePaywall:
+      if let controller = destination.destinationController(for: segue) as? DoublePaywallController {
+        controller.viewModel = vModel as? DoublePaywallViewModel
       }
     default: break
     }

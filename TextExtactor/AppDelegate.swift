@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     OnLaunchHandler.handleLaunch()
     
+    Analytics.configure()
+    
     SwiftyStoreKit.shouldAddStorePaymentHandler = { payment, product in
       PresentPaywallOnLaunchHelper.showPaywall(with: Subscription.from(product: product))
       return true

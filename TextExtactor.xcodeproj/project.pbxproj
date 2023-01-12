@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1D89CD61E0A8A91F6D9B5338 /* Pods_TextExtactor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B41F719D2F5478B070C6E0D2 /* Pods_TextExtactor.framework */; };
+		6028F42C29705CE9008C084D /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6028F42A29705CE9008C084D /* Analytics.swift */; };
+		6028F42D29705CE9008C084D /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6028F42A29705CE9008C084D /* Analytics.swift */; };
+		6028F42E29705CE9008C084D /* AnalyticProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6028F42B29705CE9008C084D /* AnalyticProvider.swift */; };
+		6028F42F29705CE9008C084D /* AnalyticProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6028F42B29705CE9008C084D /* AnalyticProvider.swift */; };
+		60871CBD297065A20095519E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60871CBC297065A20095519E /* GoogleService-Info.plist */; };
+		60871CBE297065A20095519E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60871CBC297065A20095519E /* GoogleService-Info.plist */; };
+		60871CC02970664F0095519E /* DoublePaywallAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60871CBF2970664F0095519E /* DoublePaywallAnalytics.swift */; };
+		60871CC12970664F0095519E /* DoublePaywallAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60871CBF2970664F0095519E /* DoublePaywallAnalytics.swift */; };
 		7F025F2626171B89003BDC24 /* PaywallOnLaunchPresentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F025F2526171B89003BDC24 /* PaywallOnLaunchPresentHelper.swift */; };
 		7F025F2926171F0E003BDC24 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F025F2826171F0E003BDC24 /* RootRouter.swift */; };
 		7F025F2E261CA04E003BDC24 /* ExportedDocPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F025F2D261CA04E003BDC24 /* ExportedDocPreviewController.swift */; };
@@ -339,7 +347,6 @@
 		7FF4E76B2625DB42000B12A5 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AE8B82620505500D09675 /* Array+Extensions.swift */; };
 		7FF4E77A2625DD62000B12A5 /* FileManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4E7782625DD62000B12A5 /* FileManager+Extensions.swift */; };
 		7FF4E77F2625DDF3000B12A5 /* AVAsset+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21D35525DA8BEC009A3F53 /* AVAsset+Extensions.swift */; };
-		C575C3D18C96FE5AEF328298 /* Pods_TextExtactor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B41F719D2F5478B070C6E0D2 /* Pods_TextExtactor.framework */; };
 		E5C2FF4E8E4E0772025FD071 /* Pods_Sharing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E04BAB85C2683330AAF4BBAF /* Pods_Sharing.framework */; };
 /* End PBXBuildFile section */
 
@@ -386,6 +393,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6028F42A29705CE9008C084D /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
+		6028F42B29705CE9008C084D /* AnalyticProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticProvider.swift; sourceTree = "<group>"; };
+		60871CBC297065A20095519E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		60871CBF2970664F0095519E /* DoublePaywallAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoublePaywallAnalytics.swift; sourceTree = "<group>"; };
 		62472FCEC14F5AEAF7CF549D /* Pods-TextExtactor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextExtactor.debug.xcconfig"; path = "Target Support Files/Pods-TextExtactor/Pods-TextExtactor.debug.xcconfig"; sourceTree = "<group>"; };
 		7F025F2526171B89003BDC24 /* PaywallOnLaunchPresentHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallOnLaunchPresentHelper.swift; sourceTree = "<group>"; };
 		7F025F2826171F0E003BDC24 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
@@ -583,7 +594,6 @@
 				7F47AF3325E5489500CD8C02 /* SwiftyStoreKit in Frameworks */,
 				7F7470652635A318006B787F /* ShimmerSwift in Frameworks */,
 				1D89CD61E0A8A91F6D9B5338 /* Pods_TextExtactor.framework in Frameworks */,
-				C575C3D18C96FE5AEF328298 /* Pods_TextExtactor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,6 +621,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		6028F42929705CE9008C084D /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				6028F42A29705CE9008C084D /* Analytics.swift */,
+				6028F42B29705CE9008C084D /* AnalyticProvider.swift */,
+			);
+			name = Analytics;
+			path = TextExtactor/Analytics;
+			sourceTree = SOURCE_ROOT;
+		};
 		7F025F2C261C9FF0003BDC24 /* Exported Doc Preview */ = {
 			isa = PBXGroup;
 			children = (
@@ -636,6 +656,7 @@
 		7F21D34B25DA8AA0009A3F53 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				6028F42929705CE9008C084D /* Analytics */,
 				7F21D35825DA8C6E009A3F53 /* AudioEditHelper.swift */,
 				7F21D34F25DA8B50009A3F53 /* AudioFileSplitter.swift */,
 				7F74701D2632D096006B787F /* TextExtactor-Bridging-Header.h */,
@@ -861,6 +882,7 @@
 				7F7ED07B25D98081003F6BBB /* Assets.xcassets */,
 				7F7ED07D25D98081003F6BBB /* LaunchScreen.storyboard */,
 				7F7ED08025D98081003F6BBB /* Info.plist */,
+				60871CBC297065A20095519E /* GoogleService-Info.plist */,
 			);
 			path = TextExtactor;
 			sourceTree = "<group>";
@@ -1032,6 +1054,7 @@
 				7FCBCF9E286F8317004C51A4 /* DoublePaywall.storyboard */,
 				7FCBCFA0286F8317004C51A4 /* DoublePaywallController.swift */,
 				7FCBCF9F286F8317004C51A4 /* DoublePaywallViewModel.swift */,
+				60871CBF2970664F0095519E /* DoublePaywallAnalytics.swift */,
 			);
 			path = "Double Paywall";
 			sourceTree = "<group>";
@@ -1234,6 +1257,7 @@
 				7F2A824C2652C9E800326CD2 /* Localizable.strings in Resources */,
 				7FF4E70B2625DA24000B12A5 /* ExportedDocPreview.storyboard in Resources */,
 				7FAD559328BAB1BE00DD8097 /* test.ogg in Resources */,
+				60871CBE297065A20095519E /* GoogleService-Info.plist in Resources */,
 				7FF4E7572625DA61000B12A5 /* Library.storyboard in Resources */,
 				7FF4E7242625DA3C000B12A5 /* PlayerView.xib in Resources */,
 				7F804EC926E91730005443DA /* ImportPaywall.storyboard in Resources */,
@@ -1260,6 +1284,7 @@
 				7F52927B25E653E000D7571F /* ActionView.xib in Resources */,
 				7F7ED07C25D98081003F6BBB /* Assets.xcassets in Resources */,
 				7FC9811A25E41E7500FD65DF /* DocumentPreview.storyboard in Resources */,
+				60871CBD297065A20095519E /* GoogleService-Info.plist in Resources */,
 				7F7E889F260CD5340059E5E2 /* TransparentGradientView.xib in Resources */,
 				7FCBCFAD286F9080004C51A4 /* SubscriptionPriceView.xib in Resources */,
 				7FCBCFA1286F8317004C51A4 /* DoublePaywall.storyboard in Resources */,
@@ -1397,6 +1422,7 @@
 				7F7470B12636D6F5006B787F /* AlertPresenter.swift in Sources */,
 				7FCBCFAB286F9076004C51A4 /* SubscriptionPriceView.swift in Sources */,
 				7FF4E77A2625DD62000B12A5 /* FileManager+Extensions.swift in Sources */,
+				60871CC12970664F0095519E /* DoublePaywallAnalytics.swift in Sources */,
 				7F2A822D2652AEE800326CD2 /* TitledPreloader.swift in Sources */,
 				7F2A82232652AE3B00326CD2 /* LocaleCell.swift in Sources */,
 				7F7470802635B126006B787F /* Recognizer+Extensions.swift in Sources */,
@@ -1404,7 +1430,9 @@
 				7F2A82272652AEA900326CD2 /* Locale+Extensions.swift in Sources */,
 				7FF4E77F2625DDF3000B12A5 /* AVAsset+Extensions.swift in Sources */,
 				7F804ECB26E91766005443DA /* PaywallController.swift in Sources */,
+				6028F42F29705CE9008C084D /* AnalyticProvider.swift in Sources */,
 				7F2A823D2652B77100326CD2 /* UIButton+Extensions.swift in Sources */,
+				6028F42D29705CE9008C084D /* Analytics.swift in Sources */,
 				7F2A82222652AE3B00326CD2 /* LocalesViewModel.swift in Sources */,
 				7FA052372746AED4002521BE /* Snowy.swift in Sources */,
 				7F2A823A2652B5BF00326CD2 /* Destination.swift in Sources */,
@@ -1437,11 +1465,13 @@
 				7F025F2926171F0E003BDC24 /* RootRouter.swift in Sources */,
 				7F6AE8B6261E1C8D00D09675 /* DateStyleCell.swift in Sources */,
 				7F47AF2425E5384C00CD8C02 /* UserDefaults+Extensions.swift in Sources */,
+				6028F42C29705CE9008C084D /* Analytics.swift in Sources */,
 				7F47AF3925E54F2A00CD8C02 /* PaywallViewModel.swift in Sources */,
 				7FEAAD2626D39F280088090D /* PresentationPresenter.swift in Sources */,
 				7F7ED0AA25D991C8003F6BBB /* UIFont+Extensions.swift in Sources */,
 				7F4CE0EB25FA87B600F7AF09 /* LibraryFilePicker.swift in Sources */,
 				7FC9810B25E3E17D00FD65DF /* ShareControllerPresenter.swift in Sources */,
+				60871CC02970664F0095519E /* DoublePaywallAnalytics.swift in Sources */,
 				7F6AE8B92620505500D09675 /* Array+Extensions.swift in Sources */,
 				7F44359425DC212800F776BE /* UIColor+Extensions.swift in Sources */,
 				7F719DE525FCC5BD0039E14A /* LocalesViewModel.swift in Sources */,
@@ -1471,6 +1501,7 @@
 				7F4CE0E825FA87A200F7AF09 /* CameraTextFinder.swift in Sources */,
 				7F719DEE25FCE3D50039E14A /* UIApplication+Extensions.swift in Sources */,
 				7F74709C2635BC8F006B787F /* Constants.swift in Sources */,
+				6028F42E29705CE9008C084D /* AnalyticProvider.swift in Sources */,
 				7F21D38525DACC2B009A3F53 /* String+Extensions.swift in Sources */,
 				7F025F41261DFC59003BDC24 /* ExportedDocPreviewRouter.swift in Sources */,
 				7FC9811625E41E4D00FD65DF /* DocumentPreviewController.swift in Sources */,
@@ -1912,7 +1943,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1940,7 +1971,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

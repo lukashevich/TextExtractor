@@ -39,7 +39,7 @@ extension UserDefaults {
     get { UserDefaults.standard.integer(forKey: #function) }
     set { UserDefaults.standard.set(newValue, forKey: #function) }
   }
-
+  
   var documentsToImport: [Document] {
     get {
       if let styleData = UserDefaults(suiteName: Constant.groupID)!.object(forKey: #function) as? Data {

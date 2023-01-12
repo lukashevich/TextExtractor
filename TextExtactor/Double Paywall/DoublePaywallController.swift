@@ -47,15 +47,21 @@ final class DoublePaywallController: UIViewController, AlertPresenter, ParalaxBa
   }
   
   @IBAction func subscribePressed() {
+    
+    Analytics.log(DoublePaywallAnalytics.ctaClicked)
     guard let product = _selectedProduct else { return }
     self._showPreloader()
     
     SubscriptionHelper.subscribe(subscription: product, resultHandler: { result in
       switch result {
       case .success:
+        Analytics.log(DoublePaywallAnalytics.purchased)
+
         SubscriptionHelper.handleSubscription(product)
         self.dismiss(.successfully)
       case .error(let error):
+        Analytics.log(DoublePaywallAnalytics.purchaseError)
+
         self.showAlert(.error(error))
         self._hidePreloader()
       }
@@ -115,6 +121,8 @@ final class DoublePaywallController: UIViewController, AlertPresenter, ParalaxBa
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    Analytics.log(DoublePaywallAnalytics.shown)
+
     switch viewModel.source {
     case .main:
       break

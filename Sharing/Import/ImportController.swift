@@ -36,7 +36,7 @@ class ImportController: UIViewController, AlertPresenter, HolidayAffected {
   }
   override func viewDidLoad() {
       super.viewDidLoad()
-    
+  
     _completeTransactions()
     
     FileManager.createDefaults()
@@ -109,13 +109,15 @@ class ImportController: UIViewController, AlertPresenter, HolidayAffected {
   }
   
   // 3: Define the actions for the navigation items
-  @IBAction private func _cancelAction () {
+  @IBAction private func _cancelAction () { close() }
+  
+  func close() {
     let error = NSError(domain: "some.bundle.identifier", code: 0, userInfo: [NSLocalizedDescriptionKey: "An error description"])
     extensionContext?.cancelRequest(withError: error)
   }
   
   private func _clearTrancribedText() {
-    textView.textColor = .tertiaryLabel
+//    textView.textColor = .tertiaryLabel
     textView.text = _placeholder
   }
   
@@ -139,18 +141,22 @@ class ImportController: UIViewController, AlertPresenter, HolidayAffected {
       _progressView.setProgress(progress, animated: true)
       
       guard !text.isEmpty else { return }
-      if textView.text == _placeholder {
-        textView.text = ""
-      }
+      
+      if textView.text == _placeholder { textView.text = "" }
+      
       textView.textColor = .label
-      textView.text = textView.text + "\n" + text
-      _hidePreloader()
+      DispatchQueue.main.async {
+        self.textView.isHidden = false
+        self.textView.text = self.textView.text + "\n" + text
+        self._hidePreloader()
+      }
+     
     }, completion: { [weak self] in
-
+      
       guard let weakSelf = self else { return }
       
       weakSelf._hidePreloader()
-
+      
       guard let currText = weakSelf.textView.text else {
         weakSelf.showAlert(.cantTranscribe)
         return
@@ -185,12 +191,12 @@ class ImportController: UIViewController, AlertPresenter, HolidayAffected {
   }
   
   private func _showPreloader() {
+    positionHandler?(.partiallyOpen)
     _statusActivity.isHidden = false
     _statusLabel.text = "processing..."
     _statusLabel.textAlignment = .left
     _statusLabel.isHidden = false
     _saveButton.isHidden = true
-    positionHandler?(.collapsed)
   }
   
   private func _hidePreloader() {
@@ -251,18 +257,23 @@ class ImportController: UIViewController, AlertPresenter, HolidayAffected {
 
 import DrawerView
 //
-class PrimaryContentViewController: UIViewController {
+class PrimaryContentViewController: UIViewController, DrawerViewDelegate {
+  
+  private var _importController: ImportController?
   override func viewDidLoad() {
     super.viewDidLoad()
     let drawerViewController = self.storyboard!.instantiateViewController(withIdentifier: "ImportController")
         let drawerView = self.addDrawerView(withViewController: drawerViewController)
     drawerView.setPosition(.closed, animated: false)
-    drawerView.setPosition(.collapsed, animated: true)
-    drawerView.collapsedHeight = UIScreen.main.bounds.height / 4
-    drawerView.partiallyOpenHeight = UIScreen.main.bounds.height / 2
-    drawerView.snapPositions = [.collapsed, .partiallyOpen, .open]
+    drawerView.setPosition(.partiallyOpen, animated: true)
+    drawerView.partiallyOpenHeight = UIScreen.main.bounds.height / 4
+    drawerView.snapPositions = [.closed, .partiallyOpen, .open]
+    drawerView.delegate = self
     
-    (drawerViewController as? ImportController)?.positionHandler = { position in
+    drawerView.backgroundColor = .quaternarySystemFill
+    
+    _importController = drawerViewController as? ImportController
+    _importController?.positionHandler = { position in
       drawerView.setPosition(position, animated: true)
     }
     
@@ -272,5 +283,14 @@ class PrimaryContentViewController: UIViewController {
   @objc func cancelAction() {
     let error = NSError(domain: "some.bundle.identifier", code: 0, userInfo: [NSLocalizedDescriptionKey: "An error description"])
     extensionContext?.cancelRequest(withError: error)
+  }
+  
+  func drawerDidMove(_ drawerView: DrawerView, drawerOffset: CGFloat) {
+    switch drawerView.position {
+    case .closed:
+      guard let controller = _importController else { return }
+      controller.close()
+    default: break
+    }
   }
 }
