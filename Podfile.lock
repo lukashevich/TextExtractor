@@ -1,4 +1,5 @@
 PODS:
+  - Amplitude-iOS (4.9.3)
   - DrawerView (1.3.3)
   - ffmpeg-kit-ios-full (4.5.1)
   - FirebaseAnalytics (10.3.0):
@@ -77,12 +78,14 @@ PODS:
   - PromisesObjC (2.1.1)
 
 DEPENDENCIES:
+  - Amplitude-iOS (~> 4.9.3)
   - DrawerView
   - ffmpeg-kit-ios-full (~> 4.5.1)
   - FirebaseAnalytics
 
 SPEC REPOS:
   trunk:
+    - Amplitude-iOS
     - DrawerView
     - ffmpeg-kit-ios-full
     - FirebaseAnalytics
@@ -95,6 +98,7 @@ SPEC REPOS:
     - PromisesObjC
 
 SPEC CHECKSUMS:
+  Amplitude-iOS: 122e026c44db8460e5efcf84859aa290a0ae9786
   DrawerView: 41c5e5d6593d86335ee2cf9b18d738835593dbc1
   ffmpeg-kit-ios-full: 1e918caa885a00501ec1606c68a874d07d681705
   FirebaseAnalytics: 036232b6a1e2918e5f67572417be1173576245f3
@@ -106,6 +110,6 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
 
-PODFILE CHECKSUM: ca33992b59145b3bbf479ac4d617a2d203ac0ca0
+PODFILE CHECKSUM: 1a617cdb3c3235979fa2bf595c7e829314eb34a3
 
 COCOAPODS: 1.11.3

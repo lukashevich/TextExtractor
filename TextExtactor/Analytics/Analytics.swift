@@ -17,7 +17,17 @@ protocol AnalyticEvent {
 struct Analytics {
   
   enum UserProperty {
-    var key: String { "" }
+    case transcriptionsCount(Int)
+    case extractionLocale(String)
+    case subscribed(Bool)
+    
+    var key: String {
+      switch self {
+      case .transcriptionsCount: return "transcriptionsCount"
+      case .extractionLocale: return "extractionLocale"
+      case .subscribed: return "subscribed"
+      }
+    }
   }
   
   static private let _providers = Provider.allCases
@@ -33,16 +43,15 @@ struct Analytics {
   }
   
   static func setUser(property: UserProperty) {
-//    for provider in _providers {
-//      switch property {
-//      case .measureColor(let value),
-//          .measureUnit(let value):
-//        provider.setUserProperty([property.key: value])
-//      case .measuresCount(let value):
-//        provider.setUserProperty([property.key: value])
-//      case .isPremium(let value):
-//        provider.setUserProperty([property.key: value])
-//      }
-//    }
+    for provider in _providers {
+      switch property {
+      case .transcriptionsCount(let value):
+        provider.setUserProperty([property.key: value])
+      case .extractionLocale(let value):
+        provider.setUserProperty([property.key: value])
+      case .subscribed(let value):
+        provider.setUserProperty([property.key: value])
+      }
+    }
   }
 }
