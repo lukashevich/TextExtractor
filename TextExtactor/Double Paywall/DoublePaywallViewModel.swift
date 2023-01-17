@@ -7,23 +7,23 @@
 
 import Foundation
 
+enum PaywallSource: String {
+  case main
+  case `extension`  = "extension"
+}
+
 typealias DoublePaywallSubscriptions = DoublePaywallViewModel.Subscriptions
 
 struct DoublePaywallViewModel {
-  
-  enum Source {
-    case main
-    case `extension`
-  }
-  
+    
   typealias Subscriptions = (main: Subscription, secondary: Subscription)
   
   let subscriptions: Subscriptions
   let successHandler: (() -> ())?
   let denyHandler: (() -> ())?
-  let source: Source
+  let source: PaywallSource
   
-  init(subscriptions: Subscriptions, handlers: PaywallHandlers?, source: Source) {
+  init(subscriptions: Subscriptions, handlers: PaywallHandlers?, source: PaywallSource) {
     self.successHandler = handlers?.success
     self.denyHandler = handlers?.deny
     self.subscriptions = subscriptions

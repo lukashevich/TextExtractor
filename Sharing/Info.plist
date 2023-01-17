@@ -37,7 +37,7 @@
 			</dict>
 		</dict>
 		<key>NSExtensionMainStoryboard</key>
-		<string>ImportController</string>
+		<string>MessageTranscriber</string>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.share-services</string>
 	</dict>

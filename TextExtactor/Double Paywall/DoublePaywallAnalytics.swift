@@ -13,7 +13,7 @@ enum DoublePaywallAnalytics: AnalyticEvent {
   case shown
   case ctaClicked
   case purchaseError
-  case purchased
+  case purchased(from: PaywallSource)
   
   var key: String {
     var key = ""
@@ -30,5 +30,11 @@ enum DoublePaywallAnalytics: AnalyticEvent {
     return _prefix.appending(key)
   }
   
-  var parameters: Params { nil }
+  var parameters: Params {
+    switch self {
+    case .purchased(let from):
+      return ["source": "\(from.rawValue)"]
+    default: return nil
+    }
+  }
 }

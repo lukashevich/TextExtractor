@@ -52,10 +52,10 @@ final class DoublePaywallController: UIViewController, AlertPresenter, ParalaxBa
     guard let product = _selectedProduct else { return }
     self._showPreloader()
     
-    SubscriptionHelper.subscribe(subscription: product, resultHandler: { result in
+    SubscriptionHelper.subscribe(subscription: product, resultHandler: { [unowned self] result in
       switch result {
       case .success:
-        Analytics.log(DoublePaywallAnalytics.purchased)
+        Analytics.log(DoublePaywallAnalytics.purchased(from: viewModel.source))
 
         SubscriptionHelper.handleSubscription(product)
         self.dismiss(.successfully)

@@ -23,7 +23,7 @@ extension Recognizer {
         guard let error = error else {
           switch text {
           case .some(let transcribedText) where !transcribedText.isEmpty:
-            newText("[AUDIO] - " + transcribedText + "\n")
+            newText("🎵 - " + transcribedText + "\n")
           default: break
           }
          
@@ -40,7 +40,7 @@ extension Recognizer {
       }
     case .text(_, let text):
       newFiles.removeFirst()
-      newText(text)
+      newText("💬 - " + text)
       self.recognizeExported(files: newFiles, in: locale, newText: newText)
     }
   }

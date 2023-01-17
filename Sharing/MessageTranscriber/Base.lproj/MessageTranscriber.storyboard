@@ -157,7 +157,7 @@
                                 <rect key="frame" x="20" y="110" width="374" height="786"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Extracted text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jdc-Ul-mSZ" customClass="TypenTextView" customModule="Sharing" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="20" width="334" height="746"/>
+                                        <rect key="frame" x="20" y="-10" width="334" height="776"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="22"/>
@@ -167,7 +167,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="jdc-Ul-mSZ" secondAttribute="bottom" constant="20" symbolic="YES" id="Fob-OW-pZF"/>
-                                    <constraint firstItem="jdc-Ul-mSZ" firstAttribute="top" secondItem="QI2-qE-kQq" secondAttribute="top" constant="20" symbolic="YES" id="jXt-nZ-dWe"/>
+                                    <constraint firstItem="jdc-Ul-mSZ" firstAttribute="top" secondItem="QI2-qE-kQq" secondAttribute="top" constant="-10" id="jXt-nZ-dWe"/>
                                     <constraint firstItem="jdc-Ul-mSZ" firstAttribute="leading" secondItem="QI2-qE-kQq" secondAttribute="leading" constant="20" symbolic="YES" id="oM8-H1-BXh"/>
                                     <constraint firstAttribute="trailing" secondItem="jdc-Ul-mSZ" secondAttribute="trailing" constant="20" symbolic="YES" id="tuh-Ez-XbD"/>
                                 </constraints>
