@@ -39,7 +39,7 @@ class MessageTranscriberRouter {
     var senderVM: Any? {
       switch self {
       case .locales(let handler): return LocalesViewModel(onSelect: handler)
-      case .paywall(let handlers): return PaywallViewModel(subscription: Subscription.currentGroup.main ,handlers: handlers)
+      case .paywall(let handlers): return PaywallViewModel(subscription: Subscription.currentGroup.main ,handlers: handlers, source: .extension)
       case .doublePaywall(let subscriptions, let handlers):
         return DoublePaywallViewModel(subscriptions: subscriptions, handlers: handlers, source: .extension)
       }

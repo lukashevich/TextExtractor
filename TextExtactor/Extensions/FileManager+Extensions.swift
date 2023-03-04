@@ -91,8 +91,12 @@ extension FileManager {
   }
   
   static private var documentsFolders: [URL] {
-    return try! FileManager.default.contentsOfDirectory(at: documentsFolder, includingPropertiesForKeys: nil)
-      .filter { $0.lastPathComponent != tmpFolderName }
+    do {
+      return try FileManager.default.contentsOfDirectory(at: documentsFolder, includingPropertiesForKeys: nil)
+        .filter { $0.lastPathComponent != tmpFolderName }
+    } catch {
+      return []
+    }
   }
   
   static var savedDocuments: [Document] {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h2m-Gx-R6w">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h2m-Gx-R6w">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyI-wl-NQy">
-                                <rect key="frame" x="338" y="64" width="32" height="32"/>
+                                <rect key="frame" x="338" y="57" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="cG3-og-jZ5"/>
                                     <constraint firstAttribute="width" constant="32" id="oeB-wm-glX"/>
@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Break All Limits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="32" translatesAutoresizingMaskIntoConstraints="NO" id="Jwh-BV-Y7g">
-                                <rect key="frame" x="17.333333333333343" y="103.99999999999999" width="355.33333333333326" height="58.333333333333329"/>
+                                <rect key="frame" x="17.333333333333343" y="89" width="355.33333333333326" height="58.333333333333343"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="48"/>
                                 <color key="textColor" name="AccentColor"/>
@@ -41,7 +41,7 @@
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="o0y-lu-uYa">
-                                <rect key="frame" x="25.666666666666657" y="263.66666666666669" width="339" height="156"/>
+                                <rect key="frame" x="25.666666666666657" y="261.66666666666669" width="339" height="156"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="VDS-x5-VkW">
                                         <rect key="frame" x="0.0" y="0.0" width="339" height="24"/>
@@ -132,7 +132,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FSL-A8-bvO">
-                                <rect key="frame" x="0.0" y="439.66666666666669" width="390" height="208.33333333333331"/>
+                                <rect key="frame" x="0.0" y="437.66666666666669" width="390" height="208.33333333333331"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NoD-YA-mtD">
                                         <rect key="frame" x="20" y="8" width="350" height="192.33333333333334"/>
@@ -178,7 +178,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPp-2y-aEa">
-                                <rect key="frame" x="20" y="668" width="350" height="50"/>
+                                <rect key="frame" x="20" y="666" width="350" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tau-kg-H8B"/>
@@ -198,8 +198,11 @@
                                     <action selector="subscribePressed" destination="h2m-Gx-R6w" eventType="touchUpInside" id="MB8-4Z-dmy"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Subscription automatically renews unless auto-renew is turned off at least 24 hours before the end of the current period" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7T-Db-wjF">
-                                <rect key="frame" x="20" y="728" width="350" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Subscription automatically renews unless auto-renew is turned off at least 24 hours before the end of the current period" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="l7T-Db-wjF">
+                                <rect key="frame" x="20" y="726" width="350" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="26" id="69H-Gf-i9u"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
@@ -286,7 +289,7 @@
                             <constraint firstItem="nWH-br-6fc" firstAttribute="trailing" secondItem="l7T-Db-wjF" secondAttribute="trailing" constant="20" id="5bU-Oz-CMd"/>
                             <constraint firstAttribute="bottom" secondItem="lLq-VC-a3s" secondAttribute="bottom" id="8zA-El-w8Z"/>
                             <constraint firstItem="Jwh-BV-Y7g" firstAttribute="centerX" secondItem="POP-iN-MXf" secondAttribute="centerX" id="99R-kh-iKb"/>
-                            <constraint firstItem="jyI-wl-NQy" firstAttribute="top" secondItem="nWH-br-6fc" secondAttribute="top" constant="20" id="B7k-l1-N3i"/>
+                            <constraint firstItem="jyI-wl-NQy" firstAttribute="top" secondItem="nWH-br-6fc" secondAttribute="top" constant="10" id="B7k-l1-N3i"/>
                             <constraint firstItem="FSL-A8-bvO" firstAttribute="top" secondItem="o0y-lu-uYa" secondAttribute="bottom" constant="20" id="DO5-QD-VOc"/>
                             <constraint firstItem="qPp-2y-aEa" firstAttribute="leading" secondItem="nWH-br-6fc" secondAttribute="leading" constant="20" id="JdO-Mb-4Mb"/>
                             <constraint firstItem="nWH-br-6fc" firstAttribute="trailing" secondItem="FSL-A8-bvO" secondAttribute="trailing" id="Jep-FB-mGV"/>
@@ -299,7 +302,7 @@
                             <constraint firstItem="nWH-br-6fc" firstAttribute="trailing" secondItem="lLq-VC-a3s" secondAttribute="trailing" id="gsw-jo-Gsj"/>
                             <constraint firstItem="l7T-Db-wjF" firstAttribute="top" secondItem="qPp-2y-aEa" secondAttribute="bottom" constant="10" id="jdJ-bT-yas"/>
                             <constraint firstItem="lLq-VC-a3s" firstAttribute="top" secondItem="POP-iN-MXf" secondAttribute="top" id="lUH-Bb-LMS"/>
-                            <constraint firstItem="Jwh-BV-Y7g" firstAttribute="top" secondItem="jyI-wl-NQy" secondAttribute="bottom" constant="8" symbolic="YES" id="m0A-Sh-91Z"/>
+                            <constraint firstItem="Jwh-BV-Y7g" firstAttribute="top" secondItem="jyI-wl-NQy" secondAttribute="bottom" id="m0A-Sh-91Z"/>
                             <constraint firstItem="qPp-2y-aEa" firstAttribute="top" secondItem="FSL-A8-bvO" secondAttribute="bottom" constant="20" id="nCM-Pi-Rrx"/>
                             <constraint firstItem="nWH-br-6fc" firstAttribute="trailing" secondItem="jyI-wl-NQy" secondAttribute="trailing" constant="20" id="ndc-aN-sgu"/>
                             <constraint firstItem="aDd-Yx-ktF" firstAttribute="top" secondItem="l7T-Db-wjF" secondAttribute="bottom" constant="16" id="qDb-uZ-SLY"/>
@@ -329,7 +332,7 @@
     </scenes>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>
-        <image name="circle.fill" catalog="system" width="128" height="121"/>
+        <image name="circle.fill" catalog="system" width="128" height="123"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
         <namedColor name="AccentColor">
             <color red="0.29100000858306885" green="0.63200002908706665" blue="0.18600000441074371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

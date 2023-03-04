@@ -19,10 +19,12 @@ struct PaywallViewModel {
   let subscription: Subscription
   let successHandler: (() -> ())?
   let denyHandler: (() -> ())?
-  
-  init(subscription: Subscription, handlers: PaywallHandlers?) {
+  let source: PaywallSource
+
+  init(subscription: Subscription, handlers: PaywallHandlers?, source: PaywallSource) {
     self.successHandler = handlers?.success
     self.denyHandler = handlers?.deny
     self.subscription = subscription
+    self.source = source
   }
 }

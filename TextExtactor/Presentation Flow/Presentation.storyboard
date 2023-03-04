@@ -195,6 +195,16 @@
             </objects>
             <point key="canvasLocation" x="2989" y="-41"/>
         </scene>
+        <!--Paywall-->
+        <scene sceneID="yWB-tv-OKB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Paywall" id="S4G-0Z-gUW" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="KUZ-uy-17m"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dlo-jF-Tg6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2992" y="60"/>
+        </scene>
         <!--Presentation Controller-->
         <scene sceneID="Fn2-mF-qyA">
             <objects>
@@ -306,6 +316,7 @@
                     <navigationItem key="navigationItem" id="Fbo-kb-zIX"/>
                     <connections>
                         <segue destination="Sqc-m9-e7H" kind="show" identifier="toDoublePaywall" id="Fla-0v-xXo"/>
+                        <segue destination="S4G-0Z-gUW" kind="show" identifier="toPaywall" id="eaZ-Jd-XSK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NUl-lB-ZfJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -317,7 +328,7 @@
             <objects>
                 <viewController id="aHl-n3-Dwm" customClass="VideoPlayerController" customModule="TextExtactor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ptg-zh-3CT">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="415.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="415"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="3zq-BQ-NYS"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

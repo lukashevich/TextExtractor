@@ -8,13 +8,14 @@
 import Foundation
 import UIKit
 
-final class PaywallController: UIViewController, AlertPresenter, ParalaxBackgrounded, Snowy {
+final class PaywallController: UIViewController, AlertPresenter {
   
   enum PurhcaseState {
     case successfully
     case denied
   }
-  
+  @IBOutlet private weak var _title: UILabel!
+
   @IBOutlet private weak var _productPreloader: PreloaderView!
   
   @IBOutlet private weak var _fullPreloader: UIView!
@@ -25,6 +26,8 @@ final class PaywallController: UIViewController, AlertPresenter, ParalaxBackgrou
   @IBOutlet private weak var _subscribeButton: UIButton!
   @IBOutlet private weak var _ctaTitle: UILabel!
   @IBOutlet private weak var _ctaSubTitle: UILabel!
+
+  @IBOutlet private weak var _mainSubsriptionView: SubscriptionPriceView!
 
   var viewModel: PaywallViewModel!
   
@@ -87,40 +90,21 @@ final class PaywallController: UIViewController, AlertPresenter, ParalaxBackgrou
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    switch Holiday.current {
-    case .helloween, .none:
-      setParalaxBackground()
-    case .christmas:
-      letItSnow()
-    }
+    Analytics.log(DoublePaywallAnalytics.shown)
 
-    SubscriptionHelper.retrieveInfo(subscription: viewModel.subscription) { [unowned self] product in
-      guard let product = product, let period = product.period else { return }
-      
-      _productPreloader.isHidden = true
+    switch viewModel.source {
+    case .main, .onboarding:
+      break
+    case .extension:
+      isModalInPresentation = true
       _subscribeButton.pulsate()
-
-      let priceText = self._price(from: product.price, locale: product.priceLocale)
-      
-      let subscriptionDuration: String
-      switch period.unit {
-      case .day:
-        subscriptionDuration = "WEEK".localized
-      default:
-        subscriptionDuration = period.unit.stringValue
-      }
-
-      switch product.intro {
-      case .none:
-        _ctaTitle.text = "PAYWALL_CTA".localized([priceText, subscriptionDuration])
-        _subscribeButton.setTitle("CONTINUE".localized, for: .normal)
-        _ctaSubTitle.isHidden = true
-      case .some(let intro):
-        _ctaTitle.isHidden = true
-        _subscribeButton.setTitle("PAYWALL_STARTS_WITH".localized([intro.numberOfUnits, intro.unit.stringValue]), for: .normal)
-        _ctaSubTitle.text = "THEN".localized([priceText, subscriptionDuration])
-      }
     }
+        
+    _title.makeInUAColors()
+    
+    _productPreloader.isHidden = true
+    
+    SubscriptionHelper.retrieveInfo(subscription: viewModel.subscription, completion: _mainSubsriptionView.setProduct)
   }
   
   func dismiss(_ state: PurhcaseState) {
@@ -130,13 +114,6 @@ final class PaywallController: UIViewController, AlertPresenter, ParalaxBackgrou
     case .denied:
       self.dismiss(animated: true, completion: self.viewModel.denyHandler)
     }
-  }
-  
-  private func _price(from value: Double, locale: Locale) -> String {
-    let formatter = NumberFormatter()
-    formatter.locale = locale
-    formatter.numberStyle = .currency
-    return formatter.string(from: value as NSNumber) ?? ""
   }
 }
 

@@ -16,6 +16,7 @@
 		60871CBE297065A20095519E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60871CBC297065A20095519E /* GoogleService-Info.plist */; };
 		60871CC02970664F0095519E /* DoublePaywallAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60871CBF2970664F0095519E /* DoublePaywallAnalytics.swift */; };
 		60871CC12970664F0095519E /* DoublePaywallAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60871CBF2970664F0095519E /* DoublePaywallAnalytics.swift */; };
+		6093F0C7299C412C00CF41F7 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6093F0C6299C412C00CF41F7 /* FirebaseCrashlytics */; };
 		60C2EAB72970A98800ED6A2D /* DrawerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2EAB62970A98800ED6A2D /* DrawerWrapper.swift */; };
 		60C2EABA2970ABFB00ED6A2D /* MessageTranscriberEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2EAB92970ABFB00ED6A2D /* MessageTranscriberEvent.swift */; };
 		7F025F2626171B89003BDC24 /* PaywallOnLaunchPresentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F025F2526171B89003BDC24 /* PaywallOnLaunchPresentHelper.swift */; };
@@ -440,6 +441,7 @@
 			files = (
 				7F21D36325DA9011009A3F53 /* DSWaveformImage in Frameworks */,
 				7F47AF3325E5489500CD8C02 /* SwiftyStoreKit in Frameworks */,
+				6093F0C7299C412C00CF41F7 /* FirebaseCrashlytics in Frameworks */,
 				7F7470652635A318006B787F /* ShimmerSwift in Frameworks */,
 				1D89CD61E0A8A91F6D9B5338 /* Pods_TextExtactor.framework in Frameworks */,
 			);
@@ -983,6 +985,7 @@
 				7F21D36225DA9011009A3F53 /* DSWaveformImage */,
 				7F47AF3225E5489500CD8C02 /* SwiftyStoreKit */,
 				7F7470642635A318006B787F /* ShimmerSwift */,
+				6093F0C6299C412C00CF41F7 /* FirebaseCrashlytics */,
 			);
 			productName = TextExtactor;
 			productReference = 7F7ED06F25D98081003F6BBB /* TextExtactor.app */;
@@ -1030,6 +1033,7 @@
 				7F21D36125DA9011009A3F53 /* XCRemoteSwiftPackageReference "DSWaveformImage" */,
 				7F47AF3125E5489500CD8C02 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
 				7F7470632635A318006B787F /* XCRemoteSwiftPackageReference "ShimmerSwift" */,
+				6093F0C5299C412C00CF41F7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 7F7ED07025D98081003F6BBB /* Products */;
 			projectDirPath = "";
@@ -1417,7 +1421,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.9.0;
+				MARKETING_VERSION = 1.9.2;
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor.Sharing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1444,7 +1448,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.9.0;
+				MARKETING_VERSION = 1.9.2;
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor.Sharing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1591,7 +1595,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.9.0;
+				MARKETING_VERSION = 1.9.2;
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1619,7 +1623,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.9.0;
+				MARKETING_VERSION = 1.9.2;
 				PRODUCT_BUNDLE_IDENTIFIER = lukashevych.TextExtactor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1662,6 +1666,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6093F0C5299C412C00CF41F7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = exactVersion;
+				version = 9.6.0;
+			};
+		};
 		7F21D36125DA9011009A3F53 /* XCRemoteSwiftPackageReference "DSWaveformImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmrschmidt/DSWaveformImage";
@@ -1689,6 +1701,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6093F0C6299C412C00CF41F7 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6093F0C5299C412C00CF41F7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		7F21D36225DA9011009A3F53 /* DSWaveformImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7F21D36125DA9011009A3F53 /* XCRemoteSwiftPackageReference "DSWaveformImage" */;

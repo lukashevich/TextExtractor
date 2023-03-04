@@ -31,7 +31,7 @@ class LibraryRouter {
       switch self {
       case .newDoc: return NewDocumentViewModel()
       case .preview(let doc): return DocumentPreviewViewModel(document: doc, isNew: false)
-      case .paywall(let subscription, let handlers): return PaywallViewModel(subscription: subscription, handlers: handlers)
+      case .paywall(let subscription, let handlers): return PaywallViewModel(subscription: subscription, handlers: handlers, source: .main)
       }
     }
   }

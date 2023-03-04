@@ -9,6 +9,7 @@ import Foundation
 
 enum PaywallSource: String {
   case main
+  case onboarding
   case `extension`  = "extension"
 }
 

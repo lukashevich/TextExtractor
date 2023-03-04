@@ -33,7 +33,7 @@ class SettingsRouter {
     
     var senderVM: Any? {
       switch self {
-      case .paywall(let handlers): return PaywallViewModel(subscription: Subscription.currentGroup.main ,handlers: handlers)
+      case .paywall(let handlers): return PaywallViewModel(subscription: Subscription.currentGroup.main ,handlers: handlers, source: .main)
       case .toExportedDoc: return ExportedDocPreviewViewModel()
       case .toFeedback: return FeedbackViewModel()
       case .toPresentation: return PresentationViewModel()

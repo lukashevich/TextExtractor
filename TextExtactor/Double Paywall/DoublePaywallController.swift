@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class DoublePaywallController: UIViewController, AlertPresenter, ParalaxBackgrounded, Snowy {
+final class DoublePaywallController: UIViewController, AlertPresenter {
   
   enum PurhcaseState {
     case successfully
@@ -124,7 +124,7 @@ final class DoublePaywallController: UIViewController, AlertPresenter, ParalaxBa
     Analytics.log(DoublePaywallAnalytics.shown)
 
     switch viewModel.source {
-    case .main:
+    case .main, .onboarding:
       break
     case .extension:
       isModalInPresentation = true
@@ -134,13 +134,6 @@ final class DoublePaywallController: UIViewController, AlertPresenter, ParalaxBa
     _prepareSubcriptionViews()
     
     _title.makeInUAColors()
-    
-    switch Holiday.current {
-    case .helloween, .none:
-      setParalaxBackground()
-    case .christmas:
-      letItSnow()
-    }
     
     _productPreloader.isHidden = true
     
@@ -156,30 +149,5 @@ final class DoublePaywallController: UIViewController, AlertPresenter, ParalaxBa
     case .denied:
       self.dismiss(animated: true, completion: self.viewModel.denyHandler)
     }
-  }
-}
-
-private extension UILabel {
-  private func _gradientColor(bounds: CGRect, gradientLayer :CAGradientLayer) -> UIColor? {
-    UIGraphicsBeginImageContext(gradientLayer.bounds.size)
-    gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
-    let image = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-    return UIColor(patternImage: image!)
-  }
-
-  private func _getGradientLayer(bounds : CGRect) -> CAGradientLayer{
-    let gradient = CAGradientLayer()
-    gradient.frame = bounds
-    gradient.colors = [UIColor(hexString: "#005BBB"),
-                       UIColor(hexString: "#FFD500")].map(\.cgColor)
-    gradient.startPoint = CGPoint(x: 0.5, y: 0)
-    gradient.endPoint = CGPoint(x: 0.5, y: 1)
-    return gradient
-  }
-  
-  func makeInUAColors() {
-    let gradient = _getGradientLayer(bounds: bounds)
-    textColor = _gradientColor(bounds: bounds, gradientLayer: gradient)
   }
 }

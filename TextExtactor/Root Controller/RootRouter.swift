@@ -42,7 +42,7 @@ class RootRouter {
     var senderVM: Any? {
       switch self {
       case .paywall(let subscription, let handlers):
-        return PaywallViewModel(subscription: subscription, handlers: handlers)
+        return PaywallViewModel(subscription: subscription, handlers: handlers, source: .main)
       case .doublePaywall(let subscriptions, let handlers):
         return DoublePaywallViewModel(subscriptions: subscriptions, handlers: handlers, source: .main)
       case .exportDocPreview:

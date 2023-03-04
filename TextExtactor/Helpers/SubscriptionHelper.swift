@@ -36,7 +36,7 @@ enum Subscription: String, CaseIterable {
   }
   
   static var currentDoubleGroup: DoublePaywallSubscriptions {
-    (main: .annual15, secondary: .monthly2)
+    (main: .annual15, secondary: .monthly5)
   }
 }
 
