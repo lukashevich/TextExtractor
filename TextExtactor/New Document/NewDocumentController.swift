@@ -194,7 +194,7 @@ extension NewDocumentController: iCloudFilePicker {
 //      self.viewModel.fileUrl = url
 //    }
     
-    url.stopAccessingSecurityScopedResource()
+//    url.stopAccessingSecurityScopedResource()
   }
 }
 
