@@ -25,14 +25,7 @@ class MessageTranscriberRouter {
       case .doublePaywall:
         return Destination.toDoublePaywall.rawValue
       case .paywall:
-        switch Holiday.current {
-        case .helloween:
-          return Destination.toPaywall.rawValue
-        case .christmas:
-          return Destination.toChristmasPaywall.rawValue
-        case .none:
-          return Destination.toPaywall.rawValue
-        }
+        return Destination.toPaywall.rawValue
       }
     }
     

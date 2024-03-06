@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Amplitude_iOS
+import Amplitude
 import FirebaseCore
 import FirebaseAnalytics
 

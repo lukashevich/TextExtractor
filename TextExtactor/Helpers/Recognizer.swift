@@ -40,7 +40,7 @@ final class Recognizer {
     }
     
     let request = SFSpeechURLRecognitionRequest(url: url)
-    request.requiresOnDeviceRecognition = true
+//    request.requiresOnDeviceRecognition = true
     recognizer.recognitionTask(with: request) { (result, error) in
       guard let result = result else {
         completion?(false)
@@ -67,7 +67,7 @@ final class Recognizer {
     
     
     let request = SFSpeechURLRecognitionRequest(url: url)
-    request.requiresOnDeviceRecognition = true
+//    request.requiresOnDeviceRecognition = true
     
     recognizer.recognitionTask(with: request) { (result, error) in
       guard let result = result else {

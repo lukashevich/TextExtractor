@@ -23,15 +23,7 @@ class RootRouter {
     
     var identifier: String {
       switch self {
-      case .paywall:
-        switch Holiday.current {
-        case .helloween:
-          return Destination.toPaywall.rawValue
-        case .christmas:
-          return Destination.toChristmasPaywall.rawValue
-        case .none:
-          return Destination.toPaywall.rawValue
-        }
+      case .paywall: return Destination.toPaywall.rawValue
       case .doublePaywall: return Destination.toDoublePaywall.rawValue
       case .exportDocPreview: return Destination.toExportedDoc.rawValue
       case .presentation: return Destination.toPresentation.rawValue

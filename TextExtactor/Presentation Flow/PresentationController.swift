@@ -39,8 +39,8 @@ final class PresentationController: UIViewController, ShareSheetPresenter, Paral
       success: { [unowned self] in dismiss(animated: true, completion: nil) },
       deny: { [unowned self] in dismiss(animated: true, completion: nil) })
     
-      _router.navigate(to: .paywall(handlers))
-//    _router.navigate(to: .doublePaywall(Subscription.currentDoubleGroup, handlers))
+//      _router.navigate(to: .paywall(handlers))
+    _router.navigate(to: .doublePaywall(Subscription.currentDoubleGroup, handlers))
     
   }
 }
