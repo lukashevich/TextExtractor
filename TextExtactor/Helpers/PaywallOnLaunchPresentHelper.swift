@@ -12,7 +12,6 @@ struct PresentPaywallOnLaunchHelper {
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
       if !UserDefaults.standard.userSubscribed {
           UIApplication.rootController?.showDoublePaywall(with: Subscription.currentDoubleGroup)
-//        UIApplication.rootController?.showPaywall()
       }
     }
   }

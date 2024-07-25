@@ -80,7 +80,6 @@ extension LocalesController: UISearchResultsUpdating {
   func setupSearchBar() {
     searchBar.placeholder = "All Locales"
     searchBar.delegate = self
-    //      searchBar.scopeButtonTitles = Recognizer..allCases.map { $0.rawValue }
     
     definesPresentationContext = true
     navigationItem.hidesSearchBarWhenScrolling = false

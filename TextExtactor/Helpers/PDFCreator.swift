@@ -108,9 +108,6 @@ struct PDFCreator {
     // Create a path object to enclose the text. Use 72 point
     // margins all around the text.
     
-//    doc.name.draw(in: frames.title, withAttributes: attributes.title)
-//    dateString.draw(in: frames.date, withAttributes: attributes.date)
-    
     let frameRect = frames.text
     let framePath = CGMutablePath()
     framePath.addRect(frameRect, transform: .identity)

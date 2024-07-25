@@ -18,7 +18,6 @@ enum Destination: String {
   case toExportedDoc = "toExportedDoc"
   case toDoublePaywall = "toDoublePaywall"
   case toDateStylePicker = "toDateStylePicker"
-  case toFeedback = "toFeedback"
   case toPresentation = "toPresentation"
   
   func destinationController(for segue: UIStoryboardSegue) -> UIViewController? {
@@ -34,9 +33,6 @@ enum Destination: String {
       return segue.destination as? DoublePaywallController
     case .toLocalePicker:
       return segue.destination as? LocalesController
-    case .toFeedback:
-      let navigation = segue.destination as? UINavigationController
-      return navigation?.viewControllers.first as? FeedbackController
     case .toExportedDoc:
       let navigation = segue.destination as? UINavigationController
       return navigation?.viewControllers.first as? ExportedDocPreviewController
@@ -57,7 +53,6 @@ enum Destination: String {
     case .toLocalePicker: return "Locales"
     case .toExportedDoc: return "ExportedDocPreview"
     case .toDateStylePicker: return "DateStylePicker"
-    case .toFeedback: return "Feedback"
     case .toPresentation: return "toPresentation"
     case .toDoublePaywall: return "toDoublePaywall"
     }

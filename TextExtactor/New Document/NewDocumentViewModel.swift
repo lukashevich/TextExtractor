@@ -77,9 +77,6 @@ final class NewDocumentViewModel {
         self._finishProcessing(text: self._recognizedTexts.joined(separator: " "))
       }
     }
-    
-//    Recognizer.recognizeMediaConcurrently(at: _splittedSource, in: _locale) { (newText, index) in
-//    }
   }
   
   func clearData() {

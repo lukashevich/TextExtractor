@@ -12,7 +12,7 @@ final class Recognizer {
   
   static var locales: [Locale] { Array(SFSpeechRecognizer.supportedLocales()) }
   static var groupedLocales:[String?: [Locale]]  {
-    locales.group(by: \.languageCode)
+    locales.group(by: \.language.languageCode?.identifier)
   }
   private static var _stopped: Bool = false
   
@@ -40,7 +40,6 @@ final class Recognizer {
     }
     
     let request = SFSpeechURLRecognitionRequest(url: url)
-//    request.requiresOnDeviceRecognition = true
     recognizer.recognitionTask(with: request) { (result, error) in
       guard let result = result else {
         completion?(false)
@@ -67,7 +66,6 @@ final class Recognizer {
     
     
     let request = SFSpeechURLRecognitionRequest(url: url)
-//    request.requiresOnDeviceRecognition = true
     
     recognizer.recognitionTask(with: request) { (result, error) in
       guard let result = result else {
@@ -95,7 +93,6 @@ final class Recognizer {
     let group = DispatchGroup()
     
     let concurrentQueue = DispatchQueue.init(label: "concurrent", attributes: .concurrent)
-    //    let concurrentQueue = DispatchQueue.global(qos: .utility)
     
     let startDate = Date()
     urls.enumerated().forEach { index, url in
@@ -107,7 +104,7 @@ final class Recognizer {
           case .none:
             newText(text ?? "" , index)
             result[index] = text
-          case .some(let transcribeError):
+          case .some:
             result[index] = "{...}"
           }
         }

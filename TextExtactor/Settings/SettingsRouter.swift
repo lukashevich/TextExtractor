@@ -18,13 +18,11 @@ class SettingsRouter {
     case paywall(PaywallHandlers?)
     case toPresentation
     case toExportedDoc
-    case toFeedback
     
     var identifier: String {
       switch self {
       case .paywall: return Destination.toPaywall.rawValue
       case .toExportedDoc: return Destination.toExportedDoc.rawValue
-      case .toFeedback: return Destination.toFeedback.rawValue
       case .toPresentation: return Destination.toPresentation.rawValue
       }
     }
@@ -33,7 +31,6 @@ class SettingsRouter {
       switch self {
       case .paywall(let handlers): return PaywallViewModel(subscription: Subscription.currentGroup.main ,handlers: handlers, source: .main)
       case .toExportedDoc: return ExportedDocPreviewViewModel()
-      case .toFeedback: return FeedbackViewModel()
       case .toPresentation: return PresentationViewModel()
       }
     }
