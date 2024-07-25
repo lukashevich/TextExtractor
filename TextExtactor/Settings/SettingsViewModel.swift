@@ -18,7 +18,6 @@ struct SettingsViewModel {
     case tos = "tos"
     case feedback = "feedback"
     case howToUse = "how_to_use"
-    case promo = "promo"
   }
   
   var updateContent: (() -> Void)?

@@ -107,7 +107,6 @@
 		7F74705526330CA8006B787F /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F74702B2632D970006B787F /* AudioConverter.swift */; };
 		7F74705D26330FA3006B787F /* UITextView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21D34825DA8A46009A3F53 /* UITextView+Extensions.swift */; };
 		7F747060263316D9006B787F /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7ED0AF25D9A6B7003F6BBB /* UIView+Extensions.swift */; };
-		7F7470652635A318006B787F /* ShimmerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7F7470642635A318006B787F /* ShimmerSwift */; };
 		7F7470802635B126006B787F /* Recognizer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F74707F2635B126006B787F /* Recognizer+Extensions.swift */; };
 		7F7470842635B14E006B787F /* ExportedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7470832635B14E006B787F /* ExportedFile.swift */; };
 		7F74708A2635B1A9006B787F /* ExportedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7470832635B14E006B787F /* ExportedFile.swift */; };
@@ -166,9 +165,6 @@
 		7FA0523C2746BCB7002521BE /* TransparentGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7E889B260CD5290059E5E2 /* TransparentGradientView.swift */; };
 		7FAD559228BAB1BE00DD8097 /* test.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 7FAD559128BAB1BE00DD8097 /* test.ogg */; };
 		7FAD559328BAB1BE00DD8097 /* test.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 7FAD559128BAB1BE00DD8097 /* test.ogg */; };
-		7FB22BF6284152120057B1B0 /* PromoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB22BF5284152120057B1B0 /* PromoViewModel.swift */; };
-		7FB22BF82841522D0057B1B0 /* PromoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB22BF72841522D0057B1B0 /* PromoController.swift */; };
-		7FB22BFA2841526C0057B1B0 /* Promo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FB22BF92841526C0057B1B0 /* Promo.storyboard */; };
 		7FC980E225DDB5A500FD65DF /* PDFCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC980E125DDB5A500FD65DF /* PDFCreator.swift */; };
 		7FC980EB25E0120D00FD65DF /* TabBared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC980EA25E0120D00FD65DF /* TabBared.swift */; };
 		7FC980F025E01BCC00FD65DF /* TitledActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC980EF25E01BCC00FD65DF /* TitledActionView.swift */; };
@@ -385,9 +381,6 @@
 		7FA052352746A1DC002521BE /* HolidayAffected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayAffected.swift; sourceTree = "<group>"; };
 		7FA052392746B694002521BE /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		7FAD559128BAB1BE00DD8097 /* test.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.ogg; sourceTree = "<group>"; };
-		7FB22BF5284152120057B1B0 /* PromoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoViewModel.swift; sourceTree = "<group>"; };
-		7FB22BF72841522D0057B1B0 /* PromoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoController.swift; sourceTree = "<group>"; };
-		7FB22BF92841526C0057B1B0 /* Promo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Promo.storyboard; sourceTree = "<group>"; };
 		7FC980DE25DD834D00FD65DF /* SF-Pro-Rounded-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Medium.otf"; sourceTree = "<group>"; };
 		7FC980DF25DD834D00FD65DF /* SF-Pro-Rounded-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Semibold.ttf"; sourceTree = "<group>"; };
 		7FC980E125DDB5A500FD65DF /* PDFCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCreator.swift; sourceTree = "<group>"; };
@@ -451,7 +444,6 @@
 				60BEB2742B976B32005AD551 /* FirebaseAnalyticsSwift in Frameworks */,
 				7F21D36325DA9011009A3F53 /* DSWaveformImage in Frameworks */,
 				7F47AF3325E5489500CD8C02 /* SwiftyStoreKit in Frameworks */,
-				7F7470652635A318006B787F /* ShimmerSwift in Frameworks */,
 				60BEB27A2B976DF0005AD551 /* Amplitude in Frameworks */,
 				60BEB2722B976B32005AD551 /* FirebaseAnalytics in Frameworks */,
 				1D89CD61E0A8A91F6D9B5338 /* Pods_TextExtactor.framework in Frameworks */,
@@ -716,7 +708,6 @@
 		7F7ED07125D98081003F6BBB /* TextExtactor */ = {
 			isa = PBXGroup;
 			children = (
-				7FB22BF2284151E60057B1B0 /* Promo */,
 				7FEAAD1626D39E2D0088090D /* Presentation Flow */,
 				7F025F36261DFBAD003BDC24 /* Date Style Picker */,
 				7F025F2C261C9FF0003BDC24 /* Exported Doc Preview */,
@@ -835,16 +826,6 @@
 				7FEAACF626D39BD70088090D /* Feedback.storyboard */,
 			);
 			path = Feedback;
-			sourceTree = "<group>";
-		};
-		7FB22BF2284151E60057B1B0 /* Promo */ = {
-			isa = PBXGroup;
-			children = (
-				7FB22BF5284152120057B1B0 /* PromoViewModel.swift */,
-				7FB22BF72841522D0057B1B0 /* PromoController.swift */,
-				7FB22BF92841526C0057B1B0 /* Promo.storyboard */,
-			);
-			path = Promo;
 			sourceTree = "<group>";
 		};
 		7FC980EE25E01B8200FD65DF /* Views */ = {
@@ -998,7 +979,6 @@
 			packageProductDependencies = (
 				7F21D36225DA9011009A3F53 /* DSWaveformImage */,
 				7F47AF3225E5489500CD8C02 /* SwiftyStoreKit */,
-				7F7470642635A318006B787F /* ShimmerSwift */,
 				60BEB2712B976B32005AD551 /* FirebaseAnalytics */,
 				60BEB2732B976B32005AD551 /* FirebaseAnalyticsSwift */,
 				60BEB2792B976DF0005AD551 /* Amplitude */,
@@ -1048,7 +1028,6 @@
 			packageReferences = (
 				7F21D36125DA9011009A3F53 /* XCRemoteSwiftPackageReference "DSWaveformImage" */,
 				7F47AF3125E5489500CD8C02 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
-				7F7470632635A318006B787F /* XCRemoteSwiftPackageReference "ShimmerSwift" */,
 				60BEB2702B976B32005AD551 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				60BEB2782B976DF0005AD551 /* XCRemoteSwiftPackageReference "Amplitude-iOS" */,
 			);
@@ -1100,7 +1079,6 @@
 				7F7ED07F25D98081003F6BBB /* LaunchScreen.storyboard in Resources */,
 				7F4CE0DF25FA658C00F7AF09 /* PlayerView.xib in Resources */,
 				7FAD559228BAB1BE00DD8097 /* test.ogg in Resources */,
-				7FB22BFA2841526C0057B1B0 /* Promo.storyboard in Resources */,
 				7F7E88A5260CDC8A0059E5E2 /* DocSourceIconView.xib in Resources */,
 				7F7E8892260A532F0059E5E2 /* Localizable.strings in Resources */,
 				7F7ED08C25D98124003F6BBB /* Library.storyboard in Resources */,
@@ -1279,7 +1257,6 @@
 				7F21D35325DA8B6B009A3F53 /* AudioChunk.swift in Sources */,
 				7F719DEB25FCCD590039E14A /* LibraryRouter.swift in Sources */,
 				7F7ED07325D98081003F6BBB /* AppDelegate.swift in Sources */,
-				7FB22BF82841522D0057B1B0 /* PromoController.swift in Sources */,
 				7F025F2626171B89003BDC24 /* PaywallOnLaunchPresentHelper.swift in Sources */,
 				7F7ED0B025D9A6B7003F6BBB /* UIView+Extensions.swift in Sources */,
 				7F44359C25DD712400F776BE /* LibrarySmallItemCell.swift in Sources */,
@@ -1340,7 +1317,6 @@
 				7F21D36F25DAB7AC009A3F53 /* NewDocumentController.swift in Sources */,
 				7F21D35025DA8B50009A3F53 /* AudioFileSplitter.swift in Sources */,
 				7F47AF3625E54A2500CD8C02 /* SubscriptionHelper.swift in Sources */,
-				7FB22BF6284152120057B1B0 /* PromoViewModel.swift in Sources */,
 				7F47AF2825E543E000CD8C02 /* PaywallController.swift in Sources */,
 				7F21D38225DAC3FB009A3F53 /* ExpandableCell.swift in Sources */,
 				7F52927825E6537F00D7571F /* ActionView.swift in Sources */,
@@ -1716,14 +1692,6 @@
 				minimumVersion = 0.16.3;
 			};
 		};
-		7F7470632635A318006B787F /* XCRemoteSwiftPackageReference "ShimmerSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/BeauNouvelle/ShimmerSwift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.2.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1766,11 +1734,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7F47AF3125E5489500CD8C02 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */;
 			productName = SwiftyStoreKit;
-		};
-		7F7470642635A318006B787F /* ShimmerSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7F7470632635A318006B787F /* XCRemoteSwiftPackageReference "ShimmerSwift" */;
-			productName = ShimmerSwift;
 		};
 		7F804EC326E91182005443DA /* SwiftyStoreKit */ = {
 			isa = XCSwiftPackageProductDependency;

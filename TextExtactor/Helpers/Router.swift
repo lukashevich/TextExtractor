@@ -20,16 +20,6 @@ enum Destination: String {
   case toDateStylePicker = "toDateStylePicker"
   case toFeedback = "toFeedback"
   case toPresentation = "toPresentation"
-  case toPromo = "toPromo"
-
-//  var destination: UIViewController {
-////
-////    let navigation = segue.destination as? UINavigationController
-////      navigation?.viewControllers.first as? ExportedDocPreviewController
-//
-////    let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-////    return storyboard.instantiateViewController(withIdentifier: _initialKey)
-//  }
   
   func destinationController(for segue: UIStoryboardSegue) -> UIViewController? {
     switch self {
@@ -56,8 +46,6 @@ enum Destination: String {
     case .toPresentation:
       let navigation = segue.destination as? UINavigationController
       return navigation?.viewControllers.first as? PresentationController
-    case .toPromo:
-      return segue.destination as? PromoController
     }
   }
   
@@ -71,7 +59,6 @@ enum Destination: String {
     case .toDateStylePicker: return "DateStylePicker"
     case .toFeedback: return "Feedback"
     case .toPresentation: return "toPresentation"
-    case .toPromo: return "toPromo"
     case .toDoublePaywall: return "toDoublePaywall"
     }
   }

@@ -17,23 +17,23 @@ RSYNC_PROTECT_TMP_FILES=(--filter "P .*.??????")
 variant_for_slice()
 {
   case "$1" in
+  "ffmpegkit.xcframework/ios-arm64")
+    echo ""
+    ;;
   "ffmpegkit.xcframework/ios-arm64_x86_64-maccatalyst")
     echo "maccatalyst"
     ;;
   "ffmpegkit.xcframework/ios-arm64_x86_64-simulator")
     echo "simulator"
     ;;
-  "ffmpegkit.xcframework/ios-arm64")
+  "libavcodec.xcframework/ios-arm64")
     echo ""
-    ;;
-  "libavcodec.xcframework/ios-arm64_x86_64-simulator")
-    echo "simulator"
     ;;
   "libavcodec.xcframework/ios-arm64_x86_64-maccatalyst")
     echo "maccatalyst"
     ;;
-  "libavcodec.xcframework/ios-arm64")
-    echo ""
+  "libavcodec.xcframework/ios-arm64_x86_64-simulator")
+    echo "simulator"
     ;;
   "libavdevice.xcframework/ios-arm64")
     echo ""
@@ -44,23 +44,23 @@ variant_for_slice()
   "libavdevice.xcframework/ios-arm64_x86_64-simulator")
     echo "simulator"
     ;;
-  "libavfilter.xcframework/ios-arm64_x86_64-maccatalyst")
-    echo "maccatalyst"
-    ;;
   "libavfilter.xcframework/ios-arm64")
     echo ""
+    ;;
+  "libavfilter.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "maccatalyst"
     ;;
   "libavfilter.xcframework/ios-arm64_x86_64-simulator")
     echo "simulator"
     ;;
-  "libavformat.xcframework/ios-arm64_x86_64-simulator")
-    echo "simulator"
+  "libavformat.xcframework/ios-arm64")
+    echo ""
     ;;
   "libavformat.xcframework/ios-arm64_x86_64-maccatalyst")
     echo "maccatalyst"
     ;;
-  "libavformat.xcframework/ios-arm64")
-    echo ""
+  "libavformat.xcframework/ios-arm64_x86_64-simulator")
+    echo "simulator"
     ;;
   "libavutil.xcframework/ios-arm64")
     echo ""
@@ -71,23 +71,23 @@ variant_for_slice()
   "libavutil.xcframework/ios-arm64_x86_64-simulator")
     echo "simulator"
     ;;
-  "libswresample.xcframework/ios-arm64_x86_64-simulator")
-    echo "simulator"
-    ;;
   "libswresample.xcframework/ios-arm64")
     echo ""
     ;;
   "libswresample.xcframework/ios-arm64_x86_64-maccatalyst")
     echo "maccatalyst"
     ;;
+  "libswresample.xcframework/ios-arm64_x86_64-simulator")
+    echo "simulator"
+    ;;
+  "libswscale.xcframework/ios-arm64")
+    echo ""
+    ;;
   "libswscale.xcframework/ios-arm64_x86_64-maccatalyst")
     echo "maccatalyst"
     ;;
   "libswscale.xcframework/ios-arm64_x86_64-simulator")
     echo "simulator"
-    ;;
-  "libswscale.xcframework/ios-arm64")
-    echo ""
     ;;
   esac
 }
@@ -95,23 +95,23 @@ variant_for_slice()
 archs_for_slice()
 {
   case "$1" in
+  "ffmpegkit.xcframework/ios-arm64")
+    echo "arm64"
+    ;;
   "ffmpegkit.xcframework/ios-arm64_x86_64-maccatalyst")
     echo "arm64 x86_64"
     ;;
   "ffmpegkit.xcframework/ios-arm64_x86_64-simulator")
     echo "arm64 x86_64"
     ;;
-  "ffmpegkit.xcframework/ios-arm64")
+  "libavcodec.xcframework/ios-arm64")
     echo "arm64"
-    ;;
-  "libavcodec.xcframework/ios-arm64_x86_64-simulator")
-    echo "arm64 x86_64"
     ;;
   "libavcodec.xcframework/ios-arm64_x86_64-maccatalyst")
     echo "arm64 x86_64"
     ;;
-  "libavcodec.xcframework/ios-arm64")
-    echo "arm64"
+  "libavcodec.xcframework/ios-arm64_x86_64-simulator")
+    echo "arm64 x86_64"
     ;;
   "libavdevice.xcframework/ios-arm64")
     echo "arm64"
@@ -122,23 +122,23 @@ archs_for_slice()
   "libavdevice.xcframework/ios-arm64_x86_64-simulator")
     echo "arm64 x86_64"
     ;;
-  "libavfilter.xcframework/ios-arm64_x86_64-maccatalyst")
-    echo "arm64 x86_64"
-    ;;
   "libavfilter.xcframework/ios-arm64")
     echo "arm64"
+    ;;
+  "libavfilter.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "arm64 x86_64"
     ;;
   "libavfilter.xcframework/ios-arm64_x86_64-simulator")
     echo "arm64 x86_64"
     ;;
-  "libavformat.xcframework/ios-arm64_x86_64-simulator")
-    echo "arm64 x86_64"
+  "libavformat.xcframework/ios-arm64")
+    echo "arm64"
     ;;
   "libavformat.xcframework/ios-arm64_x86_64-maccatalyst")
     echo "arm64 x86_64"
     ;;
-  "libavformat.xcframework/ios-arm64")
-    echo "arm64"
+  "libavformat.xcframework/ios-arm64_x86_64-simulator")
+    echo "arm64 x86_64"
     ;;
   "libavutil.xcframework/ios-arm64")
     echo "arm64"
@@ -149,23 +149,23 @@ archs_for_slice()
   "libavutil.xcframework/ios-arm64_x86_64-simulator")
     echo "arm64 x86_64"
     ;;
-  "libswresample.xcframework/ios-arm64_x86_64-simulator")
-    echo "arm64 x86_64"
-    ;;
   "libswresample.xcframework/ios-arm64")
     echo "arm64"
     ;;
   "libswresample.xcframework/ios-arm64_x86_64-maccatalyst")
     echo "arm64 x86_64"
     ;;
+  "libswresample.xcframework/ios-arm64_x86_64-simulator")
+    echo "arm64 x86_64"
+    ;;
+  "libswscale.xcframework/ios-arm64")
+    echo "arm64"
+    ;;
   "libswscale.xcframework/ios-arm64_x86_64-maccatalyst")
     echo "arm64 x86_64"
     ;;
   "libswscale.xcframework/ios-arm64_x86_64-simulator")
     echo "arm64 x86_64"
-    ;;
-  "libswscale.xcframework/ios-arm64")
-    echo "arm64"
     ;;
   esac
 }
@@ -249,12 +249,12 @@ install_xcframework() {
   echo "Copied $source to $destination"
 }
 
-install_xcframework "${PODS_ROOT}/ffmpeg-kit-ios-full/ffmpegkit.xcframework" "ffmpeg-kit-ios-full" "framework" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator" "ios-arm64"
-install_xcframework "${PODS_ROOT}/ffmpeg-kit-ios-full/libavcodec.xcframework" "ffmpeg-kit-ios-full" "framework" "ios-arm64_x86_64-simulator" "ios-arm64_x86_64-maccatalyst" "ios-arm64"
+install_xcframework "${PODS_ROOT}/ffmpeg-kit-ios-full/ffmpegkit.xcframework" "ffmpeg-kit-ios-full" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
+install_xcframework "${PODS_ROOT}/ffmpeg-kit-ios-full/libavcodec.xcframework" "ffmpeg-kit-ios-full" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
 install_xcframework "${PODS_ROOT}/ffmpeg-kit-ios-full/libavdevice.xcframework" "ffmpeg-kit-ios-full" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
-install_xcframework "${PODS_ROOT}/ffmpeg-kit-ios-full/libavfilter.xcframework" "ffmpeg-kit-ios-full" "framework" "ios-arm64_x86_64-maccatalyst" "ios-arm64" "ios-arm64_x86_64-simulator"
-install_xcframework "${PODS_ROOT}/ffmpeg-kit-ios-full/libavformat.xcframework" "ffmpeg-kit-ios-full" "framework" "ios-arm64_x86_64-simulator" "ios-arm64_x86_64-maccatalyst" "ios-arm64"
+install_xcframework "${PODS_ROOT}/ffmpeg-kit-ios-full/libavfilter.xcframework" "ffmpeg-kit-ios-full" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
+install_xcframework "${PODS_ROOT}/ffmpeg-kit-ios-full/libavformat.xcframework" "ffmpeg-kit-ios-full" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
 install_xcframework "${PODS_ROOT}/ffmpeg-kit-ios-full/libavutil.xcframework" "ffmpeg-kit-ios-full" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
-install_xcframework "${PODS_ROOT}/ffmpeg-kit-ios-full/libswresample.xcframework" "ffmpeg-kit-ios-full" "framework" "ios-arm64_x86_64-simulator" "ios-arm64" "ios-arm64_x86_64-maccatalyst"
-install_xcframework "${PODS_ROOT}/ffmpeg-kit-ios-full/libswscale.xcframework" "ffmpeg-kit-ios-full" "framework" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator" "ios-arm64"
+install_xcframework "${PODS_ROOT}/ffmpeg-kit-ios-full/libswresample.xcframework" "ffmpeg-kit-ios-full" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
+install_xcframework "${PODS_ROOT}/ffmpeg-kit-ios-full/libswscale.xcframework" "ffmpeg-kit-ios-full" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
 

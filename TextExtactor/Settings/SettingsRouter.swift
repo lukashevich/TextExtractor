@@ -19,7 +19,6 @@ class SettingsRouter {
     case toPresentation
     case toExportedDoc
     case toFeedback
-    case toPromo
     
     var identifier: String {
       switch self {
@@ -27,7 +26,6 @@ class SettingsRouter {
       case .toExportedDoc: return Destination.toExportedDoc.rawValue
       case .toFeedback: return Destination.toFeedback.rawValue
       case .toPresentation: return Destination.toPresentation.rawValue
-      case .toPromo: return Destination.toPromo.rawValue
       }
     }
     
@@ -37,7 +35,6 @@ class SettingsRouter {
       case .toExportedDoc: return ExportedDocPreviewViewModel()
       case .toFeedback: return FeedbackViewModel()
       case .toPresentation: return PresentationViewModel()
-      case .toPromo: return PromoViewModel()
       }
     }
   }
