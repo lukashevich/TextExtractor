@@ -16,7 +16,6 @@ struct SettingsViewModel {
     case document = "document"
     case audio = "audio"
     case tos = "tos"
-    case feedback = "feedback"
     case howToUse = "how_to_use"
   }
   

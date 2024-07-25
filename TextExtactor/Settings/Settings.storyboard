@@ -483,7 +483,6 @@
                         <outlet property="_fullPreloaderActivity" destination="gHv-MS-qmR" id="UvC-te-BVF"/>
                         <outlet property="_settingsTable" destination="2ZT-t7-mH9" id="rLB-zJ-yw2"/>
                         <segue destination="FkL-F1-qoF" kind="show" identifier="toPaywall" id="J2b-ic-3qf"/>
-                        <segue destination="te5-Uz-dPu" kind="show" identifier="toFeedback" id="F48-1i-V0d"/>
                         <segue destination="mA4-YW-EhR" kind="show" identifier="toPresentation" id="RV7-IA-s2C"/>
                     </connections>
                 </viewController>
@@ -500,16 +499,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNf-jX-Z05" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="578" y="-4"/>
-        </scene>
-        <!--Feedback-->
-        <scene sceneID="S90-gi-oZH">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Feedback" id="te5-Uz-dPu" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="7En-20-vQP"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wcH-Xo-0PZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="586" y="71"/>
         </scene>
         <!--Presentation-->
         <scene sceneID="ghn-uG-YdF">

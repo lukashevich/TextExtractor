@@ -152,8 +152,6 @@
 		7F804EC426E91182005443DA /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7F804EC326E91182005443DA /* SwiftyStoreKit */; };
 		7F804EC926E91730005443DA /* ImportPaywall.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F804EC826E91730005443DA /* ImportPaywall.storyboard */; };
 		7F804ECB26E91766005443DA /* PaywallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F804ECA26E91766005443DA /* PaywallController.swift */; };
-		7F854A09265FA29C002FACB6 /* FeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F854A03265FA29C002FACB6 /* FeedbackViewModel.swift */; };
-		7F854A0A265FA29C002FACB6 /* FeedbackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F854A04265FA29C002FACB6 /* FeedbackController.swift */; };
 		7F854A21265FA8F9002FACB6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F854A20265FA8F9002FACB6 /* Router.swift */; };
 		7F917D1A260F256B00064975 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F917D19260F256B00064975 /* AlertPresenter.swift */; };
 		7FA0523427465C04002521BE /* Snowy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA0523327465C04002521BE /* Snowy.swift */; };
@@ -193,7 +191,6 @@
 		7FDD49D72870FA47003762EE /* DoublePaywallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCBCFA0286F8317004C51A4 /* DoublePaywallController.swift */; };
 		7FDF340528736DB0004FACD2 /* DoublePaywall.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FCBCF9E286F8317004C51A4 /* DoublePaywall.storyboard */; };
 		7FE311E1270F003A00849020 /* TapticHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52927D25E6A47400D7571F /* TapticHelper.swift */; };
-		7FEAACF726D39BD70088090D /* Feedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FEAACF626D39BD70088090D /* Feedback.storyboard */; };
 		7FEAAD1326D39D890088090D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FEAAD1226D39D890088090D /* Settings.storyboard */; };
 		7FEAAD1826D39E410088090D /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAAD1726D39E410088090D /* PresentationController.swift */; };
 		7FEAAD1E26D39E4E0088090D /* PresentationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAAD1D26D39E4E0088090D /* PresentationViewModel.swift */; };
@@ -373,8 +370,6 @@
 		7F7ED0AF25D9A6B7003F6BBB /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		7F804EC826E91730005443DA /* ImportPaywall.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImportPaywall.storyboard; sourceTree = "<group>"; };
 		7F804ECA26E91766005443DA /* PaywallController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallController.swift; sourceTree = "<group>"; };
-		7F854A03265FA29C002FACB6 /* FeedbackViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewModel.swift; sourceTree = "<group>"; };
-		7F854A04265FA29C002FACB6 /* FeedbackController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackController.swift; sourceTree = "<group>"; };
 		7F854A20265FA8F9002FACB6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		7F917D19260F256B00064975 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		7FA0523327465C04002521BE /* Snowy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snowy.swift; sourceTree = "<group>"; };
@@ -405,7 +400,6 @@
 		7FCBCFAC286F9080004C51A4 /* SubscriptionPriceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubscriptionPriceView.xib; sourceTree = "<group>"; };
 		7FDD49D22870F98D003762EE /* DoublePaywall+MainExtesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoublePaywall+MainExtesion.swift"; sourceTree = "<group>"; };
 		7FDD49D42870F9EA003762EE /* DoublePaywall+SharedExtesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoublePaywall+SharedExtesion.swift"; sourceTree = "<group>"; };
-		7FEAACF626D39BD70088090D /* Feedback.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feedback.storyboard; sourceTree = "<group>"; };
 		7FEAAD1226D39D890088090D /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		7FEAAD1726D39E410088090D /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
 		7FEAAD1D26D39E4E0088090D /* PresentationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationViewModel.swift; sourceTree = "<group>"; };
@@ -715,7 +709,6 @@
 				7FCBCF9D286F82CF004C51A4 /* Double Paywall */,
 				7F47AF2625E543D000CD8C02 /* Paywall */,
 				7FC9812025E4255C00FD65DF /* Root Controller */,
-				7F854A01265FA29C002FACB6 /* Feedback */,
 				7FC9811425E41E2900FD65DF /* Document Preview */,
 				7F44358E25DC1B1400F776BE /* TextExtactor.entitlements */,
 				7F21D38025DAC3E7009A3F53 /* Protocols */,
@@ -816,16 +809,6 @@
 				7F804ECA26E91766005443DA /* PaywallController.swift */,
 			);
 			path = Paywall;
-			sourceTree = "<group>";
-		};
-		7F854A01265FA29C002FACB6 /* Feedback */ = {
-			isa = PBXGroup;
-			children = (
-				7F854A03265FA29C002FACB6 /* FeedbackViewModel.swift */,
-				7F854A04265FA29C002FACB6 /* FeedbackController.swift */,
-				7FEAACF626D39BD70088090D /* Feedback.storyboard */,
-			);
-			path = Feedback;
 			sourceTree = "<group>";
 		};
 		7FC980EE25E01B8200FD65DF /* Views */ = {
@@ -1083,7 +1066,6 @@
 				7F7E8892260A532F0059E5E2 /* Localizable.strings in Resources */,
 				7F7ED08C25D98124003F6BBB /* Library.storyboard in Resources */,
 				7F025F34261CA062003BDC24 /* ExportedDocPreview.storyboard in Resources */,
-				7FEAACF726D39BD70088090D /* Feedback.storyboard in Resources */,
 				7F7E88822608FC780059E5E2 /* TitledPreloader.xib in Resources */,
 				7FEAAD4526D3B84E0088090D /* magic.caf in Resources */,
 				7FEAAD2226D39E560088090D /* Presentation.storyboard in Resources */,
@@ -1298,7 +1280,6 @@
 				7F74702C2632D970006B787F /* AudioConverter.swift in Sources */,
 				7F7ED09425D982C7003F6BBB /* LibraryItemCell.swift in Sources */,
 				7FA052362746A1DC002521BE /* HolidayAffected.swift in Sources */,
-				7F854A09265FA29C002FACB6 /* FeedbackViewModel.swift in Sources */,
 				7F52928425E6A8B200D7571F /* UIBarButtonItem+Extensions.swift in Sources */,
 				7F7ED08F25D9813E003F6BBB /* LibraryViewModel.swift in Sources */,
 				7F719DF525FCECF30039E14A /* SettingsController.swift in Sources */,
@@ -1326,7 +1307,6 @@
 				7FC9810125E0290D00FD65DF /* Locale+Extensions.swift in Sources */,
 				7F35005825E434C6003E2089 /* YoutubeVideoExtractor.swift in Sources */,
 				7FCBCFA3286F8317004C51A4 /* DoublePaywallViewModel.swift in Sources */,
-				7F854A0A265FA29C002FACB6 /* FeedbackController.swift in Sources */,
 				7F7ED0A225D98CB5003F6BBB /* LibraryHeader.swift in Sources */,
 				7F7ED09A25D98518003F6BBB /* LibraryItemCellViewModel.swift in Sources */,
 				7F854A21265FA8F9002FACB6 /* Router.swift in Sources */,
