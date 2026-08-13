@@ -1,0 +1,11 @@
+# Xcode user state and build products
+xcuserdata/
+*.xcuserstate
+DerivedData/
+build/
+
+# Legacy CocoaPods artifacts (the project uses Swift Package Manager)
+Pods/
+
+# Finder metadata
+.DS_Store

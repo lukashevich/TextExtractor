@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FFmpegSupport
 
 struct AudioConverter {
   
@@ -15,7 +16,7 @@ struct AudioConverter {
     try? FileManager.default.copyItem(at: at, to: dstURL)
     
     let newPath = FileManager.tmpFolder.appendingPathComponent("audio_ogg").appendingPathExtension("mp4")
-    FFmpegKit.execute("-i \(dstURL) -c:v mpeg4 \(newPath)")
+    ffmpeg(["ffmpeg", "-i", dstURL.path, "-c:v", "mpeg4", newPath.path])
     return newPath
   }
   
@@ -25,7 +26,7 @@ struct AudioConverter {
     try? FileManager.default.copyItem(at: url, to: dstURL)
     
     let newPath = FileManager.tmpFolder.appendingPathComponent("audio_ogg_\(index)").appendingPathExtension("mp4")
-    FFmpegKit.execute("-i \(dstURL) -c:v mpeg4 \(newPath)")
+    ffmpeg(["ffmpeg", "-i", dstURL.path, "-c:v", "mpeg4", newPath.path])
     return newPath
   }
   
@@ -38,7 +39,7 @@ struct AudioConverter {
       
       let newPath = FileManager.tmpFolder.appendingPathComponent("audio_ogg_\(index)").appendingPathExtension("mp4")
       result.append(newPath)
-      FFmpegKit.execute("-i \(dstURL) -c:v mpeg4 \(newPath)")
+      ffmpeg(["ffmpeg", "-i", dstURL.path, "-c:v", "mpeg4", newPath.path])
     }
     
     return result

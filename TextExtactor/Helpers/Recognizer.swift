@@ -121,28 +121,29 @@ final class Recognizer {
   static func recognizeMedia(at urls:[URL], in locale:Locale, newText: @escaping ((String) -> ()), completion: ((String) -> ())? = nil) {
     var newUrls = urls
     guard let url = newUrls.first else {
+      completion?("")
       return
     }
     
     guard !_stopped else {
       self._stopped = false
+      completion?("")
       return
     }
     
     Recognizer.recognizeMedia(at: url, in: locale) { (text, error) in
-      guard !_stopped else { return }
+      guard !_stopped else {
+        completion?("")
+        return
+      }
       
       newUrls.removeFirst()
 
-      guard let error = error else {
-        switch text {
-        case .some(let transcribed) where !transcribed.isEmpty:
-          newText(transcribed + ", ")
-          self.recognizeMedia(at: newUrls, in: locale, newText: newText)
-        default: break
-        }
-        return
+      if error == nil, let transcribed = text, !transcribed.isEmpty {
+        newText(transcribed + ", ")
       }
+
+      self.recognizeMedia(at: newUrls, in: locale, newText: newText, completion: completion)
     }
   }
   

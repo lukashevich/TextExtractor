@@ -12,6 +12,7 @@ extension Recognizer {
   static func recognizeExported(files: [ExportedFile], in locale:Locale, newText: @escaping ((String) -> ()), completion: (() -> Void)? = nil) {
     var newFiles = files
     guard let file = newFiles.first else {
+      completion?()
       return
     }
 
@@ -20,28 +21,16 @@ extension Recognizer {
       Recognizer.recognizeMedia(at: url, in: locale) { text, error in
         newFiles.removeFirst()
 
-        guard let error = error else {
-          switch text {
-          case .some(let transcribedText) where !transcribedText.isEmpty:
-            newText("🎵 - " + transcribedText + "\n")
-          default: break
-          }
-         
-          self.recognizeExported(files: newFiles, in: locale, newText: newText)
-          return
+        if error == nil, let transcribedText = text, !transcribedText.isEmpty {
+          newText("🎵 - " + transcribedText + "\n")
         }
 
-        guard newFiles.isEmpty else {
-          self.recognizeExported(files: newFiles, in: locale, newText: newText)
-          return
-        }
-        
-        completion?()
+        self.recognizeExported(files: newFiles, in: locale, newText: newText, completion: completion)
       }
     case .text(_, let text):
       newFiles.removeFirst()
       newText("💬 - " + text)
-      self.recognizeExported(files: newFiles, in: locale, newText: newText)
+      self.recognizeExported(files: newFiles, in: locale, newText: newText, completion: completion)
     }
   }
 }

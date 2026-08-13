@@ -8,12 +8,9 @@
 import UIKit
 import Social
 import AVFoundation
-import DrawerView
 
 @objc(MessageTranscriber)
 class MessageTranscriber: UIViewController, AlertPresenter {
-  
-  var positionHandler: ((DrawerPosition)->Void)?
 
   private lazy var _router = MessageTranscriberRouter(controller: self)
   
@@ -26,18 +23,24 @@ class MessageTranscriber: UIViewController, AlertPresenter {
   @IBOutlet private weak var _contentView: UIView!
   @IBOutlet private weak var _progressView: UIProgressView!
 
+  private let _accentColor = UIColor(red: 0.33, green: 0.67, blue: 1.0, alpha: 1.0)
+  private let _circularProgress = CircularProgressIndicator()
+  private var _progressHideWorkItem: DispatchWorkItem?
+
   private var _exportedFiles: [ExportedFile] = []
   private let _placeholder = "Extracted text"
   private var _extractingLocale: Locale = UserDefaults.standard.extractingLocale {
     didSet {
       UserDefaults.standard.extractingLocale = _extractingLocale
       Analytics.setUser(property: .extractionLocale(_extractingLocale.titleForButton))
-      localeButton.setTitle(_extractingLocale.titleForButton, for: .normal)
+      _updateLocaleButtonTitle()
     }
   }
   
   override func viewDidLoad() {
       super.viewDidLoad()
+
+    _configureGlassAppearance()
   
     _completeTransactions()
     
@@ -118,13 +121,19 @@ class MessageTranscriber: UIViewController, AlertPresenter {
     textView.textColor = .tertiaryLabel
     textView.text = _placeholder
   }
+
+  private func _updateLocaleButtonTitle() {
+    let title = _extractingLocale.languageFlag
+      ?? _extractingLocale.languageCode?.uppercased()
+      ?? _extractingLocale.identifier
+    localeButton.setTitle(title, for: .normal)
+  }
   
   private func _localeChanged(to locale: Locale) {
     Recognizer.stopRecognizing()
     Analytics.setUser(property: .extractionLocale(locale.titleForButton))
-    localeButton.setTitle(locale.titleForButton, for: .normal)
     _clearTrancribedText()
-    _progressView.setProgress(0, animated: true)
+    _setProgress(0, animated: false)
     _extractingLocale = locale
     _showPreloader()
     _recognize(files: _exportedFiles)
@@ -138,7 +147,7 @@ class MessageTranscriber: UIViewController, AlertPresenter {
     Recognizer.recognizeExported(files: _exportedFiles, in: _extractingLocale, newText: { [unowned self] text in
       transcribedItemsCount += 1
       let progress: Float = Float(transcribedItemsCount) / Float(_exportedFiles.count)
-      _progressView.setProgress(progress, animated: true)
+      _setProgress(progress, animated: true)
       
       guard !text.isEmpty else { return }
       
@@ -148,28 +157,23 @@ class MessageTranscriber: UIViewController, AlertPresenter {
       DispatchQueue.main.async {
         self.textView.isHidden = false
         self.textView.text = self.textView.text + "\n" + text
-        self._hidePreloader()
       }
      
     }, completion: { [weak self] in
-      
-      guard let weakSelf = self else { return }
-      
-      weakSelf._hidePreloader()
-      
-      guard let currText = weakSelf.textView.text else {
-        weakSelf.showAlert(.cantTranscribe)
-        return
-      }
-      
-      Analytics.log(MessageTranscriberEvent.recognizeResult(!currText.isEmpty))
-      
-      switch currText.isEmpty {
-      case true:
-        weakSelf.showAlert(.cantTranscribe)
-      case false:
-        UserDefaults.standard.transcriptionsCount += 1
-        Analytics.setUser(property: .transcriptionsCount(UserDefaults.standard.transcriptionsCount ))
+      DispatchQueue.main.async {
+        guard let self else { return }
+
+        self._hidePreloader()
+
+        let currText = self.textView.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        Analytics.log(MessageTranscriberEvent.recognizeResult(!currText.isEmpty))
+
+        if currText.isEmpty {
+          self.showAlert(.cantTranscribe)
+        } else {
+          UserDefaults.standard.transcriptionsCount += 1
+          Analytics.setUser(property: .transcriptionsCount(UserDefaults.standard.transcriptionsCount))
+        }
       }
     })
   }
@@ -195,21 +199,53 @@ class MessageTranscriber: UIViewController, AlertPresenter {
   }
   
   private func _showPreloader() {
-    positionHandler?(.partiallyOpen)
-    _statusActivity.isHidden = false
-    _statusLabel.text = "processing..."
-    _statusLabel.textAlignment = .left
+    _progressHideWorkItem?.cancel()
+    _progressHideWorkItem = nil
+    _progressView.isHidden = true
+    _circularProgress.isHidden = false
+    _circularProgress.alpha = 1
+    _setProgress(0, animated: false)
+    _statusActivity.stopAnimating()
+    _statusActivity.isHidden = true
+    _statusLabel.text = "Transcribing…"
+    _statusLabel.textAlignment = .center
     _statusLabel.isHidden = false
     _saveButton.isHidden = true
   }
   
   private func _hidePreloader() {
+    _statusActivity.stopAnimating()
     _statusActivity.isHidden = true
-    _statusLabel.text = "Transcriber"
+    _statusLabel.text = "Transcript ready"
     _statusLabel.textAlignment = .center
-    
     _saveButton.isEnabled = !textView.text.isEmpty
 
+    _setProgress(1, animated: true)
+    let hideWorkItem = DispatchWorkItem { [weak self] in
+      guard let self else { return }
+      UIView.animate(withDuration: 0.2, animations: {
+        self._circularProgress.alpha = 0
+      }, completion: { _ in
+        self._circularProgress.isHidden = true
+      })
+    }
+    _progressHideWorkItem = hideWorkItem
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: hideWorkItem)
+
+  }
+
+  private func _setProgress(_ progress: Float, animated: Bool) {
+    let update = { [weak self] in
+      self?._circularProgress.setProgress(CGFloat(progress), animated: animated)
+    }
+
+    if Thread.isMainThread {
+      update()
+    } else {
+      DispatchQueue.main.async {
+        update()
+      }
+    }
   }
   
   private func _handleSharedFile(completion: @escaping (([ExportedFile]) -> Void)) {
@@ -261,3 +297,161 @@ class MessageTranscriber: UIViewController, AlertPresenter {
   }
 }
 
+private extension MessageTranscriber {
+  func _configureGlassAppearance() {
+    view.backgroundColor = .clear
+    view.subviews.first?.backgroundColor = .clear
+
+    let backdrop = UIVisualEffectView(effect: UIBlurEffect(style: .systemChromeMaterial))
+    backdrop.translatesAutoresizingMaskIntoConstraints = false
+    backdrop.isUserInteractionEnabled = false
+    view.insertSubview(backdrop, at: 0)
+    NSLayoutConstraint.activate([
+      backdrop.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      backdrop.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      backdrop.topAnchor.constraint(equalTo: view.topAnchor),
+      backdrop.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    ])
+
+    let headerSurface = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
+    headerSurface.translatesAutoresizingMaskIntoConstraints = false
+    headerSurface.isUserInteractionEnabled = false
+    headerSurface.layer.cornerRadius = 22
+    headerSurface.clipsToBounds = true
+    headerSurface.layer.borderWidth = 1
+    headerSurface.layer.borderColor = UIColor.white.withAlphaComponent(0.16).cgColor
+    view.insertSubview(headerSurface, at: 2)
+    NSLayoutConstraint.activate([
+      headerSurface.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+      headerSurface.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+      headerSurface.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 6),
+      headerSurface.heightAnchor.constraint(equalToConstant: 68)
+    ])
+
+    _circularProgress.translatesAutoresizingMaskIntoConstraints = false
+    _circularProgress.configure(progressColor: _accentColor)
+    view.addSubview(_circularProgress)
+    NSLayoutConstraint.activate([
+      _circularProgress.leadingAnchor.constraint(equalTo: headerSurface.leadingAnchor, constant: 8),
+      _circularProgress.centerYAnchor.constraint(equalTo: headerSurface.centerYAnchor),
+      _circularProgress.widthAnchor.constraint(equalToConstant: 40),
+      _circularProgress.heightAnchor.constraint(equalTo: _circularProgress.widthAnchor)
+    ])
+
+    if let headerStack = _statusLabel.superview as? UIStackView {
+      headerStack.removeArrangedSubview(_statusLabel)
+      _statusLabel.removeFromSuperview()
+    }
+    _statusLabel.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(_statusLabel)
+    NSLayoutConstraint.activate([
+      _statusLabel.centerXAnchor.constraint(equalTo: headerSurface.centerXAnchor),
+      _statusLabel.centerYAnchor.constraint(equalTo: headerSurface.centerYAnchor)
+    ])
+
+    _contentView.backgroundColor = .clear
+    _contentView.layer.cornerRadius = 24
+    _contentView.layer.borderWidth = 1
+    _contentView.layer.borderColor = UIColor.white.withAlphaComponent(0.12).cgColor
+    _contentView.clipsToBounds = true
+
+    let transcriptSurface = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
+    transcriptSurface.translatesAutoresizingMaskIntoConstraints = false
+    transcriptSurface.isUserInteractionEnabled = false
+    _contentView.insertSubview(transcriptSurface, at: 0)
+    NSLayoutConstraint.activate([
+      transcriptSurface.leadingAnchor.constraint(equalTo: _contentView.leadingAnchor),
+      transcriptSurface.trailingAnchor.constraint(equalTo: _contentView.trailingAnchor),
+      transcriptSurface.topAnchor.constraint(equalTo: _contentView.topAnchor),
+      transcriptSurface.bottomAnchor.constraint(equalTo: _contentView.bottomAnchor)
+    ])
+
+    _statusLabel.font = .systemFont(ofSize: 16, weight: .semibold)
+    _statusLabel.textColor = .secondaryLabel
+    _statusActivity.isHidden = true
+
+    localeButton.tintColor = .secondaryLabel
+    localeButton.backgroundColor = UIColor.white.withAlphaComponent(0.08)
+    localeButton.layer.cornerRadius = 20
+    localeButton.layer.borderWidth = 1
+    localeButton.layer.borderColor = UIColor.white.withAlphaComponent(0.18).cgColor
+    localeButton.setTitleColor(.secondaryLabel, for: .normal)
+    localeButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
+    _updateLocaleButtonTitle()
+
+    _saveButton.tintColor = _accentColor
+    _saveButton.backgroundColor = _accentColor.withAlphaComponent(0.14)
+    _saveButton.layer.cornerRadius = 15
+    _saveButton.layer.borderWidth = 1
+    _saveButton.layer.borderColor = _accentColor.withAlphaComponent(0.35).cgColor
+    _saveButton.setImage(UIImage(systemName: "square.and.arrow.down.fill"), for: .normal)
+
+    _progressView.isHidden = true
+
+    textView.backgroundColor = .clear
+    textView.textColor = .label
+    textView.font = .systemFont(ofSize: 20, weight: .regular)
+    textView.textContainerInset = UIEdgeInsets(top: 14, left: 14, bottom: 16, right: 14)
+    textView.textContainer.lineFragmentPadding = 0
+    textView.indicatorStyle = .white
+  }
+}
+
+private final class CircularProgressIndicator: UIView {
+  private let _trackLayer = CAShapeLayer()
+  private let _progressLayer = CAShapeLayer()
+
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    isUserInteractionEnabled = false
+    backgroundColor = UIColor.white.withAlphaComponent(0.08)
+    layer.cornerRadius = 20
+    layer.borderWidth = 1
+    layer.borderColor = UIColor.white.withAlphaComponent(0.18).cgColor
+
+    [_trackLayer, _progressLayer].forEach {
+      $0.fillColor = UIColor.clear.cgColor
+      $0.lineWidth = 2.5
+      $0.lineCap = .round
+      layer.addSublayer($0)
+    }
+    _trackLayer.strokeColor = UIColor.white.withAlphaComponent(0.16).cgColor
+    _progressLayer.strokeEnd = 0
+  }
+
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    let inset = _progressLayer.lineWidth / 2 + 5
+    let circleRect = bounds.insetBy(dx: inset, dy: inset)
+    let path = UIBezierPath(ovalIn: circleRect).cgPath
+    _trackLayer.frame = bounds
+    _progressLayer.frame = bounds
+    _trackLayer.path = path
+    _progressLayer.path = path
+  }
+
+  func configure(progressColor: UIColor) {
+    _progressLayer.strokeColor = progressColor.cgColor
+  }
+
+  func setProgress(_ progress: CGFloat, animated: Bool) {
+    let clampedProgress = min(max(progress, 0), 1)
+    let fromValue = _progressLayer.presentation()?.strokeEnd ?? _progressLayer.strokeEnd
+    _progressLayer.strokeEnd = clampedProgress
+
+    guard animated else {
+      _progressLayer.removeAnimation(forKey: "progress")
+      return
+    }
+
+    let animation = CABasicAnimation(keyPath: "strokeEnd")
+    animation.fromValue = fromValue
+    animation.toValue = clampedProgress
+    animation.duration = 0.2
+    _progressLayer.add(animation, forKey: "progress")
+  }
+}

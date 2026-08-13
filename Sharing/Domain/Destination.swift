@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum Destination: String {
   case toLocalePicker

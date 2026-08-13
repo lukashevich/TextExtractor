@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class MessageTranscriberRouter {
   
@@ -67,5 +68,4 @@ extension MessageTranscriber {
     }
   }
 }
-
 
