@@ -1,107 +1,142 @@
 //
 //  AudioEditHelper.swift
-//  RnDVAT
-//
-//  Created by Oleksandr Lukashevych on 12.01.2021.
+//  TextExtactor
 //
 
-import Foundation
 import AVFoundation
+import Foundation
 
 struct AudioEditHelper {
-  
-  static func moveTempAudioFile(to url: URL) {
-    let tempURL = FileManager.tmpFolder.appendingPathComponent("temp").appendingPathExtension("m4a")
-    let asset = AVURLAsset(url: tempURL)
-    asset.writeToURL(url) { _,_  in }
+  private static let segmentDuration: Double = 45
+  private static let overlapDuration: Double = 1.5
+
+  static var preparedAudioURL: URL {
+    FileManager.tmpFolder.appendingPathComponent("source").appendingPathExtension("m4a")
   }
-  
-  static func prepareFile(at url: URL, completion: @escaping (([URL], TranscribeError?) -> Void) ) {
+
+  static func moveTempAudioFile(to url: URL) {
+    guard FileManager.default.fileExists(atPath: preparedAudioURL.path) else { return }
+
+    do {
+      try? FileManager.default.removeItem(at: url)
+      try FileManager.default.copyItem(at: preparedAudioURL, to: url)
+    } catch {
+      print("Could not save audio: \(error)")
+    }
+  }
+
+  static func prepareFile(at url: URL, completion: @escaping ([URL], TranscribeError?) -> Void) {
+    FileManager.clearTmpFolder()
+
     let asset = AVURLAsset(url: url)
-    guard asset.duration.seconds > 60 else {
-      FileManager.clearTmpFolder()
-      let pathWhereToSave = FileManager.tmpFolder.path + "/temp.m4a"
-      asset.writeAudioTrackToURL(URL(fileURLWithPath: pathWhereToSave)) { (success, error) -> () in
-        switch error {
-        case .none:
-          completion([url], nil)
-        case .some(let transcribeError):
-          completion([], transcribeError)
+    asset.loadValuesAsynchronously(forKeys: ["duration", "tracks"]) {
+      var error: NSError?
+      guard asset.statusOfValue(forKey: "duration", error: &error) == .loaded,
+            asset.statusOfValue(forKey: "tracks", error: &error) == .loaded,
+            asset.duration.seconds.isFinite,
+            asset.duration.seconds > 0,
+            !asset.tracks(withMediaType: .audio).isEmpty
+      else {
+        completion([], .failed)
+        return
+      }
+
+      _exportAudioTrack(from: asset, to: preparedAudioURL) { result in
+        switch result {
+        case .failure(let error):
+          completion([], error)
+        case .success:
+          let chunks = _makeChunks(for: asset.duration.seconds)
+          guard !chunks.isEmpty else {
+            completion([], .failed)
+            return
+          }
+          _exportChunks(from: AVURLAsset(url: preparedAudioURL), chunks: chunks, completion: completion)
         }
       }
+    }
+  }
+
+  private static func _makeChunks(for duration: Double) -> [AudioChunk] {
+    let durationInMilliseconds = Int((duration * 1_000).rounded(.up))
+    let chunkDuration = Int(segmentDuration * 1_000)
+    let overlap = Int(overlapDuration * 1_000)
+    let step = chunkDuration - overlap
+
+    guard durationInMilliseconds > 0, step > 0 else { return [] }
+    guard durationInMilliseconds > chunkDuration else {
+      return [AudioChunk(start: 0, duration: durationInMilliseconds)]
+    }
+
+    var chunks: [AudioChunk] = []
+    var start = 0
+
+    while start < durationInMilliseconds {
+      let remaining = durationInMilliseconds - start
+      chunks.append(AudioChunk(start: start, duration: min(chunkDuration, remaining)))
+      guard remaining > chunkDuration else { break }
+      start += step
+    }
+
+    return chunks
+  }
+
+  private static func _exportAudioTrack(from asset: AVAsset, to outputURL: URL, completion: @escaping (Result<Void, TranscribeError>) -> Void) {
+    guard let exportSession = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A) else {
+      completion(.failure(.failed))
       return
     }
-    AudioFileSplitter.split(file: url, completion: { urls in
-      completion(urls, nil)
-    })
-  }
-  
-  static func split(asset: AVURLAsset, chunks: [AudioChunk], completion: (([URL]) -> Void)? = nil) {
-    let chunksGroup = DispatchGroup()
-    var urls = [Int: URL]()
-    chunks.enumerated().forEach { (index, chunk) in
-      chunksGroup.enter()
-      cutAsset(asset, chunk: chunk, index: index)  { index, url in
-        urls[index] = url
-        chunksGroup.leave()
+
+    try? FileManager.default.removeItem(at: outputURL)
+    exportSession.outputURL = outputURL
+    exportSession.outputFileType = .m4a
+    exportSession.exportAsynchronously {
+      guard exportSession.status == .completed,
+            FileManager.default.fileExists(atPath: outputURL.path)
+      else {
+        completion(.failure(TranscribeError(status: exportSession.status) ?? .failed))
+        return
       }
-      chunksGroup.wait()
+      completion(.success(()))
     }
-    
-    completion?(urls.sorted(by: { $0.0 < $1.0 }).map{ $0.1 })
   }
-  
-  private static func cutAsset(_ asset: AVAsset, chunk: AudioChunk, index: Int, completion: ((Int, URL) -> Void)? = nil) {
-    
-    let trimmedSoundFileURL = FileManager.tmpFolder.appendingPathComponent("chunk_\(index).m4a")
-    
-    if FileManager.default.fileExists(atPath: trimmedSoundFileURL.path) {
-      do {
-        if try trimmedSoundFileURL.checkResourceIsReachable() {
-          print("is reachable")
-        }
-        
-        try FileManager.default.removeItem(atPath: trimmedSoundFileURL.path)
-      } catch {
-        print("could not remove \(trimmedSoundFileURL)")
-        print(error.localizedDescription)
+
+  private static func _exportChunks(from asset: AVAsset, chunks: [AudioChunk], completion: @escaping ([URL], TranscribeError?) -> Void) {
+    var urls: [URL] = []
+
+    func exportChunk(at index: Int) {
+      guard index < chunks.count else {
+        completion(urls, nil)
+        return
       }
-      
-    }
-    
-    if let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A) {
-      
-      let outputURL = URL(fileURLWithPath: trimmedSoundFileURL.path)
-      exporter.outputFileType = AVFileType.m4a
-      exporter.outputURL = outputURL
-      exporter.shouldOptimizeForNetworkUse = false
-      
-      let startTime = CMTimeMake(value: Int64(chunk.start), timescale: 1000)
-      let duration = CMTimeMake(value: Int64(chunk.duration), timescale: 1000)
-      
-      exporter.timeRange = CMTimeRangeFromTimeToTime(start: startTime, end: startTime + duration)
-      
-      exporter.exportAsynchronously(completionHandler: {
-        switch exporter.status {
-        case  .failed:
-          completion?(index, outputURL)
-          if let e = exporter.error {
-            print("export failed \(e)", e.localizedDescription)
-          }
-          
-        case .cancelled:
-          completion?(index, outputURL)
-          print("export cancelled \(String(describing: exporter.error))")
-        case .completed:
-          completion?(index, outputURL)
-        default:
-          completion?(index, outputURL)
-          print("export complete")
+
+      let outputURL = FileManager.tmpFolder.appendingPathComponent("chunk_\(index)").appendingPathExtension("m4a")
+      guard let exportSession = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A) else {
+        completion([], .failed)
+        return
+      }
+
+      try? FileManager.default.removeItem(at: outputURL)
+      exportSession.outputURL = outputURL
+      exportSession.outputFileType = .m4a
+      let chunk = chunks[index]
+      exportSession.timeRange = CMTimeRange(
+        start: CMTime(value: Int64(chunk.start), timescale: 1_000),
+        duration: CMTime(value: Int64(chunk.duration), timescale: 1_000)
+      )
+
+      exportSession.exportAsynchronously {
+        guard exportSession.status == .completed,
+              FileManager.default.fileExists(atPath: outputURL.path)
+        else {
+          completion([], TranscribeError(status: exportSession.status) ?? .failed)
+          return
         }
-      })
-    } else {
-      completion?(index, URL(string: "")!)
-      print("cannot create AVAssetExportSession for asset \(asset)")
+        urls.append(outputURL)
+        exportChunk(at: index + 1)
+      }
     }
+
+    exportChunk(at: 0)
   }
 }

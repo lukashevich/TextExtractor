@@ -24,9 +24,9 @@ extension FileManager {
   
   static func createDefaults() {
     let tmpFolderPath = documentsFolder.appendingPathComponent(tmpFolderName)
-    if !FileManager.default.fileExists(atPath: tmpFolderPath.absoluteString) {
+    if !FileManager.default.fileExists(atPath: tmpFolderPath.path) {
       do {
-        try FileManager.default.createDirectory(at: tmpFolderPath, withIntermediateDirectories: false, attributes: nil)
+        try FileManager.default.createDirectory(at: tmpFolderPath, withIntermediateDirectories: true, attributes: nil)
       } catch {
         print(error.localizedDescription)
       }
@@ -79,7 +79,7 @@ extension FileManager {
   
   static func createFolder(for doc: Document, completion: (URL) -> Void) {
     let dataPath = documentsFolder.appendingPathComponent(doc.name)
-    if !FileManager.default.fileExists(atPath: dataPath.absoluteString) {
+    if !FileManager.default.fileExists(atPath: dataPath.path) {
       do {
         print(dataPath.absoluteString)
         try FileManager.default.createDirectory(at: dataPath, withIntermediateDirectories: false, attributes: nil)

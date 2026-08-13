@@ -48,6 +48,12 @@ final class TitledActionView: UIControl {
     addSubview(view)
     contentView = view
 
+    view.backgroundColor = .clear
+    _titleLabel.font = .systemFont(ofSize: 16, weight: .semibold)
+    _titleLabel.textColor = .label
+    _subtitleLabel.font = .systemFont(ofSize: 13, weight: .medium)
+    _subtitleLabel.textColor = .secondaryLabel
+
   }
   
   func loadViewFromNib() -> UIView? {

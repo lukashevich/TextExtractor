@@ -19,6 +19,35 @@ final class PaywallCell: UITableViewCell {
   var subscriptionHandler: (()->Void)?
   var problemHandler: ((Error)->Void)?
 
+  override func awakeFromNib() {
+    super.awakeFromNib()
+
+    backgroundColor = .clear
+    contentView.backgroundColor = .clear
+    contentView.layer.cornerRadius = 24
+    contentView.layer.cornerCurve = .continuous
+    contentView.layer.borderWidth = 1
+    contentView.layer.borderColor = UIColor.accentColor.withAlphaComponent(0.22).cgColor
+    contentView.clipsToBounds = true
+
+    let blur = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
+    blur.translatesAutoresizingMaskIntoConstraints = false
+    contentView.insertSubview(blur, at: 0)
+    NSLayoutConstraint.activate([
+      blur.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+      blur.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+      blur.topAnchor.constraint(equalTo: contentView.topAnchor),
+      blur.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+    ])
+
+    _subscribeButton.backgroundColor = .accentColor
+    _subscribeButton.layer.cornerRadius = 16
+    _subscribeButton.layer.cornerCurve = .continuous
+    _trialLabel.textColor = .accentColor
+    _fullPreloader.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.72)
+    _fullPreloaderActivity.color = .accentColor
+  }
+
   override func didMoveToSuperview() {
     SubscriptionHelper.retrieveInfo(subscription: Subscription.currentGroup.main) { product in
       guard let product = product, let period = product.period else { return }

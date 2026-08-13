@@ -41,11 +41,10 @@ final class LibraryController: UICollectionViewController, ShareControllerPresen
   
   override func viewDidLoad() {
     super.viewDidLoad()
-  
-    collectionView.backgroundView = UIView(frame: .zero)
+
     collectionView.backgroundColor = .clear
-    
-    setupHolidayBackgound()
+    collectionView.tintColor = .accentColor
+    _configureAppearance()
     
     NotificationCenter.default.addObserver(self, selector: #selector(viewDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
   }
@@ -55,6 +54,53 @@ final class LibraryController: UICollectionViewController, ShareControllerPresen
     UserDefaults.standard.documentsToImport.forEach{ $0.createFile() }
     UserDefaults.standard.documentsToImport = []
     self.collectionView.reloadData()
+  }
+
+  private func _configureAppearance() {
+    let backdrop = UIVisualEffectView(effect: UIBlurEffect(style: .systemChromeMaterial))
+    backdrop.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    collectionView.backgroundView = backdrop
+  }
+
+  private func _styleAddCell(_ cell: UICollectionViewCell) {
+    let surface = cell.contentView
+    surface.backgroundColor = .clear
+    surface.layer.cornerRadius = 20
+    surface.layer.cornerCurve = .continuous
+    surface.layer.borderWidth = 1
+    surface.layer.borderColor = UIColor.accentColor.withAlphaComponent(0.32).cgColor
+    surface.clipsToBounds = true
+
+    if surface.viewWithTag(90_001) == nil {
+      let blur = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
+      blur.tag = 90_001
+      blur.translatesAutoresizingMaskIntoConstraints = false
+      surface.insertSubview(blur, at: 0)
+      NSLayoutConstraint.activate([
+        blur.leadingAnchor.constraint(equalTo: surface.leadingAnchor),
+        blur.trailingAnchor.constraint(equalTo: surface.trailingAnchor),
+        blur.topAnchor.constraint(equalTo: surface.topAnchor),
+        blur.bottomAnchor.constraint(equalTo: surface.bottomAnchor)
+      ])
+    }
+
+    _styleAddCellSubviews(in: surface)
+  }
+
+  private func _styleAddCellSubviews(in view: UIView) {
+    view.subviews.forEach { subview in
+      if subview.tag != 90_001 {
+        if let imageView = subview as? UIImageView {
+          imageView.tintColor = .accentColor
+        } else if let label = subview as? UILabel {
+          label.textColor = .accentColor
+          label.font = .systemFont(ofSize: 17, weight: .semibold)
+        } else {
+          subview.backgroundColor = .clear
+        }
+        _styleAddCellSubviews(in: subview)
+      }
+    }
   }
 }
 
@@ -73,7 +119,9 @@ extension LibraryController {
     
     guard indexPath.row > 0 else {
       let identifier = _listAppearance == .large ? "addNewDocCell" : "addNewDocSmallCell"
-      return collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath as IndexPath)
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath as IndexPath)
+      _styleAddCell(cell)
+      return cell
     }
     
     switch _listAppearance {

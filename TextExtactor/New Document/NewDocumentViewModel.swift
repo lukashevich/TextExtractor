@@ -40,14 +40,17 @@ final class NewDocumentViewModel {
     didSet {
       guard let url = fileUrl else { return }
       AudioEditHelper.prepareFile(at: url) { urls, error in
-        
-        switch error {
-        case .none:
-          Recognizer.enableRecognizing()
-          self._splittedSource = urls
-          self.startProcessing()
-        case .some(let error):
-          self.processStepHandler?(.error(error))
+        DispatchQueue.main.async {
+          guard self.fileUrl == url else { return }
+
+          switch error {
+          case .none:
+            Recognizer.enableRecognizing()
+            self._splittedSource = urls
+            self.startProcessing()
+          case .some(let error):
+            self.processStepHandler?(.error(error))
+          }
         }
       }
     }
@@ -55,8 +58,9 @@ final class NewDocumentViewModel {
   
   private var _recognizedTexts: [String] = []
   private var _splittedSource: [URL] = []
+  private var _processingID: UUID?
   
-  private func _processFile() {
+  private func _processFile(processingID: UUID) {
     guard !_splittedSource.isEmpty else { return }
     
     self._recognizedTexts = []
@@ -64,22 +68,38 @@ final class NewDocumentViewModel {
     DispatchQueue.main.async {
       self.processStepHandler?(.start)
     }
-    let step = CGFloat(1.0 / Float(_splittedSource.count))
+    let chunkCount = _splittedSource.count
     Recognizer.recognizeMedia(at: _splittedSource, in: _locale) { text in
       DispatchQueue.main.async {
-        self._recognizedTexts.append(text)
-        DispatchQueue.main.async {
-          self.processStepHandler?(.recognized(text))
-          let progress = CGFloat(self._recognizedTexts.count) * step
-          self.processStepHandler?(.progress(progress))
+        guard self._processingID == processingID else { return }
+        let newText = self._textWithoutOverlap(text)
+        guard !newText.isEmpty else { return }
+        let separator = self._separator(after: self._recognizedTexts.last ?? "")
+        self._recognizedTexts.append(newText)
+        self.processStepHandler?(.recognized(separator + newText))
+      }
+    } didProcess: { index in
+      DispatchQueue.main.async {
+        guard self._processingID == processingID else { return }
+        self.processStepHandler?(.progress(CGFloat(index + 1) / CGFloat(chunkCount)))
+      }
+    } completion: { error in
+      DispatchQueue.main.async {
+        guard self._processingID == processingID else { return }
+        self._processingID = nil
+
+        guard !self._recognizedTexts.isEmpty else {
+          self.processStepHandler?(.error(error ?? .failed))
+          return
         }
-        guard self._recognizedTexts.count == self._splittedSource.count else { return }
-        self._finishProcessing(text: self._recognizedTexts.joined(separator: " "))
+
+        self._finishProcessing(text: self._formattedTranscript())
       }
     }
   }
   
   func clearData() {
+    _processingID = nil
     fileUrl = nil
     document = nil
     _recognizedTexts = []
@@ -87,26 +107,43 @@ final class NewDocumentViewModel {
   }
   
   func stopExtracting() {
+    _processingID = nil
     Recognizer.stopRecognizing()
   }
   
   func prepareForLocalize() {
+    stopExtracting()
     document = nil
     _recognizedTexts = []
   }
   
   func startProcessing() {
+    guard !_splittedSource.isEmpty else { return }
+    let processingID = UUID()
+    _processingID = processingID
+    Recognizer.enableRecognizing()
     Recognizer.checkStatus { (authorized) in
-      switch authorized {
-      case true:  self._processFile()
-      case false: break
+      DispatchQueue.main.async {
+        guard self._processingID == processingID else { return }
+        switch authorized {
+        case true:
+          guard Recognizer.isAvailable(for: self._locale) else {
+            self._processingID = nil
+            self.processStepHandler?(.error(.notAvailable))
+            return
+          }
+          self._processFile(processingID: processingID)
+        case false:
+          self._processingID = nil
+          self.processStepHandler?(.error(.noPermission))
+        }
       }
     }
   }
   
   func stopExtractingAndSaveDocument() {
     self.stopExtracting()
-    self._finishProcessing(text: self._recognizedTexts.joined(separator: " "))
+    self._finishProcessing(text: self._formattedTranscript())
   }
  
   private func _finishProcessing(text: String) {
@@ -130,6 +167,51 @@ final class NewDocumentViewModel {
     
     DispatchQueue.main.async {
       self.processStepHandler?(.finish(self.document))
+    }
+  }
+
+  private func _textWithoutOverlap(_ text: String) -> String {
+    let incomingWords = text
+      .trimmingCharacters(in: .whitespacesAndNewlines)
+      .split(whereSeparator: \.isWhitespace)
+      .map(String.init)
+    guard let previousText = _recognizedTexts.last, !incomingWords.isEmpty else {
+      return incomingWords.joined(separator: " ")
+    }
+
+    let previousWords = previousText
+      .trimmingCharacters(in: .whitespacesAndNewlines)
+      .split(whereSeparator: \.isWhitespace)
+      .map(String.init)
+    let maximumOverlap = min(20, previousWords.count, incomingWords.count)
+
+    for overlap in stride(from: maximumOverlap, through: 1, by: -1) {
+      let suffix = previousWords.suffix(overlap).map { $0.lowercased() }
+      let prefix = incomingWords.prefix(overlap).map { $0.lowercased() }
+      if suffix == prefix {
+        return incomingWords.dropFirst(overlap).joined(separator: " ")
+      }
+    }
+
+    return incomingWords.joined(separator: " ")
+  }
+
+  private func _formattedTranscript() -> String {
+    _recognizedTexts.reduce("") { transcript, part in
+      transcript + (transcript.isEmpty ? "" : _separator(after: transcript)) + part
+    }
+  }
+
+  private func _separator(after text: String) -> String {
+    guard let previousCharacter = text.trimmingCharacters(in: .whitespacesAndNewlines).last else {
+      return ""
+    }
+
+    switch previousCharacter {
+    case ".", "!", "?", "…", "。", "！", "？":
+      return "\n\n"
+    default:
+      return " "
     }
   }
 }

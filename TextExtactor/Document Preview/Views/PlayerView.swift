@@ -21,13 +21,7 @@ final class PlayerView: UIControl {
 
   var fileUrl: URL? {
     didSet {
-      guard let url = fileUrl else {
-        _player = nil
-        return
-      }
-      _player = try? AVAudioPlayer(contentsOf: url)
-      _player?.delegate = self
-      _waveformImage.waveformAudioURL = url
+      _loadAudio()
     }
   }
   override func awakeFromNib() {
@@ -42,6 +36,8 @@ final class PlayerView: UIControl {
     addSubview(view)
     contentView = view
     _waveformImage.waveformStyle = .striped(.accentColor)
+    _playButton.pause()
+    _playButton.isEnabled = false
   }
   
   func loadViewFromNib() -> UIView? {
@@ -69,8 +65,37 @@ final class PlayerView: UIControl {
       player.pause()
       _playButton.pause()
     case false:
-      player.play()
-      _playButton.play()
+      if player.play() {
+        _playButton.play()
+      }
+    }
+  }
+
+  private func _loadAudio() {
+    _player?.stop()
+    _player = nil
+    _playButton.pause()
+    _playButton.isEnabled = false
+
+    guard let url = fileUrl,
+          FileManager.default.fileExists(atPath: url.path)
+    else {
+      return
+    }
+
+    do {
+      let audioSession = AVAudioSession.sharedInstance()
+      try audioSession.setCategory(.playback, mode: .default)
+      try audioSession.setActive(true)
+
+      let player = try AVAudioPlayer(contentsOf: url)
+      player.delegate = self
+      player.prepareToPlay()
+      _player = player
+      _playButton.isEnabled = true
+      _waveformImage.waveformAudioURL = url
+    } catch {
+      print("Could not load audio player: \(error)")
     }
   }
 }

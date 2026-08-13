@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SettingsController: UIViewController, URLPresenter, AlertPresenter, HolidayAffected {
+final class SettingsController: UIViewController, URLPresenter, AlertPresenter {
   
   @IBOutlet private weak var _fullPreloader: UIView!
   @IBOutlet private weak var _fullPreloaderActivity: UIActivityIndicatorView!
@@ -19,10 +19,34 @@ final class SettingsController: UIViewController, URLPresenter, AlertPresenter, 
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.setupHolidayBackgound()
+    _configureAppearance()
     self.viewModel.updateContent = {
       self._settingsTable.reloadData()
     }
+  }
+
+  private func _configureAppearance() {
+    view.backgroundColor = .clear
+
+    let backdrop = UIVisualEffectView(effect: UIBlurEffect(style: .systemChromeMaterial))
+    backdrop.translatesAutoresizingMaskIntoConstraints = false
+    view.insertSubview(backdrop, at: 0)
+    NSLayoutConstraint.activate([
+      backdrop.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      backdrop.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      backdrop.topAnchor.constraint(equalTo: view.topAnchor),
+      backdrop.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    ])
+
+    _settingsTable.backgroundColor = .clear
+    _settingsTable.tintColor = .accentColor
+    _settingsTable.separatorColor = UIColor.accentColor.withAlphaComponent(0.16)
+    _settingsTable.sectionHeaderTopPadding = 14
+    _settingsTable.sectionHeaderHeight = 34
+    _settingsTable.sectionFooterHeight = 14
+
+    _fullPreloader.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.72)
+    _fullPreloaderActivity.color = .accentColor
   }
 }
 
@@ -48,6 +72,7 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: self.viewModel.source[indexPath.section][indexPath.row].rawValue, for: indexPath)
+    _style(cell)
     
     if self.viewModel.source[indexPath.section][indexPath.row] == .subscription {
       (cell as? PaywallCell)?.subscriptionHandler = self.viewModel.subscribed
@@ -55,6 +80,22 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
     }
     
     return cell
+  }
+
+  func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    guard let header = view as? UITableViewHeaderFooterView else { return }
+    header.textLabel?.textColor = .accentColor
+    header.textLabel?.font = .systemFont(ofSize: 13, weight: .bold)
+  }
+
+  private func _style(_ cell: UITableViewCell) {
+    cell.tintColor = .accentColor
+    cell.backgroundColor = .secondarySystemGroupedBackground
+    cell.contentView.backgroundColor = .clear
+
+    let selectedBackground = UIView()
+    selectedBackground.backgroundColor = UIColor.accentColor.withAlphaComponent(0.12)
+    cell.selectedBackgroundView = selectedBackground
   }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

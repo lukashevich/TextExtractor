@@ -116,7 +116,7 @@
                                         <constraint firstItem="YVt-4y-BV9" firstAttribute="leading" secondItem="jEZ-ra-KXs" secondAttribute="leading" constant="8" id="05R-WL-NSu"/>
                                         <constraint firstAttribute="trailing" secondItem="wBw-e7-Y1v" secondAttribute="trailing" id="1wG-DW-enl"/>
                                         <constraint firstItem="wBw-e7-Y1v" firstAttribute="leading" secondItem="jEZ-ra-KXs" secondAttribute="leading" id="7UE-jr-kGI"/>
-                                        <constraint firstAttribute="bottom" secondItem="Ala-Mo-SFY" secondAttribute="bottom" id="7e0-oB-VPb"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ala-Mo-SFY" secondAttribute="bottom" constant="40" id="7e0-oB-VPb"/>
                                         <constraint firstItem="wia-NS-I5O" firstAttribute="top" secondItem="jEZ-ra-KXs" secondAttribute="top" constant="8" id="DhX-0a-iBH"/>
                                         <constraint firstItem="Ala-Mo-SFY" firstAttribute="leading" secondItem="jEZ-ra-KXs" secondAttribute="leading" constant="8" id="FhL-qn-vkE"/>
                                         <constraint firstItem="Ala-Mo-SFY" firstAttribute="top" secondItem="wia-NS-I5O" secondAttribute="bottom" constant="8" symbolic="YES" id="IrT-Fx-lZ6"/>
@@ -329,7 +329,7 @@
                                     <outlet property="trumbnail" destination="P3q-zW-ymW" id="TNQ-vD-jif"/>
                                 </connections>
                             </collectionViewCell>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="addNewDocSmallCell" id="zST-kx-ZbA" customClass="LibrarySmallItemCell" customModule="Sharing" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="addNewDocSmallCell" id="zST-kx-ZbA">
                                 <rect key="frame" x="20" y="414" width="374" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="BZg-bk-BkA">
@@ -399,10 +399,6 @@
                                 </collectionViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="customSize" width="374" height="88"/>
-                                <connections>
-                                    <outlet property="subtitle" destination="A9s-3e-wjh" id="0ra-4W-wyd"/>
-                                    <outlet property="trumbnail" destination="wkq-x0-pap" id="GKU-Dr-gIR"/>
-                                </connections>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="UeZ-p2-0lr" customClass="LibraryHeader" customModule="Sharing" customModuleProvider="target">
@@ -420,7 +416,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBt-FX-RaI">
-                                    <rect key="frame" x="74.5" y="14.5" width="85" height="21"/>
+                                    <rect key="frame" x="74.5" y="7" width="112" height="36"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                     <inset key="imageEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <state key="normal" title="Manually">

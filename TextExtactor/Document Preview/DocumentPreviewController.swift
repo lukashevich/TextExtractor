@@ -25,7 +25,7 @@ final class DocumentPreviewController: UIViewController {
     case .video, .audio:
       self.titleText.text = doc.name
       self.text.text = doc.text
-      self.player.fileUrl = doc.audioLink
+      self.player.fileUrl = viewModel.isNew ? AudioEditHelper.preparedAudioURL : doc.audioLink
     case .picture:
       self.player.isHidden = true
       self.titleText.text = doc.name

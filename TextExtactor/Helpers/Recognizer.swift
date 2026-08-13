@@ -2,156 +2,155 @@
 //  Recognizer.swift
 //  TextExtactor
 //
-//  Created by Oleksandr Lukashevych on 15.02.2021.
-//
 
 import Foundation
 import Speech
 
 final class Recognizer {
-  
   static var locales: [Locale] { Array(SFSpeechRecognizer.supportedLocales()) }
-  static var groupedLocales:[String?: [Locale]]  {
+  static var groupedLocales: [String?: [Locale]] {
     locales.group(by: \.language.languageCode?.identifier)
   }
-  private static var _stopped: Bool = false
-  
-  static var fullText = [Int: String]()
-  
+
+  private static let _stateQueue = DispatchQueue(label: "com.textextractor.speech-state")
+  private static var _stopped = false
+  private static var _activeTask: SFSpeechRecognitionTask?
+
   static func checkStatus(completion: @escaping (Bool) -> Void) {
-    SFSpeechRecognizer.requestAuthorization { authStatus in
-      if authStatus == .authorized {
-        completion(true)
-      } else {
-        completion(false)
-      }
+    SFSpeechRecognizer.requestAuthorization { status in
+      completion(status == .authorized)
     }
   }
-  
-  static func validateRecord(at url:URL, in locale:Locale, completion: ((Bool) -> ())? = nil) {
-    guard let recognizer = SFSpeechRecognizer(locale: locale) else {
+
+  static func isAvailable(for locale: Locale) -> Bool {
+    SFSpeechRecognizer(locale: locale)?.isAvailable == true
+  }
+
+  static func validateRecord(at url: URL, in locale: Locale, completion: ((Bool) -> Void)? = nil) {
+    guard let recognizer = SFSpeechRecognizer(locale: locale), recognizer.isAvailable else {
       completion?(false)
       return
     }
-    
-    if !recognizer.isAvailable {
-      completion?(false)
-      return
-    }
-    
+
     let request = SFSpeechURLRecognitionRequest(url: url)
-    recognizer.recognitionTask(with: request) { (result, error) in
-      guard let result = result else {
-        completion?(false)
-        return
-      }
-      completion?(true)
+    recognizer.recognitionTask(with: request) { result, _ in
+      completion?(result?.isFinal == true)
     }
   }
-  
-  private static var _notFinalTranscription: String?
-  static func recognizeMedia(at url:URL, in locale:Locale, completion: ((String?, TranscribeError?) -> ())? = nil)  {
-    
-    _notFinalTranscription = nil
-    
+
+  static func recognizeMedia(at url: URL, in locale: Locale, completion: ((String?, TranscribeError?) -> Void)? = nil) {
     guard let recognizer = SFSpeechRecognizer(locale: locale) else {
       completion?(nil, .noPermission)
       return
     }
-    
+
     guard recognizer.isAvailable else {
       completion?(nil, .notAvailable)
       return
     }
-    
-    
+
     let request = SFSpeechURLRecognitionRequest(url: url)
-    
-    recognizer.recognitionTask(with: request) { (result, error) in
-      guard let result = result else {
-        switch _notFinalTranscription {
-        case .none:
-          completion?(nil, .failed)
-        case .some(let notFinalText):
-          completion?(notFinalText, nil)
-        }
-        return
-      }
-      
-      switch result.isFinal {
-      case true:
+    request.taskHint = .dictation
+    request.addsPunctuation = true
+    request.shouldReportPartialResults = false
+
+    var didFinish = false
+    var task: SFSpeechRecognitionTask?
+    task = recognizer.recognitionTask(with: request) { result, error in
+      guard !didFinish else { return }
+
+      if let result, result.isFinal {
+        didFinish = true
+        _complete(task)
         completion?(result.bestTranscription.formattedString, nil)
-      case false:
-        _notFinalTranscription = result.bestTranscription.formattedString
-      }
-    }
-  }
-  
-  static func recognizeMediaConcurrently(at urls:[URL], in locale:Locale, newText: @escaping ((String, Int) -> ()), completion: ((String) -> ())? = nil) {
-    
-    var result = [Int:String]()
-    let group = DispatchGroup()
-    
-    let concurrentQueue = DispatchQueue.init(label: "concurrent", attributes: .concurrent)
-    
-    let startDate = Date()
-    urls.enumerated().forEach { index, url in
-      DispatchQueue.global(qos: .utility).async(group: group) {
-        
-        Recognizer.recognizeMedia(at: url, in: locale) { text, error in
-          
-          switch error {
-          case .none:
-            newText(text ?? "" , index)
-            result[index] = text
-          case .some:
-            result[index] = "{...}"
-          }
-        }
-      }
-      Thread.sleep(forTimeInterval: 1)
-
-    }
-    
-    group.notify(queue: .main) {
-      print("FULL TIME", Date().timeIntervalSince1970 - startDate.timeIntervalSince1970)
-    }
-  }
-  
-  static func recognizeMedia(at urls:[URL], in locale:Locale, newText: @escaping ((String) -> ()), completion: ((String) -> ())? = nil) {
-    var newUrls = urls
-    guard let url = newUrls.first else {
-      completion?("")
-      return
-    }
-    
-    guard !_stopped else {
-      self._stopped = false
-      completion?("")
-      return
-    }
-    
-    Recognizer.recognizeMedia(at: url, in: locale) { (text, error) in
-      guard !_stopped else {
-        completion?("")
         return
       }
-      
-      newUrls.removeFirst()
 
-      if error == nil, let transcribed = text, !transcribed.isEmpty {
-        newText(transcribed + ", ")
+      if error != nil {
+        didFinish = true
+        _complete(task)
+        completion?(nil, _isStopped ? .cancelled : .failed)
+      }
+    }
+    _activate(task)
+  }
+
+  static func recognizeMedia(
+    at urls: [URL],
+    in locale: Locale,
+    newText: @escaping (String) -> Void,
+    didProcess: ((Int) -> Void)? = nil,
+    completion: ((TranscribeError?) -> Void)? = nil
+  ) {
+    var remainingURLs = urls
+    var firstError: TranscribeError?
+
+    func recognizeNext(at index: Int) {
+      guard let url = remainingURLs.first else {
+        completion?(firstError)
+        return
       }
 
-      self.recognizeMedia(at: newUrls, in: locale, newText: newText, completion: completion)
+      guard !_isStopped else {
+        completion?(.cancelled)
+        return
+      }
+
+      recognizeMedia(at: url, in: locale) { text, error in
+        guard !_isStopped else {
+          completion?(.cancelled)
+          return
+        }
+
+        remainingURLs.removeFirst()
+        if let text, !text.isEmpty {
+          newText(text)
+        } else if firstError == nil {
+          firstError = error ?? .failed
+        }
+
+        didProcess?(index)
+        recognizeNext(at: index + 1)
+      }
+    }
+
+    guard !urls.isEmpty else {
+      completion?(.failed)
+      return
+    }
+
+    recognizeNext(at: 0)
+  }
+
+  static func enableRecognizing() {
+    _stateQueue.sync {
+      _stopped = false
     }
   }
-  
-  static func enableRecognizing() {
-    self._stopped = false
-  }
-  
+
   static func stopRecognizing() {
-    self._stopped = true
+    _stateQueue.sync {
+      _stopped = true
+      _activeTask?.cancel()
+      _activeTask = nil
+    }
+  }
+
+  private static var _isStopped: Bool {
+    _stateQueue.sync { _stopped }
+  }
+
+  private static func _activate(_ task: SFSpeechRecognitionTask?) {
+    _stateQueue.sync {
+      _activeTask?.cancel()
+      _activeTask = task
+    }
+  }
+
+  private static func _complete(_ task: SFSpeechRecognitionTask?) {
+    _stateQueue.sync {
+      guard let task, _activeTask === task else { return }
+      _activeTask = nil
+    }
   }
 }

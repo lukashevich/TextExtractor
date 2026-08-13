@@ -25,15 +25,17 @@ final class NewDocumentController: UIViewController, AlertPresenter {
   private var _expandedCell: ExpandableCell?
   private var _document: Document?
   private lazy var _router = NewDocRouter(controller: self)
+  private let _accentColor = UIColor.accentColor
   
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    _configureAppearance()
     
     self.viewModel.processStepHandler = { step in
       switch step {
       case .error:
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-          self.progressView.progress = 0.0
           self.bottomView.isHidden = true
           self.preloader.isHidden = true
           self._clearFileViews()
@@ -46,15 +48,13 @@ final class NewDocumentController: UIViewController, AlertPresenter {
         self.newDocumentTextView.textColor = .label
       case .recognized(let text):
         self.bottomView.isHidden = false
-        self.progressView.progress = 0.0
         self.preloader.isHidden = true
         self.newDocumentTextView.type(text)
-      case .progress(let progress):
-        self.progressView.setProgress(Float(progress), animated: true)
+      case .progress:
+        break
       case .finish(let document):
         TapticHelper.triple()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-          self.progressView.progress = 1.0
           self.bottomView.isHidden = true
           guard let doc = document, !doc.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             self._showExtractErrorWarning()
@@ -110,8 +110,88 @@ final class NewDocumentController: UIViewController, AlertPresenter {
     fileView.subtitle = ""
     viewModel.clearData()
     self.bottomView.isHidden = true
+    self.preloader.isHidden = true
     newDocumentTextView.text = nil
   }
+
+  private func _configureAppearance() {
+    view.backgroundColor = .clear
+
+    let backdrop = UIVisualEffectView(effect: UIBlurEffect(style: .systemChromeMaterial))
+    backdrop.translatesAutoresizingMaskIntoConstraints = false
+    view.insertSubview(backdrop, at: 0)
+    NSLayoutConstraint.activate([
+      backdrop.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      backdrop.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      backdrop.topAnchor.constraint(equalTo: view.topAnchor),
+      backdrop.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    ])
+
+    _styleGlassSurface(fileView, cornerRadius: 18)
+    _styleGlassSurface(locationView, cornerRadius: 18)
+
+    if let textSurface = newDocumentTextView.superview {
+      _styleGlassSurface(textSurface, cornerRadius: 24)
+    }
+    newDocumentTextView.backgroundColor = .clear
+    newDocumentTextView.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+    newDocumentTextView.font = .systemFont(ofSize: 22, weight: .regular)
+
+    _styleGlassSurface(preloader, cornerRadius: 20)
+    preloader.preloader.color = _accentColor
+
+    _styleGlassSurface(bottomView, cornerRadius: 22)
+    _styleBottomActions()
+    progressView.isHidden = true
+  }
+
+  private func _styleGlassSurface(_ surface: UIView, cornerRadius: CGFloat) {
+    surface.backgroundColor = .clear
+    surface.layer.cornerRadius = cornerRadius
+    surface.layer.cornerCurve = .continuous
+    surface.layer.borderWidth = 1
+    surface.layer.borderColor = UIColor.white.withAlphaComponent(0.18).cgColor
+    surface.clipsToBounds = true
+
+    let material = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
+    material.translatesAutoresizingMaskIntoConstraints = false
+    surface.insertSubview(material, at: 0)
+    NSLayoutConstraint.activate([
+      material.leadingAnchor.constraint(equalTo: surface.leadingAnchor),
+      material.trailingAnchor.constraint(equalTo: surface.trailingAnchor),
+      material.topAnchor.constraint(equalTo: surface.topAnchor),
+      material.bottomAnchor.constraint(equalTo: surface.bottomAnchor)
+    ])
+    _clearBackgrounds(in: surface, excluding: material)
+  }
+
+  private func _clearBackgrounds(in view: UIView, excluding excludedView: UIView? = nil) {
+    view.subviews.forEach { subview in
+      guard subview !== excludedView else { return }
+      subview.backgroundColor = .clear
+      _clearBackgrounds(in: subview, excluding: excludedView)
+    }
+  }
+
+  private func _styleBottomActions() {
+    guard let actionStack = bottomView.subviews.compactMap({ $0 as? UIStackView }).first else { return }
+    let buttons = actionStack.arrangedSubviews.compactMap { $0 as? UIButton }
+
+    for button in buttons {
+      button.layer.cornerRadius = 14
+      button.layer.cornerCurve = .continuous
+      button.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
+    }
+
+    guard buttons.count >= 2 else { return }
+    buttons[0].backgroundColor = _accentColor
+    buttons[0].setTitleColor(.white, for: .normal)
+    buttons[1].backgroundColor = UIColor.white.withAlphaComponent(0.08)
+    buttons[1].layer.borderWidth = 1
+    buttons[1].layer.borderColor = UIColor.white.withAlphaComponent(0.16).cgColor
+    buttons[1].setTitleColor(.secondaryLabel, for: .normal)
+  }
+
   
   private func _updateLocaleView() {
     locationView.title = UserDefaults.standard.extractingLocale.country ?? ""

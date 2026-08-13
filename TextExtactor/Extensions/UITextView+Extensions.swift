@@ -23,6 +23,8 @@ class TypenTextView: UITextView {
   private var _textQueue = [String]()
   
   func type(_ text: String) {
+    guard !text.isEmpty else { return }
+
     guard !isTyping else {
       return _textQueue.append(text)
     }

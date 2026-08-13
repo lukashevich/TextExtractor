@@ -18,14 +18,12 @@ final class DocSourceIconView: UIView {
       switch docType {
       case .video:
         icon?.image = UIImage.videoIcon
-        contentView?.backgroundColor = UIColor.systemRed.withAlphaComponent(0.9)
       case .audio:
         icon?.image = UIImage.audioIcon
-        contentView?.backgroundColor = UIColor.systemYellow.withAlphaComponent(0.9)
       case .picture:
         icon?.image = UIImage.pictureIcon
-        contentView?.backgroundColor = .systemTeal
       }
+      contentView?.backgroundColor = .accentColor
     }
   }
   
