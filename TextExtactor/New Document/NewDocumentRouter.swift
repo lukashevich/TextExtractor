@@ -15,7 +15,7 @@ class NewDocRouter {
   }
   
   enum Segue {
-    case preview(Document)
+    case preview(Document, [TranscriptTimelineItem])
     case paywall(Subscription, PaywallHandlers)
     case locales(LocalePickerHandler)
     
@@ -29,7 +29,7 @@ class NewDocRouter {
     
     var senderVM: Any? {
       switch self {
-      case .preview(let doc): return DocumentPreviewViewModel(document: doc, isNew: true)
+      case .preview(let doc, let timeline): return DocumentPreviewViewModel(document: doc, isNew: true, timeline: timeline)
       case .paywall(let subscription, let handlers): return PaywallViewModel(subscription: subscription, handlers: handlers, source: .main)
       case .locales(let handler): return LocalesViewModel(onSelect: handler)
       }
@@ -65,5 +65,4 @@ extension NewDocumentController {
     }
   }
 }
-
 

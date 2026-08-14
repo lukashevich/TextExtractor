@@ -13,6 +13,11 @@ enum DocumentSource: String, Codable {
   case picture
 }
 
+struct TranscriptTimelineItem: Codable, Equatable {
+  let startTime: TimeInterval
+  let text: String
+}
+
 struct Document: Codable {
   let name: String
   let text: String
@@ -28,4 +33,3 @@ struct Document: Codable {
     self.source = source
   }
 }
-

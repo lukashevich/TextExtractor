@@ -127,13 +127,15 @@ extension LibraryController {
     switch _listAppearance {
     case .large:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LibraryItemCell.reuseIdentifier, for: indexPath as IndexPath) as! LibraryItemCell
-      cell.viewModel = LibraryItemCellViewModel(document: viewModel.source[indexPath.row - 1])
+      let document = viewModel.source[indexPath.row - 1]
+      cell.viewModel = LibraryItemCellViewModel(document: document, badge: viewModel.badge(for: document))
       cell.delegate = self
       
       return cell
     case .small:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LibrarySmallItemCell.reuseIdentifier, for: indexPath as IndexPath) as! LibrarySmallItemCell
-      cell.viewModel = LibraryItemCellViewModel(document: viewModel.source[indexPath.row - 1])
+      let document = viewModel.source[indexPath.row - 1]
+      cell.viewModel = LibraryItemCellViewModel(document: document, badge: viewModel.badge(for: document))
       cell.delegate = self
 
       return cell

@@ -32,6 +32,38 @@ extension FileManager {
       }
     }
   }
+
+  static func recoverDocumentTransactions() {
+    let fileManager = FileManager.default
+    guard let entries = try? fileManager.contentsOfDirectory(
+      at: documentsFolder,
+      includingPropertiesForKeys: nil
+    ) else {
+      return
+    }
+
+    for backupURL in entries where backupURL.lastPathComponent.hasPrefix(".document-backup-") {
+      let metaURL = backupURL.appendingPathComponent(metaFileName)
+      guard let data = try? Data(contentsOf: metaURL),
+            let meta = try? JSONSerialization.jsonObject(with: data) as? [String: String],
+            let name = meta["name"],
+            !name.isEmpty
+      else {
+        continue
+      }
+
+      let destination = documentsFolder.appendingPathComponent(name)
+      if fileManager.fileExists(atPath: destination.path) {
+        try? fileManager.removeItem(at: backupURL)
+      } else {
+        try? fileManager.moveItem(at: backupURL, to: destination)
+      }
+    }
+
+    for stagingURL in entries where stagingURL.lastPathComponent.hasPrefix(".document-stage-") {
+      try? fileManager.removeItem(at: stagingURL)
+    }
+  }
   
   static func content(from url: URL) -> [String]? {
     let fileManager = FileManager.default
@@ -93,7 +125,11 @@ extension FileManager {
   static private var documentsFolders: [URL] {
     do {
       return try FileManager.default.contentsOfDirectory(at: documentsFolder, includingPropertiesForKeys: nil)
-        .filter { $0.lastPathComponent != tmpFolderName }
+        .filter {
+          $0.lastPathComponent != tmpFolderName
+            && !$0.lastPathComponent.hasPrefix(".document-stage-")
+            && !$0.lastPathComponent.hasPrefix(".document-backup-")
+        }
     } catch {
       return []
     }

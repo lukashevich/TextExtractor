@@ -14,4 +14,11 @@ enum PreviewOpenType {
 struct DocumentPreviewViewModel {
   var document: Document
   let isNew: Bool
+  let timeline: [TranscriptTimelineItem]
+
+  init(document: Document, isNew: Bool, timeline: [TranscriptTimelineItem]? = nil) {
+    self.document = document
+    self.isNew = isNew
+    self.timeline = timeline ?? document.timeline
+  }
 }

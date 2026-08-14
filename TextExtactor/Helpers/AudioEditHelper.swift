@@ -14,6 +14,10 @@ struct AudioEditHelper {
     FileManager.tmpFolder.appendingPathComponent("source").appendingPathExtension("m4a")
   }
 
+  static func timelineStart(forSegmentAt index: Int) -> TimeInterval {
+    Double(index) * (segmentDuration - overlapDuration)
+  }
+
   static func moveTempAudioFile(to url: URL) {
     guard FileManager.default.fileExists(atPath: preparedAudioURL.path) else { return }
 

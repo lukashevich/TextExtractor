@@ -12,6 +12,11 @@ final class TitledPreloader: UIView {
   var contentView:UIView?
   
   @IBOutlet weak var preloader: UIActivityIndicatorView!
+  @IBOutlet private weak var _statusLabel: UILabel!
+
+  func setStatus(_ status: String) {
+    _statusLabel.text = status
+  }
 
   override func awakeFromNib() {
     super.awakeFromNib()

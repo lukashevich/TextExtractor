@@ -10,7 +10,7 @@ import UIKit
 import VisionKit
 import Vision
 
-final class NewDocumentController: UIViewController, AlertPresenter {
+final class NewDocumentController: UIViewController, AlertPresenter, ShareControllerPresenter {
   
   @IBOutlet weak var fileView: TitledActionView!
   @IBOutlet weak var locationView: TitledActionView!
@@ -26,6 +26,14 @@ final class NewDocumentController: UIViewController, AlertPresenter {
   private var _document: Document?
   private lazy var _router = NewDocRouter(controller: self)
   private let _accentColor = UIColor.accentColor
+  private let _emptyStateView = UIView()
+  private let _emptyStateTitle = UILabel()
+  private let _emptyStateSubtitle = UILabel()
+  private var _resultPlayer: PlayerView?
+  private var _resultDocument: Document?
+  private var _resultPlayerTopConstraint: NSLayoutConstraint?
+  private var _defaultActionTopConstraint: NSLayoutConstraint?
+  private var _mediaActionTopConstraint: NSLayoutConstraint?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,8 +42,14 @@ final class NewDocumentController: UIViewController, AlertPresenter {
     
     self.viewModel.processStepHandler = { step in
       switch step {
+      case .preparing(let status):
+        self._setEmptyStateVisible(false)
+        self.bottomView.isHidden = true
+        self.preloader.setStatus(status)
+        self.preloader.isHidden = false
       case .error:
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+          self.newDocumentTextView.cancelTyping()
           self.bottomView.isHidden = true
           self.preloader.isHidden = true
           self._clearFileViews()
@@ -44,23 +58,32 @@ final class NewDocumentController: UIViewController, AlertPresenter {
         
       case .start:
         TapticHelper.weak()
+        self._setEmptyStateVisible(false)
+        self.newDocumentTextView.cancelTyping()
         self.newDocumentTextView.text = ""
         self.newDocumentTextView.textColor = .label
+        self.bottomView.isHidden = true
+        self.preloader.setStatus(self.viewModel.fileUrl == nil ? "Reading text…" : "Transcribing…")
+        self.preloader.isHidden = false
       case .recognized(let text):
-        self.bottomView.isHidden = false
-        self.preloader.isHidden = true
+        // The transcript is still incomplete here. Keeping the progress state visible
+        // prevents a partial document from being opened before all chunks are processed.
+        self.bottomView.isHidden = true
+        self.preloader.isHidden = false
         self.newDocumentTextView.type(text)
-      case .progress:
-        break
+      case .progress(let completed, let total):
+        self.preloader.setStatus("Transcribing \(completed) of \(total)…")
       case .finish(let document):
         TapticHelper.triple()
+        self.newDocumentTextView.completeTyping()
+        self.preloader.setStatus("Preparing your transcript…")
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-          self.bottomView.isHidden = true
+          self.preloader.isHidden = true
           guard let doc = document, !doc.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             self._showExtractErrorWarning()
             return
           }
-          self._finalizeExtracting()
+          self._showFinishedResult(doc)
         }
       }
     }
@@ -70,11 +93,11 @@ final class NewDocumentController: UIViewController, AlertPresenter {
     _updateLocaleView()
   }
   
-  private func _finalizeExtracting() {
+  private func _showFinishedResult(_ document: Document) {
     func success() {
-      guard let doc = viewModel.document else { return }
-      self._clearFileViews()
-      self._router.navigate(to: .preview(doc))
+      self._resultDocument = document
+      self._configureResultActions(for: document)
+      self.bottomView.isHidden = false
     }
     
     func deny() {
@@ -90,12 +113,11 @@ final class NewDocumentController: UIViewController, AlertPresenter {
   }
   
   @IBAction func cancelPressed() {
-    self._clearFileViews()
-    self.viewModel.stopExtracting()
+    shareResult()
   }
   
   @IBAction func savePressed() {
-    self.viewModel.stopExtractingAndSaveDocument()
+    saveResult()
   }
   
   private func _showExtractErrorWarning() {
@@ -104,14 +126,117 @@ final class NewDocumentController: UIViewController, AlertPresenter {
     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
     self.present(alert, animated: true, completion: nil)
   }
+
+  private func _configureResultActions(for document: Document) {
+    guard let actionStack = bottomView.subviews.compactMap({ $0 as? UIStackView }).first else { return }
+    let buttons = actionStack.arrangedSubviews.compactMap { $0 as? UIButton }
+    guard buttons.count >= 2 else { return }
+
+    buttons[0].setTitle("Save", for: .normal)
+    buttons[1].setTitle("Share", for: .normal)
+
+    switch document.source {
+    case .audio, .video:
+      _configureResultPlayer(with: AudioEditHelper.preparedAudioURL, actionStack: actionStack)
+    case .picture:
+      _hideResultPlayer()
+    }
+  }
+
+  private func _configureResultPlayer(with url: URL, actionStack: UIStackView) {
+    let player: PlayerView
+    if let existingPlayer = _resultPlayer {
+      player = existingPlayer
+    } else {
+      let newPlayer = PlayerView(frame: .zero)
+      newPlayer.translatesAutoresizingMaskIntoConstraints = false
+      newPlayer.xibSetup()
+      bottomView.addSubview(newPlayer)
+
+      let defaultTop = bottomView.constraints.first {
+        $0.firstItem === actionStack && $0.firstAttribute == .top
+      }
+      _defaultActionTopConstraint = defaultTop
+      defaultTop?.isActive = false
+
+      let playerTop = newPlayer.topAnchor.constraint(equalTo: bottomView.topAnchor, constant: 16)
+      let actionTop = actionStack.topAnchor.constraint(equalTo: newPlayer.bottomAnchor, constant: 16)
+      NSLayoutConstraint.activate([
+        playerTop,
+        actionTop,
+        newPlayer.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 20),
+        newPlayer.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: -20),
+        newPlayer.heightAnchor.constraint(equalToConstant: 44)
+      ])
+      _resultPlayerTopConstraint = playerTop
+      _mediaActionTopConstraint = actionTop
+      _resultPlayer = newPlayer
+      player = newPlayer
+    }
+
+    player.isHidden = false
+    _resultPlayerTopConstraint?.isActive = true
+    _mediaActionTopConstraint?.isActive = true
+    _defaultActionTopConstraint?.isActive = false
+    player.fileUrl = url
+  }
+
+  private func _hideResultPlayer() {
+    _resultPlayer?.fileUrl = nil
+    _resultPlayer?.isHidden = true
+    _resultPlayerTopConstraint?.isActive = false
+    _mediaActionTopConstraint?.isActive = false
+    _defaultActionTopConstraint?.isActive = true
+  }
+
+  private func saveResult() {
+    guard let document = _resultDocument,
+          let text = newDocumentTextView.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+          !text.isEmpty
+    else {
+      return
+    }
+
+    let documentToSave = document.copy(text: text)
+    let audioURL: URL?
+    switch document.source {
+    case .audio, .video:
+      audioURL = AudioEditHelper.preparedAudioURL
+    case .picture:
+      audioURL = nil
+    }
+
+    do {
+      try documentToSave.saveReplacing(nil, audioSourceURL: audioURL, timeline: viewModel.timeline)
+      UIApplication.dismissToRoot()
+    } catch {
+      let alert = UIAlertController(
+        title: "Couldn’t Save Document",
+        message: error.localizedDescription,
+        preferredStyle: .alert
+      )
+      alert.addAction(UIAlertAction(title: "OK", style: .default))
+      present(alert, animated: true)
+    }
+  }
+
+  private func shareResult() {
+    guard let document = _resultDocument else { return }
+    let text = newDocumentTextView.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+    share(object: text?.isEmpty == false ? text! : document.text)
+  }
   
   private func _clearFileViews() {
-    fileView.title = "CHOOSE_FILE...".localized
-    fileView.subtitle = ""
+    newDocumentTextView.cancelTyping()
+    _resultDocument = nil
+    _hideResultPlayer()
+    fileView.title = "Source"
+    fileView.subtitle = "Choose below"
     viewModel.clearData()
     self.bottomView.isHidden = true
     self.preloader.isHidden = true
     newDocumentTextView.text = nil
+    _setEmptyStateVisible(true)
   }
 
   private func _configureAppearance() {
@@ -134,15 +259,111 @@ final class NewDocumentController: UIViewController, AlertPresenter {
       _styleGlassSurface(textSurface, cornerRadius: 24)
     }
     newDocumentTextView.backgroundColor = .clear
-    newDocumentTextView.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+    newDocumentTextView.textContainerInset = UIEdgeInsets(top: 16, left: 12, bottom: 16, right: 12)
     newDocumentTextView.font = .systemFont(ofSize: 22, weight: .regular)
+
+    if let contentStack = newDocumentTextView.superview?.superview as? UIStackView {
+      contentStack.spacing = 16
+    }
 
     _styleGlassSurface(preloader, cornerRadius: 20)
     preloader.preloader.color = _accentColor
 
     _styleGlassSurface(bottomView, cornerRadius: 22)
     _styleBottomActions()
+    _configureEmptyState()
     progressView.isHidden = true
+  }
+
+  private func _configureEmptyState() {
+    guard let surface = newDocumentTextView.superview else { return }
+
+    _emptyStateView.translatesAutoresizingMaskIntoConstraints = false
+    surface.addSubview(_emptyStateView)
+    NSLayoutConstraint.activate([
+      _emptyStateView.leadingAnchor.constraint(equalTo: surface.leadingAnchor, constant: 24),
+      _emptyStateView.trailingAnchor.constraint(equalTo: surface.trailingAnchor, constant: -24),
+      _emptyStateView.centerYAnchor.constraint(equalTo: surface.centerYAnchor)
+    ])
+
+    _emptyStateTitle.text = "Start a transcription"
+    _emptyStateTitle.font = .systemFont(ofSize: 25, weight: .bold)
+    _emptyStateTitle.textAlignment = .center
+    _emptyStateTitle.textColor = .label
+
+    _emptyStateSubtitle.text = "Choose where your content comes from"
+    _emptyStateSubtitle.font = .systemFont(ofSize: 15, weight: .regular)
+    _emptyStateSubtitle.textAlignment = .center
+    _emptyStateSubtitle.textColor = .secondaryLabel
+    _emptyStateSubtitle.numberOfLines = 0
+
+    let sourceStack = UIStackView(arrangedSubviews: [
+      _sourceButton(title: "Files", subtitle: "Audio or video", symbol: "folder.fill", action: #selector(_pickFromFiles)),
+      _sourceButton(title: "Library", subtitle: "Video from Photos", symbol: "photo.on.rectangle.angled", action: #selector(_pickFromLibrary)),
+      _sourceButton(title: "Scan text", subtitle: "Use the camera", symbol: "doc.text.viewfinder", action: #selector(_scanText))
+    ])
+    sourceStack.axis = .vertical
+    sourceStack.spacing = 12
+
+    let content = UIStackView(arrangedSubviews: [_emptyStateTitle, _emptyStateSubtitle, sourceStack])
+    content.axis = .vertical
+    content.spacing = 10
+    content.setCustomSpacing(18, after: _emptyStateSubtitle)
+    content.translatesAutoresizingMaskIntoConstraints = false
+    _emptyStateView.addSubview(content)
+    NSLayoutConstraint.activate([
+      content.leadingAnchor.constraint(equalTo: _emptyStateView.leadingAnchor),
+      content.trailingAnchor.constraint(equalTo: _emptyStateView.trailingAnchor),
+      content.topAnchor.constraint(equalTo: _emptyStateView.topAnchor),
+      content.bottomAnchor.constraint(equalTo: _emptyStateView.bottomAnchor)
+    ])
+  }
+
+  private func _sourceButton(title: String, subtitle: String, symbol: String, action: Selector) -> UIButton {
+    var configuration = UIButton.Configuration.tinted()
+    configuration.title = title
+    configuration.subtitle = subtitle
+    configuration.image = UIImage(systemName: symbol)
+    configuration.imagePlacement = .leading
+    configuration.imagePadding = 12
+    configuration.titleAlignment = .leading
+    configuration.baseForegroundColor = _accentColor
+    configuration.background.cornerRadius = 16
+    configuration.background.backgroundColor = _accentColor.withAlphaComponent(0.12)
+
+    let button = UIButton(configuration: configuration)
+    button.contentHorizontalAlignment = .leading
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.heightAnchor.constraint(equalToConstant: 64).isActive = true
+    button.addTarget(self, action: action, for: .touchUpInside)
+    return button
+  }
+
+  private func _setEmptyStateVisible(_ visible: Bool) {
+    _emptyStateView.isHidden = !visible
+    fileView.isUserInteractionEnabled = !visible
+  }
+
+  @objc private func _pickFromFiles() {
+    _clearFileViews()
+    pickFileFromCloud()
+  }
+
+  @objc private func _pickFromLibrary() {
+    _clearFileViews()
+    pickFileLibrary()
+  }
+
+  @objc private func _scanText() {
+    _clearFileViews()
+    viewModel.setupVision()
+    selectFromCamera()
+  }
+
+  private func _showSelectedFile(_ url: URL) {
+    _setEmptyStateVisible(false)
+    fileView.title = url.deletingPathExtension().lastPathComponent
+    fileView.subtitle = url.pathExtension
   }
 
   private func _styleGlassSurface(_ surface: UIView, cornerRadius: CGFloat) {
@@ -186,9 +407,9 @@ final class NewDocumentController: UIViewController, AlertPresenter {
     guard buttons.count >= 2 else { return }
     buttons[0].backgroundColor = _accentColor
     buttons[0].setTitleColor(.white, for: .normal)
-    buttons[1].backgroundColor = UIColor.white.withAlphaComponent(0.08)
+    buttons[1].backgroundColor = .secondarySystemGroupedBackground
     buttons[1].layer.borderWidth = 1
-    buttons[1].layer.borderColor = UIColor.white.withAlphaComponent(0.16).cgColor
+    buttons[1].layer.borderColor = UIColor.separator.withAlphaComponent(0.35).cgColor
     buttons[1].setTitleColor(.secondaryLabel, for: .normal)
   }
 
@@ -196,8 +417,20 @@ final class NewDocumentController: UIViewController, AlertPresenter {
   private func _updateLocaleView() {
     locationView.title = UserDefaults.standard.extractingLocale.country ?? ""
     locationView.subtitle = UserDefaults.standard.extractingLocale.identifier
+    let hasSelectedFile = viewModel.fileUrl != nil
     viewModel.prepareForLocalize()
-    guard viewModel.fileUrl != nil else { return }
+
+    guard hasSelectedFile else { return }
+
+    // A locale change starts a fresh recognition pass over the same prepared audio.
+    // Never leave the old transcript or player active while that pass is running.
+    _resultDocument = nil
+    _hideResultPlayer()
+    bottomView.isHidden = true
+    newDocumentTextView.cancelTyping()
+    newDocumentTextView.text = nil
+    preloader.setStatus("Updating language…")
+    preloader.isHidden = false
     viewModel.startProcessing()
   }
   
@@ -237,8 +470,7 @@ final class NewDocumentController: UIViewController, AlertPresenter {
 extension NewDocumentController: LibraryFilePicker {
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     if let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
-      self.fileView.title = videoURL.deletingPathExtension().lastPathComponent
-      self.fileView.subtitle = videoURL.pathExtension
+      self._showSelectedFile(videoURL)
       self.viewModel.fileUrl = videoURL
       self.preloader.isHidden = false
       picker.dismiss(animated: true, completion: nil)
@@ -254,8 +486,7 @@ extension NewDocumentController: iCloudFilePicker {
       return
     }
     
-    self.fileView.title = url.deletingPathExtension().lastPathComponent
-    self.fileView.subtitle = url.pathExtension
+    self._showSelectedFile(url)
     self.preloader.isHidden = false
     self.viewModel.fileUrl = url
   }
@@ -271,7 +502,8 @@ extension NewDocumentController: CameraTextFinder {
     let originalImage = scan.imageOfPage(at: 0)
     let newImage = self.viewModel.compressedImage(originalImage)
     controller.dismiss(animated: true)
-    
+
+    self._setEmptyStateVisible(false)
     self.viewModel.processImage(newImage)
   }
 }

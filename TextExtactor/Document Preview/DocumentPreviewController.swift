@@ -31,6 +31,15 @@ final class DocumentPreviewController: UIViewController {
       self.titleText.text = doc.name
       self.text.text = doc.text
     }
+
+    _configureTimelineMenu()
+  }
+
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+
+    guard isBeingDismissed || navigationController?.isBeingDismissed == true else { return }
+    player.stopPlayback()
   }
   
   @IBAction func cancel() {
@@ -53,8 +62,57 @@ final class DocumentPreviewController: UIViewController {
       return
     }
 
-    FileManager.removeDocument(oldDoc)
-    newDoc.createFile()
-    UIApplication.dismissToRoot()
+    let audioSourceURL: URL?
+    switch oldDoc.source {
+    case .audio, .video:
+      audioSourceURL = viewModel.isNew ? AudioEditHelper.preparedAudioURL : oldDoc.audioLink
+    case .picture:
+      audioSourceURL = nil
+    }
+
+    do {
+      try newDoc.saveReplacing(
+        viewModel.isNew ? nil : oldDoc,
+        audioSourceURL: audioSourceURL,
+        timeline: viewModel.timeline
+      )
+      UIApplication.dismissToRoot()
+    } catch {
+      let alert = UIAlertController(
+        title: "Couldn’t Save Document",
+        message: error.localizedDescription,
+        preferredStyle: .alert
+      )
+      alert.addAction(UIAlertAction(title: "OK", style: .default))
+      present(alert, animated: true)
+    }
+  }
+
+  private func _configureTimelineMenu() {
+    guard !viewModel.timeline.isEmpty else { return }
+
+    let actions = viewModel.timeline.map { item in
+      UIAction(title: "\(_formattedTime(item.startTime))  \(_timelinePreview(item.text))") { [weak self] _ in
+        self?.player.seek(to: item.startTime)
+      }
+    }
+    let button = UIBarButtonItem(
+      title: "Timeline",
+      image: UIImage(systemName: "list.bullet"),
+      primaryAction: nil,
+      menu: UIMenu(title: "Timeline", children: actions)
+    )
+    navigationItem.rightBarButtonItems = [navigationItem.rightBarButtonItem, button].compactMap { $0 }
+  }
+
+  private func _formattedTime(_ time: TimeInterval) -> String {
+    let totalSeconds = Int(time.rounded(.down))
+    return String(format: "%02d:%02d", totalSeconds / 60, totalSeconds % 60)
+  }
+
+  private func _timelinePreview(_ text: String) -> String {
+    let singleLine = text.replacingOccurrences(of: "\n", with: " ")
+    let preview = String(singleLine.prefix(48))
+    return singleLine.count > preview.count ? preview + "…" : preview
   }
 }

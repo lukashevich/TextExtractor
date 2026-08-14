@@ -78,10 +78,10 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="ezE-Ct-16N" secondAttribute="trailing" constant="20" id="5fF-PA-Pi9"/>
+                                            <constraint firstAttribute="trailing" secondItem="ezE-Ct-16N" secondAttribute="trailing" constant="16" id="5fF-PA-Pi9"/>
                                             <constraint firstItem="btf-bV-ufp" firstAttribute="centerX" secondItem="no3-pM-dbO" secondAttribute="centerX" id="7P2-VJ-YAV"/>
                                             <constraint firstItem="ezE-Ct-16N" firstAttribute="top" secondItem="no3-pM-dbO" secondAttribute="top" constant="20" symbolic="YES" id="Ckg-SM-HRB"/>
-                                            <constraint firstItem="ezE-Ct-16N" firstAttribute="leading" secondItem="no3-pM-dbO" secondAttribute="leading" constant="20" id="FFR-aW-rq5"/>
+                                            <constraint firstItem="ezE-Ct-16N" firstAttribute="leading" secondItem="no3-pM-dbO" secondAttribute="leading" constant="16" id="FFR-aW-rq5"/>
                                             <constraint firstAttribute="bottom" secondItem="ezE-Ct-16N" secondAttribute="bottom" id="Opr-IY-GBg"/>
                                             <constraint firstItem="btf-bV-ufp" firstAttribute="centerY" secondItem="no3-pM-dbO" secondAttribute="centerY" id="U9F-Ma-1SD"/>
                                         </constraints>

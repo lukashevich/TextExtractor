@@ -21,4 +21,21 @@ class LibraryViewModel {
       return source.sorted(by: { $0.modifiedAt > $1.modifiedAt })
     }
   }
+
+  func badge(for document: Document) -> LibraryDocumentBadge {
+    let calendar = Calendar.current
+    let newestDocument = source.max(by: { $0.createdAt < $1.createdAt })
+
+    if newestDocument?.name == document.name,
+       calendar.isDateInToday(document.createdAt) {
+      return .new
+    }
+
+    if document.modifiedAt > document.createdAt,
+       calendar.isDateInToday(document.modifiedAt) {
+      return .updated
+    }
+
+    return .none
+  }
 }

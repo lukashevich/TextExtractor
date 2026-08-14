@@ -16,15 +16,15 @@ class LibrarySmallItemCell: UICollectionViewCell, IdentifiableCell {
   @IBOutlet weak var isNewBadge: UILabel!
 
   var delegate: LibraryItemCellDelegate?
-  private var _isNew: Bool = false {
+  private var _badge: LibraryDocumentBadge = .none {
     didSet {
-      self.isNewBadge.isHidden = !_isNew
+      self.isNewBadge.isHidden = _badge == .none
+      self.isNewBadge.text = _badge.title
     }
   }
   @IBOutlet weak var menuButton: UIButton! {
     didSet {
       self.menuButton.showsMenuAsPrimaryAction = true
-      self.menuButton.menu = _menuItems
     }
   }
 
@@ -42,7 +42,8 @@ class LibrarySmallItemCell: UICollectionViewCell, IdentifiableCell {
       formatter.dateFormat = "HH:mm E, d MMM y"
       
       self.subtitle.text = formatter.string(from: viewModel.document.createdAt)
-      self._isNew = viewModel.document.isNew
+      self._badge = viewModel.badge
+      self.menuButton.menu = _menuItems
 
     }
   }
@@ -69,11 +70,15 @@ class LibrarySmallItemCell: UICollectionViewCell, IdentifiableCell {
     trumbnail.layer.cornerRadius = 12
     trumbnail.layer.cornerCurve = .continuous
     trumbnail.clipsToBounds = true
-    menuButton.tintColor = .accentColor
-    menuButton.backgroundColor = UIColor.accentColor.withAlphaComponent(0.14)
-    menuButton.layer.cornerRadius = 14
-    menuButton.layer.cornerCurve = .continuous
-    menuButton.clipsToBounds = true
+    menuButton.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
+    menuButton.setPreferredSymbolConfiguration(
+      UIImage.SymbolConfiguration(pointSize: 17, weight: .medium),
+      forImageIn: .normal
+    )
+    menuButton.tintColor = .secondaryLabel
+    menuButton.backgroundColor = .clear
+    menuButton.contentHorizontalAlignment = .center
+    menuButton.accessibilityLabel = "More options"
     isNewBadge.backgroundColor = .accentColor
     isNewBadge.textColor = .white
     isNewBadge.layer.cornerRadius = 11

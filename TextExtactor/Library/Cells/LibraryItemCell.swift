@@ -28,9 +28,10 @@ class LibraryItemCell: UICollectionViewCell, IdentifiableCell {
   
   var delegate: LibraryItemCellDelegate?
   
-  private var _isNew: Bool = false {
+  private var _badge: LibraryDocumentBadge = .none {
     didSet {
-      self.isNewBadge.isHidden = !_isNew
+      self.isNewBadge.isHidden = _badge == .none
+      self.isNewBadge.text = _badge.title
     }
   }
 
@@ -42,7 +43,7 @@ class LibraryItemCell: UICollectionViewCell, IdentifiableCell {
   var viewModel: LibraryItemCellViewModel! {
     didSet {
       self.textView.text = viewModel.document.text
-      self._isNew = viewModel.document.isNew
+      self._badge = viewModel.badge
       
       let formatter = DateFormatter()
       formatter.dateFormat = "d MMM y"
@@ -79,11 +80,15 @@ class LibraryItemCell: UICollectionViewCell, IdentifiableCell {
     textView.textContainerInset = UIEdgeInsets(top: 10, left: 8, bottom: 10, right: 8)
     textView.font = .systemFont(ofSize: 15, weight: .regular)
     contentView.subviews.compactMap { $0 as? TransparentGradientView }.forEach { $0.isHidden = true }
-    menuButton.tintColor = .accentColor
-    menuButton.backgroundColor = UIColor.accentColor.withAlphaComponent(0.14)
-    menuButton.layer.cornerRadius = 14
-    menuButton.layer.cornerCurve = .continuous
-    menuButton.clipsToBounds = true
+    menuButton.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
+    menuButton.setPreferredSymbolConfiguration(
+      UIImage.SymbolConfiguration(pointSize: 17, weight: .medium),
+      forImageIn: .normal
+    )
+    menuButton.tintColor = .secondaryLabel
+    menuButton.backgroundColor = .clear
+    menuButton.contentHorizontalAlignment = .center
+    menuButton.accessibilityLabel = "More options"
     isNewBadge.backgroundColor = .accentColor
     isNewBadge.textColor = .white
     isNewBadge.layer.cornerRadius = 11

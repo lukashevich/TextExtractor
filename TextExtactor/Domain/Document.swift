@@ -10,6 +10,23 @@ import UIKit
 import PDFKit
 import AVFoundation
 
+enum DocumentSaveError: LocalizedError {
+  case nameAlreadyExists
+  case missingAudio
+  case incompleteWrite
+
+  var errorDescription: String? {
+    switch self {
+    case .nameAlreadyExists:
+      return "A document with this name already exists."
+    case .missingAudio:
+      return "The audio file is unavailable, so the document was not changed."
+    case .incompleteWrite:
+      return "The document could not be saved safely. Your existing document is unchanged."
+    }
+  }
+}
+
 extension Document {
   
   var pdfLink: URL {
@@ -22,14 +39,20 @@ extension Document {
     
     return url.appendingPathComponent("audio").appendingPathExtension("m4a")
   }
+
+  var timelineLink: URL {
+    let url = URL(fileURLWithPath: FileManager.documentsFolder.appendingPathComponent(name).path)
+    return url.appendingPathComponent("timeline").appendingPathExtension("json")
+  }
+
+  var timeline: [TranscriptTimelineItem] {
+    guard let data = try? Data(contentsOf: timelineLink) else { return [] }
+    return (try? JSONDecoder().decode([TranscriptTimelineItem].self, from: data)) ?? []
+  }
   
   var pdfSize: String { pdfLink.size }
   var audioSize: String { audioLink.size }
 
-  var isNew: Bool {
-    Calendar.current.isDateInYesterday(modifiedAt) || Calendar.current.isDateInToday(modifiedAt)
-  }
-  
   var image: UIImage? {
     // Instantiate a `CGPDFDocument` from the PDF file's URL.
     guard let document = PDFDocument(url: pdfLink) else { return nil }
@@ -102,16 +125,123 @@ extension Document {
   private func _moveAudio(to url: URL) {
     AudioEditHelper.moveTempAudioFile(to: url.appendingPathComponent("audio").appendingPathExtension("m4a"))
   }
+
+  private func _createTimelineFile(_ timeline: [TranscriptTimelineItem], to url: URL) {
+    guard !timeline.isEmpty else { return }
+
+    do {
+      let data = try JSONEncoder().encode(timeline)
+      try data.write(to: url.appendingPathComponent("timeline").appendingPathExtension("json"), options: .atomic)
+    } catch {
+      print("Could not save timeline: \(error)")
+    }
+  }
+
+  private func _writeMetaFile(to directory: URL) throws {
+    let data = try JSONSerialization.data(withJSONObject: _meta, options: [])
+    try data.write(to: directory.appendingPathComponent(metaFileName), options: .atomic)
+  }
+
+  private func _writeTimelineFile(_ timeline: [TranscriptTimelineItem], to directory: URL) throws {
+    guard !timeline.isEmpty else { return }
+    let data = try JSONEncoder().encode(timeline)
+    try data.write(
+      to: directory.appendingPathComponent("timeline").appendingPathExtension("json"),
+      options: .atomic
+    )
+  }
+
+  func saveReplacing(
+    _ previousDocument: Document?,
+    audioSourceURL: URL?,
+    timeline: [TranscriptTimelineItem]
+  ) throws {
+    let fileManager = FileManager.default
+    let destination = FileManager.documentsFolder.appendingPathComponent(name)
+    let previousURL = previousDocument.map { FileManager.documentsFolder.appendingPathComponent($0.name) }
+
+    if fileManager.fileExists(atPath: destination.path), previousURL?.path != destination.path {
+      throw DocumentSaveError.nameAlreadyExists
+    }
+
+    let stagingURL = FileManager.documentsFolder
+      .appendingPathComponent(".document-stage-\(UUID().uuidString)")
+
+    do {
+      try fileManager.createDirectory(at: stagingURL, withIntermediateDirectories: false)
+      try PDFCreator.createPDF(for: self, in: stagingURL)
+      try _writeMetaFile(to: stagingURL)
+      try _writeTimelineFile(timeline, to: stagingURL)
+
+      if source == .audio || source == .video {
+        guard let audioSourceURL,
+              fileManager.fileExists(atPath: audioSourceURL.path)
+        else {
+          throw DocumentSaveError.missingAudio
+        }
+        try fileManager.copyItem(
+          at: audioSourceURL,
+          to: stagingURL.appendingPathComponent("audio").appendingPathExtension("m4a")
+        )
+      }
+
+      guard fileManager.fileExists(atPath: stagingURL.appendingPathComponent(metaFileName).path),
+            fileManager.fileExists(atPath: stagingURL.appendingPathComponent(name).appendingPathExtension("pdf").path)
+      else {
+        throw DocumentSaveError.incompleteWrite
+      }
+
+      if source == .audio || source == .video,
+         !fileManager.fileExists(atPath: stagingURL.appendingPathComponent("audio").appendingPathExtension("m4a").path) {
+        throw DocumentSaveError.incompleteWrite
+      }
+
+      try _commit(stagingURL, to: destination, replacing: previousURL)
+    } catch {
+      try? fileManager.removeItem(at: stagingURL)
+      throw error
+    }
+  }
+
+  private func _commit(_ stagingURL: URL, to destination: URL, replacing previousURL: URL?) throws {
+    let fileManager = FileManager.default
+
+    if fileManager.fileExists(atPath: destination.path) {
+      let backupURL = FileManager.documentsFolder
+        .appendingPathComponent(".document-backup-\(UUID().uuidString)")
+      try fileManager.moveItem(at: destination, to: backupURL)
+
+      do {
+        try fileManager.moveItem(at: stagingURL, to: destination)
+      } catch {
+        try? fileManager.moveItem(at: backupURL, to: destination)
+        throw error
+      }
+
+      try? fileManager.removeItem(at: backupURL)
+      return
+    }
+
+    try fileManager.moveItem(at: stagingURL, to: destination)
+
+    guard let previousURL, previousURL.path != destination.path,
+          fileManager.fileExists(atPath: previousURL.path)
+    else {
+      return
+    }
+    try? fileManager.removeItem(at: previousURL)
+  }
   
-  func createFile() {
+  func createFile(timeline: [TranscriptTimelineItem] = []) {
     guard !FileManager.isDocumentExist(self) else {
-      self.copy(name: name.incremented).createFile()
+      self.copy(name: name.incremented).createFile(timeline: timeline)
       return
     }
       
     FileManager.createFolder(for: self) { url in
       PDFCreator.createPDF(for: self)
       self._moveAudio(to: url)
+      self._createTimelineFile(timeline, to: url)
       self._createMetaFile(to: url)
     }
   }

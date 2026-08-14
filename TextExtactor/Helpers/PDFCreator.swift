@@ -12,6 +12,11 @@ private let _pageRect = CGRect(x: 0, y: 0, width: 595, height: 842)
 
 struct PDFCreator {
   static func createPDF(for doc: Document) {
+    let directory = FileManager.documentsFolder.appendingPathComponent(doc.name)
+    try? createPDF(for: doc, in: directory)
+  }
+
+  static func createPDF(for doc: Document, in directory: URL) throws {
     let format = UIGraphicsPDFRendererFormat()
     let metaData = [
       kCGPDFContextTitle: doc.name,
@@ -26,11 +31,13 @@ struct PDFCreator {
       self.drawDoc(doc, context: context)
     }
     
-    let docURL = FileManager.documentsFolder
-    let dataPath = docURL.appendingPathComponent(doc.name)
-    
-    try? FileManager.default.removeItem(at: dataPath.appendingPathComponent(doc.name).appendingPathExtension("pdf"))
-    PDFDocument(data: data)?.write(to: dataPath.appendingPathComponent(doc.name).appendingPathExtension("pdf"))
+    guard !data.isEmpty else {
+      throw CocoaError(.fileWriteUnknown)
+    }
+    try data.write(
+      to: directory.appendingPathComponent(doc.name).appendingPathExtension("pdf"),
+      options: .atomic
+    )
   }
   
   @discardableResult

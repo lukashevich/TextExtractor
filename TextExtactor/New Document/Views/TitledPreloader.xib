@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TitledPreloader" customModule="Sharing" customModuleProvider="target">
             <connections>
                 <outlet property="preloader" destination="JLn-c5-8GY" id="pnI-Rg-Eez"/>
+                <outlet property="_statusLabel" destination="ZhS-gs-1F9" id="status-label-outlet"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

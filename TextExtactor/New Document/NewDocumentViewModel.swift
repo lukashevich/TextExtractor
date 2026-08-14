@@ -14,9 +14,10 @@ import UniformTypeIdentifiers
 final class NewDocumentViewModel {
   
   enum ProcessStep {
+    case preparing(String)
     case start
     case recognized(String)
-    case progress(CGFloat)
+    case progress(completed: Int, total: Int)
     case finish(Document?)
     case error(TranscribeError)
   }
@@ -39,6 +40,9 @@ final class NewDocumentViewModel {
   var fileUrl: URL? {
     didSet {
       guard let url = fileUrl else { return }
+      DispatchQueue.main.async {
+        self.processStepHandler?(.preparing("Preparing audio…"))
+      }
       AudioEditHelper.prepareFile(at: url) { urls, error in
         DispatchQueue.main.async {
           guard self.fileUrl == url else { return }
@@ -57,31 +61,41 @@ final class NewDocumentViewModel {
   }
   
   private var _recognizedTexts: [String] = []
+  private var _recognizedTimeline: [TranscriptTimelineItem] = []
   private var _splittedSource: [URL] = []
   private var _processingID: UUID?
+
+  var timeline: [TranscriptTimelineItem] { _recognizedTimeline }
   
   private func _processFile(processingID: UUID) {
     guard !_splittedSource.isEmpty else { return }
     
     self._recognizedTexts = []
+    self._recognizedTimeline = []
     
     DispatchQueue.main.async {
       self.processStepHandler?(.start)
     }
     let chunkCount = _splittedSource.count
-    Recognizer.recognizeMedia(at: _splittedSource, in: _locale) { text in
+    Recognizer.recognizeMedia(at: _splittedSource, in: _locale) { text, index in
       DispatchQueue.main.async {
         guard self._processingID == processingID else { return }
         let newText = self._textWithoutOverlap(text)
         guard !newText.isEmpty else { return }
         let separator = self._separator(after: self._recognizedTexts.last ?? "")
         self._recognizedTexts.append(newText)
+        self._recognizedTimeline.append(
+          TranscriptTimelineItem(
+            startTime: AudioEditHelper.timelineStart(forSegmentAt: index),
+            text: newText
+          )
+        )
         self.processStepHandler?(.recognized(separator + newText))
       }
     } didProcess: { index in
       DispatchQueue.main.async {
         guard self._processingID == processingID else { return }
-        self.processStepHandler?(.progress(CGFloat(index + 1) / CGFloat(chunkCount)))
+        self.processStepHandler?(.progress(completed: index + 1, total: chunkCount))
       }
     } completion: { error in
       DispatchQueue.main.async {
@@ -99,10 +113,11 @@ final class NewDocumentViewModel {
   }
   
   func clearData() {
-    _processingID = nil
+    stopExtracting()
     fileUrl = nil
     document = nil
     _recognizedTexts = []
+    _recognizedTimeline = []
     _splittedSource = []
   }
   
@@ -115,6 +130,7 @@ final class NewDocumentViewModel {
     stopExtracting()
     document = nil
     _recognizedTexts = []
+    _recognizedTimeline = []
   }
   
   func startProcessing() {

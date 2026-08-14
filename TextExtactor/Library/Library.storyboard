@@ -89,7 +89,7 @@
                                             <rect key="frame" x="8" y="226" width="36" height="22"/>
                                             <color key="backgroundColor" name="AccentColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="YVt-4y-BV9" secondAttribute="height" multiplier="23:14" id="4TC-CB-Kng"/>
+                                                <constraint firstAttribute="width" constant="64" id="4TC-CB-Kng"/>
                                                 <constraint firstAttribute="height" constant="22" id="njU-3l-T7g"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -308,7 +308,7 @@
                                         <constraint firstItem="P3q-zW-ymW" firstAttribute="centerY" secondItem="Don-uh-hVm" secondAttribute="centerY" id="BPQ-gR-VOs"/>
                                         <constraint firstItem="LgJ-lt-WB5" firstAttribute="leading" secondItem="bFP-Rv-Qor" secondAttribute="trailing" constant="8" id="ETz-ZU-hpf"/>
                                         <constraint firstAttribute="trailing" secondItem="LgJ-lt-WB5" secondAttribute="trailing" constant="8" id="HRo-4c-osx"/>
-                                        <constraint firstItem="DeF-VE-Q6w" firstAttribute="leading" secondItem="LgJ-lt-WB5" secondAttribute="leading" id="VZ1-23-A6H"/>
+                                        <constraint firstItem="DeF-VE-Q6w" firstAttribute="leading" secondItem="LgJ-lt-WB5" secondAttribute="leading" constant="-20" id="VZ1-23-A6H"/>
                                         <constraint firstItem="M8I-ss-Zrh" firstAttribute="leading" secondItem="bFP-Rv-Qor" secondAttribute="leading" id="c20-Z5-Vx5"/>
                                         <constraint firstItem="bFP-Rv-Qor" firstAttribute="bottom" secondItem="P3q-zW-ymW" secondAttribute="bottom" constant="-8" id="kAN-lC-anZ"/>
                                         <constraint firstItem="LgJ-lt-WB5" firstAttribute="top" secondItem="DeF-VE-Q6w" secondAttribute="bottom" constant="4" id="ljs-mq-Vq6"/>

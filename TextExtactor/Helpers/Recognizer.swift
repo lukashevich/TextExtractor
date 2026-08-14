@@ -78,7 +78,7 @@ final class Recognizer {
   static func recognizeMedia(
     at urls: [URL],
     in locale: Locale,
-    newText: @escaping (String) -> Void,
+    newText: @escaping (String, Int) -> Void,
     didProcess: ((Int) -> Void)? = nil,
     completion: ((TranscribeError?) -> Void)? = nil
   ) {
@@ -104,7 +104,7 @@ final class Recognizer {
 
         remainingURLs.removeFirst()
         if let text, !text.isEmpty {
-          newText(text)
+          newText(text, index)
         } else if firstError == nil {
           firstError = error ?? .failed
         }
